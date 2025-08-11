@@ -1,0 +1,11 @@
+macrophage,apoptotic debris,increases,migration speed,0.0,0.2,3.0,0
+macrophage,apoptotic debris gradient,increases,chemotactic response to apoptotic debris,0.0,0.1,4.0,0
+macrophage,pro-inflammatory factor,increases,pro-inflammatory factor secretion,0.0,0.3,4.0,0
+effector T cell,pro-inflammatory factor,increases,migration speed,0.0,0.2,3.0,0
+effector T cell,contact with tumor cell,increases,attack tumor cell,0.0,0.5,4.0,0
+exhausted T cell,anti-inflammatory factor,increases,migration speed,0.0,0.2,3.0,0
+tumor cell,doxorubicin,increases,apoptosis,0.0,0.5,4.0,0
+tumor cell,pro-inflammatory factor,increases,migration speed,0.0,0.3,2.0,0
+fast T cell,pro-inflammatory factor,increases,migration speed,0.0,0.2,3.0,0
+slow T cell,anti-inflammatory factor,increases,migration speed,0.0,0.2,3.0,0
+macrophage,anti-inflammatory factor,increases,anti-inflammatory factor uptake,0.0,0.3,3.0,0

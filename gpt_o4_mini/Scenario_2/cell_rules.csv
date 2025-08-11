@@ -1,0 +1,8 @@
+tumor cell,intracellular pro-inflammatory factor,increases,apoptosis,0.2,0.5,4.0,0
+tumor cell,intracellular doxorubicin,increases,apoptosis,0.2,0.5,4.0,0
+tumor cell,intracellular pro-inflammatory factor,increases,phagocytose necrotic debris,0.1,0.3,2.0,0
+macrophage,intracellular apoptotic debris,increases,phagocytose apoptotic cell,0.2,0.5,3.0,0
+macrophage,intracellular necrotic debris,increases,phagocytose necrotic cell,0.2,0.5,3.0,0
+macrophage,pro-inflammatory factor,increases,transition to effector T cell,0.5,0.7,2.0,0
+effector T cell,pro-inflammatory factor,increases,attack tumor cell,0.3,0.6,4.0,0
+exhausted T cell,intracellular doxorubicin,increases,death,0.5,0.8,3.0,0

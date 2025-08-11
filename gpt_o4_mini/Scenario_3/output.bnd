@@ -1,0 +1,212 @@
+node TXN {
+  logic = ((TNFRSF1A OR (TRAF2 OR (TNF OR IFNG))));
+}
+
+node IFNG {
+  logic = (((NFKB1 OR (JUN OR IL2))) AND NOT (TNF));
+}
+
+node MYC {
+  logic = (((BCL2 OR (CHUK OR (MAPK11 OR (NFKB1 OR (E2F3 OR (IL2 OR (MAPK14 OR E2F2)))))))) AND NOT ((JUN OR (RELA OR (PAK2 OR (PPARA OR RB1))))));
+}
+
+node RB1 {
+  logic = ((TP53) AND NOT (CASP3));
+}
+
+node TNFAIP3 {
+  logic = ((RELA OR (TNF OR (TNFRSF1A OR NFKB1))));
+}
+
+node MAP4K4 {
+  logic = ((FADD OR (RIPK1 OR (TNF OR (TNFRSF1A OR (TP53 OR CASP2))))));
+}
+
+node PPARA {
+  logic = NOT ((RELA OR TXN));
+}
+
+node TRAF1 {
+  logic = (((TRAF2 OR (NFKB1 OR (RELA OR NFKB2)))) AND NOT (MYC));
+}
+
+node CCND1 {
+  logic = (((JUN OR (NFKB1 OR (RELA OR (TERT OR (MYC OR (STAT1 OR (MAPK14 OR NFKB2)))))))) AND NOT (BCL2));
+}
+
+node CFLAR {
+  logic = (((TP53 OR MAPK14)) AND NOT ((MYC OR BIRC2)));
+}
+
+node MAPK14 {
+  logic = ((RIPK1 OR (TNF OR (TRAF2 OR (IL2 OR (MAP2K7 OR (MAP3K1 OR (MAPK11 OR (SYK OR PAK2)))))))));
+}
+
+node MAPK11 {
+  logic = ((TRAF2 OR (IL2 OR (MAP2K7 OR (MAP3K1 OR (SYK OR PAK2))))));
+}
+
+node TNF {
+  logic = (((TXN OR (IFNG OR (MYC OR (RB1 OR TNFAIP3))))) AND NOT ((MAP4K4 OR (PPARA OR (TRAF1 OR (CCND1 OR (CFLAR OR (MAPK14 OR MAPK11))))))));
+}
+
+node FASLG {
+  logic = (((RIPK1 OR (NFKB1 OR (IFNG OR (JUN OR (TP53 OR STAT1)))))) AND NOT (BIRC2));
+}
+
+node IL2 {
+  logic = ((NFKB1 OR JUN));
+}
+
+node TNFRSF1A {
+  logic = ((TNF OR (FASLG OR (IL2 OR TNFAIP3))));
+}
+
+node TP53 {
+  logic = (((TRAF2 OR (NFKB1 OR (MAPK14 OR (MAPK11 OR (TP53BP2 OR (PARP1 OR (XIAP OR BAD)))))))) AND NOT ((JUN OR (HSP90AA1 OR NR4A1))));
+}
+
+node TNFRSF10B {
+  logic = ((NFKB1 OR (FASLG OR TP53)));
+}
+
+node STAT1 {
+  logic = (((IFNG OR (IL2 OR (MAPK14 OR MAPK11)))) AND NOT (CCND1));
+}
+
+node MAP2K7 {
+  logic = ((RIPK1 OR (CASP8 OR (TNF OR (TNFRSF1A OR (TRAF2 OR (TRAF1 OR (FASLG OR (MAP3K1 OR CASP2)))))))));
+}
+
+node BIRC2 {
+  logic = ((RELA OR (TRAF2 OR (NFKB1 OR NFKB2))));
+}
+
+node MAP3K1 {
+  logic = ((CASP3 OR (TNF OR (TNFRSF1A OR (RIPK1 OR (TRAF2 OR (MAP4K4 OR (IFNG OR (SMPD1 OR (TRAF1 OR (CASP7 OR (TNFRSF10B OR PAK2))))))))))));
+}
+
+node FADD {
+  logic = (((TNFRSF1A OR (TP53 OR (TNFRSF10B OR STAT1)))) AND NOT ((MAP2K7 OR (BIRC2 OR MAP3K1))));
+}
+
+node TRAF2 {
+  logic = (((LTBR OR (TNFRSF1A OR (DAB2IP OR (RELA OR (TRAF1 OR (NFKB2 OR CASP2))))))) AND NOT ((STAT1 OR TNFAIP3)));
+}
+
+node CASP2 {
+  logic = ((CASP3) AND NOT (BIRC2));
+}
+
+node HSP90AA1 {
+  logic = (((MYC OR (PPARA OR IL2))) AND NOT (IFNG));
+}
+
+node CASP8 {
+  logic = (((TNF OR (TNFRSF1A OR (FADD OR (TRAF2 OR (IFNG OR (TP53 OR (TNFRSF10B OR CASP2)))))))) AND NOT ((BCL2 OR (NFKB1 OR (RELA OR (CFLAR OR (BIRC2 OR MAPK14)))))));
+}
+
+node RIPK1 {
+  logic = (((TNFRSF1A OR (FADD OR (TRAF2 OR (TNFRSF10B OR (CASP2 OR (HSP90AA1 OR BIRC2))))))) AND NOT ((CASP8 OR (TNFAIP3 OR CFLAR))));
+}
+
+node LTBR {
+  logic = (TNF);
+}
+
+node DAB2IP {
+  logic = ((RIPK1 OR TRAF2));
+}
+
+node RELA {
+  logic = (((TNF OR (TNFRSF1A OR (RIPK1 OR (NFKB1 OR (TRAF2 OR (SYK OR (TRAF1 OR (CHUK OR (MAP3K1 OR MAPK14)))))))))) AND NOT ((CASP3 OR STAT1)));
+}
+
+node NFKB2 {
+  logic = ((TP53) AND NOT (MYC));
+}
+
+node TP53BP2 {
+  logic = NOT (RELA);
+}
+
+node PARP1 {
+  logic = NOT ((BCL2 OR (RIPK1 OR CASP7)));
+}
+
+node PSIP1 {
+  logic = ((TNF) AND NOT (CASP3));
+}
+
+node SYK {
+  logic = NOT (MYC);
+}
+
+node NFKB1 {
+  logic = ((TNF OR (TNFRSF1A OR (FADD OR (RIPK1 OR (TRAF2 OR (TP53BP2 OR (PARP1 OR (PSIP1 OR (TRAF1 OR (SYK OR (MAP3K1 OR MAPK14))))))))))));
+}
+
+node CHUK {
+  logic = ((TNFRSF1A OR (FADD OR (RIPK1 OR (TRAF2 OR (CASP8 OR (TNF OR (MAP4K4 OR (FASLG OR (TNFRSF10B OR MAP3K1))))))))));
+}
+
+node CASP3 {
+  logic = (((TNF OR (TNFRSF1A OR (FADD OR (IFNG OR (CASP8 OR CYCS)))))) AND NOT ((MAPK14 OR (BIRC2 OR XIAP))));
+}
+
+node E2F2 {
+  logic = NOT ((CCND1 OR (CDK6 OR RB1)));
+}
+
+node CDK6 {
+  logic = (((CCND1 OR MYC)) AND NOT (TNF));
+}
+
+node NR4A1 {
+  logic = ((MAP3K1) AND NOT (MYC));
+}
+
+node BCL2 {
+  logic = (((NFKB1 OR (RELA OR (E2F2 OR (STAT1 OR (HSP90AA1 OR NFKB2)))))) AND NOT ((CDK6 OR (CASP3 OR (TP53 OR (NR4A1 OR MAPK14))))));
+}
+
+node SMPD1 {
+  logic = (((TNF OR (RIPK1 OR (TNFRSF1A OR (FADD OR (TRAF2 OR (FASLG OR TNFRSF10B))))))) AND NOT ((BCL2 OR IL2)));
+}
+
+node BAX {
+  logic = (((SMPD1 OR (CASP3 OR (TP53 OR (MYC OR (TP53BP2 OR NR4A1)))))) AND NOT ((RELA OR BCL2)));
+}
+
+node CYCS {
+  logic = (((BAX OR (MYC OR (CASP2 OR BAD)))) AND NOT (BCL2));
+}
+
+node XIAP {
+  logic = ((RELA OR (NFKB1 OR (TP53 OR NFKB2))));
+}
+
+node JUN {
+  logic = (((TNF OR (NFKB1 OR (RELA OR (RB1 OR (IL2 OR (MAP3K1 OR (MAPK14 OR (MAPK11 OR PAK2))))))))) AND NOT (SYK));
+}
+
+node TERT {
+  logic = (((CASP3 OR (BCL2 OR IL2))) AND NOT ((IFNG OR (JUN OR TP53))));
+}
+
+node E2F3 {
+  logic = NOT ((CCND1 OR (CDK6 OR RB1)));
+}
+
+node PAK2 {
+  logic = ((CASP8 OR CASP3));
+}
+
+node CASP7 {
+  logic = (((FADD OR (CASP3 OR (CASP8 OR (FASLG OR (CASP2 OR CYCS)))))) AND NOT ((RB1 OR (BIRC2 OR (XIAP OR (E2F2 OR (PAK2 OR E2F3)))))));
+}
+
+node BAD {
+  logic = ((CASP3) AND NOT (BAX));
+}
+
