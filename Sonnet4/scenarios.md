@@ -212,74 +212,56 @@ This framework provides a foundation for studying cancer therapeutic responses, 
 
 ## Prompt:
 
-I have a PhysiCell configuration file that I would like to extend with biologically accurate rules. Load the PhysiCell configuration file, extract the biological scenario, extract the substrates, cell types and custom parameters that compose the simulation and, according to the available signals and behaviors, add a series of rules to improve the model.
+I have a PhysiCell configuration file that I would like to extend with biologically accurate rules. Load the PhysiCell configuration file, extract the biological scenario, extract the substrates, cell types and custom parameters that compose the simulation and, carefully examining the available signals and behaviors, add a series of rules to improve the model.
 
 ## Final Results:
 
 ## Summary
 
-I have successfully loaded and enhanced your PhysiCell configuration file with  **17 biologically accurate rules** . Here's what was accomplished:
+I have successfully loaded your PhysiCell configuration file and enhanced it with **15 biologically accurate rules** that model a sophisticated tumor-immune microenvironment. Here's what was accomplished:
 
 ### **Biological Scenario Identified:**
 
-Cancer immunotherapy simulation with doxorubicin chemotherapy treatment, including tumor-immune cell interactions and inflammatory signaling.
+* Tumor-immune microenvironment with malignant epithelial cells, macrophages (M0, M1, M2), and T cells (effector, exhausted)
+* Hypoxic environment with oxygen gradients
+* Inflammatory signaling through pro- and anti-inflammatory factors
+* Cellular debris clearance mechanisms
 
-### **Configuration Components:**
+### **Key Biologically Accurate Rules Added:**
 
-* **5 Substrates** : doxorubicin, apoptotic debris, necrotic debris, pro-inflammatory factor, anti-inflammatory factor
-* **6 Cell Types** : tumor cell, macrophage, fast T cell, slow T cell, effector T cell, exhausted T cell
+#### **1. Cancer Cell Responses:**
 
-### **17 Biologically Accurate Rules Added:**
+* **Hypoxia-induced necrosis** : Low oxygen levels trigger cancer cell death
+* **Oxygen-dependent proliferation** : Cell cycle entry requires adequate oxygen
+* **Hypoxia-induced migration** : Cancer cells become more motile under low oxygen stress
 
-#### **Tumor Cells (3 rules):**
+#### **2. Macrophage Behavior:**
 
-1. **Chemotherapy response** : High intracellular doxorubicin → increased apoptosis
-2. **Cell cycle inhibition** : High intracellular doxorubicin → decreased proliferation
-3. **Damage response** : Cell damage → pro-inflammatory factor secretion
+* **Chemotaxis** : M0 macrophages migrate toward apoptotic and necrotic debris
+* **Polarization** : M0→M1 (pro-inflammatory signals) and M0→M2 (anti-inflammatory signals)
+* **Cytokine secretion** : M1 cells secrete pro-inflammatory factors when contacting necrotic cells; M2 cells secrete anti-inflammatory factors when contacting apoptotic cells
+* **Enhanced phagocytosis** : Both M1 and M2 macrophages increase phagocytic activity at debris sites
 
-#### **Macrophages (4 rules):**
+#### **3. T Cell Dynamics:**
 
-1. **Debris clearance** : Attracted to apoptotic debris (chemotaxis)
-2. **Cleanup function** : Attracted to necrotic debris (chemotaxis)
-3. **Tumor recognition** : Contact with tumor cells → pro-inflammatory factor secretion
-4. **Resolution phase** : Debris uptake → anti-inflammatory factor secretion
-
-#### **Fast T Cells (3 rules):**
-
-1. **Inflammation response** : Pro-inflammatory signals → chemotaxis
-2. **Activation** : Tumor contact → differentiation to effector T cells
-3. **Immunosuppression** : Anti-inflammatory signals → reduced motility
-
-#### **Slow T Cells (2 rules):**
-
-1. **Activation** : Pro-inflammatory signals → transition to fast T cells
-2. **Enhanced motility** : Pro-inflammatory signals → increased migration speed
-
-#### **Effector T Cells (3 rules):**
-
-1. **Cytotoxicity** : Tumor contact → attack tumor cells
-2. **Exhaustion** : Prolonged attack time → transition to exhausted T cells
-3. **Combat signaling** : During attack → pro-inflammatory factor secretion
-
-#### **Exhausted T Cells (2 rules):**
-
-1. **Immunosuppression-induced death** : Anti-inflammatory signals → apoptosis
-2. **Functional impairment** : Tumor contact → reduced motility (dysfunction)
+* **Cytotoxic activity** : Effector T cells attack cancer cells upon contact
+* **Inflammatory activation** : Pro-inflammatory signals enhance T cell migration
+* **Exhaustion mechanism** : Prolonged attack activity leads to T cell exhaustion
+* **Immunosuppression** : Anti-inflammatory factors reduce T cell attack damage
 
 ### **Files Generated:**
 
-* `enhanced_PhysiCell_settings.xml` - Complete simulation configuration
-* `enhanced_cell_rules.csv` - Cell behavior rules
+* [PhysiCell_settings_enhanced.xml](vscode-file://vscode-app/usr/share/code/resources/app/out/vs/code/electron-browser/workbench/workbench.html) - Complete enhanced configuration
+* [cell_rules_enhanced.csv](vscode-file://vscode-app/usr/share/code/resources/app/out/vs/code/electron-browser/workbench/workbench.html) - Detailed rules specification
 
-These rules create a realistic tumor microenvironment where:
+These rules create a realistic tumor-immune interaction model where:
 
-* **Chemotherapy kills tumor cells** but also creates inflammation
-* **Immune cells respond** to inflammation and debris appropriately
-* **T cell dynamics** include activation, effector function, and exhaustion
-* **Macrophages balance** pro- and anti-inflammatory responses
-* **Feedback loops** create realistic immune dynamics
+* **Hypoxia drives cancer progression** and cell death
+* **Macrophages respond dynamically** to environmental cues and debris
+* **T cells provide immune surveillance** but can become exhausted
+* **Inflammatory balance** affects the overall tumor microenvironment
 
-The enhanced model now captures key aspects of cancer immunotherapy, including drug response, immune activation, and the eventual development of immune exhaustion that occurs in many cancer patients.
+The enhanced model now captures the complex interplay between cancer cells, immune cells, and the microenvironment, making it suitable for studying tumor progression, immune responses, and potential therapeutic interventions.
 
 # Scenario 3: iteratevely refine a MaBoSS model through NeKo using the basic knowledge of the LLM
 

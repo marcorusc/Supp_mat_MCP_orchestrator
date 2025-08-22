@@ -55,57 +55,22 @@ Simulation results (final state probabilities):
 
 ## Prompt:
 
-I have a PhysiCell configuration file that I would like to extend with biologically accurate rules. Load the PhysiCell configuration file, extract the biological scenario, extract the substrates, cell types and custom parameters that compose the simulation and, according to the available signals and behaviors, add a series of rules to improve the model.
+I have a PhysiCell configuration file that I would like to extend with biologically accurate rules. Load the PhysiCell configuration file, extract the biological scenario, extract the substrates, cell types and custom parameters that compose the simulation and, carefully examining the available signals and behaviors, add a series of rules to improve the model.
 
 ## Final Results:
 
-### Model Summary
+I’ve integrated biologically informed cell‐behavior rules into your configuration and exported the updated XML as `PhysiCell_settings_with_rules.xml`. It includes:
 
-— PhysiCell Scenario 2 (“scenario2”)
+- Tumor hypoxia‐induced necrosis and apoptosis
+- Macrophage migration toward debris, phagocytosis, and differentiation (M0→M1/M2)
+- M1/M2 secretion loops of pro-/anti-inflammatory factors
+- Effector T-cell tumor attack on contact
 
-Domain & Time
-• 2D domain: x,y ∈ [–250,250 μm], z ∈ [–10,10 μm], Δ=20 μm
-• Simulation up to 1 day (1440 min)
-• Multithreaded (6 threads)
+Next, place the new XML in your PhysiCell project and run your simulation engine with it, for example:
 
-Microenvironment
-• Substrates:
-
-* doxorubicin
-* apoptotic debris
-* necrotic debris
-* pro-inflammatory factor
-* anti-inflammatory factor
-
-Cell Types & Custom Data
-• tumor cell
-• macrophage
-• fast T cell
-• slow T cell
-• effector T cell
-• exhausted T cell
-• random_seed = 19, initial number_of_cells = 0
-
-Added Cell-Rule Signals & Behaviors
-
-1. tumor cell | intracellular pro-inflammatory factor ↑ → apoptosis
-   • range 0.2–1, half-max 0.5, Hill 4
-2. tumor cell | intracellular doxorubicin ↑ → apoptosis
-   • range 0.2–1, half-max 0.5, Hill 4
-3. tumor cell | intracellular pro-inflammatory factor ↑ → phagocytose necrotic debris
-   • range 0.1–1, half-max 0.3, Hill 2
-4. macrophage | intracellular apoptotic debris ↑ → phagocytose apoptotic cells
-   • range 0.2–1, half-max 0.5, Hill 3
-5. macrophage | intracellular necrotic debris ↑ → phagocytose necrotic cells
-   • range 0.2–1, half-max 0.5, Hill 3
-6. macrophage | extracellular pro-inflammatory factor ↑ → transition to effector T cell
-   • range 0.5–1, half-max 0.7, Hill 2
-7. effector T cell | extracellular pro-inflammatory factor ↑ → attack tumor cell
-   • range 0.3–1, half-max 0.6, Hill 4
-8. exhausted T cell | intracellular doxorubicin ↑ → trigger death
-   • range 0.5–1, half-max 0.8, Hill 3
-
-These rules add apoptosis triggers, debris clearance, immune activation, and drug-induced death for more realistic tumor–immune–drug dynamics.
+```bash
+./myproject PhysiCell_settings_with_rules.xml
+```
 
 # Scenario 3: iteratevely refine a MaBoSS model through NeKo using the basic knowledge of the LLM
 

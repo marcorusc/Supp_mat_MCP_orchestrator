@@ -47,45 +47,66 @@ Want me to:
 
 ## Prompt:
 
-I have a PhysiCell configuration file that I would like to extend with biologically accurate rules. Load the PhysiCell configuration file, extract the biological scenario, extract the substrates, cell types and custom parameters that compose the simulation and, according to the available signals and behaviors, add a series of rules to improve the model.
+I have a PhysiCell configuration file that I would like to extend with biologically accurate rules. Load the PhysiCell configuration file, extract the biological scenario, extract the substrates, cell types and custom parameters that compose the simulation and, carefully examining the available signals and behaviors, add a series of rules to improve the model.
 
 ## Final Results:
 
 
-Scenario 3: iteratevely refine a MaBoSS model through NeKo using the basic knowledge of the LLM
+Here’s what I did and what I found.
 
-CSV generated and XML updated.
+Biological scenario
 
-* Cell rules CSV: [cell_rules.csv](vscode-file://vscode-app/usr/share/code/resources/app/out/vs/code/electron-browser/workbench/workbench.html)
-* XML config: [PhysiCell_settings.xml](vscode-file://vscode-app/usr/share/code/resources/app/out/vs/code/electron-browser/workbench/workbench.html)
+- Tumor–immune microenvironment with malignant epithelial cells, macrophages (M0/M1/M2), and T cells (effector/exhausted).
+- Substrates: oxygen (Dirichlet at boundaries), apoptotic/necrotic debris (macrophage attractants), cytokines (pro- vs anti-inflammatory factors) driving polarization and T-cell function.
 
-Model summary
+Extracted components
 
-* Domain: 500×500×20 µm, 2D mode on; max_time 1440 min; dt_phenotype 6 min.
-* Substrates: doxorubicin (Dirichlet=1 at XY boundaries), apoptotic debris, necrotic debris, pro-inflammatory factor (fast decay), anti-inflammatory factor (fast decay).
-* Cell types: tumor cell, macrophage, fast T cell, slow T cell, effector T cell, exhausted T cell.
-* Key phenotype settings:
-  * Tumor cells: immotile baseline, uptake doxorubicin=10, apoptosis/necrosis base rates 0.
-  * Macrophages: motile (speed 1.0), chemotaxis to apoptotic/necrotic debris enabled, uptake of debris, doxorubicin uptake=10.
-  * Fast/Slow T cells: motile (speed 1.0), different bias/persistence; secretion anti-/pro-inflammatory factors per type.
-  * Effector T cells: slow motility, attack tumor cell enabled at baseline 0.01.
-  * Exhausted T cells: very slow motility, weak uptake of cytokines.
-* Initial conditions: cells and rules read from ./config/cells.csv and ./config/cell_rules.csv.
-* User params: random_seed=19, number_of_cells=0.
+- Substrates: oxygen, apoptotic debris, necrotic debris, pro-inflammatory factor, anti-inflammatory factor.
+- Cell types: malignant epithelial cell, M0 macrophage, M1 macrophage, M2 macrophage, effector T cell, exhausted T cell.
+- Custom parameters:
+  - `user_parameters.number_of_cells = 0`
+  - `custom_data.sample` per cell type (malignant: 1.0; others: 0.0)
+  - Existing ruleset reference enabled: `cell_rules.csv` at
 
-Rules added (11)
+**GitHub Copilot Response:**
 
-* Macrophage: apoptotic debris → ↑ migration speed
-* Macrophage: apoptotic debris gradient → ↑ chemotactic response to apoptotic debris
-* Macrophage: pro-inflammatory factor → ↑ pro-inflammatory factor secretion
-* Macrophage: anti-inflammatory factor → ↑ anti-inflammatory factor uptake
-* Effector T cell: pro-inflammatory factor → ↑ migration speed
-* Effector T cell: contact with tumor cell → ↑ attack tumor cell
-* Exhausted T cell: anti-inflammatory factor → ↑ migration speed
-* Tumor cell: doxorubicin → ↑ apoptosis
-* Tumor cell: pro-inflammatory factor → ↑ migration speed
-* Fast T cell: pro-inflammatory factor → ↑ migration speed
-* Slow T cell: anti-inflammatory factor → ↑ migration speed
+Added biologically grounded rules
+
+- Malignant epithelial cell:
+  - Oxygen increases → cycle entry (half-max ~20, Hill 4)
+  - Oxygen decreases → necrosis (half-max ~5, Hill 6)
+  - Pro-inflammatory factor increases → immunogenicity to effector T
+  - Anti-inflammatory factor decreases → immunogenicity to effector T
+- M0 macrophage:
+  - Pro-inflammatory factor increases → transition to M1
+  - Anti-inflammatory factor increases → transition to M2
+  - Apoptotic/necrotic debris increases → phagocytose apoptotic/necrotic cells
+- M1 macrophage:
+  - Contact with malignant epithelial cell increases → attack malignant epithelial cell
+  - Pro-inflammatory factor increases → attack malignant epithelial cell and chemotaxis to pro-inflammatory factor
+  - Anti-inflammatory factor decreases → attack malignant epithelial cell
+- M2 macrophage:
+  - Anti-inflammatory factor increases → anti-inflammatory factor secretion (positive feedback)
+  - Anti-inflammatory factor decreases → reduce attack on malignant epithelial cell
+  - Apoptotic debris increases → phagocytose apoptotic cells
+- Effector T cell:
+  - Contact with malignant epithelial cell increases → attack malignant epithelial cell
+  - Pro-inflammatory factor increases / anti-inflammatory factor decreases → attack malignant epithelial cell
+  - Pro-inflammatory factor increases → migration speed
+  - Anti-inflammatory factor increases → transition to exhausted T cell
+- Exhausted T cell:
+  - Pro-inflammatory factor increases → transition to effector T cell
+  - Anti-inflammatory factor decreases → migration speed
+
+Exports created (in the workspace root)
+
+- `cell_rules_gpt5_scenario2.csv` (22 rules)
+- `PhysiCell_settings_gpt5_scenario2_with_rules.xml` (updated config referencing the new rules)
+
+How to use
+
+- Option A: Use `PhysiCell_settings_gpt5_scenario2_with_rules.xml` directly.
+- Option B: Keep your original XML and point its `<cell_rules><ruleset>` to `cell_rules_gpt5_scenario2.csv` (and ensure the CSV is placed where the XML expects it), then run your simulation.
 
 # Scenario 3: iteratevely refine a MaBoSS model through NeKo using the basic knowledge of the LLM
 
@@ -96,7 +117,6 @@ Once created the network, remove the bimodal interactions, export the network in
 Iterate the process until the MaBoSS model is accurate enough.
 
 ## Final results:
-
 
 Here’s a concise summary of what was done, how the curated model differs, and why the logic changes are biologically supported.
 

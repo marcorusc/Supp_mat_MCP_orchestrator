@@ -1,0 +1,10 @@
+malignant epithelial cell,oxygen,decreases,necrosis,0,0.5,4.0,0
+malignant epithelial cell,oxygen,decreases,apoptosis,0.0,0.2,4.0,0
+M0 macrophage,apoptotic debris gradient,increases,phagocytose apoptotic cell,0,0.5,4.0,0
+M0 macrophage,necrotic debris gradient,increases,phagocytose necrotic cell,0,0.5,4.0,0
+M0 macrophage,apoptotic debris,increases,transition to M1 macrophage,0,0.5,4.0,0
+M0 macrophage,necrotic debris,increases,transition to M2 macrophage,0,0.5,4.0,0
+M1 macrophage,pro-inflammatory factor,increases,pro-inflammatory factor secretion,0,0.5,4.0,0
+M2 macrophage,anti-inflammatory factor,increases,anti-inflammatory factor secretion,0.0,0.5,4.0,0
+effector T cell,contact with malignant epithelial cell,increases,attack malignant epithelial cell,0,0.5,4.0,0
+malignant epithelial cell,oxygen,decreases,pro-inflammatory factor secretion,0,0.5,4.0,0

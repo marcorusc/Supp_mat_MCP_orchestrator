@@ -1,0 +1,22 @@
+malignant epithelial cell,oxygen,increases,cycle entry,0.0,20.0,4.0,0
+malignant epithelial cell,oxygen,decreases,necrosis,0.0,5.0,6.0,0
+malignant epithelial cell,pro-inflammatory factor,increases,immunogenicity to effector T cell,0.0,0.3,3.0,0
+malignant epithelial cell,anti-inflammatory factor,decreases,immunogenicity to effector T cell,0.0,0.3,3.0,0
+M0 macrophage,pro-inflammatory factor,increases,transition to M1 macrophage,0.0,0.3,4.0,0
+M0 macrophage,anti-inflammatory factor,increases,transition to M2 macrophage,0.0,0.3,4.0,0
+M0 macrophage,apoptotic debris,increases,phagocytose apoptotic cell,0.0,0.2,3.0,0
+M0 macrophage,necrotic debris,increases,phagocytose necrotic cell,0.0,0.2,3.0,0
+M1 macrophage,contact with malignant epithelial cell,increases,attack malignant epithelial cell,0.0,0.5,4.0,0
+M1 macrophage,pro-inflammatory factor,increases,attack malignant epithelial cell,0.0,0.3,3.0,0
+M1 macrophage,pro-inflammatory factor,increases,chemotactic response to pro-inflammatory factor,0.0,0.3,3.0,0
+M1 macrophage,anti-inflammatory factor,decreases,attack malignant epithelial cell,0.0,0.3,3.0,0
+M2 macrophage,anti-inflammatory factor,increases,anti-inflammatory factor secretion,0.0,0.3,3.0,0
+M2 macrophage,anti-inflammatory factor,decreases,attack malignant epithelial cell,0.0,0.3,3.0,0
+M2 macrophage,apoptotic debris,increases,phagocytose apoptotic cell,0.0,0.2,3.0,0
+effector T cell,contact with malignant epithelial cell,increases,attack malignant epithelial cell,0.0,0.5,4.0,0
+effector T cell,pro-inflammatory factor,increases,attack malignant epithelial cell,0.0,0.3,3.0,0
+effector T cell,anti-inflammatory factor,decreases,attack malignant epithelial cell,0.0,0.3,3.0,0
+effector T cell,pro-inflammatory factor,increases,migration speed,0.0,0.3,3.0,0
+effector T cell,anti-inflammatory factor,increases,transition to exhausted T cell,0.0,0.3,3.0,0
+exhausted T cell,pro-inflammatory factor,increases,transition to effector T cell,0.0,0.4,3.0,0
+exhausted T cell,anti-inflammatory factor,decreases,migration speed,0.0,0.3,3.0,0
