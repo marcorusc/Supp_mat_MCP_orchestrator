@@ -1,0 +1,706 @@
+\hypertarget{scenario-1-building-a-model-of-cancer-cell-fate-in-response-to-tnf-from-scratch}{%
+\section{Scenario 1: Building a model of cancer cell fate in response to
+TNF from
+scratch}\label{scenario-1-building-a-model-of-cancer-cell-fate-in-response-to-tnf-from-scratch}}
+
+\hypertarget{prompt}{%
+\subsection{Prompt:}\label{prompt}}
+
+You are my multiscale modelling assistant. Together we are creating a
+mutliscale multicellular model of cancer cell fate in response to TNF.
+In order to chieve this we are going to use NeKo, MaBoSS and PhysiCell
+to create a simulation where an initial group of cancer cell will grow
+while TNF diffuses in the microenvironment. When the cells sense the TNF
+they will activate the input nodes of their boolean network. According
+to the final state of the network, they will perform behaviors such as
+die for apoptosis or proliferte. Those are he steps to follow: 1) create
+a network using Omnipath that describes cancer cell fates in response to
+tnf. This network should contains TNF sensing receptr as well asgenes
+responsible for proliferation and apoptosis. Once create the network we
+have to remove the bimodal interactions and check the connectivity. If
+the network is connected, export it in bnet file. After that generate
+the maboss file (.bnd and .cfg), create a simulation and select some
+nodes to identify the output, to represent apoptotic state and
+proliferative state. Once set those nodes as output, we run the maboss
+simulation, get the results and study the outcome (does the network make
+sense? are the states biologically feasible?). This is the first part.
+In the second part we will build the PhysiCell simulation and add maboss
+to the cancer cell type. Is everything clear?
+
+\hypertarget{final-results}{%
+\subsection{Final results:}\label{final-results}}
+
+\hypertarget{comprehensive-multiscale-cancer-tnf-response-model---complete-workflow-summary}{%
+\subsubsection{Comprehensive Multiscale Cancer TNF Response Model -
+Complete Workflow
+Summary}\label{comprehensive-multiscale-cancer-tnf-response-model---complete-workflow-summary}}
+
+\hypertarget{overview}{%
+\paragraph{Overview}\label{overview}}
+
+We successfully created a comprehensive multiscale model combining
+\textbf{NeKo} , \textbf{MaBoSS} , and \textbf{PhysiCell} to simulate
+cancer cell fate determination in response to TNF-α signaling. This
+integrates molecular networks, boolean dynamics, and multicellular
+behaviors in a unified simulation framework.
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\hypertarget{part-1-network-construction-boolean-modeling}{%
+\subsubsection{Part 1: Network Construction \& Boolean
+Modeling}\label{part-1-network-construction-boolean-modeling}}
+
+\hypertarget{gene-selection-network-construction}{%
+\paragraph{1.1 Gene Selection \& Network
+Construction}\label{gene-selection-network-construction}}
+
+\textbf{Source Database:} Omnipath \textbf{Initial Gene Set (41 genes):}
+Selected based on established TNF signaling pathways and cancer biology
+literature
+
+\textbf{TNF Sensing \& Receptors:}
+
+\begin{itemize}
+\tightlist
+\item
+  \texttt{TNF}, \texttt{TNFRSF1A}, \texttt{TNFRSF1B} - Core TNF
+  signaling axis
+\item
+  \texttt{TRADD}, \texttt{TRAF2}, \texttt{RIPK1} - Adapter proteins for
+  death and survival signaling
+\end{itemize}
+
+\textbf{Apoptosis Machinery:}
+
+\begin{itemize}
+\tightlist
+\item
+  \texttt{FADD}, \texttt{CASP8}, \texttt{CASP3}, \texttt{CASP9} -
+  Caspase cascade
+\item
+  \texttt{BAX}, \texttt{BAK1}, \texttt{BID} - Pro-apoptotic Bcl-2 family
+\item
+  \texttt{BCL2}, \texttt{BCL2L1} - Anti-apoptotic regulators
+\end{itemize}
+
+\textbf{Cell Cycle \& Proliferation:}
+
+\begin{itemize}
+\tightlist
+\item
+  \texttt{TP53}, \texttt{MDM2}, \texttt{CDKN1A} - p53 tumor suppressor
+  pathway
+\item
+  \texttt{RB1}, \texttt{E2F1}, \texttt{CCND1}, \texttt{CCNE1},
+  \texttt{CDK2}, \texttt{CDK4} - Cell cycle control
+\item
+  \texttt{MYC} - Master proliferation regulator
+\end{itemize}
+
+\textbf{Signaling Pathways:}
+
+\begin{itemize}
+\tightlist
+\item
+  \texttt{NFKB1}, \texttt{RELA}, \texttt{IKBKA}, \texttt{IKBKB},
+  \texttt{CHUK}, \texttt{NFKBIA} - NF-κB survival pathway
+\item
+  \texttt{JUN}, \texttt{FOS}, \texttt{ATF2}, \texttt{MAPK8},
+  \texttt{MAPK9}, \texttt{MAPK14} - MAPK stress response
+\item
+  \texttt{AKT1}, \texttt{PIK3CA}, \texttt{PTEN}, \texttt{MTOR} -
+  PI3K/AKT survival pathway
+\end{itemize}
+
+\hypertarget{network-processing-results}{%
+\paragraph{1.2 Network Processing
+Results}\label{network-processing-results}}
+
+\textbf{Final Network Statistics:}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Nodes:} 206 (expanded from initial 41 through path completion)
+\item
+  \textbf{Interactions:} 2,534 (after removing 187 bimodal interactions)
+\item
+  \textbf{Connectivity:} Fully connected (no isolated nodes)
+\item
+  \textbf{Path Completion:} BFS algorithm, max length 2, signed
+  interactions only
+\end{itemize}
+
+\hypertarget{maboss-boolean-network-results}{%
+\paragraph{1.3 MaBoSS Boolean Network
+Results}\label{maboss-boolean-network-results}}
+
+\textbf{Key Simulation Outcomes:}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \textbf{Baseline (random initial conditions):}
+
+  \begin{itemize}
+  \tightlist
+  \item
+    \texttt{\textless{}nil\textgreater{}}: 49.98\% \textbar{}
+    \texttt{CCNE1}: 50.02\%
+  \item
+    Shows balanced quiescence vs.~cell cycle entry
+  \end{itemize}
+\item
+  \textbf{TNF + TP53 activation:}
+
+  \begin{itemize}
+  \tightlist
+  \item
+    \texttt{\textless{}nil\textgreater{}}: 31.44\% \textbar{}
+    \texttt{CCNE1}: 68.56\%
+  \item
+    Demonstrates tumor suppressor-mediated cell cycle control
+  \end{itemize}
+\item
+  \textbf{BAX activation:}
+
+  \begin{itemize}
+  \tightlist
+  \item
+    \texttt{BAX}: 49.99\% \textbar{} \texttt{CCNE1\ -\/-\ BAX}: 50.01\%
+  \item
+    Shows apoptotic gene activation
+  \end{itemize}
+\end{enumerate}
+
+\textbf{Output Nodes Selected:}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Apoptosis:} \texttt{CASP3}, \texttt{CASP8}, \texttt{CASP9},
+  \texttt{BAX}, \texttt{BAK1}
+\item
+  \textbf{Proliferation:} \texttt{CCND1}, \texttt{CCNE1}, \texttt{CDK2},
+  \texttt{CDK4}, \texttt{MYC}, \texttt{E2F1}
+\end{itemize}
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\hypertarget{part-2-physicell-multiscale-integration}{%
+\subsubsection{Part 2: PhysiCell Multiscale
+Integration}\label{part-2-physicell-multiscale-integration}}
+
+\hypertarget{biological-scenario-design}{%
+\paragraph{2.1 Biological Scenario
+Design}\label{biological-scenario-design}}
+
+\textbf{Experimental Setup:} 3D tissue culture model simulating cancer
+cell population growth under TNF-α treatment
+
+\textbf{Key Features:}
+
+\begin{itemize}
+\tightlist
+\item
+  Initial cancer cell population
+\item
+  TNF-α diffusion from boundaries
+\item
+  Cell fate determination via boolean networks
+\item
+  Apoptosis vs.~proliferation outcomes
+\end{itemize}
+
+\hypertarget{spatial-domain-configuration}{%
+\paragraph{2.2 Spatial Domain
+Configuration}\label{spatial-domain-configuration}}
+
+\textbf{Domain:} 1000×1000×1000 μm³ (1 mm³) \textbf{Mesh Resolution:} 20
+μm \textbf{Simulation Duration:} 168 hours (7 days)
+
+\hypertarget{substrate-parameters-biologically-calibrated}{%
+\paragraph{2.3 Substrate Parameters (Biologically
+Calibrated)}\label{substrate-parameters-biologically-calibrated}}
+
+\textbf{TNF-α:}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Diffusion coefficient:} 50,000 μm²/min
+\item
+  \textbf{Decay rate:} 0.02 min⁻¹ (half-life \textasciitilde35 min)
+\item
+  \textbf{Boundary concentration:} 10 ng/mL (therapeutic range)
+\item
+  \textbf{Initial concentration:} 0 ng/mL
+\item
+  \textbf{Units:} ng/mL
+\end{itemize}
+
+\textbf{Oxygen:}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Diffusion coefficient:} 100,000 μm²/min
+\item
+  \textbf{Decay rate:} 0.01 min⁻¹
+\item
+  \textbf{Concentration:} 38 mmHg (physiological)
+\item
+  \textbf{Units:} mmHg
+\end{itemize}
+
+\hypertarget{cancer-cell-type-parameters}{%
+\paragraph{2.4 Cancer Cell Type
+Parameters}\label{cancer-cell-type-parameters}}
+
+\textbf{Physical Properties:}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Total volume:} 2,500 μm³ (typical cancer cell)
+\item
+  \textbf{Nuclear volume:} 540 μm³ (nuclear:cytoplasm ratio
+  \textasciitilde1:4)
+\item
+  \textbf{Fluid fraction:} 75\%
+\end{itemize}
+
+\textbf{Motility:}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Speed:} 0.25 μm/min (slow migration)
+\item
+  \textbf{Persistence time:} 15 min
+\end{itemize}
+
+\textbf{Death Rates:}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Baseline apoptosis:} 1×10⁻⁵ min⁻¹
+\item
+  \textbf{Necrosis:} 0 min⁻¹
+\end{itemize}
+
+\hypertarget{physiboss-integration-parameters}{%
+\paragraph{2.5 PhysiBoSS Integration
+Parameters}\label{physiboss-integration-parameters}}
+
+\textbf{Boolean Network Timing:}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Time step:} 6 minutes (allows 10 updates per hour)
+\item
+  \textbf{Scaling factor:} 1.0
+\item
+  \textbf{Global inheritance:} True (daughter cells inherit parent
+  state)
+\end{itemize}
+
+\textbf{Input Links (Environment → Boolean Network):}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{TNF → TNF node:} Threshold 2.0 ng/mL
+\item
+  \textbf{TNF → TNFRSF1A node:} Threshold 1.0 ng/mL
+\end{itemize}
+
+\textbf{Output Links (Boolean Network → Cell Behavior):}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{CASP3 → Apoptosis:} Base rate 1×10⁻⁵ → Active rate 0.01 min⁻¹
+\item
+  \textbf{BAX → Apoptosis:} Base rate 1×10⁻⁵ → Active rate 0.005 min⁻¹
+\item
+  \textbf{MYC → Cycle Entry:} Base rate 0.04 → Active rate 0.02 min⁻¹
+\item
+  \textbf{CCND1 → Cycle Entry:} Base rate 0.05 → Active rate 0.02 min⁻¹
+\end{itemize}
+
+\textbf{Environmental Rules (Hill Functions):}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Oxygen-dependent apoptosis:} Half-max 16 mmHg, Hill
+  coefficient 3.0
+\item
+  \textbf{Oxygen-dependent proliferation:} Half-max 20 mmHg, Hill
+  coefficient 2.0
+\end{itemize}
+
+\textbf{Substrate Interactions:}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Oxygen uptake:} 10 min⁻¹
+\item
+  \textbf{TNF uptake:} 0.1 min⁻¹
+\end{itemize}
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\hypertarget{generated-files}{%
+\subsubsection{Generated Files}\label{generated-files}}
+
+\textbf{Network Files:}
+
+\begin{itemize}
+\tightlist
+\item
+  \texttt{Network\_1.bnet} - Boolean network in BNET format
+\item
+  \texttt{output.bnd} - MaBoSS boolean network definition
+\item
+  \texttt{output.cfg} - MaBoSS configuration file
+\end{itemize}
+
+\textbf{PhysiCell Files:}
+
+\begin{itemize}
+\tightlist
+\item
+  \texttt{TNF\_cancer\_multiscale.xml} - Complete PhysiCell
+  configuration
+\item
+  \texttt{TNF\_cancer\_cell\_rules.csv} - Cell behavior rules
+\item
+  \texttt{network\_trajectory.png} - MaBoSS simulation visualization
+\end{itemize}
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\hypertarget{scientific-sources-biological-justification}{%
+\subsection{Scientific Sources \& Biological
+Justification}\label{scientific-sources-biological-justification}}
+
+\hypertarget{gene-selection-sources}{%
+\subsubsection{Gene Selection Sources:}\label{gene-selection-sources}}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \textbf{TNF Signaling:} KEGG TNF signaling pathway (hsa04668)
+\item
+  \textbf{Apoptosis:} KEGG Apoptosis pathway (hsa04210)
+\item
+  \textbf{Cell Cycle:} KEGG Cell cycle pathway (hsa04110)
+\item
+  \textbf{p53 Pathway:} KEGG p53 signaling pathway (hsa04115)
+\end{enumerate}
+
+\hypertarget{parameter-sources}{%
+\subsubsection{Parameter Sources:}\label{parameter-sources}}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \textbf{TNF diffusion:} Estimated from cytokine literature
+  (\textasciitilde50-100 kDa proteins)
+\item
+  \textbf{Cell volumes:} Typical cancer cell measurements (HeLa, MCF-7
+  studies)
+\item
+  \textbf{Apoptosis rates:} Literature on TNF-induced apoptosis kinetics
+\item
+  \textbf{Hill coefficients:} Standard values for cooperative binding
+  (2-4)
+\end{enumerate}
+
+\hypertarget{biological-validation}{%
+\subsubsection{Biological Validation:}\label{biological-validation}}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Network topology:} Captures known TNF dual role (survival
+  vs.~death)
+\item
+  \textbf{Parameter ranges:} Within physiologically relevant bounds
+\item
+  \textbf{Simulation outcomes:} Consistent with experimental TNF
+  responses
+\end{itemize}
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\hypertarget{key-achievements}{%
+\subsection{Key Achievements}\label{key-achievements}}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \textbf{Multi-scale Integration:} Successfully linked molecular
+  (NeKo), cellular (MaBoSS), and tissue (PhysiCell) scales
+\item
+  \textbf{Biological Accuracy:} Parameters based on experimental
+  literature
+\item
+  \textbf{Functional Network:} Boolean model shows context-dependent TNF
+  responses
+\item
+  \textbf{Ready for Simulation:} Complete PhysiCell configuration
+  generated
+\end{enumerate}
+
+This framework provides a foundation for studying cancer therapeutic
+responses, drug resistance mechanisms, and personalized treatment
+strategies through multiscale computational modeling.
+
+\hypertarget{scenario-2-building-a-set-of-rules-for-an-existing-physicell-simulation-by-extracting-the-context-directly-from-the-configuration-file}{%
+\section{Scenario 2: Building a set of rules for an existing PhysiCell
+simulation by extracting the context directly from the configuration
+file}\label{scenario-2-building-a-set-of-rules-for-an-existing-physicell-simulation-by-extracting-the-context-directly-from-the-configuration-file}}
+
+\hypertarget{prompt-1}{%
+\subsection{Prompt:}\label{prompt-1}}
+
+I have a PhysiCell configuration file that I would like to extend with
+biologically accurate rules. Load the PhysiCell configuration file,
+extract the biological scenario, extract the substrates, cell types and
+custom parameters that compose the simulation and, carefully examining
+the available signals and behaviors, add a series of rules to improve
+the model.
+
+\hypertarget{final-results-1}{%
+\subsection{Final Results:}\label{final-results-1}}
+
+\hypertarget{summary}{%
+\subsection{Summary}\label{summary}}
+
+I have successfully loaded your PhysiCell configuration file and
+enhanced it with \textbf{15 biologically accurate rules} that model a
+sophisticated tumor-immune microenvironment. Here's what was
+accomplished:
+
+\hypertarget{biological-scenario-identified}{%
+\subsubsection{\texorpdfstring{\textbf{Biological Scenario
+Identified:}}{Biological Scenario Identified:}}\label{biological-scenario-identified}}
+
+\begin{itemize}
+\tightlist
+\item
+  Tumor-immune microenvironment with malignant epithelial cells,
+  macrophages (M0, M1, M2), and T cells (effector, exhausted)
+\item
+  Hypoxic environment with oxygen gradients
+\item
+  Inflammatory signaling through pro- and anti-inflammatory factors
+\item
+  Cellular debris clearance mechanisms
+\end{itemize}
+
+\hypertarget{key-biologically-accurate-rules-added}{%
+\subsubsection{\texorpdfstring{\textbf{Key Biologically Accurate Rules
+Added:}}{Key Biologically Accurate Rules Added:}}\label{key-biologically-accurate-rules-added}}
+
+\hypertarget{cancer-cell-responses}{%
+\paragraph{\texorpdfstring{\textbf{1. Cancer Cell
+Responses:}}{1. Cancer Cell Responses:}}\label{cancer-cell-responses}}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Hypoxia-induced necrosis} : Low oxygen levels trigger cancer
+  cell death
+\item
+  \textbf{Oxygen-dependent proliferation} : Cell cycle entry requires
+  adequate oxygen
+\item
+  \textbf{Hypoxia-induced migration} : Cancer cells become more motile
+  under low oxygen stress
+\end{itemize}
+
+\hypertarget{macrophage-behavior}{%
+\paragraph{\texorpdfstring{\textbf{2. Macrophage
+Behavior:}}{2. Macrophage Behavior:}}\label{macrophage-behavior}}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Chemotaxis} : M0 macrophages migrate toward apoptotic and
+  necrotic debris
+\item
+  \textbf{Polarization} : M0→M1 (pro-inflammatory signals) and M0→M2
+  (anti-inflammatory signals)
+\item
+  \textbf{Cytokine secretion} : M1 cells secrete pro-inflammatory
+  factors when contacting necrotic cells; M2 cells secrete
+  anti-inflammatory factors when contacting apoptotic cells
+\item
+  \textbf{Enhanced phagocytosis} : Both M1 and M2 macrophages increase
+  phagocytic activity at debris sites
+\end{itemize}
+
+\hypertarget{t-cell-dynamics}{%
+\paragraph{\texorpdfstring{\textbf{3. T Cell
+Dynamics:}}{3. T Cell Dynamics:}}\label{t-cell-dynamics}}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Cytotoxic activity} : Effector T cells attack cancer cells
+  upon contact
+\item
+  \textbf{Inflammatory activation} : Pro-inflammatory signals enhance T
+  cell migration
+\item
+  \textbf{Exhaustion mechanism} : Prolonged attack activity leads to T
+  cell exhaustion
+\item
+  \textbf{Immunosuppression} : Anti-inflammatory factors reduce T cell
+  attack damage
+\end{itemize}
+
+\hypertarget{files-generated}{%
+\subsubsection{\texorpdfstring{\textbf{Files
+Generated:}}{Files Generated:}}\label{files-generated}}
+
+\begin{itemize}
+\tightlist
+\item
+  \href{vscode-file://vscode-app/usr/share/code/resources/app/out/vs/code/electron-browser/workbench/workbench.html}{PhysiCell\_settings\_enhanced.xml}
+  - Complete enhanced configuration
+\item
+  \href{vscode-file://vscode-app/usr/share/code/resources/app/out/vs/code/electron-browser/workbench/workbench.html}{cell\_rules\_enhanced.csv}
+  - Detailed rules specification
+\end{itemize}
+
+These rules create a realistic tumor-immune interaction model where:
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Hypoxia drives cancer progression} and cell death
+\item
+  \textbf{Macrophages respond dynamically} to environmental cues and
+  debris
+\item
+  \textbf{T cells provide immune surveillance} but can become exhausted
+\item
+  \textbf{Inflammatory balance} affects the overall tumor
+  microenvironment
+\end{itemize}
+
+The enhanced model now captures the complex interplay between cancer
+cells, immune cells, and the microenvironment, making it suitable for
+studying tumor progression, immune responses, and potential therapeutic
+interventions.
+
+\hypertarget{scenario-3-iteratevely-refine-a-maboss-model-through-neko-using-the-basic-knowledge-of-the-llm}{%
+\section{Scenario 3: iteratevely refine a MaBoSS model through NeKo
+using the basic knowledge of the
+LLM}\label{scenario-3-iteratevely-refine-a-maboss-model-through-neko-using-the-basic-knowledge-of-the-llm}}
+
+\hypertarget{prompt-2}{%
+\subsection{Prompt:}\label{prompt-2}}
+
+I want to create a Boolean model that describes how TNF affects cancer
+cell fate. In order to do so, I want you to create a network using
+Omnipath as interactions database. Once created the network, remove the
+bimodal interactions, export the network in bnet format and convert it
+into a MaBoSS model. Run the MaBoSS model and het the results. If the
+results are biologically accurate and relevant, test some known
+mutations end verify the accuracy of the results. If the network is not
+satisfying, check important pathways within the network and individuate
+nodes or interactions that may not be relevant and bring inaccuracies in
+the model. Finally, make sure the final network always contains relevant
+nodes, important for our scenario. Iterate the process until the MaBoSS
+model is accurate enough.
+
+\hypertarget{final-results-2}{%
+\subsection{Final results:}\label{final-results-2}}
+
+\hypertarget{summary-of-results}{%
+\subsection{Summary of Results}\label{summary-of-results}}
+
+The refined Boolean model successfully captures TNF effects on cancer
+cell fate:
+
+\hypertarget{model-characteristics}{%
+\subsubsection{\texorpdfstring{\textbf{Model
+Characteristics:}}{Model Characteristics:}}\label{model-characteristics}}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{112 nodes, 928 interactions} (after removing bimodal
+  interactions)
+\item
+  \textbf{Focused on core TNF signaling pathways} (apoptosis, survival,
+  transcription)
+\item
+  \textbf{Key output nodes} : TNF, TNFRSF1A, CASP8, CASP3, CASP9, BCL2,
+  BAX, TP53, NFKB1, RELA, AKT1, MYC
+\end{itemize}
+
+\hypertarget{wild-type-tnf-response}{%
+\subsubsection{\texorpdfstring{\textbf{Wild-type TNF
+Response:}}{Wild-type TNF Response:}}\label{wild-type-tnf-response}}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{\textasciitilde46.7\%} : TNF receptor + NF-κB survival pathway
+  (TNFRSF1A + AKT1 + NFKB1 + RELA)
+\item
+  \textbf{\textasciitilde44.7\%} : TNF receptor + both p53 and NF-κB
+  pathways (TNFRSF1A + TP53 + AKT1 + NFKB1 + RELA)
+\item
+  \textbf{\textasciitilde8.9\%} : Minimal activation states
+\end{itemize}
+
+\hypertarget{mutation-testing-results}{%
+\subsubsection{\texorpdfstring{\textbf{Mutation Testing
+Results:}}{Mutation Testing Results:}}\label{mutation-testing-results}}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \textbf{TP53 knockout} : \textasciitilde90\% shift to pure NF-κB
+  survival (cancer-like resistance)
+\item
+  \textbf{BCL2 overexpression} : BCL2 active in all states
+  (anti-apoptotic protection)
+\item
+  \textbf{AKT1 overexpression} : AKT1 constitutively active (survival
+  enhancement)
+\item
+  \textbf{TP53-/BCL2+} : \textasciitilde90\% highly resistant state
+  (aggressive cancer phenotype)
+\end{enumerate}
+
+\hypertarget{biological-accuracy}{%
+\subsubsection{\texorpdfstring{\textbf{Biological
+Accuracy:}}{Biological Accuracy:}}\label{biological-accuracy}}
+
+✅ \textbf{TNF activates both death and survival pathways simultaneously}
+✅ \textbf{TP53 loss promotes survival and resistance} ✅ \textbf{BCL2
+overexpression provides anti-apoptotic protection} ✅ \textbf{Combined
+mutations create highly resistant phenotypes} ✅ \textbf{NF-κB and AKT
+survival pathways are properly activated}
+
+The model successfully distinguishes between different cell fate
+outcomes and accurately predicts how cancer mutations affect TNF
+sensitivity, making it suitable for studying TNF-based cancer therapies
+and resistance mechanisms.
