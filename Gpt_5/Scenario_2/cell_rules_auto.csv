@@ -1,0 +1,13 @@
+M0 macrophage,pro-inflammatory factor,increases,transform to M1 macrophage,1.0,0.3,4.0,0
+M0 macrophage,anti-inflammatory factor,increases,transform to M2 macrophage,1.0,0.3,4.0,0
+M1 macrophage,pro-inflammatory factor,increases,chemotactic response to pro-inflammatory factor,1.0,0.3,4.0,0
+M1 macrophage,pro-inflammatory factor,increases,attack malignant epithelial cell,1.0,0.3,4.0,0
+M2 macrophage,anti-inflammatory factor,increases,chemotactic response to anti-inflammatory factor,1.0,0.3,4.0,0
+M2 macrophage,anti-inflammatory factor,increases,phagocytose apoptotic cell,1.0,0.3,4.0,0
+effector T cell,pro-inflammatory factor,increases,chemotactic response to pro-inflammatory factor,1.0,0.3,4.0,0
+effector T cell,pro-inflammatory factor,increases,attack malignant epithelial cell,1.0,0.3,4.0,0
+effector T cell,anti-inflammatory factor,increases,transform to exhausted T cell,1.0,0.3,4.0,0
+exhausted T cell,anti-inflammatory factor,decreases,attack malignant epithelial cell,1.0,0.3,4.0,0
+malignant epithelial cell,oxygen,increases,cycle entry,1.0,0.3,4.0,0
+malignant epithelial cell,oxygen,decreases,necrosis,1.0,0.3,4.0,0
+effector T cell,oxygen,increases,attack malignant epithelial cell,1.0,0.3,4.0,0

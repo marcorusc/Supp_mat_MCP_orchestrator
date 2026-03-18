@@ -1,0 +1,2 @@
+model,scenario,model_id,chat_file,has_token_counts,timestamp_start_utc,timestamp_end_utc,total_wall_time_s,total_requests,n_human_interventions,n_max_tools_exceeded,total_mcp_tool_calls,total_mcp_tool_calls_success,total_mcp_tool_calls_failed,mcp_tool_success_rate_pct,total_mcp_retries,total_prompt_tokens,total_completion_tokens,total_tokens
+gpt_o4_mini,Scenario_2,openai/o4-mini,gpt_o4_mini/Scenario_2/chat.json,False,2025-08-14 15:35:51 UTC,2025-08-14 15:37:41 UTC,134.9,2,1,0,16,16,0,100.0,0,,,

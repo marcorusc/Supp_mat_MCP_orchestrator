@@ -1,0 +1,2130 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{geometry}
+\geometry{margin=2.5cm}
+\usepackage{xcolor}
+\usepackage{mdframed}
+\usepackage{listings}
+\usepackage{hyperref}
+\usepackage{parskip}
+
+\definecolor{userblue}{RGB}{66,133,244}
+\definecolor{copilotgreen}{RGB}{52,168,83}
+\definecolor{toolorange}{RGB}{251,188,4}
+\definecolor{toolerrred}{RGB}{234,67,53}
+\definecolor{thinkbg}{RGB}{255,248,225}
+\definecolor{userbg}{RGB}{232,240,254}
+\definecolor{copbg}{RGB}{248,249,250}
+\definecolor{toolokbg}{RGB}{230,244,234}
+\definecolor{toolerrbg}{RGB}{252,232,230}
+
+\lstset{
+  basicstyle=\ttfamily\small,
+  breaklines=true,
+  breakatwhitespace=true,
+  frame=single,
+  backgroundcolor=\color{userbg!30},
+}
+
+\newmdenv[backgroundcolor=userbg, linecolor=userblue, linewidth=2pt,
+  leftline=true, rightline=false, topline=false, bottomline=false,
+  innerleftmargin=8pt]{userbox}
+
+\newmdenv[backgroundcolor=copbg, linecolor=copilotgreen, linewidth=2pt,
+  leftline=true, rightline=false, topline=false, bottomline=false,
+  innerleftmargin=8pt]{copilotbox}
+
+\newmdenv[backgroundcolor=toolokbg, linecolor=copilotgreen, linewidth=2pt,
+  leftline=true, rightline=false, topline=false, bottomline=false,
+  innerleftmargin=8pt]{toolokbox}
+
+\newmdenv[backgroundcolor=toolerrbg, linecolor=toolerrred, linewidth=2pt,
+  leftline=true, rightline=false, topline=false, bottomline=false,
+  innerleftmargin=8pt]{toolerrbox}
+
+\newmdenv[backgroundcolor=thinkbg, linecolor=toolorange, linewidth=2pt,
+  leftline=true, rightline=false, topline=false, bottomline=false,
+  innerleftmargin=8pt]{thinkbox}
+
+\title{Chat Summary}
+\date{\today}
+
+\begin{document}
+\maketitle
+\tableofcontents
+\newpage
+
+\section{Request 1}
+\begin{userbox}
+\textbf{User Request}
+\quad \textit{2025-08-10 09:50:43 UTC}
+\quad Model: \texttt{openai/gpt-5}
+
+You are my multiscale modelling assistant. Together we are creating a mutliscale multicellular model of cancer cell fate in response to TNF. In order to chieve this we are going to use NeKo, MaBoSS and PhysiCell to create a simulation where an initial group of cancer cell will grow while TNF diffuses in the microenvironment. When the cells sense the TNF they will activate the input nodes of their boolean network. According to the final state of the network, they will perform behaviors such as die for apoptosis or proliferte. Those are he steps to follow: 1) create a network using Omnipath that describes cancer cell fates in response to tnf. This network should contains TNF sensing receptr as well asgenes responsible for proliferation and apoptosis. Once create the network we have to remove the bimodal interactions and check the connectivity. If the network is connected,  export it in bnet file. After that  generate the maboss file (.bnd and .cfg), create a simulation and select some nodes to identify the output, to represent apoptotic state and proliferative state. Once set those nodes as output, we run the maboss simulation, get the results and study the outcome (does the network make sense? are the states biologically feasible?).
+This is the first part. In the second part we will build the PhysiCell simulation and add maboss to the cancer cell type. Is everything clear?
+
+\end{userbox}
+\begin{copilotbox}
+\textbf{GitHub Copilot:}
+
+Yes—clear plan.
+
+Before I start, please confirm a few defaults:
+
+- Network build (NeKo/OmniPath)
+  - Seed genes: TNF, TNFRSF1A/TNFR1, TRADD, TRAF2, RIPK1, FADD, CASP8, CFLAR, BCL2, BAX, MCL1, XIAP, BIRC2/3, IKBKB, NFKBIA, RELA, MAP3K7, JNK (MAPK8), JUN/FOS (AP1), PI3K, AKT1, PTEN, mTOR, CCND1, CDK4/6, E2F1, MYC, TP53, CDKN1A(p21), CASP3, CASP9, APAF1. Include necroptosis (RIPK3/MLKL)? yes/no
+  - Path completion: max\_len=2, algorithm=bfs, only\_signed=true, consensus=true. OK?
+  - Remove bimodal interactions, then check connectivity. If connected, export .bnet.
+
+- MaBoSS
+  - Inputs: TNF node ON/OFF driven later by PhysiCell.
+  - Outputs to track: Apoptosis = CASP3 (and/or CASP8); Proliferation = E2F1 (and/or CCND1/CDK4-6). Which do you prefer?
+  - Params: time\_tick=0.1, max\_time=50, sample\_count=10000. OK?
+
+- Workspace
+  - Use existing scenario folders or create a new one (e.g., ./Sonnet4/Scenario\_4)?
+
+Reply “proceed with defaults” or specify changes, and I’ll build the network, export .bnet, generate .bnd/.cfg, set outputs, run MaBoSS, and report results.
+
+\end{copilotbox}
+\begin{copilotbox}
+\textbf{GitHub Copilot:}
+
+Yes—clear plan.
+
+Before I start, please confirm a few defaults:
+
+- Network build (NeKo/OmniPath)
+  - Seed genes: TNF, TNFRSF1A/TNFR1, TRADD, TRAF2, RIPK1, FADD, CASP8, CFLAR, BCL2, BAX, MCL1, XIAP, BIRC2/3, IKBKB, NFKBIA, RELA, MAP3K7, JNK (MAPK8), JUN/FOS (AP1), PI3K, AKT1, PTEN, mTOR, CCND1, CDK4/6, E2F1, MYC, TP53, CDKN1A(p21), CASP3, CASP9, APAF1. Include necroptosis (RIPK3/MLKL)? yes/no
+  - Path completion: max\_len=2, algorithm=bfs, only\_signed=true, consensus=true. OK?
+  - Remove bimodal interactions, then check connectivity. If connected, export .bnet.
+
+- MaBoSS
+  - Inputs: TNF node ON/OFF driven later by PhysiCell.
+  - Outputs to track: Apoptosis = CASP3 (and/or CASP8); Proliferation = E2F1 (and/or CCND1/CDK4-6). Which do you prefer?
+  - Params: time\_tick=0.1, max\_time=50, sample\_count=10000. OK?
+
+- Workspace
+  - Use existing scenario folders or create a new one (e.g., ./Sonnet4/Scenario\_4)?
+
+Reply “proceed with defaults” or specify changes, and I’ll build the network, export .bnet, generate .bnd/.cfg, set outputs, run MaBoSS, and report results.
+
+\end{copilotbox}
+\bigskip\hrule\bigskip
+\section{Request 3}
+\begin{userbox}
+\textbf{User Request}
+\quad \textit{2025-08-10 09:52:43 UTC}
+\quad Model: \texttt{openai/gpt-5}
+
+proceed with defaults, for the workspace, use gpt\_5/scenario\_1
+
+\end{userbox}
+\begin{toolokbox}
+\textbf{Tool:} \texttt{mcp\_neko\_create\_network} (\checkmark)
+\textit{Running `create\_network`}
+\begin{lstlisting}
+**Network created successfully!**
+
+- **Initial genes:** TNF, TNFRSF1A, TRADD, TRAF2, RIPK1, FADD, CASP8, CFLAR, BCL2, BAX, MCL1, XIAP, BIRC2, BIRC3, IKBKB, NFKBIA, RELA, MAP3K7, MAPK8, JUN, FOS, PIK3CA, AKT1, PTEN, MTOR, CCND1, CDK4, E2F1, MYC, TP53, CDKN1A, CASP3, CASP9, APAF1
+- **Total nodes:** 200
+- **Total interactions:** 2356
+
+**Preview of interactions (first 100 rows):**
+
+source    target    Effect
+TNFRSF1A  MAP4K4    stimulation
+MAP4K4    TNF       inhibition
+TNF       TNFRSF1A  stimulation
+TRADD     TRAF1     stimulation
+TRAF1     TNF       inhibition
+TNF       TRADD     inhibition
+TRAF2     TRAF1     stimulation
+TRADD     TRAF2     bimodal
+RIPK1     MAP4K4    stimulation
+TRADD     RIPK1     stimulation
+FADD      MYD88     inhibition
+MYD88     TNF       stimulation
+TRADD     FADD      stimulation
+CASP8     TRAF1     bimodal
+TNF       CASP8     stimulation
+CFLAR     TNF       inhibition
+TNF       MAPK8     stimulation
+MAPK8     CFLAR     inhibition
+BCL2      MYC       stimulation
+MYC       TNF       stimulation
+TNF       MAPK3     stimulation
+MAPK3     BCL2      bimodal
+MAPK8     BAX       stimulation
+MAPK3     MCL1      stimulation
+XIAP      PTEN      stimulation
+PTEN      TNF       inhibition
+TNF       RELA      stimulation
+RELA      XIAP      stimulation
+BIRC2     CFLAR     inhibition
+TRADD     BIRC2     stimulation
+BIRC3     MAP4K4    stimulation
+TNF       CSF3      stimulation
+CSF3      BIRC3     stimulation
+IKBKB     CYLD      bimodal
+CYLD      TNF       inhibition
+TNF       IKBKB     stimulation
+NFKBIA    IL23A     stimulation
+IL23A     TNF       stimulation
+TNF       NFKBIA    inhibition
+RELA      PPARA     inhibition
+PPARA     TNF       inhibition
+MAP3K7    MAP2K3    stimulation
+MAP2K3    TNF       inhibition
+TNF       IL1A      stimulation
+IL1A      MAP3K7    stimulation
+MAPK8     INS       inhibition
+INS       TNF       inhibition
+JUN       LPL       inhibition
+LPL       TNF       stimulation
+TNF       JUN       stimulation
+FOS       TNF       stimulation
+MAPK3     FOS       stimulation
+PIK3CA    MAPK11    inhibition
+MAPK11    TNF       inhibition
+TNF       BDNF      stimulation
+BDNF      PIK3CA    stimulation
+AKT1      RXRA      stimulation
+RXRA      TNF       stimulation
+TNF       AKT1      stimulation
+TNF       TGFB1     inhibition
+TGFB1     PTEN      stimulation
+MTOR      IFNG      stimulation
+IFNG      TNF       stimulation
+TNF       CXCL8     stimulation
+CXCL8     MTOR      stimulation
+CCND1     TNF       inhibition
+MAPK3     CCND1     stimulation
+CDK4      RB1       bimodal
+RB1       TNF       stimulation
+MAPK3     CDK4      stimulation
+E2F1      MYC       stimulation
+MAPK3     E2F1      stimulation
+MAPK3     MYC       stimulation
+TP53      PTEN      stimulation
+MAPK3     TP53      stimulation
+CDKN1A    CCND1     inhibition
+TNF       CDK6      inhibition
+CDK6      CDKN1A    inhibition
+CASP3     PTEN      stimulation
+TNF       CASP3     stimulation
+MAPK3     CASP9     inhibition
+TNF       SUCLA2    stimulation
+SUCLA2    AP
+... [truncated]
+\end{lstlisting}
+\end{toolokbox}
+\begin{toolokbox}
+\textbf{Tool:} \texttt{mcp\_neko\_remove\_bimodal\_interactions} (\checkmark)
+\textit{Running `remove\_bimodal\_interactions`}
+\begin{lstlisting}
+Removed 160 bimodal interactions from the network.
+{
+  "result": "Removed 160 bimodal interactions from the network."
+}
+\end{lstlisting}
+\end{toolokbox}
+\begin{toolokbox}
+\textbf{Tool:} \texttt{mcp\_neko\_check\_disconnected\_nodes} (\checkmark)
+\textit{Running `check\_disconnected\_nodes`}
+\begin{lstlisting}
+All nodes are connected.
+{
+  "result": "All nodes are connected."
+}
+\end{lstlisting}
+\end{toolokbox}
+\begin{toolokbox}
+\textbf{Tool:} \texttt{mcp\_neko\_export\_network} (\checkmark)
+\textit{Running `export\_network`}
+\begin{lstlisting}
+**Exported to** `Network_1.bnet`
+
+_Preview (first 100 lines) of the BNET file:_
+
+gene       expression
+TNF        (MYD88 | MYC | IL23A | LPL | FOS | RXRA | IFNG | RB1 | TNFAIP3 | CREB1 | COMPLEX_P19838_Q04206 | IL12B) & !(MAP4K4 | TRAF1 | CFLAR | PTEN | CYLD | PPARA | MAP2K3 | INS | MAPK11 | CCND1 | CSF3 | S100B | MAPK14 | APEX1 | SP1 | CSF2)
+TNFRSF1A   (TNF | FASLG | IL2 | TNFAIP3 | TNFRSF1B) & !(MAPK1 | CYLD | S100B)
+TRADD      (TNFRSF1A | TNFRSF10B) & !(TNF | CFLAR | CYLD | KRT18 | S100B)
+TRAF2      (TNFRSF1A | RELA | TRAF1 | CASP2 | NFKB2 | TNFRSF1B) & !(CYLD | STAT1 | FLNA | PPP2CA | S100B | TNFAIP3)
+RIPK1      (TRADD | TNFRSF1A | TRAF2 | FADD | BIRC2 | BIRC3 | SQSTM1 | TICAM1 | HSP90AA1 | CASP2 | TNFRSF10B) & !(CASP8 | CFLAR | OTUD7B | RNF11 | TNFAIP3 | S100B | CASP10)
+FADD       (TRADD | TNFRSF1A | TP53 | STAT1 | MYD88 | TNFRSF10B) & !(MAP2K7 | BIRC2 | MAP3K1 | S100B | RIPK2)
+CASP8      (TNF | TNFRSF1A | TRADD | TRAF2 | E2F1 | FADD | TP53 | EDN1 | CASP2 | IFNG | TNFRSF10B) & !(RELA | BCL2 | CFLAR | BIRC2 | BIRC3 | MAPK3 | MAPK1 | NFKB1 | S100B | MAPK14 | CDK1)
+CFLAR      (MAPK14 | AR | TP53 | DDB2) & !(MAPK8 | BIRC2 | BIRC3 | AKT1 | MYC | CBL | ATM)
+BCL2       (RELA | MAP2K1 | NFKB1 | MTOR | CREB1 | E2F2 | BAG1 | STAT1 | PPP2CA | NFKB2 | HSP90AA1 | EIF4G2 | CTNNB1 | IL6 | BCL2L1 | VEGFA) & !(CASP3 | TP53 | IRS1 | IL5 | CDK6 | MAPK14 | ATM | BCL2L11 | PPP2R5C)
+BAX        (MAPK8 | BID | TP73 | TP53 | CASP3 | TP63 | SP1 | RPS6KB1 | MYC | BCL2L11) & !(BCL2 | MCL1 | RELA | AKT1 | UBB | PRKCZ | PRNP | AKT3 | BCL2L1)
+MCL1       (MAPK3 | MAPK1 | MAP2K1 | CSF2 | AKT1 | HIF1A | IL6 | VEGFA) & !(CASP3 | E2F1 | TFDP1 | BCL2L11 | CDK1)
+XIAP       (RELA | TP53 | NFKB1 | EIF4G2 | AKT3 | AKT1 | AKT2 | BIRC5 | NFKB2 | ELK1) & !(HTRA2)
+BIRC2      (TRADD | TNFRSF1B | TRAF2 | RELA | NFKB1 | EIF4G2 | BIRC3 | ELK1 | CD40LG | NFKB2) & !(HTRA2)
+BIRC3      (CSF3 | RELA | TRAF2 | NFKBIA | NFKB1 | NFKB2 | ELK1) & !(TP53 | HTRA2 | S100B)
+IKBKB      (TNF | MAP3K5 | TRADD | TRAF2 | RIPK1 | FADD | CASP8 | MAP3K7 | RIPK2 | AKT1 | FASLG | AKT2 | MAP4K4 | MYD88 | CHUK | TNFRSF10B | FLNA | SQSTM1 | TRAF6 | PRKCZ | MAP3K1 | AKT3 | IKBKG | IRAK1 | NGFR) & !(CASP3)
+NFKBIA     (TRAF2 | ATM | CASP3 | IKBKG | RXRA | IL12B | TRAF1 | IL23A | NFKB1 | TRAF6 | MAP3K1) & !(TNF | TNFRSF1A | RELA | MAPK3 | JUN | RPS6KA2 | CUL1 | PPARA | MAPK1 | TNFAIP3 | MAPK14 | PRKCZ | SP1 | PRKCD | HSPB1)
+RELA       (TNF | TNFRSF1A | TRADD | RIPK1 | TRAF2 | PIK3CA | E2F1 | IKBKB | IKBKG | IL23A | MAPK3 | IL1B | CUL1 | RAC1 | TRAF1 | MAPK1 | CHUK | NFKB1 | MAPK14 | SQSTM1 | TRAF6 | PRKCZ | MAP3K1 | IRAK1 | NGFR | IL12B | RPS6KA2 | PRKCD) & !(CASP3 | STAT1 | TSC22D3 | PPP2CA | SIRT1)
+MAP3K7     (IL1A | TRAF2 | TRAF6 | MYD88 | XIAP | RIPK2 | IRAK1 | LAT | SMAD7 | GNAI1 | TRIM8 | MAP3K1 | MAP4K4 | CYLD | TGFB1 | EPHB2 | TICAM1 | BMP2) & !(MAPK11 | PPP2CA)
+MAPK8      (TNF | MAPK3 | MAP3K5 | TRAF2 | MAP2K7 | MAP2K4 | MAP3K7 | PIK3CA | XIAP | RIPK2 | NGFR | IL2 | SH3RF1 | PTK2B | RAC1 | ROCK1 | LYN | MAP2K3 
+... [truncated]
+\end{lstlisting}
+\end{toolokbox}
+\begin{toolokbox}
+\textbf{Tool:} \texttt{mcp\_neko\_list\_genes\_and\_interactions} (\checkmark)
+\textit{Running `list\_genes\_and\_interactions`}
+\begin{lstlisting}
+source                 target                 Effect
+TNFRSF1A               MAP4K4                 stimulation
+MAP4K4                 TNF                    inhibition
+TNF                    TNFRSF1A               stimulation
+TRADD                  TRAF1                  stimulation
+TRAF1                  TNF                    inhibition
+TNF                    TRADD                  inhibition
+TRAF2                  TRAF1                  stimulation
+RIPK1                  MAP4K4                 stimulation
+TRADD                  RIPK1                  stimulation
+FADD                   MYD88                  inhibition
+MYD88                  TNF                    stimulation
+TRADD                  FADD                   stimulation
+TNF                    CASP8                  stimulation
+CFLAR                  TNF                    inhibition
+TNF                    MAPK8                  stimulation
+MAPK8                  CFLAR                  inhibition
+BCL2                   MYC                    stimulation
+MYC                    TNF                    stimulation
+TNF                    MAPK3                  stimulation
+MAPK8                  BAX                    stimulation
+MAPK3                  MCL1                   stimulation
+XIAP                   PTEN                   stimulation
+PTEN                   TNF                    inhibition
+TNF                    RELA                   stimulation
+RELA                   XIAP                   stimulation
+BIRC2                  CFLAR                  inhibition
+TRADD                  BIRC2                  stimulation
+BIRC3                  MAP4K4                 stimulation
+TNF                    CSF3                   stimulation
+CSF3                   BIRC3                  stimulation
+CYLD                   TNF                    inhibition
+TNF                    IKBKB                  stimulation
+NFKBIA                 IL23A                  stimulation
+IL23A                  TNF                    stimulation
+TNF                    NFKBIA                 inhibition
+RELA                   PPARA                  inhibition
+PPARA                  TNF                    inhibition
+MAP3K7                 MAP2K3                 stimulation
+MAP2K3                 TNF                    inhibition
+TNF                    IL1A                   stimulation
+IL1A                   MAP3K7                 stimulation
+MAPK8                  INS                    inhibition
+INS                    TNF                    inhibition
+JUN                    LPL                    inhibition
+LPL                    TNF                    stimulation
+TNF                    JUN                    stimulation
+FOS                    TNF                    stimulation
+MAPK3                  FOS                    stimulation
+PIK3CA                 MAPK11                 inhibition
+MAPK11                 TNF                    inhibition
+TNF                    BDNF                   stimulation
+BDNF   
+... [truncated]
+\end{lstlisting}
+\end{toolokbox}
+\begin{toolokbox}
+\textbf{Tool:} \texttt{mcp\_neko\_list\_bnet\_files} (\checkmark)
+\textit{Running `list\_bnet\_files`}
+\begin{lstlisting}
+Network_1.bnet
+\end{lstlisting}
+\end{toolokbox}
+\begin{toolerrbox}
+\textbf{Tool:} \texttt{mcp\_maboss\_bnet\_to\_bnd\_and\_cfg} (\textbf{ERROR})
+\textit{Running `bnet\_to\_bnd\_and\_cfg`}
+\begin{lstlisting}
+Error executing tool bnet_to_bnd_and_cfg: node CDKN2A already defined
+\end{lstlisting}
+\end{toolerrbox}
+\begin{toolokbox}
+\textbf{Tool:} \texttt{copilot\_readFile} (\checkmark)
+\textit{Reading [](file:///home/mruscone/Desktop/MCP\_test/converter.py)}
+\end{toolokbox}
+\begin{toolokbox}
+\textbf{Tool:} \texttt{mcp\_neko\_remove\_undefined\_interactions} (\checkmark)
+\textit{Running `remove\_undefined\_interactions`}
+\begin{lstlisting}
+Removed 0 undefined interactions from the network.
+{
+  "result": "Removed 0 undefined interactions from the network."
+}
+\end{lstlisting}
+\end{toolokbox}
+\begin{toolokbox}
+\textbf{Tool:} \texttt{mcp\_neko\_export\_network} (\checkmark)
+\textit{Running `export\_network`}
+\begin{lstlisting}
+**Exported to** `Network_1.bnet`
+
+_Preview (first 100 lines) of the BNET file:_
+
+gene       expression
+TNF        (MYD88 | MYC | IL23A | LPL | FOS | RXRA | IFNG | RB1 | TNFAIP3 | CREB1 | COMPLEX_P19838_Q04206 | IL12B) & !(MAP4K4 | TRAF1 | CFLAR | PTEN | CYLD | PPARA | MAP2K3 | INS | MAPK11 | CCND1 | CSF3 | S100B | MAPK14 | APEX1 | SP1 | CSF2)
+TNFRSF1A   (TNF | FASLG | IL2 | TNFAIP3 | TNFRSF1B) & !(MAPK1 | CYLD | S100B)
+TRADD      (TNFRSF1A | TNFRSF10B) & !(TNF | CFLAR | CYLD | KRT18 | S100B)
+TRAF2      (TNFRSF1A | RELA | TRAF1 | CASP2 | NFKB2 | TNFRSF1B) & !(CYLD | STAT1 | FLNA | PPP2CA | S100B | TNFAIP3)
+RIPK1      (TRADD | TNFRSF1A | TRAF2 | FADD | BIRC2 | BIRC3 | SQSTM1 | TICAM1 | HSP90AA1 | CASP2 | TNFRSF10B) & !(CASP8 | CFLAR | OTUD7B | RNF11 | TNFAIP3 | S100B | CASP10)
+FADD       (TRADD | TNFRSF1A | TP53 | STAT1 | MYD88 | TNFRSF10B) & !(MAP2K7 | BIRC2 | MAP3K1 | S100B | RIPK2)
+CASP8      (TNF | TNFRSF1A | TRADD | TRAF2 | E2F1 | FADD | TP53 | EDN1 | CASP2 | IFNG | TNFRSF10B) & !(RELA | BCL2 | CFLAR | BIRC2 | BIRC3 | MAPK3 | MAPK1 | NFKB1 | S100B | MAPK14 | CDK1)
+CFLAR      (MAPK14 | AR | TP53 | DDB2) & !(MAPK8 | BIRC2 | BIRC3 | AKT1 | MYC | CBL | ATM)
+BCL2       (RELA | MAP2K1 | NFKB1 | MTOR | CREB1 | E2F2 | BAG1 | STAT1 | PPP2CA | NFKB2 | HSP90AA1 | EIF4G2 | CTNNB1 | IL6 | BCL2L1 | VEGFA) & !(CASP3 | TP53 | IRS1 | IL5 | CDK6 | MAPK14 | ATM | BCL2L11 | PPP2R5C)
+BAX        (MAPK8 | BID | TP73 | TP53 | CASP3 | TP63 | SP1 | RPS6KB1 | MYC | BCL2L11) & !(BCL2 | MCL1 | RELA | AKT1 | UBB | PRKCZ | PRNP | AKT3 | BCL2L1)
+MCL1       (MAPK3 | MAPK1 | MAP2K1 | CSF2 | AKT1 | HIF1A | IL6 | VEGFA) & !(CASP3 | E2F1 | TFDP1 | BCL2L11 | CDK1)
+XIAP       (RELA | TP53 | NFKB1 | EIF4G2 | AKT3 | AKT1 | AKT2 | BIRC5 | NFKB2 | ELK1) & !(HTRA2)
+BIRC2      (TRADD | TNFRSF1B | TRAF2 | RELA | NFKB1 | EIF4G2 | BIRC3 | ELK1 | CD40LG | NFKB2) & !(HTRA2)
+BIRC3      (CSF3 | RELA | TRAF2 | NFKBIA | NFKB1 | NFKB2 | ELK1) & !(TP53 | HTRA2 | S100B)
+IKBKB      (TNF | MAP3K5 | TRADD | TRAF2 | RIPK1 | FADD | CASP8 | MAP3K7 | RIPK2 | AKT1 | FASLG | AKT2 | MAP4K4 | MYD88 | CHUK | TNFRSF10B | FLNA | SQSTM1 | TRAF6 | PRKCZ | MAP3K1 | AKT3 | IKBKG | IRAK1 | NGFR) & !(CASP3)
+NFKBIA     (TRAF2 | ATM | CASP3 | IKBKG | RXRA | IL12B | TRAF1 | IL23A | NFKB1 | TRAF6 | MAP3K1) & !(TNF | TNFRSF1A | RELA | MAPK3 | JUN | RPS6KA2 | CUL1 | PPARA | MAPK1 | TNFAIP3 | MAPK14 | PRKCZ | SP1 | PRKCD | HSPB1)
+RELA       (TNF | TNFRSF1A | TRADD | RIPK1 | TRAF2 | PIK3CA | E2F1 | IKBKB | IKBKG | IL23A | MAPK3 | IL1B | CUL1 | RAC1 | TRAF1 | MAPK1 | CHUK | NFKB1 | MAPK14 | SQSTM1 | TRAF6 | PRKCZ | MAP3K1 | IRAK1 | NGFR | IL12B | RPS6KA2 | PRKCD) & !(CASP3 | STAT1 | TSC22D3 | PPP2CA | SIRT1)
+MAP3K7     (IL1A | TRAF2 | TRAF6 | MYD88 | XIAP | RIPK2 | IRAK1 | LAT | SMAD7 | GNAI1 | TRIM8 | MAP3K1 | MAP4K4 | CYLD | TGFB1 | EPHB2 | TICAM1 | BMP2) & !(MAPK11 | PPP2CA)
+MAPK8      (TNF | MAPK3 | MAP3K5 | TRAF2 | MAP2K7 | MAP2K4 | MAP3K7 | PIK3CA | XIAP | RIPK2 | NGFR | IL2 | SH3RF1 | PTK2B | RAC1 | ROCK1 | LYN | MAP2K3 
+... [truncated]
+\end{lstlisting}
+\end{toolokbox}
+\begin{toolokbox}
+\textbf{Tool:} \texttt{mcp\_neko\_remove\_gene} (\checkmark)
+\textit{Running `remove\_gene`}
+\begin{lstlisting}
+**Gene not found:** CDKN2A is not in the current network
+**Tip:** Use `get_network()` to see all available genes
+{
+  "result": "**Gene not found:** CDKN2A is not in the current network\n**Tip:** Use `get_network()` to see all available genes"
+}
+\end{lstlisting}
+\end{toolokbox}
+\begin{toolokbox}
+\textbf{Tool:} \texttt{mcp\_maboss\_check\_bnd\_and\_cfg\_name} (\checkmark)
+\textit{Running `check\_bnd\_and\_cfg\_name`}
+\begin{lstlisting}
+No BND or CFG files found in the current directory.
+{
+  "result": "No BND or CFG files found in the current directory."
+}
+\end{lstlisting}
+\end{toolokbox}
+\begin{toolokbox}
+\textbf{Tool:} \texttt{mcp\_neko\_get\_references} (\checkmark)
+\textit{Running `get\_references`}
+\begin{lstlisting}
+**References for interactions involving `CDKN2A`:**
+
+source    target    Effect       References
+IKBKB     CDKN2A    inhibition   ProtMapper:20152798; ProtMapper:21619050; ProtMapper:29292732; SIGNOR:20152798; iPTMnet:20152798 (+5 more)
+CDKN2A    CCND1     inhibition
+CDKN2A    CDK4      inhibition   BioGRID:10719365; BioGRID:12529334; HPRD:15232106; HPRD:17517622; HPRD:9228064 (+69 more)
+CDKN2A    CDK4      inhibition   BioGRID:10719365; BioGRID:12529334; HPRD:15232106; HPRD:17517622; HPRD:9228064 (+47 more)
+JUN       CDKN2A    stimulation
+JUN       CDKN2A    stimulation
+CDKN2A    PIK3CA    inhibition
+CDKN2A    PIK3CA    inhibition
+CDKN2A    CCND1     inhibition
+CDKN2A    CDKN1A    inhibition
+CDKN2A    CDKN1A    inhibition
+CDKN2A    NFKB1     inhibition
+CDKN2A    NFKB1     inhibition
+CDKN2A    ATM       stimulation
+CDKN2A    ATM       stimulation
+CTNNB1    CDKN2A    inhibition
+CTNNB1    CDKN2A    inhibition
+E2F2      CDKN2A    stimulation  ACSN:11883935; SPIKE:11883935; SPIKE:18319725; SPIKE_LC:11883935; SPIKE_LC:18319725
+E2F2      CDKN2A    stimulation  ACSN:11883935; SPIKE:11883935; SPIKE:18319725; SPIKE_LC:11883935; SPIKE_LC:18319725
+TP63      CDKN2A    inhibition
+TP63      CDKN2A    inhibition
+TFDP1     CDKN2A    inhibition
+CDKN2A    TFDP1     inhibition
+TFDP1     CDKN2A    inhibition
+CDKN2A    TFDP1     inhibition
+CDKN2A    BIRC5     inhibition
+CDKN2A    BIRC5     inhibition
+CDKN2A    CCND3     inhibition
+CDKN2A    VDR       inhibition
+CDKN2A    BCL2L1    inhibition   SPIKE:19049976; SPIKE_LC:19049976
+CDKN2A    CCND3     inhibition
+CDKN2A    VDR       inhibition
+CDKN2A    BCL2L1    inhibition   SPIKE:19049976; SPIKE_LC:19049976
+{
+  "result": "**References for interactions involving `CDKN2A`:**\n\nsource    target    Effect       References\nIKBKB     CDKN2A    inhibition   ProtMapper:20152798; ProtMapper:21619050; ProtMapper:29292732; SIGNOR:20152798; iPTMnet:20152798 (+5 more)\nCDKN2A    CCND1     inhibition\nCDKN2A    CDK4      inhibition   BioGRID:10719365; BioGRID:12529334; HPRD:15232106; HPRD:17517622; HPRD:9228064 (+69 more)\nCDKN2A    CDK4      inhibition   BioGRID:10719365; BioGRID:12529334; HPRD:15232106; HPRD:17517622; HPRD:9228064 (+47 more)\nJUN       CDKN2A    stimulation\nJUN       CDKN2A    stimulation\nCDKN2A    PIK3CA    inhibition\nCDKN2A    PIK3CA    inhibition\nCDKN2A    CCND1     inhibition\nCDKN2A    CDKN1A    inhibition\nCDKN2A    CDKN1A    inhibition\nCDKN2A    NFKB1     inhibition\nCDKN2A    NFKB1     inhibition\nCDKN2A    ATM       stimulation\nCDKN2A    ATM       stimulation\nCTNNB1    CDKN2A    inhibition\nCTNNB1    CDKN2A    inhibition\nE2F2      CDKN2A    stimulation  ACSN:11883935; SPIKE:11883935; SPIKE:18319725; SPIKE_LC:11883935; SPIKE_LC:18319725\nE2F2      CDKN2A    stimulation  ACSN:11883935; SPIKE:11883935; SPIKE:18319725; SPIKE_LC:11883935; SPIKE_LC:18319725\nTP63      CDKN2A    inhibition\nTP63      CDKN2A    inhibition\nTFDP1     CDKN2A    inhibition\nCDKN2A    TFDP1     inhibition\nTFDP1     CDKN2A   
+... [truncated]
+\end{lstlisting}
+\end{toolokbox}
+\begin{toolokbox}
+\textbf{Tool:} \texttt{mcp\_neko\_reset\_network} (\checkmark)
+\textit{Running `reset\_network`}
+\begin{lstlisting}
+Network reset.
+{
+  "result": "Network reset."
+}
+\end{lstlisting}
+\end{toolokbox}
+\begin{toolokbox}
+\textbf{Tool:} \texttt{mcp\_neko\_create\_network} (\checkmark)
+\textit{Running `create\_network`}
+\begin{lstlisting}
+**Network created successfully!**
+
+- **Initial genes:** TNF, TNFRSF1A, TRADD, TRAF2, RIPK1, FADD, CASP8, CFLAR, BCL2, BAX, MCL1, XIAP, BIRC2, BIRC3, IKBKB, NFKBIA, RELA, MAP3K7, MAPK8, JUN, FOS, PIK3CA, AKT1, PTEN, MTOR, CCND1, CDK4, E2F1, MYC, TP53, CDKN1A, CASP3, CASP9, APAF1
+- **Total nodes:** 34
+- **Total interactions:** 188
+
+**Preview of interactions (first 100 rows):**
+
+source    target    Effect
+TNF       TNFRSF1A  stimulation
+TNF       TRADD     inhibition
+TNF       CASP8     stimulation
+CFLAR     TNF       inhibition
+TNF       IKBKB     stimulation
+TNF       NFKBIA    inhibition
+TNF       RELA      stimulation
+TNF       MAPK8     stimulation
+TNF       JUN       stimulation
+FOS       TNF       stimulation
+TNF       AKT1      stimulation
+PTEN      TNF       inhibition
+CCND1     TNF       inhibition
+MYC       TNF       stimulation
+TNF       CASP3     stimulation
+TNFRSF1A  TRADD     stimulation
+TNFRSF1A  TRAF2     stimulation
+TNFRSF1A  RIPK1     stimulation
+TNFRSF1A  FADD      stimulation
+TNFRSF1A  CASP8     stimulation
+TNFRSF1A  NFKBIA    inhibition
+TNFRSF1A  RELA      stimulation
+TNFRSF1A  CASP3     stimulation
+TRADD     TRAF2     bimodal
+TRADD     RIPK1     stimulation
+TRADD     FADD      stimulation
+TRADD     CASP8     stimulation
+CFLAR     TRADD     inhibition
+TRADD     BIRC2     stimulation
+TRADD     IKBKB     stimulation
+TRADD     RELA      stimulation
+TRAF2     RIPK1     stimulation
+TRAF2     CASP8     stimulation
+TRAF2     BIRC2     stimulation
+TRAF2     BIRC3     stimulation
+TRAF2     IKBKB     stimulation
+TRAF2     NFKBIA    stimulation
+RELA      TRAF2     stimulation
+TRAF2     RELA      stimulation
+TRAF2     MAP3K7    stimulation
+TRAF2     MAPK8     stimulation
+TRAF2     TP53      stimulation
+FADD      RIPK1     stimulation
+CASP8     RIPK1     inhibition
+CFLAR     RIPK1     inhibition
+BIRC2     RIPK1     stimulation
+BIRC3     RIPK1     stimulation
+RIPK1     IKBKB     stimulation
+RIPK1     RELA      stimulation
+FADD      CASP8     stimulation
+CFLAR     FADD      bimodal
+BIRC2     FADD      inhibition
+FADD      IKBKB     stimulation
+TP53      FADD      stimulation
+FADD      CASP3     stimulation
+CFLAR     CASP8     inhibition
+BCL2      CASP8     inhibition
+BIRC2     CASP8     inhibition
+BIRC3     CASP8     inhibition
+CASP8     IKBKB     stimulation
+RELA      CASP8     inhibition
+E2F1      CASP8     stimulation
+TP53      CASP8     stimulation
+CASP8     CASP3     stimulation
+BIRC2     CFLAR     inhibition
+BIRC3     CFLAR     inhibition
+MAPK8     CFLAR     inhibition
+AKT1      CFLAR     inhibition
+MYC       CFLAR     inhibition
+TP53      CFLAR     stimulation
+BCL2      BAX       inhibition
+RELA      BCL2      stimulation
+MAPK8     BCL2      bimodal
+AKT1      BCL2      bimodal
+MTOR      BCL2      stimulation
+BCL2      CCND1     inhibition
+E2F1      BCL2      bimodal
+BCL2      MYC       stimulation
+TP53      BCL2      inhibition
+CASP3     BCL2      inhibition
+BCL2      APAF1     inhibition
+MCL1      BAX       inhibition
+RELA      BAX   
+... [truncated]
+\end{lstlisting}
+\end{toolokbox}
+\begin{toolokbox}
+\textbf{Tool:} \texttt{mcp\_neko\_create\_network} (\checkmark)
+\textit{Calling `mcp\_neko\_create\_network`}
+\end{toolokbox}
+\begin{toolokbox}
+\textbf{Tool:} \texttt{mcp\_neko\_remove\_bimodal\_interactions} (\checkmark)
+\textit{Calling `mcp\_neko\_remove\_bimodal\_interactions`}
+\end{toolokbox}
+\begin{toolokbox}
+\textbf{Tool:} \texttt{mcp\_neko\_check\_disconnected\_nodes} (\checkmark)
+\textit{Calling `mcp\_neko\_check\_disconnected\_nodes`}
+\end{toolokbox}
+\begin{toolokbox}
+\textbf{Tool:} \texttt{mcp\_neko\_export\_network} (\checkmark)
+\textit{Calling `mcp\_neko\_export\_network`}
+\end{toolokbox}
+\begin{toolokbox}
+\textbf{Tool:} \texttt{mcp\_neko\_list\_genes\_and\_interactions} (\checkmark)
+\textit{Calling `mcp\_neko\_list\_genes\_and\_interactions`}
+\end{toolokbox}
+\begin{toolokbox}
+\textbf{Tool:} \texttt{mcp\_neko\_list\_bnet\_files} (\checkmark)
+\textit{Calling `mcp\_neko\_list\_bnet\_files`}
+\end{toolokbox}
+\begin{toolokbox}
+\textbf{Tool:} \texttt{mcp\_maboss\_bnet\_to\_bnd\_and\_cfg} (\checkmark)
+\textit{Calling `mcp\_maboss\_bnet\_to\_bnd\_and\_cfg`}
+\end{toolokbox}
+\begin{toolokbox}
+\textbf{Tool:} \texttt{read\_file} (\checkmark)
+\textit{Calling `read\_file`}
+\end{toolokbox}
+\begin{toolokbox}
+\textbf{Tool:} \texttt{read\_file} (\checkmark)
+\textit{Calling `read\_file`}
+\end{toolokbox}
+\begin{toolokbox}
+\textbf{Tool:} \texttt{mcp\_neko\_remove\_undefined\_interactions} (\checkmark)
+\textit{Calling `mcp\_neko\_remove\_undefined\_interactions`}
+\end{toolokbox}
+\begin{toolokbox}
+\textbf{Tool:} \texttt{mcp\_neko\_export\_network} (\checkmark)
+\textit{Calling `mcp\_neko\_export\_network`}
+\end{toolokbox}
+\begin{toolokbox}
+\textbf{Tool:} \texttt{mcp\_neko\_remove\_gene} (\checkmark)
+\textit{Calling `mcp\_neko\_remove\_gene`}
+\end{toolokbox}
+\begin{toolokbox}
+\textbf{Tool:} \texttt{mcp\_maboss\_check\_bnd\_and\_cfg\_name} (\checkmark)
+\textit{Calling `mcp\_maboss\_check\_bnd\_and\_cfg\_name`}
+\end{toolokbox}
+\begin{toolokbox}
+\textbf{Tool:} \texttt{mcp\_neko\_get\_references} (\checkmark)
+\textit{Calling `mcp\_neko\_get\_references`}
+\end{toolokbox}
+\begin{toolokbox}
+\textbf{Tool:} \texttt{mcp\_neko\_reset\_network} (\checkmark)
+\textit{Calling `mcp\_neko\_reset\_network`}
+\end{toolokbox}
+\begin{toolokbox}
+\textbf{Tool:} \texttt{mcp\_neko\_create\_network} (\checkmark)
+\textit{Calling `mcp\_neko\_create\_network`}
+\end{toolokbox}
+\bigskip\hrule\bigskip
+\section{Request 5}
+\begin{userbox}
+\textbf{User Request}
+\quad \textit{2025-08-10 10:41:27 UTC}
+\quad Model: \texttt{openai/gpt-5}
+
+@agent Try Again
+
+\end{userbox}
+\bigskip\hrule\bigskip
+\section{Request 7}
+\begin{userbox}
+\textbf{User Request}
+\quad \textit{2025-08-10 10:41:30 UTC}
+\quad Model: \texttt{openai/gpt-5}
+
+@agent Try Again
+
+\end{userbox}
+\bigskip\hrule\bigskip
+\section{Request 9}
+\begin{userbox}
+\textbf{User Request}
+\quad \textit{2025-08-10 10:41:41 UTC}
+\quad Model: \texttt{openai/gpt-5}
+
+@agent Try Again
+
+\end{userbox}
+\bigskip\hrule\bigskip
+\section{Request 11}
+\begin{userbox}
+\textbf{User Request}
+\quad \textit{2025-08-10 10:41:43 UTC}
+\quad Model: \texttt{openai/gpt-5}
+
+@agent Try Again
+
+\end{userbox}
+\bigskip\hrule\bigskip
+\section{Request 13}
+\begin{userbox}
+\textbf{User Request}
+\quad \textit{2025-08-10 10:41:45 UTC}
+\quad Model: \texttt{openai/gpt-5}
+
+@agent Try Again
+
+\end{userbox}
+\bigskip\hrule\bigskip
+\section{Request 15}
+\begin{userbox}
+\textbf{User Request}
+\quad \textit{2025-08-10 10:41:47 UTC}
+\quad Model: \texttt{openai/gpt-5}
+
+@agent Try Again
+
+\end{userbox}
+\bigskip\hrule\bigskip
+\section{Request 17}
+\begin{userbox}
+\textbf{User Request}
+\quad \textit{2025-08-11 06:40:32 UTC}
+\quad Model: \texttt{openai/gpt-5}
+
+@agent Try Again
+
+\end{userbox}
+\bigskip\hrule\bigskip
+\section{Request 19}
+\begin{userbox}
+\textbf{User Request}
+\quad \textit{2025-08-11 06:43:18 UTC}
+\quad Model: \texttt{openai/gpt-5}
+
+@agent Try Again
+
+\end{userbox}
+\begin{toolokbox}
+\textbf{Tool:} \texttt{mcp\_neko\_remove\_bimodal\_interactions} (\checkmark)
+\textit{Running `remove\_bimodal\_interactions`}
+\begin{lstlisting}
+Removed 18 bimodal interactions from the network.
+{
+  "result": "Removed 18 bimodal interactions from the network."
+}
+\end{lstlisting}
+\end{toolokbox}
+\begin{toolokbox}
+\textbf{Tool:} \texttt{mcp\_neko\_check\_disconnected\_nodes} (\checkmark)
+\textit{Running `check\_disconnected\_nodes`}
+\begin{lstlisting}
+All nodes are connected.
+{
+  "result": "All nodes are connected."
+}
+\end{lstlisting}
+\end{toolokbox}
+\begin{toolokbox}
+\textbf{Tool:} \texttt{mcp\_neko\_export\_network} (\checkmark)
+\textit{Running `export\_network`}
+\begin{lstlisting}
+**Exported to** `Network_1.bnet`
+
+_Preview (first 100 lines) of the BNET file:_
+
+gene      expression
+TNF       (FOS | MYC) & !(CFLAR | PTEN | CCND1)
+TNFRSF1A  (TNF)
+TRADD     (TNFRSF1A) & !(TNF | CFLAR)
+TRAF2     (TNFRSF1A | RELA)
+RIPK1     (TNFRSF1A | TRADD | TRAF2 | FADD | BIRC2 | BIRC3) & !(CASP8 | CFLAR)
+FADD      (TNFRSF1A | TRADD | TP53) & !(BIRC2)
+CASP8     (TNF | TNFRSF1A | TRADD | TRAF2 | FADD | E2F1 | TP53) & !(CFLAR | BCL2 | BIRC2 | BIRC3 | RELA)
+CFLAR     (TP53) & !(BIRC2 | BIRC3 | MAPK8 | AKT1 | MYC)
+BCL2      (RELA | MTOR) & !(TP53 | CASP3)
+BAX       (MAPK8 | MYC | TP53 | CASP3) & !(BCL2 | MCL1 | RELA | AKT1)
+MCL1      (AKT1) & !(E2F1 | CASP3)
+XIAP      (RELA | AKT1 | TP53)
+BIRC2     (TRADD | TRAF2 | BIRC3 | RELA)
+BIRC3     (TRAF2 | NFKBIA | RELA) & !(TP53)
+IKBKB     (TNF | TRADD | TRAF2 | RIPK1 | FADD | CASP8 | MAP3K7 | AKT1) & !(CASP3)
+NFKBIA    (TRAF2 | CASP3) & !(TNF | TNFRSF1A | RELA | JUN)
+RELA      (TNF | TNFRSF1A | TRADD | TRAF2 | RIPK1 | IKBKB | PIK3CA | E2F1) & !(CASP3)
+MAP3K7    (TRAF2 | XIAP)
+MAPK8     (TNF | TRAF2 | XIAP | MAP3K7 | PIK3CA)
+JUN       (TNF | RELA | MAPK8 | FOS | AKT1)
+FOS       (RELA | MAPK8 | AKT1)
+PIK3CA    !(PTEN)
+AKT1      (TNF | MAPK8 | MTOR) & !(CASP3)
+PTEN      (XIAP | TP53 | CASP3) & !(RELA | JUN | FOS | AKT1)
+MTOR      (IKBKB | PIK3CA)
+CCND1     (RELA | JUN | FOS | PIK3CA | MYC) & !(BCL2 | CDKN1A)
+CDK4      (JUN | FOS | CCND1 | MYC) & !(CDKN1A)
+E2F1      (PTEN) & !(CDKN1A)
+MYC       (BCL2 | MAPK8 | PIK3CA | E2F1) & !(RELA | JUN)
+TP53      (TRAF2 | XIAP | MAPK8 | E2F1) & !(JUN | FOS)
+CDKN1A    (MAPK8 | JUN | CASP3) & !(MYC)
+CASP3     (TNF | TNFRSF1A | FADD | CASP8 | E2F1) & !(XIAP | BIRC2 | BIRC3)
+CASP9     (E2F1 | APAF1) & !(BIRC2 | BIRC3)
+APAF1     (BAX | E2F1 | TP53) & !(BCL2 | XIAP | BIRC2 | BIRC3 | AKT1)
+{
+  "result": "**Exported to** `Network_1.bnet`\n\n_Preview (first 100 lines) of the BNET file:_\n\ngene      expression\nTNF       (FOS | MYC) & !(CFLAR | PTEN | CCND1)\nTNFRSF1A  (TNF)\nTRADD     (TNFRSF1A) & !(TNF | CFLAR)\nTRAF2     (TNFRSF1A | RELA)\nRIPK1     (TNFRSF1A | TRADD | TRAF2 | FADD | BIRC2 | BIRC3) & !(CASP8 | CFLAR)\nFADD      (TNFRSF1A | TRADD | TP53) & !(BIRC2)\nCASP8     (TNF | TNFRSF1A | TRADD | TRAF2 | FADD | E2F1 | TP53) & !(CFLAR | BCL2 | BIRC2 | BIRC3 | RELA)\nCFLAR     (TP53) & !(BIRC2 | BIRC3 | MAPK8 | AKT1 | MYC)\nBCL2      (RELA | MTOR) & !(TP53 | CASP3)\nBAX       (MAPK8 | MYC | TP53 | CASP3) & !(BCL2 | MCL1 | RELA | AKT1)\nMCL1      (AKT1) & !(E2F1 | CASP3)\nXIAP      (RELA | AKT1 | TP53)\nBIRC2     (TRADD | TRAF2 | BIRC3 | RELA)\nBIRC3     (TRAF2 | NFKBIA | RELA) & !(TP53)\nIKBKB     (TNF | TRADD | TRAF2 | RIPK1 | FADD | CASP8 | MAP3K7 | AKT1) & !(CASP3)\nNFKBIA    (TRAF2 | CASP3) & !(TNF | TNFRSF1A | RELA | JUN)\nRELA      (TNF | TNFRSF1A | TRADD | TRAF2 | RIPK1 | IKBKB | PIK3CA | E2F1) & !(CASP3)\nMAP3K7    (TRAF2 | XIAP)\nMAPK8     (TNF | TRAF2 | XIAP | MAP3K7 | PIK3CA)\nJUN       (TNF | RELA | MAPK8 | FOS | AKT1)\nFOS       (RELA | MAPK8 | AKT1)\nPIK3CA   
+... [truncated]
+\end{lstlisting}
+\end{toolokbox}
+\begin{toolokbox}
+\textbf{Tool:} \texttt{mcp\_maboss\_bnet\_to\_bnd\_and\_cfg} (\checkmark)
+\textit{Running `bnet\_to\_bnd\_and\_cfg`}
+\begin{lstlisting}
+MaBoSS bnd and cfg files created successfully. Output files: output.bnd, output.cfg
+{
+  "result": "MaBoSS bnd and cfg files created successfully. Output files: output.bnd, output.cfg"
+}
+\end{lstlisting}
+\end{toolokbox}
+\begin{toolokbox}
+\textbf{Tool:} \texttt{mcp\_maboss\_build\_simulation} (\checkmark)
+\textit{Running `build\_simulation`}
+\begin{lstlisting}
+MaBoSS simulation created successfully with the following parameters:
+time_tick: 0.5
+max_time: 1000.0
+sample_count: 10000.0
+discrete_time: 0.0
+use_physrandgen: 0.0
+seed_pseudorandom: 0.0
+display_traj: 0.0
+statdist_traj_count: 0.0
+statdist_cluster_threshold: 1.0
+thread_count: 1.0
+statdist_similarity_cache_max_size: 20000.0
+{
+  "result": "MaBoSS simulation created successfully with the following parameters:\ntime_tick: 0.5\nmax_time: 1000.0\nsample_count: 10000.0\ndiscrete_time: 0.0\nuse_physrandgen: 0.0\nseed_pseudorandom: 0.0\ndisplay_traj: 0.0\nstatdist_traj_count: 0.0\nstatdist_cluster_threshold: 1.0\nthread_count: 1.0\nstatdist_similarity_cache_max_size: 20000.0"
+}
+\end{lstlisting}
+\end{toolokbox}
+\begin{toolokbox}
+\textbf{Tool:} \texttt{mcp\_maboss\_set\_maboss\_output\_nodes} (\checkmark)
+\textit{Running `set\_maboss\_output\_nodes`}
+\begin{lstlisting}
+MaBoSS output nodes set successfully: ['E2F1', 'CASP3']
+{
+  "result": "MaBoSS output nodes set successfully: ['E2F1', 'CASP3']"
+}
+\end{lstlisting}
+\end{toolokbox}
+\begin{toolokbox}
+\textbf{Tool:} \texttt{mcp\_maboss\_run\_simulation} (\checkmark)
+\textit{Running `run\_simulation`}
+\begin{lstlisting}
+MaBoSS simulation run completed successfully.
+{
+  "result": "MaBoSS simulation run completed successfully."
+}
+\end{lstlisting}
+\end{toolokbox}
+\begin{toolokbox}
+\textbf{Tool:} \texttt{mcp\_maboss\_get\_simulation\_result} (\checkmark)
+\textit{Running `get\_simulation\_result`}
+\begin{lstlisting}
+**MaBoSS Simulation: State Probability Trajectory**
+
+_Below is the probability trajectory of each state over time:_
+
+  <nil>
+      1
+{
+  "result": "**MaBoSS Simulation: State Probability Trajectory**\n\n_Below is the probability trajectory of each state over time:_\n\n  <nil>\n      1"
+}
+\end{lstlisting}
+\end{toolokbox}
+\begin{toolokbox}
+\textbf{Tool:} \texttt{mcp\_maboss\_set\_maboss\_initial\_state} (\checkmark)
+\textit{Running `set\_maboss\_initial\_state`}
+\begin{lstlisting}
+Initial state set for MaBoSS simulation: OrderedDict({'FOS': {0: 0.5, 1: 0.5}, 'MYC': {0: 0.5, 1: 0.5}, 'CFLAR': {0: 0.5, 1: 0.5}, 'PTEN': {0: 0.5, 1: 0.5}, 'CCND1': {0: 0.5, 1: 0.5}, 'TNF': {0: 0.0, 1: 1.0}, 'TNFRSF1A': {0: 0.5, 1: 0.5}, 'TRADD': {0: 0.5, 1: 0.5}, 'RELA': {0: 0.5, 1: 0.5}, 'TRAF2': {0: 0.5, 1: 0.5}, 'FADD': {0: 0.5, 1: 0.5}, 'BIRC2': {0: 0.5, 1: 0.5}, 'BIRC3': {0: 0.5, 1: 0.5}, 'CASP8': {0: 0.5, 1: 0.5}, 'RIPK1': {0: 0.5, 1: 0.5}, 'TP53': {0: 0.5, 1: 0.5}, 'E2F1': {0: 0.5, 1: 0.5}, 'BCL2': {0: 0.5, 1: 0.5}, 'MAPK8': {0: 0.5, 1: 0.5}, 'AKT1': {0: 0.5, 1: 0.5}, 'MTOR': {0: 0.5, 1: 0.5}, 'CASP3': {0: 0.5, 1: 0.5}, 'MCL1': {0: 0.5, 1: 0.5}, 'BAX': {0: 0.5, 1: 0.5}, 'XIAP': {0: 0.5, 1: 0.5}, 'NFKBIA': {0: 0.5, 1: 0.5}, 'MAP3K7': {0: 0.5, 1: 0.5}, 'IKBKB': {0: 0.5, 1: 0.5}, 'JUN': {0: 0.5, 1: 0.5}, 'PIK3CA': {0: 0.5, 1: 0.5}, 'CDKN1A': {0: 0.5, 1: 0.5}, 'CDK4': {0: 0.5, 1: 0.5}, 'APAF1': {0: 0.5, 1: 0.5}, 'CASP9': {0: 0.5, 1: 0.5}})
+{
+  "result": "Initial state set for MaBoSS simulation: OrderedDict({'FOS': {0: 0.5, 1: 0.5}, 'MYC': {0: 0.5, 1: 0.5}, 'CFLAR': {0: 0.5, 1: 0.5}, 'PTEN': {0: 0.5, 1: 0.5}, 'CCND1': {0: 0.5, 1: 0.5}, 'TNF': {0: 0.0, 1: 1.0}, 'TNFRSF1A': {0: 0.5, 1: 0.5}, 'TRADD': {0: 0.5, 1: 0.5}, 'RELA': {0: 0.5, 1: 0.5}, 'TRAF2': {0: 0.5, 1: 0.5}, 'FADD': {0: 0.5, 1: 0.5}, 'BIRC2': {0: 0.5, 1: 0.5}, 'BIRC3': {0: 0.5, 1: 0.5}, 'CASP8': {0: 0.5, 1: 0.5}, 'RIPK1': {0: 0.5, 1: 0.5}, 'TP53': {0: 0.5, 1: 0.5}, 'E2F1': {0: 0.5, 1: 0.5}, 'BCL2': {0: 0.5, 1: 0.5}, 'MAPK8': {0: 0.5, 1: 0.5}, 'AKT1': {0: 0.5, 1: 0.5}, 'MTOR': {0: 0.5, 1: 0.5}, 'CASP3': {0: 0.5, 1: 0.5}, 'MCL1': {0: 0.5, 1: 0.5}, 'BAX': {0: 0.5, 1: 0.5}, 'XIAP': {0: 0.5, 1: 0.5}, 'NFKBIA': {0: 0.5, 1: 0.5}, 'MAP3K7': {0: 0.5, 1: 0.5}, 'IKBKB': {0: 0.5, 1: 0.5}, 'JUN': {0: 0.5, 1: 0.5}, 'PIK3CA': {0: 0.5, 1: 0.5}, 'CDKN1A': {0: 0.5, 1: 0.5}, 'CDK4': {0: 0.5, 1: 0.5}, 'APAF1': {0: 0.5, 1: 0.5}, 'CASP9': {0: 0.5, 1: 0.5}})"
+}
+\end{lstlisting}
+\end{toolokbox}
+\begin{toolokbox}
+\textbf{Tool:} \texttt{mcp\_maboss\_run\_simulation} (\checkmark)
+\textit{Running `run\_simulation`}
+\begin{lstlisting}
+MaBoSS simulation run completed successfully.
+{
+  "result": "MaBoSS simulation run completed successfully."
+}
+\end{lstlisting}
+\end{toolokbox}
+\begin{toolokbox}
+\textbf{Tool:} \texttt{mcp\_maboss\_get\_simulation\_result} (\checkmark)
+\textit{Running `get\_simulation\_result`}
+\begin{lstlisting}
+**MaBoSS Simulation: State Probability Trajectory**
+
+_Below is the probability trajectory of each state over time:_
+
+  <nil>
+      1
+{
+  "result": "**MaBoSS Simulation: State Probability Trajectory**\n\n_Below is the probability trajectory of each state over time:_\n\n  <nil>\n      1"
+}
+\end{lstlisting}
+\end{toolokbox}
+\begin{toolokbox}
+\textbf{Tool:} \texttt{copilot\_findFiles} (\checkmark)
+\textit{Searching for files matching `**/Network\_1.bnet`}
+\end{toolokbox}
+\begin{toolokbox}
+\textbf{Tool:} \texttt{mcp\_maboss\_simulate\_mutation} (\checkmark)
+\textit{Running `simulate\_mutation`}
+\begin{lstlisting}
+**MaBoSS Simulation: State Probability Trajectory (with Mutation)**
+
+_Below is the probability trajectory of each state over time after mutation: {'TNF': 'ON'}_
+
+  <nil>
+      1
+{
+  "result": "**MaBoSS Simulation: State Probability Trajectory (with Mutation)**\n\n_Below is the probability trajectory of each state over time after mutation: {'TNF': 'ON'}_\n\n  <nil>\n      1"
+}
+\end{lstlisting}
+\end{toolokbox}
+\begin{toolokbox}
+\textbf{Tool:} \texttt{mcp\_maboss\_get\_network\_nodes} (\checkmark)
+\textit{Running `get\_network\_nodes`}
+\begin{lstlisting}
+Nodes in the MaBoSS network: FOS, MYC, CFLAR, PTEN, CCND1, TNF, TNFRSF1A, TRADD, RELA, TRAF2, FADD, BIRC2, BIRC3, CASP8, RIPK1, TP53, E2F1, BCL2, MAPK8, AKT1, MTOR, CASP3, MCL1, BAX, XIAP, NFKBIA, MAP3K7, IKBKB, JUN, PIK3CA, CDKN1A, CDK4, APAF1, CASP9
+{
+  "result": "Nodes in the MaBoSS network: FOS, MYC, CFLAR, PTEN, CCND1, TNF, TNFRSF1A, TRADD, RELA, TRAF2, FADD, BIRC2, BIRC3, CASP8, RIPK1, TP53, E2F1, BCL2, MAPK8, AKT1, MTOR, CASP3, MCL1, BAX, XIAP, NFKBIA, MAP3K7, IKBKB, JUN, PIK3CA, CDKN1A, CDK4, APAF1, CASP9"
+}
+\end{lstlisting}
+\end{toolokbox}
+\begin{toolokbox}
+\textbf{Tool:} \texttt{mcp\_maboss\_get\_maboss\_initial\_state} (\checkmark)
+\textit{Running `get\_maboss\_initial\_state`}
+\begin{lstlisting}
+Initial state of the MaBoSS simulation: {'FOS': [0, 1], 'MYC': [0, 1], 'CFLAR': [0, 1], 'PTEN': [0, 1], 'CCND1': [0, 1], 'TNF': 1, 'TNFRSF1A': [0, 1], 'TRADD': [0, 1], 'RELA': [0, 1], 'TRAF2': [0, 1], 'FADD': [0, 1], 'BIRC2': [0, 1], 'BIRC3': [0, 1], 'CASP8': [0, 1], 'RIPK1': [0, 1], 'TP53': [0, 1], 'E2F1': [0, 1], 'BCL2': [0, 1], 'MAPK8': [0, 1], 'AKT1': [0, 1], 'MTOR': [0, 1], 'CASP3': [0, 1], 'MCL1': [0, 1], 'BAX': [0, 1], 'XIAP': [0, 1], 'NFKBIA': [0, 1], 'MAP3K7': [0, 1], 'IKBKB': [0, 1], 'JUN': [0, 1], 'PIK3CA': [0, 1], 'CDKN1A': [0, 1], 'CDK4': [0, 1], 'APAF1': [0, 1], 'CASP9': [0, 1]}
+{
+  "result": "Initial state of the MaBoSS simulation: {'FOS': [0, 1], 'MYC': [0, 1], 'CFLAR': [0, 1], 'PTEN': [0, 1], 'CCND1': [0, 1], 'TNF': 1, 'TNFRSF1A': [0, 1], 'TRADD': [0, 1], 'RELA': [0, 1], 'TRAF2': [0, 1], 'FADD': [0, 1], 'BIRC2': [0, 1], 'BIRC3': [0, 1], 'CASP8': [0, 1], 'RIPK1': [0, 1], 'TP53': [0, 1], 'E2F1': [0, 1], 'BCL2': [0, 1], 'MAPK8': [0, 1], 'AKT1': [0, 1], 'MTOR': [0, 1], 'CASP3': [0, 1], 'MCL1': [0, 1], 'BAX': [0, 1], 'XIAP': [0, 1], 'NFKBIA': [0, 1], 'MAP3K7': [0, 1], 'IKBKB': [0, 1], 'JUN': [0, 1], 'PIK3CA': [0, 1], 'CDKN1A': [0, 1], 'CDK4': [0, 1], 'APAF1': [0, 1], 'CASP9': [0, 1]}"
+}
+\end{lstlisting}
+\end{toolokbox}
+\begin{toolokbox}
+\textbf{Tool:} \texttt{mcp\_maboss\_get\_maboss\_logical\_rules} (\checkmark)
+\textit{Running `get\_maboss\_logical\_rules`}
+\begin{lstlisting}
+Logical rules of the MaBoSS simulation:
+{'RELA': '(!RELA & ((TNF | (TNFRSF1A | (TRADD | (TRAF2 | (RIPK1 | (IKBKB | (PIK3CA | E2F1))))))) & !(CASP3))) | (RELA & ((TNF | (TNFRSF1A | (TRADD | (TRAF2 | (RIPK1 | (IKBKB | (PIK3CA | E2F1))))))) & !(CASP3)))', 'MAPK8': '(!MAPK8 & (TNF | (TRAF2 | (XIAP | (MAP3K7 | PIK3CA))))) | (MAPK8 & (TNF | (TRAF2 | (XIAP | (MAP3K7 | PIK3CA)))))', 'AKT1': '(!AKT1 & ((TNF | (MAPK8 | MTOR)) & !(CASP3))) | (AKT1 & ((TNF | (MAPK8 | MTOR)) & !(CASP3)))', 'FOS': '(!FOS & (RELA | (MAPK8 | AKT1))) | (FOS & (RELA | (MAPK8 | AKT1)))', 'BCL2': '(!BCL2 & ((RELA | MTOR) & !(TP53 | CASP3))) | (BCL2 & ((RELA | MTOR) & !(TP53 | CASP3)))', 'PIK3CA': '(!PIK3CA & !(PTEN)) | (PIK3CA & !(PTEN))', 'E2F1': '(!E2F1 & ((PTEN) & !(CDKN1A))) | (E2F1 & ((PTEN) & !(CDKN1A)))', 'JUN': '(!JUN & (TNF | (RELA | (MAPK8 | (FOS | AKT1))))) | (JUN & (TNF | (RELA | (MAPK8 | (FOS | AKT1)))))', 'MYC': '(!MYC & ((BCL2 | (MAPK8 | (PIK3CA | E2F1))) & !(RELA | JUN))) | (MYC & ((BCL2 | (MAPK8 | (PIK3CA | E2F1))) & !(RELA | JUN)))', 'TP53': '(!TP53 & ((TRAF2 | (XIAP | (MAPK8 | E2F1))) & !(JUN | FOS))) | (TP53 & ((TRAF2 | (XIAP | (MAPK8 | E2F1))) & !(JUN | FOS)))', 'BIRC2': '(!BIRC2 & (TRADD | (TRAF2 | (BIRC3 | RELA)))) | (BIRC2 & (TRADD | (TRAF2 | (BIRC3 | RELA))))', 'BIRC3': '(!BIRC3 & ((TRAF2 | (NFKBIA | RELA)) & !(TP53))) | (BIRC3 & ((TRAF2 | (NFKBIA | RELA)) & !(TP53)))', 'CFLAR': '(!CFLAR & ((TP53) & !(BIRC2 | (BIRC3 | (MAPK8 | (AKT1 | MYC)))))) | (CFLAR & ((TP53) & !(BIRC2 | (BIRC3 | (MAPK8 | (AKT1 | MYC))))))', 'XIAP': '(!XIAP & (RELA | (AKT1 | TP53))) | (XIAP & (RELA | (AKT1 | TP53)))', 'CASP3': '(!CASP3 & ((TNF | (TNFRSF1A | (FADD | (CASP8 | E2F1)))) & !(XIAP | (BIRC2 | BIRC3)))) | (CASP3 & ((TNF | (TNFRSF1A | (FADD | (CASP8 | E2F1)))) & !(XIAP | (BIRC2 | BIRC3))))', 'PTEN': '(!PTEN & ((XIAP | (TP53 | CASP3)) & !(RELA | (JUN | (FOS | AKT1))))) | (PTEN & ((XIAP | (TP53 | CASP3)) & !(RELA | (JUN | (FOS | AKT1)))))', 'CDKN1A': '(!CDKN1A & ((MAPK8 | (JUN | CASP3)) & !(MYC))) | (CDKN1A & ((MAPK8 | (JUN | CASP3)) & !(MYC)))', 'CCND1': '(!CCND1 & ((RELA | (JUN | (FOS | (PIK3CA | MYC)))) & !(BCL2 | CDKN1A))) | (CCND1 & ((RELA | (JUN | (FOS | (PIK3CA | MYC)))) & !(BCL2 | CDKN1A)))', 'TNF': '(!TNF & ((FOS | MYC) & !(CFLAR | (PTEN | CCND1)))) | (TNF & ((FOS | MYC) & !(CFLAR | (PTEN | CCND1))))', 'TNFRSF1A': '(!TNFRSF1A & (TNF)) | (TNFRSF1A & (TNF))', 'TRADD': '(!TRADD & ((TNFRSF1A) & !(TNF | CFLAR))) | (TRADD & ((TNFRSF1A) & !(TNF | CFLAR)))', 'TRAF2': '(!TRAF2 & (TNFRSF1A | RELA)) | (TRAF2 & (TNFRSF1A | RELA))', 'RIPK1': '(!RIPK1 & ((TNFRSF1A | (TRADD | (TRAF2 | (FADD | (BIRC2 | BIRC3))))) & !(CASP8 | CFLAR))) | (RIPK1 & ((TNFRSF1A | (TRADD | (TRAF2 | (FADD | (BIRC2 | BIRC3))))) & !(CASP8 | CFLAR)))', 'IKBKB': '(!IKBKB & ((TNF | (TRADD | (TRAF2 | (RIPK1 | (FADD | (CASP8 | (MAP3K7 | AKT1))))))) & !(CASP3))) | (IKBKB & ((TNF | (TRADD | (TRAF2 | (RIPK1 | (FADD | (CASP8 | (MAP3K7 | AKT1))))))) & !(CASP3)))', 'FADD': '(!FADD & ((TNFRSF1A | (TRADD | TP53)) & !(BIRC2))) |
+... [truncated]
+\end{lstlisting}
+\end{toolokbox}
+\begin{toolokbox}
+\textbf{Tool:} \texttt{mcp\_maboss\_update\_maboss\_parameters} (\checkmark)
+\textit{Running `update\_maboss\_parameters`}
+\begin{lstlisting}
+MaBoSS parameters updated successfully.
+{
+  "result": "MaBoSS parameters updated successfully."
+}
+\end{lstlisting}
+\end{toolokbox}
+\begin{toolokbox}
+\textbf{Tool:} \texttt{mcp\_maboss\_run\_simulation} (\checkmark)
+\textit{Running `run\_simulation`}
+\begin{lstlisting}
+MaBoSS simulation run completed successfully.
+{
+  "result": "MaBoSS simulation run completed successfully."
+}
+\end{lstlisting}
+\end{toolokbox}
+\begin{toolokbox}
+\textbf{Tool:} \texttt{mcp\_maboss\_get\_simulation\_result} (\checkmark)
+\textit{Running `get\_simulation\_result`}
+\begin{lstlisting}
+**MaBoSS Simulation: State Probability Trajectory**
+
+_Below is the probability trajectory of each state over time:_
+
+  <nil>
+      1
+{
+  "result": "**MaBoSS Simulation: State Probability Trajectory**\n\n_Below is the probability trajectory of each state over time:_\n\n  <nil>\n      1"
+}
+\end{lstlisting}
+\end{toolokbox}
+\begin{toolokbox}
+\textbf{Tool:} \texttt{mcp\_maboss\_update\_maboss\_parameters} (\checkmark)
+\textit{Running `update\_maboss\_parameters`}
+\begin{lstlisting}
+MaBoSS parameters updated successfully.
+{
+  "result": "MaBoSS parameters updated successfully."
+}
+\end{lstlisting}
+\end{toolokbox}
+\begin{toolokbox}
+\textbf{Tool:} \texttt{mcp\_maboss\_run\_simulation} (\checkmark)
+\textit{Running `run\_simulation`}
+\begin{lstlisting}
+MaBoSS simulation run completed successfully.
+{
+  "result": "MaBoSS simulation run completed successfully."
+}
+\end{lstlisting}
+\end{toolokbox}
+\begin{toolokbox}
+\textbf{Tool:} \texttt{mcp\_maboss\_get\_simulation\_result} (\checkmark)
+\textit{Running `get\_simulation\_result`}
+\begin{lstlisting}
+**MaBoSS Simulation: State Probability Trajectory**
+
+_Below is the probability trajectory of each state over time:_
+
+  <nil>
+      1
+{
+  "result": "**MaBoSS Simulation: State Probability Trajectory**\n\n_Below is the probability trajectory of each state over time:_\n\n  <nil>\n      1"
+}
+\end{lstlisting}
+\end{toolokbox}
+\begin{toolokbox}
+\textbf{Tool:} \texttt{mcp\_maboss\_set\_maboss\_initial\_state} (\checkmark)
+\textit{Running `set\_maboss\_initial\_state`}
+\begin{lstlisting}
+Initial state set for MaBoSS simulation: OrderedDict({'FOS': {0: 0.5, 1: 0.5}, 'MYC': {0: 0.5, 1: 0.5}, 'CFLAR': {0: 0.5, 1: 0.5}, 'PTEN': {0: 0.5, 1: 0.5}, 'CCND1': {0: 0.5, 1: 0.5}, 'TNF': {0: 1.0, 1: 0.0}, 'TNFRSF1A': {0: 0.5, 1: 0.5}, 'TRADD': {0: 0.5, 1: 0.5}, 'RELA': {0: 0.5, 1: 0.5}, 'TRAF2': {0: 0.5, 1: 0.5}, 'FADD': {0: 0.5, 1: 0.5}, 'BIRC2': {0: 0.5, 1: 0.5}, 'BIRC3': {0: 0.5, 1: 0.5}, 'CASP8': {0: 0.5, 1: 0.5}, 'RIPK1': {0: 0.5, 1: 0.5}, 'TP53': {0: 0.5, 1: 0.5}, 'E2F1': {0: 0.5, 1: 0.5}, 'BCL2': {0: 0.5, 1: 0.5}, 'MAPK8': {0: 0.5, 1: 0.5}, 'AKT1': {0: 0.5, 1: 0.5}, 'MTOR': {0: 0.5, 1: 0.5}, 'CASP3': {0: 0.5, 1: 0.5}, 'MCL1': {0: 0.5, 1: 0.5}, 'BAX': {0: 0.5, 1: 0.5}, 'XIAP': {0: 0.5, 1: 0.5}, 'NFKBIA': {0: 0.5, 1: 0.5}, 'MAP3K7': {0: 0.5, 1: 0.5}, 'IKBKB': {0: 0.5, 1: 0.5}, 'JUN': {0: 0.5, 1: 0.5}, 'PIK3CA': {0: 0.5, 1: 0.5}, 'CDKN1A': {0: 0.5, 1: 0.5}, 'CDK4': {0: 0.5, 1: 0.5}, 'APAF1': {0: 0.5, 1: 0.5}, 'CASP9': {0: 0.5, 1: 0.5}})
+{
+  "result": "Initial state set for MaBoSS simulation: OrderedDict({'FOS': {0: 0.5, 1: 0.5}, 'MYC': {0: 0.5, 1: 0.5}, 'CFLAR': {0: 0.5, 1: 0.5}, 'PTEN': {0: 0.5, 1: 0.5}, 'CCND1': {0: 0.5, 1: 0.5}, 'TNF': {0: 1.0, 1: 0.0}, 'TNFRSF1A': {0: 0.5, 1: 0.5}, 'TRADD': {0: 0.5, 1: 0.5}, 'RELA': {0: 0.5, 1: 0.5}, 'TRAF2': {0: 0.5, 1: 0.5}, 'FADD': {0: 0.5, 1: 0.5}, 'BIRC2': {0: 0.5, 1: 0.5}, 'BIRC3': {0: 0.5, 1: 0.5}, 'CASP8': {0: 0.5, 1: 0.5}, 'RIPK1': {0: 0.5, 1: 0.5}, 'TP53': {0: 0.5, 1: 0.5}, 'E2F1': {0: 0.5, 1: 0.5}, 'BCL2': {0: 0.5, 1: 0.5}, 'MAPK8': {0: 0.5, 1: 0.5}, 'AKT1': {0: 0.5, 1: 0.5}, 'MTOR': {0: 0.5, 1: 0.5}, 'CASP3': {0: 0.5, 1: 0.5}, 'MCL1': {0: 0.5, 1: 0.5}, 'BAX': {0: 0.5, 1: 0.5}, 'XIAP': {0: 0.5, 1: 0.5}, 'NFKBIA': {0: 0.5, 1: 0.5}, 'MAP3K7': {0: 0.5, 1: 0.5}, 'IKBKB': {0: 0.5, 1: 0.5}, 'JUN': {0: 0.5, 1: 0.5}, 'PIK3CA': {0: 0.5, 1: 0.5}, 'CDKN1A': {0: 0.5, 1: 0.5}, 'CDK4': {0: 0.5, 1: 0.5}, 'APAF1': {0: 0.5, 1: 0.5}, 'CASP9': {0: 0.5, 1: 0.5}})"
+}
+\end{lstlisting}
+\end{toolokbox}
+\begin{toolokbox}
+\textbf{Tool:} \texttt{mcp\_maboss\_run\_simulation} (\checkmark)
+\textit{Running `run\_simulation`}
+\begin{lstlisting}
+MaBoSS simulation run completed successfully.
+{
+  "result": "MaBoSS simulation run completed successfully."
+}
+\end{lstlisting}
+\end{toolokbox}
+\begin{toolokbox}
+\textbf{Tool:} \texttt{mcp\_maboss\_get\_simulation\_result} (\checkmark)
+\textit{Running `get\_simulation\_result`}
+\begin{lstlisting}
+**MaBoSS Simulation: State Probability Trajectory**
+
+_Below is the probability trajectory of each state over time:_
+
+  <nil>
+      1
+{
+  "result": "**MaBoSS Simulation: State Probability Trajectory**\n\n_Below is the probability trajectory of each state over time:_\n\n  <nil>\n      1"
+}
+\end{lstlisting}
+\end{toolokbox}
+\begin{toolokbox}
+\textbf{Tool:} \texttt{mcp\_maboss\_visualize\_network\_trajectories} (\checkmark)
+\textit{Running `visualize\_network\_trajectories`}
+\begin{lstlisting}
+Network trajectory plot saved: network_trajectory.png
+You can open it with your image viewer.
+{
+  "result": "Network trajectory plot saved: network_trajectory.png\nYou can open it with your image viewer."
+}
+\end{lstlisting}
+\end{toolokbox}
+\begin{toolokbox}
+\textbf{Tool:} \texttt{copilot\_createDirectory} (\checkmark)
+\textit{Creating [](file:///home/mruscone/Desktop/MCP\_test/gpt\_5/Scenario\_1)}
+\end{toolokbox}
+\begin{toolokbox}
+\textbf{Tool:} \texttt{copilot\_createFile} (\checkmark)
+\textit{Creating [](file:///home/mruscone/Desktop/MCP\_test/gpt\_5/Scenario\_1/README.md)}
+\end{toolokbox}
+\begin{toolokbox}
+\textbf{Tool:} \texttt{copilot\_createFile} (\checkmark)
+\textit{Creating [](file:///home/mruscone/Desktop/MCP\_test/gpt\_5/Scenario\_1/notes.md)}
+\end{toolokbox}
+\begin{toolokbox}
+\textbf{Tool:} \texttt{mcp\_maboss\_set\_maboss\_output\_nodes} (\checkmark)
+\textit{Running `set\_maboss\_output\_nodes`}
+\begin{lstlisting}
+MaBoSS output nodes set successfully: ['TNF', 'TNFRSF1A', 'RELA', 'E2F1', 'CASP3']
+{
+  "result": "MaBoSS output nodes set successfully: ['TNF', 'TNFRSF1A', 'RELA', 'E2F1', 'CASP3']"
+}
+\end{lstlisting}
+\end{toolokbox}
+\begin{toolokbox}
+\textbf{Tool:} \texttt{mcp\_maboss\_update\_maboss\_parameters} (\checkmark)
+\textit{Running `update\_maboss\_parameters`}
+\begin{lstlisting}
+MaBoSS parameters updated successfully.
+{
+  "result": "MaBoSS parameters updated successfully."
+}
+\end{lstlisting}
+\end{toolokbox}
+\begin{toolokbox}
+\textbf{Tool:} \texttt{mcp\_maboss\_set\_maboss\_initial\_state} (\checkmark)
+\textit{Running `set\_maboss\_initial\_state`}
+\begin{lstlisting}
+Initial state set for MaBoSS simulation: OrderedDict({'FOS': {0: 0.5, 1: 0.5}, 'MYC': {0: 0.5, 1: 0.5}, 'CFLAR': {0: 0.5, 1: 0.5}, 'PTEN': {0: 0.5, 1: 0.5}, 'CCND1': {0: 0.5, 1: 0.5}, 'TNF': {0: 1.0, 1: 0.0}, 'TNFRSF1A': {0: 0.5, 1: 0.5}, 'TRADD': {0: 0.5, 1: 0.5}, 'RELA': {0: 0.5, 1: 0.5}, 'TRAF2': {0: 0.5, 1: 0.5}, 'FADD': {0: 0.5, 1: 0.5}, 'BIRC2': {0: 0.5, 1: 0.5}, 'BIRC3': {0: 0.5, 1: 0.5}, 'CASP8': {0: 0.5, 1: 0.5}, 'RIPK1': {0: 0.5, 1: 0.5}, 'TP53': {0: 0.5, 1: 0.5}, 'E2F1': {0: 0.5, 1: 0.5}, 'BCL2': {0: 0.5, 1: 0.5}, 'MAPK8': {0: 0.5, 1: 0.5}, 'AKT1': {0: 0.5, 1: 0.5}, 'MTOR': {0: 0.5, 1: 0.5}, 'CASP3': {0: 0.5, 1: 0.5}, 'MCL1': {0: 0.5, 1: 0.5}, 'BAX': {0: 0.5, 1: 0.5}, 'XIAP': {0: 0.5, 1: 0.5}, 'NFKBIA': {0: 0.5, 1: 0.5}, 'MAP3K7': {0: 0.5, 1: 0.5}, 'IKBKB': {0: 0.5, 1: 0.5}, 'JUN': {0: 0.5, 1: 0.5}, 'PIK3CA': {0: 0.5, 1: 0.5}, 'CDKN1A': {0: 0.5, 1: 0.5}, 'CDK4': {0: 0.5, 1: 0.5}, 'APAF1': {0: 0.5, 1: 0.5}, 'CASP9': {0: 0.5, 1: 0.5}})
+{
+  "result": "Initial state set for MaBoSS simulation: OrderedDict({'FOS': {0: 0.5, 1: 0.5}, 'MYC': {0: 0.5, 1: 0.5}, 'CFLAR': {0: 0.5, 1: 0.5}, 'PTEN': {0: 0.5, 1: 0.5}, 'CCND1': {0: 0.5, 1: 0.5}, 'TNF': {0: 1.0, 1: 0.0}, 'TNFRSF1A': {0: 0.5, 1: 0.5}, 'TRADD': {0: 0.5, 1: 0.5}, 'RELA': {0: 0.5, 1: 0.5}, 'TRAF2': {0: 0.5, 1: 0.5}, 'FADD': {0: 0.5, 1: 0.5}, 'BIRC2': {0: 0.5, 1: 0.5}, 'BIRC3': {0: 0.5, 1: 0.5}, 'CASP8': {0: 0.5, 1: 0.5}, 'RIPK1': {0: 0.5, 1: 0.5}, 'TP53': {0: 0.5, 1: 0.5}, 'E2F1': {0: 0.5, 1: 0.5}, 'BCL2': {0: 0.5, 1: 0.5}, 'MAPK8': {0: 0.5, 1: 0.5}, 'AKT1': {0: 0.5, 1: 0.5}, 'MTOR': {0: 0.5, 1: 0.5}, 'CASP3': {0: 0.5, 1: 0.5}, 'MCL1': {0: 0.5, 1: 0.5}, 'BAX': {0: 0.5, 1: 0.5}, 'XIAP': {0: 0.5, 1: 0.5}, 'NFKBIA': {0: 0.5, 1: 0.5}, 'MAP3K7': {0: 0.5, 1: 0.5}, 'IKBKB': {0: 0.5, 1: 0.5}, 'JUN': {0: 0.5, 1: 0.5}, 'PIK3CA': {0: 0.5, 1: 0.5}, 'CDKN1A': {0: 0.5, 1: 0.5}, 'CDK4': {0: 0.5, 1: 0.5}, 'APAF1': {0: 0.5, 1: 0.5}, 'CASP9': {0: 0.5, 1: 0.5}})"
+}
+\end{lstlisting}
+\end{toolokbox}
+\begin{toolokbox}
+\textbf{Tool:} \texttt{mcp\_maboss\_run\_simulation} (\checkmark)
+\textit{Running `run\_simulation`}
+\begin{lstlisting}
+MaBoSS simulation run completed successfully.
+{
+  "result": "MaBoSS simulation run completed successfully."
+}
+\end{lstlisting}
+\end{toolokbox}
+\begin{toolokbox}
+\textbf{Tool:} \texttt{mcp\_maboss\_get\_simulation\_result} (\checkmark)
+\textit{Running `get\_simulation\_result`}
+\begin{lstlisting}
+**MaBoSS Simulation: State Probability Trajectory**
+
+_Below is the probability trajectory of each state over time:_
+
+  RELA -- TNF -- TNFRSF1A
+                        1
+{
+  "result": "**MaBoSS Simulation: State Probability Trajectory**\n\n_Below is the probability trajectory of each state over time:_\n\n  RELA -- TNF -- TNFRSF1A\n                        1"
+}
+\end{lstlisting}
+\end{toolokbox}
+\begin{toolokbox}
+\textbf{Tool:} \texttt{mcp\_maboss\_simulate\_mutation} (\checkmark)
+\textit{Running `simulate\_mutation`}
+\begin{lstlisting}
+**MaBoSS Simulation: State Probability Trajectory (with Mutation)**
+
+_Below is the probability trajectory of each state over time after mutation: {'XIAP': 'OFF'}_
+
+  E2F1 -- CASP3    RELA -- TNF -- TNFRSF1A
+        0.00564                    0.99436
+{
+  "result": "**MaBoSS Simulation: State Probability Trajectory (with Mutation)**\n\n_Below is the probability trajectory of each state over time after mutation: {'XIAP': 'OFF'}_\n\n  E2F1 -- CASP3    RELA -- TNF -- TNFRSF1A\n        0.00564                    0.99436"
+}
+\end{lstlisting}
+\end{toolokbox}
+\begin{toolokbox}
+\textbf{Tool:} \texttt{mcp\_maboss\_simulate\_mutation} (\checkmark)
+\textit{Running `simulate\_mutation`}
+\begin{lstlisting}
+**MaBoSS Simulation: State Probability Trajectory (with Mutation)**
+
+_Below is the probability trajectory of each state over time after mutation: {'BCL2': 'OFF'}_
+
+  RELA -- TNF -- TNFRSF1A
+                        1
+{
+  "result": "**MaBoSS Simulation: State Probability Trajectory (with Mutation)**\n\n_Below is the probability trajectory of each state over time after mutation: {'BCL2': 'OFF'}_\n\n  RELA -- TNF -- TNFRSF1A\n                        1"
+}
+\end{lstlisting}
+\end{toolokbox}
+\begin{toolokbox}
+\textbf{Tool:} \texttt{mcp\_maboss\_simulate\_mutation} (\checkmark)
+\textit{Running `simulate\_mutation`}
+\begin{lstlisting}
+**MaBoSS Simulation: State Probability Trajectory (with Mutation)**
+
+_Below is the probability trajectory of each state over time after mutation: {'CASP8': 'ON'}_
+
+  RELA -- TNF -- TNFRSF1A
+                        1
+{
+  "result": "**MaBoSS Simulation: State Probability Trajectory (with Mutation)**\n\n_Below is the probability trajectory of each state over time after mutation: {'CASP8': 'ON'}_\n\n  RELA -- TNF -- TNFRSF1A\n                        1"
+}
+\end{lstlisting}
+\end{toolokbox}
+\begin{toolokbox}
+\textbf{Tool:} \texttt{mcp\_neko\_remove\_bimodal\_interactions} (\checkmark)
+\textit{Calling `mcp\_neko\_remove\_bimodal\_interactions`}
+\end{toolokbox}
+\begin{toolokbox}
+\textbf{Tool:} \texttt{mcp\_neko\_check\_disconnected\_nodes} (\checkmark)
+\textit{Calling `mcp\_neko\_check\_disconnected\_nodes`}
+\end{toolokbox}
+\begin{toolokbox}
+\textbf{Tool:} \texttt{mcp\_neko\_export\_network} (\checkmark)
+\textit{Calling `mcp\_neko\_export\_network`}
+\end{toolokbox}
+\begin{toolokbox}
+\textbf{Tool:} \texttt{mcp\_maboss\_bnet\_to\_bnd\_and\_cfg} (\checkmark)
+\textit{Calling `mcp\_maboss\_bnet\_to\_bnd\_and\_cfg`}
+\end{toolokbox}
+\begin{toolokbox}
+\textbf{Tool:} \texttt{mcp\_maboss\_build\_simulation} (\checkmark)
+\textit{Calling `mcp\_maboss\_build\_simulation`}
+\end{toolokbox}
+\begin{toolokbox}
+\textbf{Tool:} \texttt{mcp\_maboss\_set\_maboss\_output\_nodes} (\checkmark)
+\textit{Calling `mcp\_maboss\_set\_maboss\_output\_nodes`}
+\end{toolokbox}
+\begin{toolokbox}
+\textbf{Tool:} \texttt{mcp\_maboss\_update\_maboss\_parameters} (\checkmark)
+\textit{Calling `mcp\_maboss\_update\_maboss\_parameters`}
+\end{toolokbox}
+\begin{toolokbox}
+\textbf{Tool:} \texttt{mcp\_maboss\_run\_simulation} (\checkmark)
+\textit{Calling `mcp\_maboss\_run\_simulation`}
+\end{toolokbox}
+\begin{toolokbox}
+\textbf{Tool:} \texttt{mcp\_maboss\_get\_simulation\_result} (\checkmark)
+\textit{Calling `mcp\_maboss\_get\_simulation\_result`}
+\end{toolokbox}
+\begin{toolokbox}
+\textbf{Tool:} \texttt{mcp\_maboss\_set\_maboss\_initial\_state} (\checkmark)
+\textit{Calling `mcp\_maboss\_set\_maboss\_initial\_state`}
+\end{toolokbox}
+\begin{toolokbox}
+\textbf{Tool:} \texttt{mcp\_maboss\_update\_maboss\_parameters} (\checkmark)
+\textit{Calling `mcp\_maboss\_update\_maboss\_parameters`}
+\end{toolokbox}
+\begin{toolokbox}
+\textbf{Tool:} \texttt{mcp\_maboss\_run\_simulation} (\checkmark)
+\textit{Calling `mcp\_maboss\_run\_simulation`}
+\end{toolokbox}
+\begin{toolokbox}
+\textbf{Tool:} \texttt{mcp\_maboss\_get\_simulation\_result} (\checkmark)
+\textit{Calling `mcp\_maboss\_get\_simulation\_result`}
+\end{toolokbox}
+\begin{toolokbox}
+\textbf{Tool:} \texttt{file\_search} (\checkmark)
+\textit{Calling `file\_search`}
+\end{toolokbox}
+\begin{toolokbox}
+\textbf{Tool:} \texttt{mcp\_maboss\_update\_maboss\_parameters} (\checkmark)
+\textit{Calling `mcp\_maboss\_update\_maboss\_parameters`}
+\end{toolokbox}
+\begin{toolokbox}
+\textbf{Tool:} \texttt{mcp\_maboss\_update\_maboss\_parameters} (\checkmark)
+\textit{Calling `mcp\_maboss\_update\_maboss\_parameters`}
+\end{toolokbox}
+\begin{toolokbox}
+\textbf{Tool:} \texttt{mcp\_maboss\_simulate\_mutation} (\checkmark)
+\textit{Calling `mcp\_maboss\_simulate\_mutation`}
+\end{toolokbox}
+\begin{toolokbox}
+\textbf{Tool:} \texttt{mcp\_maboss\_get\_network\_nodes} (\checkmark)
+\textit{Calling `mcp\_maboss\_get\_network\_nodes`}
+\end{toolokbox}
+\begin{toolokbox}
+\textbf{Tool:} \texttt{mcp\_maboss\_get\_maboss\_initial\_state} (\checkmark)
+\textit{Calling `mcp\_maboss\_get\_maboss\_initial\_state`}
+\end{toolokbox}
+\begin{toolokbox}
+\textbf{Tool:} \texttt{mcp\_maboss\_get\_maboss\_logical\_rules} (\checkmark)
+\textit{Calling `mcp\_maboss\_get\_maboss\_logical\_rules`}
+\end{toolokbox}
+\begin{toolokbox}
+\textbf{Tool:} \texttt{mcp\_maboss\_update\_maboss\_parameters} (\checkmark)
+\textit{Calling `mcp\_maboss\_update\_maboss\_parameters`}
+\end{toolokbox}
+\begin{toolokbox}
+\textbf{Tool:} \texttt{mcp\_maboss\_update\_maboss\_parameters} (\checkmark)
+\textit{Calling `mcp\_maboss\_update\_maboss\_parameters`}
+\end{toolokbox}
+\begin{toolokbox}
+\textbf{Tool:} \texttt{mcp\_maboss\_update\_maboss\_parameters} (\checkmark)
+\textit{Calling `mcp\_maboss\_update\_maboss\_parameters`}
+\end{toolokbox}
+\begin{toolokbox}
+\textbf{Tool:} \texttt{mcp\_maboss\_update\_maboss\_parameters} (\checkmark)
+\textit{Calling `mcp\_maboss\_update\_maboss\_parameters`}
+\end{toolokbox}
+\begin{toolokbox}
+\textbf{Tool:} \texttt{mcp\_maboss\_run\_simulation} (\checkmark)
+\textit{Calling `mcp\_maboss\_run\_simulation`}
+\end{toolokbox}
+\begin{toolokbox}
+\textbf{Tool:} \texttt{mcp\_maboss\_get\_simulation\_result} (\checkmark)
+\textit{Calling `mcp\_maboss\_get\_simulation\_result`}
+\end{toolokbox}
+\begin{toolokbox}
+\textbf{Tool:} \texttt{mcp\_maboss\_update\_maboss\_parameters} (\checkmark)
+\textit{Calling `mcp\_maboss\_update\_maboss\_parameters`}
+\end{toolokbox}
+\begin{toolokbox}
+\textbf{Tool:} \texttt{mcp\_maboss\_run\_simulation} (\checkmark)
+\textit{Calling `mcp\_maboss\_run\_simulation`}
+\end{toolokbox}
+\begin{toolokbox}
+\textbf{Tool:} \texttt{mcp\_maboss\_get\_simulation\_result} (\checkmark)
+\textit{Calling `mcp\_maboss\_get\_simulation\_result`}
+\end{toolokbox}
+\begin{toolokbox}
+\textbf{Tool:} \texttt{mcp\_maboss\_set\_maboss\_initial\_state} (\checkmark)
+\textit{Calling `mcp\_maboss\_set\_maboss\_initial\_state`}
+\end{toolokbox}
+\begin{toolokbox}
+\textbf{Tool:} \texttt{mcp\_maboss\_run\_simulation} (\checkmark)
+\textit{Calling `mcp\_maboss\_run\_simulation`}
+\end{toolokbox}
+\begin{toolokbox}
+\textbf{Tool:} \texttt{mcp\_maboss\_get\_simulation\_result} (\checkmark)
+\textit{Calling `mcp\_maboss\_get\_simulation\_result`}
+\end{toolokbox}
+\begin{toolokbox}
+\textbf{Tool:} \texttt{mcp\_maboss\_visualize\_network\_trajectories} (\checkmark)
+\textit{Calling `mcp\_maboss\_visualize\_network\_trajectories`}
+\end{toolokbox}
+\begin{toolokbox}
+\textbf{Tool:} \texttt{create\_directory} (\checkmark)
+\textit{Calling `create\_directory`}
+\end{toolokbox}
+\begin{toolokbox}
+\textbf{Tool:} \texttt{create\_file} (\checkmark)
+\textit{Calling `create\_file`}
+\end{toolokbox}
+\begin{toolokbox}
+\textbf{Tool:} \texttt{create\_file} (\checkmark)
+\textit{Calling `create\_file`}
+\end{toolokbox}
+\begin{toolokbox}
+\textbf{Tool:} \texttt{mcp\_maboss\_set\_maboss\_output\_nodes} (\checkmark)
+\textit{Calling `mcp\_maboss\_set\_maboss\_output\_nodes`}
+\end{toolokbox}
+\begin{toolokbox}
+\textbf{Tool:} \texttt{mcp\_maboss\_update\_maboss\_parameters} (\checkmark)
+\textit{Calling `mcp\_maboss\_update\_maboss\_parameters`}
+\end{toolokbox}
+\begin{toolokbox}
+\textbf{Tool:} \texttt{mcp\_maboss\_set\_maboss\_initial\_state} (\checkmark)
+\textit{Calling `mcp\_maboss\_set\_maboss\_initial\_state`}
+\end{toolokbox}
+\begin{toolokbox}
+\textbf{Tool:} \texttt{mcp\_maboss\_run\_simulation} (\checkmark)
+\textit{Calling `mcp\_maboss\_run\_simulation`}
+\end{toolokbox}
+\begin{toolokbox}
+\textbf{Tool:} \texttt{mcp\_maboss\_get\_simulation\_result} (\checkmark)
+\textit{Calling `mcp\_maboss\_get\_simulation\_result`}
+\end{toolokbox}
+\begin{toolokbox}
+\textbf{Tool:} \texttt{mcp\_maboss\_simulate\_mutation} (\checkmark)
+\textit{Calling `mcp\_maboss\_simulate\_mutation`}
+\end{toolokbox}
+\begin{toolokbox}
+\textbf{Tool:} \texttt{mcp\_maboss\_simulate\_mutation} (\checkmark)
+\textit{Calling `mcp\_maboss\_simulate\_mutation`}
+\end{toolokbox}
+\begin{toolokbox}
+\textbf{Tool:} \texttt{mcp\_maboss\_simulate\_mutation} (\checkmark)
+\textit{Calling `mcp\_maboss\_simulate\_mutation`}
+\end{toolokbox}
+\begin{toolokbox}
+\textbf{Tool:} \texttt{mcp\_maboss\_update\_maboss\_parameters} (\checkmark)
+\textit{Calling `mcp\_maboss\_update\_maboss\_parameters`}
+\end{toolokbox}
+\begin{toolokbox}
+\textbf{Tool:} \texttt{mcp\_maboss\_set\_maboss\_initial\_state} (\checkmark)
+\textit{Calling `mcp\_maboss\_set\_maboss\_initial\_state`}
+\end{toolokbox}
+\begin{toolokbox}
+\textbf{Tool:} \texttt{mcp\_maboss\_set\_maboss\_initial\_state} (\checkmark)
+\textit{Calling `mcp\_maboss\_set\_maboss\_initial\_state`}
+\end{toolokbox}
+\begin{toolokbox}
+\textbf{Tool:} \texttt{mcp\_maboss\_set\_maboss\_initial\_state} (\checkmark)
+\textit{Calling `mcp\_maboss\_set\_maboss\_initial\_state`}
+\end{toolokbox}
+\begin{toolokbox}
+\textbf{Tool:} \texttt{mcp\_maboss\_set\_maboss\_initial\_state} (\checkmark)
+\textit{Calling `mcp\_maboss\_set\_maboss\_initial\_state`}
+\end{toolokbox}
+\begin{toolokbox}
+\textbf{Tool:} \texttt{mcp\_maboss\_set\_maboss\_initial\_state} (\checkmark)
+\textit{Calling `mcp\_maboss\_set\_maboss\_initial\_state`}
+\end{toolokbox}
+\begin{toolokbox}
+\textbf{Tool:} \texttt{mcp\_maboss\_run\_simulation} (\checkmark)
+\textit{Calling `mcp\_maboss\_run\_simulation`}
+\end{toolokbox}
+\bigskip\hrule\bigskip
+\section{Request 21}
+\begin{userbox}
+\textbf{User Request}
+\quad \textit{2025-08-11 06:59:37 UTC}
+\quad Model: \texttt{openai/gpt-5}
+
+@agent Continue: "Continue to iterate?"
+
+\end{userbox}
+\begin{toolokbox}
+\textbf{Tool:} \texttt{mcp\_maboss\_update\_maboss\_parameters} (\checkmark)
+\textit{Running `update\_maboss\_parameters`}
+\begin{lstlisting}
+MaBoSS parameters updated successfully.
+{
+  "result": "MaBoSS parameters updated successfully."
+}
+\end{lstlisting}
+\end{toolokbox}
+\begin{toolokbox}
+\textbf{Tool:} \texttt{mcp\_maboss\_set\_maboss\_initial\_state} (\checkmark)
+\textit{Running `set\_maboss\_initial\_state`}
+\begin{lstlisting}
+Initial state set for MaBoSS simulation: OrderedDict({'FOS': {0: 0.5, 1: 0.5}, 'MYC': {0: 0.5, 1: 0.5}, 'CFLAR': {0: 0.5, 1: 0.5}, 'PTEN': {0: 0.5, 1: 0.5}, 'CCND1': {0: 0.5, 1: 0.5}, 'TNF': {0: 0.0, 1: 1.0}, 'TNFRSF1A': {0: 0.5, 1: 0.5}, 'TRADD': {0: 0.5, 1: 0.5}, 'RELA': {0: 0.5, 1: 0.5}, 'TRAF2': {0: 0.5, 1: 0.5}, 'FADD': {0: 0.5, 1: 0.5}, 'BIRC2': {0: 0.5, 1: 0.5}, 'BIRC3': {0: 0.5, 1: 0.5}, 'CASP8': {0: 0.5, 1: 0.5}, 'RIPK1': {0: 0.5, 1: 0.5}, 'TP53': {0: 0.5, 1: 0.5}, 'E2F1': {0: 0.5, 1: 0.5}, 'BCL2': {0: 0.5, 1: 0.5}, 'MAPK8': {0: 0.5, 1: 0.5}, 'AKT1': {0: 0.5, 1: 0.5}, 'MTOR': {0: 0.5, 1: 0.5}, 'CASP3': {0: 0.5, 1: 0.5}, 'MCL1': {0: 0.5, 1: 0.5}, 'BAX': {0: 0.5, 1: 0.5}, 'XIAP': {0: 0.5, 1: 0.5}, 'NFKBIA': {0: 0.5, 1: 0.5}, 'MAP3K7': {0: 0.5, 1: 0.5}, 'IKBKB': {0: 0.5, 1: 0.5}, 'JUN': {0: 0.5, 1: 0.5}, 'PIK3CA': {0: 0.5, 1: 0.5}, 'CDKN1A': {0: 0.5, 1: 0.5}, 'CDK4': {0: 0.5, 1: 0.5}, 'APAF1': {0: 0.5, 1: 0.5}, 'CASP9': {0: 0.5, 1: 0.5}})
+{
+  "result": "Initial state set for MaBoSS simulation: OrderedDict({'FOS': {0: 0.5, 1: 0.5}, 'MYC': {0: 0.5, 1: 0.5}, 'CFLAR': {0: 0.5, 1: 0.5}, 'PTEN': {0: 0.5, 1: 0.5}, 'CCND1': {0: 0.5, 1: 0.5}, 'TNF': {0: 0.0, 1: 1.0}, 'TNFRSF1A': {0: 0.5, 1: 0.5}, 'TRADD': {0: 0.5, 1: 0.5}, 'RELA': {0: 0.5, 1: 0.5}, 'TRAF2': {0: 0.5, 1: 0.5}, 'FADD': {0: 0.5, 1: 0.5}, 'BIRC2': {0: 0.5, 1: 0.5}, 'BIRC3': {0: 0.5, 1: 0.5}, 'CASP8': {0: 0.5, 1: 0.5}, 'RIPK1': {0: 0.5, 1: 0.5}, 'TP53': {0: 0.5, 1: 0.5}, 'E2F1': {0: 0.5, 1: 0.5}, 'BCL2': {0: 0.5, 1: 0.5}, 'MAPK8': {0: 0.5, 1: 0.5}, 'AKT1': {0: 0.5, 1: 0.5}, 'MTOR': {0: 0.5, 1: 0.5}, 'CASP3': {0: 0.5, 1: 0.5}, 'MCL1': {0: 0.5, 1: 0.5}, 'BAX': {0: 0.5, 1: 0.5}, 'XIAP': {0: 0.5, 1: 0.5}, 'NFKBIA': {0: 0.5, 1: 0.5}, 'MAP3K7': {0: 0.5, 1: 0.5}, 'IKBKB': {0: 0.5, 1: 0.5}, 'JUN': {0: 0.5, 1: 0.5}, 'PIK3CA': {0: 0.5, 1: 0.5}, 'CDKN1A': {0: 0.5, 1: 0.5}, 'CDK4': {0: 0.5, 1: 0.5}, 'APAF1': {0: 0.5, 1: 0.5}, 'CASP9': {0: 0.5, 1: 0.5}})"
+}
+\end{lstlisting}
+\end{toolokbox}
+\begin{toolokbox}
+\textbf{Tool:} \texttt{mcp\_maboss\_set\_maboss\_initial\_state} (\checkmark)
+\textit{Running `set\_maboss\_initial\_state`}
+\begin{lstlisting}
+Initial state set for MaBoSS simulation: OrderedDict({'FOS': {0: 0.5, 1: 0.5}, 'MYC': {0: 0.5, 1: 0.5}, 'CFLAR': {0: 0.5, 1: 0.5}, 'PTEN': {0: 0.5, 1: 0.5}, 'CCND1': {0: 0.5, 1: 0.5}, 'TNF': {0: 0.0, 1: 1.0}, 'TNFRSF1A': {0: 0.5, 1: 0.5}, 'TRADD': {0: 0.5, 1: 0.5}, 'RELA': {0: 0.5, 1: 0.5}, 'TRAF2': {0: 0.5, 1: 0.5}, 'FADD': {0: 0.5, 1: 0.5}, 'BIRC2': {0: 0.5, 1: 0.5}, 'BIRC3': {0: 0.5, 1: 0.5}, 'CASP8': {0: 0.5, 1: 0.5}, 'RIPK1': {0: 0.5, 1: 0.5}, 'TP53': {0: 0.5, 1: 0.5}, 'E2F1': {0: 0.5, 1: 0.5}, 'BCL2': {0: 0.1, 1: 0.9}, 'MAPK8': {0: 0.5, 1: 0.5}, 'AKT1': {0: 0.5, 1: 0.5}, 'MTOR': {0: 0.5, 1: 0.5}, 'CASP3': {0: 0.5, 1: 0.5}, 'MCL1': {0: 0.5, 1: 0.5}, 'BAX': {0: 0.5, 1: 0.5}, 'XIAP': {0: 0.5, 1: 0.5}, 'NFKBIA': {0: 0.5, 1: 0.5}, 'MAP3K7': {0: 0.5, 1: 0.5}, 'IKBKB': {0: 0.5, 1: 0.5}, 'JUN': {0: 0.5, 1: 0.5}, 'PIK3CA': {0: 0.5, 1: 0.5}, 'CDKN1A': {0: 0.5, 1: 0.5}, 'CDK4': {0: 0.5, 1: 0.5}, 'APAF1': {0: 0.5, 1: 0.5}, 'CASP9': {0: 0.5, 1: 0.5}})
+{
+  "result": "Initial state set for MaBoSS simulation: OrderedDict({'FOS': {0: 0.5, 1: 0.5}, 'MYC': {0: 0.5, 1: 0.5}, 'CFLAR': {0: 0.5, 1: 0.5}, 'PTEN': {0: 0.5, 1: 0.5}, 'CCND1': {0: 0.5, 1: 0.5}, 'TNF': {0: 0.0, 1: 1.0}, 'TNFRSF1A': {0: 0.5, 1: 0.5}, 'TRADD': {0: 0.5, 1: 0.5}, 'RELA': {0: 0.5, 1: 0.5}, 'TRAF2': {0: 0.5, 1: 0.5}, 'FADD': {0: 0.5, 1: 0.5}, 'BIRC2': {0: 0.5, 1: 0.5}, 'BIRC3': {0: 0.5, 1: 0.5}, 'CASP8': {0: 0.5, 1: 0.5}, 'RIPK1': {0: 0.5, 1: 0.5}, 'TP53': {0: 0.5, 1: 0.5}, 'E2F1': {0: 0.5, 1: 0.5}, 'BCL2': {0: 0.1, 1: 0.9}, 'MAPK8': {0: 0.5, 1: 0.5}, 'AKT1': {0: 0.5, 1: 0.5}, 'MTOR': {0: 0.5, 1: 0.5}, 'CASP3': {0: 0.5, 1: 0.5}, 'MCL1': {0: 0.5, 1: 0.5}, 'BAX': {0: 0.5, 1: 0.5}, 'XIAP': {0: 0.5, 1: 0.5}, 'NFKBIA': {0: 0.5, 1: 0.5}, 'MAP3K7': {0: 0.5, 1: 0.5}, 'IKBKB': {0: 0.5, 1: 0.5}, 'JUN': {0: 0.5, 1: 0.5}, 'PIK3CA': {0: 0.5, 1: 0.5}, 'CDKN1A': {0: 0.5, 1: 0.5}, 'CDK4': {0: 0.5, 1: 0.5}, 'APAF1': {0: 0.5, 1: 0.5}, 'CASP9': {0: 0.5, 1: 0.5}})"
+}
+\end{lstlisting}
+\end{toolokbox}
+\begin{toolokbox}
+\textbf{Tool:} \texttt{mcp\_maboss\_set\_maboss\_initial\_state} (\checkmark)
+\textit{Running `set\_maboss\_initial\_state`}
+\begin{lstlisting}
+Initial state set for MaBoSS simulation: OrderedDict({'FOS': {0: 0.5, 1: 0.5}, 'MYC': {0: 0.5, 1: 0.5}, 'CFLAR': {0: 0.5, 1: 0.5}, 'PTEN': {0: 0.5, 1: 0.5}, 'CCND1': {0: 0.5, 1: 0.5}, 'TNF': {0: 0.0, 1: 1.0}, 'TNFRSF1A': {0: 0.5, 1: 0.5}, 'TRADD': {0: 0.5, 1: 0.5}, 'RELA': {0: 0.5, 1: 0.5}, 'TRAF2': {0: 0.5, 1: 0.5}, 'FADD': {0: 0.5, 1: 0.5}, 'BIRC2': {0: 0.5, 1: 0.5}, 'BIRC3': {0: 0.5, 1: 0.5}, 'CASP8': {0: 0.5, 1: 0.5}, 'RIPK1': {0: 0.5, 1: 0.5}, 'TP53': {0: 0.5, 1: 0.5}, 'E2F1': {0: 0.5, 1: 0.5}, 'BCL2': {0: 0.1, 1: 0.9}, 'MAPK8': {0: 0.5, 1: 0.5}, 'AKT1': {0: 0.5, 1: 0.5}, 'MTOR': {0: 0.5, 1: 0.5}, 'CASP3': {0: 0.5, 1: 0.5}, 'MCL1': {0: 0.5, 1: 0.5}, 'BAX': {0: 0.5, 1: 0.5}, 'XIAP': {0: 0.1, 1: 0.9}, 'NFKBIA': {0: 0.5, 1: 0.5}, 'MAP3K7': {0: 0.5, 1: 0.5}, 'IKBKB': {0: 0.5, 1: 0.5}, 'JUN': {0: 0.5, 1: 0.5}, 'PIK3CA': {0: 0.5, 1: 0.5}, 'CDKN1A': {0: 0.5, 1: 0.5}, 'CDK4': {0: 0.5, 1: 0.5}, 'APAF1': {0: 0.5, 1: 0.5}, 'CASP9': {0: 0.5, 1: 0.5}})
+{
+  "result": "Initial state set for MaBoSS simulation: OrderedDict({'FOS': {0: 0.5, 1: 0.5}, 'MYC': {0: 0.5, 1: 0.5}, 'CFLAR': {0: 0.5, 1: 0.5}, 'PTEN': {0: 0.5, 1: 0.5}, 'CCND1': {0: 0.5, 1: 0.5}, 'TNF': {0: 0.0, 1: 1.0}, 'TNFRSF1A': {0: 0.5, 1: 0.5}, 'TRADD': {0: 0.5, 1: 0.5}, 'RELA': {0: 0.5, 1: 0.5}, 'TRAF2': {0: 0.5, 1: 0.5}, 'FADD': {0: 0.5, 1: 0.5}, 'BIRC2': {0: 0.5, 1: 0.5}, 'BIRC3': {0: 0.5, 1: 0.5}, 'CASP8': {0: 0.5, 1: 0.5}, 'RIPK1': {0: 0.5, 1: 0.5}, 'TP53': {0: 0.5, 1: 0.5}, 'E2F1': {0: 0.5, 1: 0.5}, 'BCL2': {0: 0.1, 1: 0.9}, 'MAPK8': {0: 0.5, 1: 0.5}, 'AKT1': {0: 0.5, 1: 0.5}, 'MTOR': {0: 0.5, 1: 0.5}, 'CASP3': {0: 0.5, 1: 0.5}, 'MCL1': {0: 0.5, 1: 0.5}, 'BAX': {0: 0.5, 1: 0.5}, 'XIAP': {0: 0.1, 1: 0.9}, 'NFKBIA': {0: 0.5, 1: 0.5}, 'MAP3K7': {0: 0.5, 1: 0.5}, 'IKBKB': {0: 0.5, 1: 0.5}, 'JUN': {0: 0.5, 1: 0.5}, 'PIK3CA': {0: 0.5, 1: 0.5}, 'CDKN1A': {0: 0.5, 1: 0.5}, 'CDK4': {0: 0.5, 1: 0.5}, 'APAF1': {0: 0.5, 1: 0.5}, 'CASP9': {0: 0.5, 1: 0.5}})"
+}
+\end{lstlisting}
+\end{toolokbox}
+\begin{toolokbox}
+\textbf{Tool:} \texttt{mcp\_maboss\_set\_maboss\_initial\_state} (\checkmark)
+\textit{Running `set\_maboss\_initial\_state`}
+\begin{lstlisting}
+Initial state set for MaBoSS simulation: OrderedDict({'FOS': {0: 0.5, 1: 0.5}, 'MYC': {0: 0.5, 1: 0.5}, 'CFLAR': {0: 0.5, 1: 0.5}, 'PTEN': {0: 0.5, 1: 0.5}, 'CCND1': {0: 0.5, 1: 0.5}, 'TNF': {0: 0.0, 1: 1.0}, 'TNFRSF1A': {0: 0.5, 1: 0.5}, 'TRADD': {0: 0.5, 1: 0.5}, 'RELA': {0: 0.5, 1: 0.5}, 'TRAF2': {0: 0.5, 1: 0.5}, 'FADD': {0: 0.5, 1: 0.5}, 'BIRC2': {0: 0.5, 1: 0.5}, 'BIRC3': {0: 0.5, 1: 0.5}, 'CASP8': {0: 0.5, 1: 0.5}, 'RIPK1': {0: 0.5, 1: 0.5}, 'TP53': {0: 0.5, 1: 0.5}, 'E2F1': {0: 0.5, 1: 0.5}, 'BCL2': {0: 0.1, 1: 0.9}, 'MAPK8': {0: 0.5, 1: 0.5}, 'AKT1': {0: 0.5, 1: 0.5}, 'MTOR': {0: 0.5, 1: 0.5}, 'CASP3': {0: 0.5, 1: 0.5}, 'MCL1': {0: 0.1, 1: 0.9}, 'BAX': {0: 0.5, 1: 0.5}, 'XIAP': {0: 0.1, 1: 0.9}, 'NFKBIA': {0: 0.5, 1: 0.5}, 'MAP3K7': {0: 0.5, 1: 0.5}, 'IKBKB': {0: 0.5, 1: 0.5}, 'JUN': {0: 0.5, 1: 0.5}, 'PIK3CA': {0: 0.5, 1: 0.5}, 'CDKN1A': {0: 0.5, 1: 0.5}, 'CDK4': {0: 0.5, 1: 0.5}, 'APAF1': {0: 0.5, 1: 0.5}, 'CASP9': {0: 0.5, 1: 0.5}})
+{
+  "result": "Initial state set for MaBoSS simulation: OrderedDict({'FOS': {0: 0.5, 1: 0.5}, 'MYC': {0: 0.5, 1: 0.5}, 'CFLAR': {0: 0.5, 1: 0.5}, 'PTEN': {0: 0.5, 1: 0.5}, 'CCND1': {0: 0.5, 1: 0.5}, 'TNF': {0: 0.0, 1: 1.0}, 'TNFRSF1A': {0: 0.5, 1: 0.5}, 'TRADD': {0: 0.5, 1: 0.5}, 'RELA': {0: 0.5, 1: 0.5}, 'TRAF2': {0: 0.5, 1: 0.5}, 'FADD': {0: 0.5, 1: 0.5}, 'BIRC2': {0: 0.5, 1: 0.5}, 'BIRC3': {0: 0.5, 1: 0.5}, 'CASP8': {0: 0.5, 1: 0.5}, 'RIPK1': {0: 0.5, 1: 0.5}, 'TP53': {0: 0.5, 1: 0.5}, 'E2F1': {0: 0.5, 1: 0.5}, 'BCL2': {0: 0.1, 1: 0.9}, 'MAPK8': {0: 0.5, 1: 0.5}, 'AKT1': {0: 0.5, 1: 0.5}, 'MTOR': {0: 0.5, 1: 0.5}, 'CASP3': {0: 0.5, 1: 0.5}, 'MCL1': {0: 0.1, 1: 0.9}, 'BAX': {0: 0.5, 1: 0.5}, 'XIAP': {0: 0.1, 1: 0.9}, 'NFKBIA': {0: 0.5, 1: 0.5}, 'MAP3K7': {0: 0.5, 1: 0.5}, 'IKBKB': {0: 0.5, 1: 0.5}, 'JUN': {0: 0.5, 1: 0.5}, 'PIK3CA': {0: 0.5, 1: 0.5}, 'CDKN1A': {0: 0.5, 1: 0.5}, 'CDK4': {0: 0.5, 1: 0.5}, 'APAF1': {0: 0.5, 1: 0.5}, 'CASP9': {0: 0.5, 1: 0.5}})"
+}
+\end{lstlisting}
+\end{toolokbox}
+\begin{toolokbox}
+\textbf{Tool:} \texttt{mcp\_maboss\_set\_maboss\_initial\_state} (\checkmark)
+\textit{Running `set\_maboss\_initial\_state`}
+\begin{lstlisting}
+Initial state set for MaBoSS simulation: OrderedDict({'FOS': {0: 0.5, 1: 0.5}, 'MYC': {0: 0.5, 1: 0.5}, 'CFLAR': {0: 0.1, 1: 0.9}, 'PTEN': {0: 0.5, 1: 0.5}, 'CCND1': {0: 0.5, 1: 0.5}, 'TNF': {0: 0.0, 1: 1.0}, 'TNFRSF1A': {0: 0.5, 1: 0.5}, 'TRADD': {0: 0.5, 1: 0.5}, 'RELA': {0: 0.5, 1: 0.5}, 'TRAF2': {0: 0.5, 1: 0.5}, 'FADD': {0: 0.5, 1: 0.5}, 'BIRC2': {0: 0.5, 1: 0.5}, 'BIRC3': {0: 0.5, 1: 0.5}, 'CASP8': {0: 0.5, 1: 0.5}, 'RIPK1': {0: 0.5, 1: 0.5}, 'TP53': {0: 0.5, 1: 0.5}, 'E2F1': {0: 0.5, 1: 0.5}, 'BCL2': {0: 0.1, 1: 0.9}, 'MAPK8': {0: 0.5, 1: 0.5}, 'AKT1': {0: 0.5, 1: 0.5}, 'MTOR': {0: 0.5, 1: 0.5}, 'CASP3': {0: 0.5, 1: 0.5}, 'MCL1': {0: 0.1, 1: 0.9}, 'BAX': {0: 0.5, 1: 0.5}, 'XIAP': {0: 0.1, 1: 0.9}, 'NFKBIA': {0: 0.5, 1: 0.5}, 'MAP3K7': {0: 0.5, 1: 0.5}, 'IKBKB': {0: 0.5, 1: 0.5}, 'JUN': {0: 0.5, 1: 0.5}, 'PIK3CA': {0: 0.5, 1: 0.5}, 'CDKN1A': {0: 0.5, 1: 0.5}, 'CDK4': {0: 0.5, 1: 0.5}, 'APAF1': {0: 0.5, 1: 0.5}, 'CASP9': {0: 0.5, 1: 0.5}})
+{
+  "result": "Initial state set for MaBoSS simulation: OrderedDict({'FOS': {0: 0.5, 1: 0.5}, 'MYC': {0: 0.5, 1: 0.5}, 'CFLAR': {0: 0.1, 1: 0.9}, 'PTEN': {0: 0.5, 1: 0.5}, 'CCND1': {0: 0.5, 1: 0.5}, 'TNF': {0: 0.0, 1: 1.0}, 'TNFRSF1A': {0: 0.5, 1: 0.5}, 'TRADD': {0: 0.5, 1: 0.5}, 'RELA': {0: 0.5, 1: 0.5}, 'TRAF2': {0: 0.5, 1: 0.5}, 'FADD': {0: 0.5, 1: 0.5}, 'BIRC2': {0: 0.5, 1: 0.5}, 'BIRC3': {0: 0.5, 1: 0.5}, 'CASP8': {0: 0.5, 1: 0.5}, 'RIPK1': {0: 0.5, 1: 0.5}, 'TP53': {0: 0.5, 1: 0.5}, 'E2F1': {0: 0.5, 1: 0.5}, 'BCL2': {0: 0.1, 1: 0.9}, 'MAPK8': {0: 0.5, 1: 0.5}, 'AKT1': {0: 0.5, 1: 0.5}, 'MTOR': {0: 0.5, 1: 0.5}, 'CASP3': {0: 0.5, 1: 0.5}, 'MCL1': {0: 0.1, 1: 0.9}, 'BAX': {0: 0.5, 1: 0.5}, 'XIAP': {0: 0.1, 1: 0.9}, 'NFKBIA': {0: 0.5, 1: 0.5}, 'MAP3K7': {0: 0.5, 1: 0.5}, 'IKBKB': {0: 0.5, 1: 0.5}, 'JUN': {0: 0.5, 1: 0.5}, 'PIK3CA': {0: 0.5, 1: 0.5}, 'CDKN1A': {0: 0.5, 1: 0.5}, 'CDK4': {0: 0.5, 1: 0.5}, 'APAF1': {0: 0.5, 1: 0.5}, 'CASP9': {0: 0.5, 1: 0.5}})"
+}
+\end{lstlisting}
+\end{toolokbox}
+\begin{toolokbox}
+\textbf{Tool:} \texttt{mcp\_maboss\_run\_simulation} (\checkmark)
+\textit{Running `run\_simulation`}
+\begin{lstlisting}
+MaBoSS simulation run completed successfully.
+{
+  "result": "MaBoSS simulation run completed successfully."
+}
+\end{lstlisting}
+\end{toolokbox}
+\begin{toolokbox}
+\textbf{Tool:} \texttt{mcp\_maboss\_get\_simulation\_result} (\checkmark)
+\textit{Running `get\_simulation\_result`}
+\begin{lstlisting}
+**MaBoSS Simulation: State Probability Trajectory**
+
+_Below is the probability trajectory of each state over time:_
+
+  RELA -- TNF -- TNFRSF1A
+                        1
+{
+  "result": "**MaBoSS Simulation: State Probability Trajectory**\n\n_Below is the probability trajectory of each state over time:_\n\n  RELA -- TNF -- TNFRSF1A\n                        1"
+}
+\end{lstlisting}
+\end{toolokbox}
+\begin{copilotbox}
+\textbf{GitHub Copilot:}
+
+Done. Summary of part 1 (saved under gpt\_5/Scenario\_1):
+
+- Built OmniPath network from seed genes, removed bimodal interactions, connectivity OK.
+- Exported to Network\_1.bnet; generated MaBoSS output.bnd/output.cfg.
+- Set outputs: apoptosis=CASP3, proliferation=E2F1.
+- Baseline (TNF=ON) converges to RELA -- TNF -- TNFRSF1A (NF-κB survival); CASP3/E2F1 remain OFF.
+- Sanity checks: XIAP OFF yields small apoptosis (\textasciitilde{}0.56\%); BCL2 OFF or CASP8 ON didn’t flip fate (XIAP/RELA keep survival).
+
+Next:
+- Calibrate to reveal apoptotic/proliferative attractors (e.g., lower XIAP/BCL2/MCL1/CFLAR or inhibit RELA/IKK), or
+- Proceed to PhysiCell: add TNF substrate, cancer cell type, attach PhysiBoSS with BND/CFG, map TNF→TNFRSF1A input, map CASP3→apoptosis and E2F1→proliferation.
+
+Choose “tune MaBoSS” or “proceed to PhysiCell.”
+
+\end{copilotbox}
+\begin{toolokbox}
+\textbf{Tool:} \texttt{mcp\_maboss\_get\_simulation\_result} (\checkmark)
+\textit{Calling `mcp\_maboss\_get\_simulation\_result`}
+\end{toolokbox}
+\begin{copilotbox}
+\textbf{GitHub Copilot:}
+
+Done. Summary of part 1 (saved under gpt\_5/Scenario\_1):
+
+- Built OmniPath network from seed genes, removed bimodal interactions, connectivity OK.
+- Exported to Network\_1.bnet; generated MaBoSS output.bnd/output.cfg.
+- Set outputs: apoptosis=CASP3, proliferation=E2F1.
+- Baseline (TNF=ON) converges to RELA -- TNF -- TNFRSF1A (NF-κB survival); CASP3/E2F1 remain OFF.
+- Sanity checks: XIAP OFF yields small apoptosis (\textasciitilde{}0.56\%); BCL2 OFF or CASP8 ON didn’t flip fate (XIAP/RELA keep survival).
+
+Next:
+- Calibrate to reveal apoptotic/proliferative attractors (e.g., lower XIAP/BCL2/MCL1/CFLAR or inhibit RELA/IKK), or
+- Proceed to PhysiCell: add TNF substrate, cancer cell type, attach PhysiBoSS with BND/CFG, map TNF→TNFRSF1A input, map CASP3→apoptosis and E2F1→proliferation.
+
+Choose “tune MaBoSS” or “proceed to PhysiCell.”
+
+\end{copilotbox}
+\bigskip\hrule\bigskip
+\section{Request 23}
+\begin{userbox}
+\textbf{User Request}
+\quad \textit{2025-08-11 07:03:59 UTC}
+\quad Model: \texttt{openai/gpt-5}
+
+Let's proceed with PhysiCell
+
+\end{userbox}
+\begin{toolokbox}
+\textbf{Tool:} \texttt{mcp\_maboss\_check\_bnd\_and\_cfg\_name} (\checkmark)
+\textit{Running `check\_bnd\_and\_cfg\_name`}
+\begin{lstlisting}
+BND files: output.bnd
+CFG files: output.cfg
+{
+  "result": "BND files: output.bnd\nCFG files: output.cfg"
+}
+\end{lstlisting}
+\end{toolokbox}
+\begin{toolokbox}
+\textbf{Tool:} \texttt{mcp\_physicell\_create\_session} (\checkmark)
+\textit{Running `create\_session`}
+\begin{lstlisting}
+**Session created:** 8115b1a7... (tnf_fate_s1)
+**Next steps:**
+1. `analyze_biological_scenario()` - Set your biological context
+2. `create_simulation_domain()` - Define spatial framework
+3. Use `get_workflow_status()` to track progress
+{
+  "result": "**Session created:** 8115b1a7... (tnf_fate_s1)\n**Next steps:**\n1. `analyze_biological_scenario()` - Set your biological context\n2. `create_simulation_domain()` - Define spatial framework\n3. Use `get_workflow_status()` to track progress"
+}
+\end{lstlisting}
+\end{toolokbox}
+\begin{toolokbox}
+\textbf{Tool:} \texttt{mcp\_maboss\_check\_bnd\_and\_cfg\_name} (\checkmark)
+\textit{Calling `mcp\_maboss\_check\_bnd\_and\_cfg\_name`}
+\end{toolokbox}
+\begin{toolokbox}
+\textbf{Tool:} \texttt{mcp\_physicell\_create\_session} (\checkmark)
+\textit{Calling `mcp\_physicell\_create\_session`}
+\end{toolokbox}
+\bigskip\hrule\bigskip
+\section{Request 25}
+\begin{userbox}
+\textbf{User Request}
+\quad \textit{2025-08-11 07:05:23 UTC}
+\quad Model: \texttt{openai/gpt-5}
+
+@agent Try Again
+
+\end{userbox}
+\bigskip\hrule\bigskip
+\section{Request 27}
+\begin{userbox}
+\textbf{User Request}
+\quad \textit{2025-08-11 07:05:57 UTC}
+\quad Model: \texttt{openai/gpt-5}
+
+@agent Try Again
+
+\end{userbox}
+\begin{toolokbox}
+\textbf{Tool:} \texttt{mcp\_physicell\_analyze\_biological\_scenario} (\checkmark)
+\textit{Running `analyze\_biological\_scenario`}
+\begin{lstlisting}
+**Biological scenario stored:** TNF diffuses in tumor microenvironment; cancer cells sense TNF via TNFRSF1A and trigger intracellular TNF-fate Boolean network (MaBoSS). CASP3 high => apoptosis; E2F1 high => proliferation. We will simulate 2D monolayer (thin 3D slab), uniform initial TNF=0 that can be introduced later.
+**Next step:** Use `create_simulation_domain()` to set up the spatial framework.
+{
+  "result": "**Biological scenario stored:** TNF diffuses in tumor microenvironment; cancer cells sense TNF via TNFRSF1A and trigger intracellular TNF-fate Boolean network (MaBoSS). CASP3 high => apoptosis; E2F1 high => proliferation. We will simulate 2D monolayer (thin 3D slab), uniform initial TNF=0 that can be introduced later.\n**Next step:** Use `create_simulation_domain()` to set up the spatial framework."
+}
+\end{lstlisting}
+\end{toolokbox}
+\begin{toolokbox}
+\textbf{Tool:} \texttt{mcp\_physicell\_create\_simulation\_domain} (\checkmark)
+\textit{Running `create\_simulation\_domain`}
+\begin{lstlisting}
+**Simulation domain created:**
+- Domain: 1000.0×1000.0×20.0 μm
+- Mesh: 20.0 μm
+- Duration: 24.0 hours
+- Progress: 40%
+**Next step:** Use `add_single_substrate()` to add oxygen, nutrients, or drugs.
+{
+  "result": "**Simulation domain created:**\n- Domain: 1000.0×1000.0×20.0 μm\n- Mesh: 20.0 μm\n- Duration: 24.0 hours\n- Progress: 40%\n**Next step:** Use `add_single_substrate()` to add oxygen, nutrients, or drugs."
+}
+\end{lstlisting}
+\end{toolokbox}
+\begin{toolokbox}
+\textbf{Tool:} \texttt{mcp\_physicell\_add\_single\_substrate} (\checkmark)
+\textit{Running `add\_single\_substrate`}
+\begin{lstlisting}
+**Substrate added:** TNF
+- Diffusion: 100000 μm²/min
+- Decay: 0.01 min⁻¹
+- Initial: 0 dimensionless
+- Progress: 60%
+**Next step:** Use `add_single_cell_type()` to add cancer cells, immune cells, etc.
+{
+  "result": "**Substrate added:** TNF\n- Diffusion: 100000 μm²/min\n- Decay: 0.01 min⁻¹\n- Initial: 0 dimensionless\n- Progress: 60%\n**Next step:** Use `add_single_cell_type()` to add cancer cells, immune cells, etc."
+}
+\end{lstlisting}
+\end{toolokbox}
+\begin{toolokbox}
+\textbf{Tool:} \texttt{mcp\_physicell\_add\_single\_cell\_type} (\checkmark)
+\textit{Running `add\_single\_cell\_type`}
+\begin{lstlisting}
+**Cell type added:** cancer_cell
+- Cycle model: Ki67_basic
+- Progress: 57%
+**Next step:** Use `add_single_cell_rule()` to create cell behavior rules.
+First, use `list_all_available_signals()` and `list_all_available_behaviors()` to see options.
+{
+  "result": "**Cell type added:** cancer_cell\n- Cycle model: Ki67_basic\n- Progress: 57%\n**Next step:** Use `add_single_cell_rule()` to create cell behavior rules.\nFirst, use `list_all_available_signals()` and `list_all_available_behaviors()` to see options."
+}
+\end{lstlisting}
+\end{toolokbox}
+\begin{toolokbox}
+\textbf{Tool:} \texttt{mcp\_physicell\_add\_physiboss\_model} (\checkmark)
+\textit{Running `add\_physiboss\_model`}
+\begin{lstlisting}
+**PhysiBoSS model added to cancer_cell:**
+- Model file: output.bnd
+- Config file: output.cfg
+- Progress: 50%
+**Next step:** Use `configure_physiboss_settings()` to set intracellular parameters.
+{
+  "result": "**PhysiBoSS model added to cancer_cell:**\n- Model file: output.bnd\n- Config file: output.cfg\n- Progress: 50%\n**Next step:** Use `configure_physiboss_settings()` to set intracellular parameters."
+}
+\end{lstlisting}
+\end{toolokbox}
+\begin{toolokbox}
+\textbf{Tool:} \texttt{mcp\_physicell\_configure\_cell\_parameters} (\checkmark)
+\textit{Running `configure\_cell\_parameters`}
+\begin{lstlisting}
+**Configured parameters for cancer_cell:**
+- **Volume:** 2500 μm³ (nuclear: 500 μm³)
+- **Motility:** 0.5 μm/min (persistence: 5 min)
+- **Death rates:** apoptosis 0.0001, necrosis 0.0001 min⁻¹
+{
+  "result": "**Configured parameters for cancer_cell:**\n- **Volume:** 2500 μm³ (nuclear: 500 μm³)\n- **Motility:** 0.5 μm/min (persistence: 5 min)\n- **Death rates:** apoptosis 0.0001, necrosis 0.0001 min⁻¹"
+}
+\end{lstlisting}
+\end{toolokbox}
+\begin{toolokbox}
+\textbf{Tool:} \texttt{mcp\_physicell\_configure\_physiboss\_settings} (\checkmark)
+\textit{Running `configure\_physiboss\_settings`}
+\begin{lstlisting}
+**PhysiBoSS settings configured for cancer_cell:**
+- Time step: 6.0 min
+- Stochasticity: 0
+- Scaling: 1.0
+- Start time: 0.0 min
+- Global inheritance: False
+- Progress: 60%
+**Next step:** Use `add_physiboss_input_link()` to connect PhysiCell signals to boolean nodes.
+{
+  "result": "**PhysiBoSS settings configured for cancer_cell:**\n- Time step: 6.0 min\n- Stochasticity: 0\n- Scaling: 1.0\n- Start time: 0.0 min\n- Global inheritance: False\n- Progress: 60%\n**Next step:** Use `add_physiboss_input_link()` to connect PhysiCell signals to boolean nodes."
+}
+\end{lstlisting}
+\end{toolokbox}
+\begin{toolokbox}
+\textbf{Tool:} \texttt{mcp\_physicell\_add\_physiboss\_input\_link} (\checkmark)
+\textit{Running `add\_physiboss\_input\_link`}
+\begin{lstlisting}
+**PhysiBoSS input:** TNF → TNF
+- Action: activation
+- Threshold: 0.1
+- Smoothing: 0
+- Progress: 70%
+**Next step:** Use `add_physiboss_output_link()` to connect boolean nodes to cell behaviors.
+{
+  "result": "**PhysiBoSS input:** TNF → TNF\n- Action: activation\n- Threshold: 0.1\n- Smoothing: 0\n- Progress: 70%\n**Next step:** Use `add_physiboss_output_link()` to connect boolean nodes to cell behaviors."
+}
+\end{lstlisting}
+\end{toolokbox}
+\begin{toolokbox}
+\textbf{Tool:} \texttt{mcp\_physicell\_add\_physiboss\_output\_link} (\checkmark)
+\textit{Running `add\_physiboss\_output\_link`}
+\begin{lstlisting}
+**PhysiBoSS output:** CASP3 → apoptosis_rate
+- Action: activation
+- Active value: 0.02
+- Base value: 0.0001
+- Smoothing: 0
+- Progress: 80%
+**Next step:** Use `apply_physiboss_mutation()` for genetic perturbations
+{
+  "result": "**PhysiBoSS output:** CASP3 → apoptosis_rate\n- Action: activation\n- Active value: 0.02\n- Base value: 0.0001\n- Smoothing: 0\n- Progress: 80%\n**Next step:** Use `apply_physiboss_mutation()` for genetic perturbations"
+}
+\end{lstlisting}
+\end{toolokbox}
+\begin{toolokbox}
+\textbf{Tool:} \texttt{mcp\_physicell\_add\_physiboss\_output\_link} (\checkmark)
+\textit{Running `add\_physiboss\_output\_link`}
+\begin{lstlisting}
+**PhysiBoSS output:** E2F1 → proliferation_rate
+- Action: activation
+- Active value: 0.02
+- Base value: 0.001
+- Smoothing: 0
+- Progress: 80%
+**Next step:** Use `apply_physiboss_mutation()` for genetic perturbations
+{
+  "result": "**PhysiBoSS output:** E2F1 → proliferation_rate\n- Action: activation\n- Active value: 0.02\n- Base value: 0.001\n- Smoothing: 0\n- Progress: 80%\n**Next step:** Use `apply_physiboss_mutation()` for genetic perturbations"
+}
+\end{lstlisting}
+\end{toolokbox}
+\begin{toolokbox}
+\textbf{Tool:} \texttt{mcp\_physicell\_list\_loaded\_components} (\checkmark)
+\textit{Running `list\_loaded\_components`}
+\begin{lstlisting}
+No XML configuration loaded. Use load_xml_configuration() first.
+{
+  "result": "No XML configuration loaded. Use load_xml_configuration() first."
+}
+\end{lstlisting}
+\end{toolokbox}
+\begin{toolokbox}
+\textbf{Tool:} \texttt{mcp\_physicell\_get\_simulation\_summary} (\checkmark)
+\textit{Running `get\_simulation\_summary`}
+\begin{lstlisting}
+## Simulation Summary
+
+**Session:** 8115b1a7...
+**Progress:** 80%
+
+**Scenario:** TNF diffuses in tumor microenvironment; cancer cells sense TNF via TNFRSF1A and trigger intracellular TNF-fate Boolean network (MaBoSS). CASP3 high => apoptosis; E2F1 high => proliferation. We will simulate 2D monolayer (thin 3D slab), uniform initial TNF=0 that can be introduced later.
+
+**Components:**
+- **Substrates (1):** TNF
+- **Cell Types (1):** cancer_cell
+- **Rules:** 0
+- **PhysiBoSS Models:** 1
+
+**Completed Steps:**
+Substrates Added
+Cell Types Added
+Physiboss Settings Configured
+Domain Setup
+Physiboss Models Added
+Physiboss Outputs Linked
+Scenario Analysis
+Physiboss Inputs Linked
+
+**Next Steps:**
+• configure_cell_parameters - Set cell volumes, motility, death rates
+
+**Ready for export!** Use `export_xml_configuration()` to generate files.
+{
+  "result": "## Simulation Summary\n\n**Session:** 8115b1a7...\n**Progress:** 80%\n\n**Scenario:** TNF diffuses in tumor microenvironment; cancer cells sense TNF via TNFRSF1A and trigger intracellular TNF-fate Boolean network (MaBoSS). CASP3 high => apoptosis; E2F1 high => proliferation. We will simulate 2D monolayer (thin 3D slab), uniform initial TNF=0 that can be introduced later.\n\n**Components:**\n- **Substrates (1):** TNF\n- **Cell Types (1):** cancer_cell\n- **Rules:** 0\n- **PhysiBoSS Models:** 1\n\n**Completed Steps:**\nSubstrates Added\nCell Types Added\nPhysiboss Settings Configured\nDomain Setup\nPhysiboss Models Added\nPhysiboss Outputs Linked\nScenario Analysis\nPhysiboss Inputs Linked\n\n**Next Steps:**\n• configure_cell_parameters - Set cell volumes, motility, death rates\n\n**Ready for export!** Use `export_xml_configuration()` to generate files."
+}
+\end{lstlisting}
+\end{toolokbox}
+\begin{toolokbox}
+\textbf{Tool:} \texttt{mcp\_physicell\_export\_xml\_configuration} (\checkmark)
+\textit{Running `export\_xml\_configuration`}
+\begin{lstlisting}
+## XML Configuration Exported
+
+**File:** PhysiCell_settings.xml (11KB)
+**Source:** Created from scratch
+**Substrates:** 1 (TNF)
+**Cell Types:** 1 (cancer_cell)
+**Progress:** 80%
+
+**Next step:** Copy to PhysiCell project directory and run:
+```bash
+./myproject PhysiCell_settings.xml
+```
+{
+  "result": "## XML Configuration Exported\n\n**File:** PhysiCell_settings.xml (11KB)\n**Source:** Created from scratch\n**Substrates:** 1 (TNF)\n**Cell Types:** 1 (cancer_cell)\n**Progress:** 80%\n\n**Next step:** Copy to PhysiCell project directory and run:\n```bash\n./myproject PhysiCell_settings.xml\n```"
+}
+\end{lstlisting}
+\end{toolokbox}
+\begin{toolokbox}
+\textbf{Tool:} \texttt{mcp\_physicell\_export\_cell\_rules\_csv} (\checkmark)
+\textit{Running `export\_cell\_rules\_csv`}
+\begin{lstlisting}
+**No cell rules to export**
+
+Use add_single_cell_rule() to create signal-behavior relationships first.
+{
+  "result": "**No cell rules to export**\n\nUse add_single_cell_rule() to create signal-behavior relationships first."
+}
+\end{lstlisting}
+\end{toolokbox}
+\begin{copilotbox}
+\textbf{GitHub Copilot:}
+
+Great. I added PhysiBoSS to a cancer cell type and wired TNF→TNF input and CASP3/E2F1 to apoptosis/proliferation. Exported files are ready.
+
+What I configured
+- Domain: 1000 x 1000 x 20 µm, dx=20, duration=24 h.
+- Substrate: TNF (D=1e5 µm²/min, decay=0.01, initial=0).
+- Cell type: cancer\_cell (Ki67\_basic).
+- PhysiBoSS model: output.bnd/output.cfg attached to cancer\_cell.
+- Intracellular settings: dt=6 min, scaling=1, inheritance\_global=false.
+- Links:
+  - Input: TNF signal activates boolean node TNF (threshold 0.1).
+  - Outputs: CASP3 → apoptosis\_rate (base 1e-4, active 0.02), E2F1 → proliferation\_rate (base 0.001, active 0.02).
+- Exported:
+  -
+
+\end{copilotbox}
+\begin{copilotbox}
+\textbf{GitHub Copilot:}
+
+- No cell\_rules.csv (none defined yet)
+
+Next options
+- Add an external TNF source: boundary Dirichlet, uniform pulse, or secreting agents.
+- Seed initial cell population and TNF pulse schedule.
+- Export cell behavior rules CSV or keep rules embedded.
+
+Tell me:
+- How many initial cancer cells and seeding pattern (e.g., center 200 cells, random disk radius 200 µm)?
+- TNF delivery (constant boundary at edges, central injection at t=60 min, or uniform pulse concentration)?
+- Save outputs under gpt\_5/Scenario\_1?
+
+\end{copilotbox}
+\begin{toolokbox}
+\textbf{Tool:} \texttt{mcp\_physicell\_analyze\_biological\_scenario} (\checkmark)
+\textit{Calling `mcp\_physicell\_analyze\_biological\_scenario`}
+\end{toolokbox}
+\begin{toolokbox}
+\textbf{Tool:} \texttt{mcp\_physicell\_create\_simulation\_domain} (\checkmark)
+\textit{Calling `mcp\_physicell\_create\_simulation\_domain`}
+\end{toolokbox}
+\begin{toolokbox}
+\textbf{Tool:} \texttt{mcp\_physicell\_add\_single\_substrate} (\checkmark)
+\textit{Calling `mcp\_physicell\_add\_single\_substrate`}
+\end{toolokbox}
+\begin{toolokbox}
+\textbf{Tool:} \texttt{mcp\_physicell\_add\_single\_cell\_type} (\checkmark)
+\textit{Calling `mcp\_physicell\_add\_single\_cell\_type`}
+\end{toolokbox}
+\begin{toolokbox}
+\textbf{Tool:} \texttt{mcp\_physicell\_add\_physiboss\_model} (\checkmark)
+\textit{Calling `mcp\_physicell\_add\_physiboss\_model`}
+\end{toolokbox}
+\begin{toolokbox}
+\textbf{Tool:} \texttt{mcp\_physicell\_configure\_cell\_parameters} (\checkmark)
+\textit{Calling `mcp\_physicell\_configure\_cell\_parameters`}
+\end{toolokbox}
+\begin{toolokbox}
+\textbf{Tool:} \texttt{mcp\_physicell\_configure\_physiboss\_settings} (\checkmark)
+\textit{Calling `mcp\_physicell\_configure\_physiboss\_settings`}
+\end{toolokbox}
+\begin{toolokbox}
+\textbf{Tool:} \texttt{mcp\_physicell\_add\_physiboss\_input\_link} (\checkmark)
+\textit{Calling `mcp\_physicell\_add\_physiboss\_input\_link`}
+\end{toolokbox}
+\begin{toolokbox}
+\textbf{Tool:} \texttt{mcp\_physicell\_add\_physiboss\_output\_link} (\checkmark)
+\textit{Calling `mcp\_physicell\_add\_physiboss\_output\_link`}
+\end{toolokbox}
+\begin{toolokbox}
+\textbf{Tool:} \texttt{mcp\_physicell\_add\_physiboss\_output\_link} (\checkmark)
+\textit{Calling `mcp\_physicell\_add\_physiboss\_output\_link`}
+\end{toolokbox}
+\begin{toolokbox}
+\textbf{Tool:} \texttt{mcp\_physicell\_list\_loaded\_components} (\checkmark)
+\textit{Calling `mcp\_physicell\_list\_loaded\_components`}
+\end{toolokbox}
+\begin{toolokbox}
+\textbf{Tool:} \texttt{mcp\_physicell\_get\_simulation\_summary} (\checkmark)
+\textit{Calling `mcp\_physicell\_get\_simulation\_summary`}
+\end{toolokbox}
+\begin{toolokbox}
+\textbf{Tool:} \texttt{mcp\_physicell\_export\_xml\_configuration} (\checkmark)
+\textit{Calling `mcp\_physicell\_export\_xml\_configuration`}
+\end{toolokbox}
+\begin{toolokbox}
+\textbf{Tool:} \texttt{mcp\_physicell\_export\_cell\_rules\_csv} (\checkmark)
+\textit{Calling `mcp\_physicell\_export\_cell\_rules\_csv`}
+\end{toolokbox}
+\begin{copilotbox}
+\textbf{GitHub Copilot:}
+
+Great. I added PhysiBoSS to a cancer cell type and wired TNF→TNF input and CASP3/E2F1 to apoptosis/proliferation. Exported files are ready.
+
+What I configured
+- Domain: 1000 x 1000 x 20 µm, dx=20, duration=24 h.
+- Substrate: TNF (D=1e5 µm²/min, decay=0.01, initial=0).
+- Cell type: cancer\_cell (Ki67\_basic).
+- PhysiBoSS model: output.bnd/output.cfg attached to cancer\_cell.
+- Intracellular settings: dt=6 min, scaling=1, inheritance\_global=false.
+- Links:
+  - Input: TNF signal activates boolean node TNF (threshold 0.1).
+  - Outputs: CASP3 → apoptosis\_rate (base 1e-4, active 0.02), E2F1 → proliferation\_rate (base 0.001, active 0.02).
+- Exported:
+  - PhysiCell\_settings.xml
+  - No cell\_rules.csv (none defined yet)
+
+Next options
+- Add an external TNF source: boundary Dirichlet, uniform pulse, or secreting agents.
+- Seed initial cell population and TNF pulse schedule.
+- Export cell behavior rules CSV or keep rules embedded.
+
+Tell me:
+- How many initial cancer cells and seeding pattern (e.g., center 200 cells, random disk radius 200 µm)?
+- TNF delivery (constant boundary at edges, central injection at t=60 min, or uniform pulse concentration)?
+- Save outputs under gpt\_5/Scenario\_1?
+
+\end{copilotbox}
+\bigskip\hrule\bigskip
+\section{Request 29}
+\begin{userbox}
+\textbf{User Request}
+\quad \textit{2025-08-11 07:11:21 UTC}
+\quad Model: \texttt{openai/gpt-5}
+
+Let's assume the TNF diffuses slowly from the edge of the simulation toward the center. Adjust the parameters, then export again the simulation and provide me a summary of the model and of you achieved globally.
+
+\end{userbox}
+\begin{toolokbox}
+\textbf{Tool:} \texttt{mcp\_physicell\_add\_single\_substrate} (\checkmark)
+\textit{Running `add\_single\_substrate`}
+\begin{lstlisting}
+**Substrate added:** TNF
+- Diffusion: 10000 μm²/min
+- Decay: 0.01 min⁻¹
+- Initial: 0 dimensionless
+- Boundary: 1 dimensionless
+- Progress: 80%
+**Next step:** Use `add_single_cell_type()` to add cancer cells, immune cells, etc.
+{
+  "result": "**Substrate added:** TNF\n- Diffusion: 10000 μm²/min\n- Decay: 0.01 min⁻¹\n- Initial: 0 dimensionless\n- Boundary: 1 dimensionless\n- Progress: 80%\n**Next step:** Use `add_single_cell_type()` to add cancer cells, immune cells, etc."
+}
+\end{lstlisting}
+\end{toolokbox}
+\begin{toolokbox}
+\textbf{Tool:} \texttt{mcp\_physicell\_set\_substrate\_interaction} (\checkmark)
+\textit{Running `set\_substrate\_interaction`}
+\begin{lstlisting}
+**Substrate interaction set:** cancer_cell ↔ TNF (secretion: 0, uptake: 0.01 min⁻¹)
+{
+  "result": "**Substrate interaction set:** cancer_cell ↔ TNF (secretion: 0, uptake: 0.01 min⁻¹)"
+}
+\end{lstlisting}
+\end{toolokbox}
+\begin{toolokbox}
+\textbf{Tool:} \texttt{mcp\_physicell\_get\_simulation\_summary} (\checkmark)
+\textit{Running `get\_simulation\_summary`}
+\begin{lstlisting}
+## Simulation Summary
+
+**Session:** 8115b1a7...
+**Progress:** 80%
+
+**Scenario:** TNF diffuses in tumor microenvironment; cancer cells sense TNF via TNFRSF1A and trigger intracellular TNF-fate Boolean network (MaBoSS). CASP3 high => apoptosis; E2F1 high => proliferation. We will simulate 2D monolayer (thin 3D slab), uniform initial TNF=0 that can be introduced later.
+
+**Components:**
+- **Substrates (1):** TNF
+- **Cell Types (1):** cancer_cell
+- **Rules:** 0
+- **PhysiBoSS Models:** 1
+
+**Completed Steps:**
+Substrates Added
+Cell Types Added
+Physiboss Settings Configured
+Domain Setup
+Physiboss Models Added
+Physiboss Outputs Linked
+Scenario Analysis
+Physiboss Inputs Linked
+
+**Next Steps:**
+• configure_cell_parameters - Set cell volumes, motility, death rates
+
+**Ready for export!** Use `export_xml_configuration()` to generate files.
+{
+  "result": "## Simulation Summary\n\n**Session:** 8115b1a7...\n**Progress:** 80%\n\n**Scenario:** TNF diffuses in tumor microenvironment; cancer cells sense TNF via TNFRSF1A and trigger intracellular TNF-fate Boolean network (MaBoSS). CASP3 high => apoptosis; E2F1 high => proliferation. We will simulate 2D monolayer (thin 3D slab), uniform initial TNF=0 that can be introduced later.\n\n**Components:**\n- **Substrates (1):** TNF\n- **Cell Types (1):** cancer_cell\n- **Rules:** 0\n- **PhysiBoSS Models:** 1\n\n**Completed Steps:**\nSubstrates Added\nCell Types Added\nPhysiboss Settings Configured\nDomain Setup\nPhysiboss Models Added\nPhysiboss Outputs Linked\nScenario Analysis\nPhysiboss Inputs Linked\n\n**Next Steps:**\n• configure_cell_parameters - Set cell volumes, motility, death rates\n\n**Ready for export!** Use `export_xml_configuration()` to generate files."
+}
+\end{lstlisting}
+\end{toolokbox}
+\begin{toolokbox}
+\textbf{Tool:} \texttt{mcp\_physicell\_export\_xml\_configuration} (\checkmark)
+\textit{Running `export\_xml\_configuration`}
+\begin{lstlisting}
+Error exporting XML configuration: [Errno 2] No such file or directory: 'gpt_5/Scenario_1/PhysiCell_settings.xml'
+{
+  "result": "Error exporting XML configuration: [Errno 2] No such file or directory: 'gpt_5/Scenario_1/PhysiCell_settings.xml'"
+}
+\end{lstlisting}
+\end{toolokbox}
+\begin{toolokbox}
+\textbf{Tool:} \texttt{copilot\_createDirectory} (\checkmark)
+\textit{Creating [](file:///home/mruscone/Desktop/MCP\_test/gpt\_5/Scenario\_1)}
+\end{toolokbox}
+\begin{toolokbox}
+\textbf{Tool:} \texttt{mcp\_physicell\_export\_xml\_configuration} (\checkmark)
+\textit{Running `export\_xml\_configuration`}
+\begin{lstlisting}
+Error exporting XML configuration: [Errno 2] No such file or directory: 'gpt_5/Scenario_1/PhysiCell_settings.xml'
+{
+  "result": "Error exporting XML configuration: [Errno 2] No such file or directory: 'gpt_5/Scenario_1/PhysiCell_settings.xml'"
+}
+\end{lstlisting}
+\end{toolokbox}
+\begin{toolokbox}
+\textbf{Tool:} \texttt{mcp\_physicell\_export\_xml\_configuration} (\checkmark)
+\textit{Running `export\_xml\_configuration`}
+\begin{lstlisting}
+## XML Configuration Exported
+
+**File:** PhysiCell_settings.xml (11KB)
+**Source:** Created from scratch
+**Substrates:** 1 (TNF)
+**Cell Types:** 1 (cancer_cell)
+**Progress:** 80%
+
+**Next step:** Copy to PhysiCell project directory and run:
+```bash
+./myproject PhysiCell_settings.xml
+```
+{
+  "result": "## XML Configuration Exported\n\n**File:** PhysiCell_settings.xml (11KB)\n**Source:** Created from scratch\n**Substrates:** 1 (TNF)\n**Cell Types:** 1 (cancer_cell)\n**Progress:** 80%\n\n**Next step:** Copy to PhysiCell project directory and run:\n```bash\n./myproject PhysiCell_settings.xml\n```"
+}
+\end{lstlisting}
+\end{toolokbox}
+\begin{toolokbox}
+\textbf{Tool:} \texttt{copilot\_readFile} (\checkmark)
+\textit{Reading [](file:///home/mruscone/Desktop/MCP\_test/PhysiCell\_settings.xml)}
+\end{toolokbox}
+\begin{copilotbox}
+\textbf{GitHub Copilot:}
+
+Here’s what I changed and exported.
+
+TNF diffusion from edges
+- TNF substrate: diffusion\_coefficient=10000 µm²/min (slower), decay\_rate=0.01 1/min, initial=0.
+- Edge source: Dirichlet boundary enabled, boundary value=1.0 (TNF enters from domain edges and diffuses inward).
+- Cancer cells: TNF uptake\_rate=0.01 1/min; no secretion.
+
+PhysiBoSS coupling (unchanged)
+- Input link: TNF signal → boolean node TNF (threshold=0.1).
+- Output links: CASP3 → apoptosis\_rate (base 1e-4, active 0.02); E2F1 → proliferation\_rate (base 0.001, active 0.02).
+- Intracellular: dt=6 min, scaling=1, inheritance\_global=false.
+
+Domain and run
+- Size: 1000 x 1000 x 20 µm, dx=20; 2D slab; duration: 24 h.
+- Cell type: cancer\_cell (Ki67\_basic) with default volumes/motility; PhysiBoSS model attached (output.bnd/output.cfg).
+
+Exports and files
+- MaBoSS: output.bnd, output.cfg (already in workspace).
+- PhysiCell XML:
+
+\end{copilotbox}
+\begin{copilotbox}
+\textbf{GitHub Copilot:}
+
+(exported at project root). Use this file with your simulator; if you want it in gpt\_5/Scenario\_1, I can place a copy there.
+
+Global summary of what we achieved
+- Built an OmniPath TNF-fate network, removed bimodal edges, verified connectivity, exported .bnet, generated MaBoSS .bnd/.cfg.
+- Selected outputs (CASP3=apoptosis, E2F1=proliferation), ran MaBoSS; baseline under TNF favored NF-κB survival; mutations (e.g., XIAP OFF) modestly increased apoptosis.
+- Created a PhysiCell session, added TNF substrate and a cancer cell type, integrated the MaBoSS model via PhysiBoSS, wired TNF signal to the network and network outputs to cell behaviors.
+- Adjusted transport to model slow TNF diffusion from edges toward the center; exported an XML ready to run.
+
+Want me to:
+- Copy the exported XML into gpt\_5/Scenario\_1 and add a basic seeding (e.g., 200 cells in a central disk)?
+- Add a gentle TNF boundary value (e.g., 0.2 instead of 1.0) or time-varying pulse?
+
+\end{copilotbox}
+\begin{toolokbox}
+\textbf{Tool:} \texttt{mcp\_physicell\_add\_single\_substrate} (\checkmark)
+\textit{Calling `mcp\_physicell\_add\_single\_substrate`}
+\end{toolokbox}
+\begin{toolokbox}
+\textbf{Tool:} \texttt{mcp\_physicell\_set\_substrate\_interaction} (\checkmark)
+\textit{Calling `mcp\_physicell\_set\_substrate\_interaction`}
+\end{toolokbox}
+\begin{toolokbox}
+\textbf{Tool:} \texttt{mcp\_physicell\_get\_simulation\_summary} (\checkmark)
+\textit{Calling `mcp\_physicell\_get\_simulation\_summary`}
+\end{toolokbox}
+\begin{toolokbox}
+\textbf{Tool:} \texttt{mcp\_physicell\_export\_xml\_configuration} (\checkmark)
+\textit{Calling `mcp\_physicell\_export\_xml\_configuration`}
+\end{toolokbox}
+\begin{toolokbox}
+\textbf{Tool:} \texttt{create\_directory} (\checkmark)
+\textit{Calling `create\_directory`}
+\end{toolokbox}
+\begin{toolokbox}
+\textbf{Tool:} \texttt{mcp\_physicell\_export\_xml\_configuration} (\checkmark)
+\textit{Calling `mcp\_physicell\_export\_xml\_configuration`}
+\end{toolokbox}
+\begin{toolokbox}
+\textbf{Tool:} \texttt{mcp\_physicell\_export\_xml\_configuration} (\checkmark)
+\textit{Calling `mcp\_physicell\_export\_xml\_configuration`}
+\end{toolokbox}
+\begin{toolokbox}
+\textbf{Tool:} \texttt{read\_file} (\checkmark)
+\textit{Calling `read\_file`}
+\end{toolokbox}
+\begin{copilotbox}
+\textbf{GitHub Copilot:}
+
+Here’s what I changed and exported.
+
+TNF diffusion from edges
+- TNF substrate: diffusion\_coefficient=10000 µm²/min (slower), decay\_rate=0.01 1/min, initial=0.
+- Edge source: Dirichlet boundary enabled, boundary value=1.0 (TNF enters from domain edges and diffuses inward).
+- Cancer cells: TNF uptake\_rate=0.01 1/min; no secretion.
+
+PhysiBoSS coupling (unchanged)
+- Input link: TNF signal → boolean node TNF (threshold=0.1).
+- Output links: CASP3 → apoptosis\_rate (base 1e-4, active 0.02); E2F1 → proliferation\_rate (base 0.001, active 0.02).
+- Intracellular: dt=6 min, scaling=1, inheritance\_global=false.
+
+Domain and run
+- Size: 1000 x 1000 x 20 µm, dx=20; 2D slab; duration: 24 h.
+- Cell type: cancer\_cell (Ki67\_basic) with default volumes/motility; PhysiBoSS model attached (output.bnd/output.cfg).
+
+Exports and files
+- MaBoSS: output.bnd, output.cfg (already in workspace).
+- PhysiCell XML: PhysiCell\_settings.xml (exported at project root). Use this file with your simulator; if you want it in gpt\_5/Scenario\_1, I can place a copy there.
+
+Global summary of what we achieved
+- Built an OmniPath TNF-fate network, removed bimodal edges, verified connectivity, exported .bnet, generated MaBoSS .bnd/.cfg.
+- Selected outputs (CASP3=apoptosis, E2F1=proliferation), ran MaBoSS; baseline under TNF favored NF-κB survival; mutations (e.g., XIAP OFF) modestly increased apoptosis.
+- Created a PhysiCell session, added TNF substrate and a cancer cell type, integrated the MaBoSS model via PhysiBoSS, wired TNF signal to the network and network outputs to cell behaviors.
+- Adjusted transport to model slow TNF diffusion from edges toward the center; exported an XML ready to run.
+
+Want me to:
+- Copy the exported XML into gpt\_5/Scenario\_1 and add a basic seeding (e.g., 200 cells in a central disk)?
+- Add a gentle TNF boundary value (e.g., 0.2 instead of 1.0) or time-varying pulse?
+
+\end{copilotbox}
+\end{document}

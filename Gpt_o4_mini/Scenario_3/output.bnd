@@ -1,0 +1,88 @@
+node RB1 {
+  logic = (((TP53 OR (AKT1 OR (TGFB1 OR EP300)))) AND NOT (CASP3));
+}
+
+node CAV1 {
+  logic = ((TP53 OR NR3C1));
+}
+
+node EP300 {
+  logic = ((AKT1 OR TGFB1));
+}
+
+node TRAF1 {
+  logic = (NFKB1);
+}
+
+node TNF {
+  logic = (((RB1 OR (CAV1 OR EP300))) AND NOT (TRAF1));
+}
+
+node FADD {
+  logic = (TP53);
+}
+
+node CYCS {
+  logic = (((BAX OR (BID OR BAD))) AND NOT (BCL2L1));
+}
+
+node CAT {
+  logic = NOT (AKT1);
+}
+
+node XIAP {
+  logic = ((NFKB1 OR (TP53 OR AKT1)));
+}
+
+node CASP3 {
+  logic = (((TNF OR (FADD OR (CYCS OR CAT)))) AND NOT (XIAP));
+}
+
+node PARP1 {
+  logic = (EP300);
+}
+
+node AKT1 {
+  logic = (((TNF OR (TGFB1 OR (PDGFRB OR CAV1)))) AND NOT ((CASP3 OR PPP2R5C)));
+}
+
+node NR3C1 {
+  logic = NOT (TP53);
+}
+
+node NFKB1 {
+  logic = (((TNF OR (PARP1 OR (FADD OR (AKT1 OR TRAF1))))) AND NOT (NR3C1));
+}
+
+node TGFB1 {
+  logic = (((NFKB1 OR RB1)) AND NOT ((TNF OR (AKT1 OR NR3C1))));
+}
+
+node PPP2R5C {
+  logic = NOT (CASP3);
+}
+
+node BAD {
+  logic = (((CASP3 OR PPP2R5C)) AND NOT (BAX));
+}
+
+node BCL2L1 {
+  logic = (((NFKB1 OR AKT1)) AND NOT ((CASP3 OR (TP53 OR BID))));
+}
+
+node TP53 {
+  logic = (((TGFB1 OR (PPP2R5C OR (NFKB1 OR (BAD OR (XIAP OR PARP1)))))) AND NOT ((NR3C1 OR BCL2L1)));
+}
+
+node BID {
+  logic = ((TNF OR (CASP3 OR (TP53 OR FADD))));
+}
+
+node BAX {
+  logic = (((BID OR (CASP3 OR (TP53 OR EP300)))) AND NOT ((BCL2L1 OR (AKT1 OR NR3C1))));
+}
+
+node PDGFRB {
+  logic = ((CAV1) AND NOT (TP53));
+}
+

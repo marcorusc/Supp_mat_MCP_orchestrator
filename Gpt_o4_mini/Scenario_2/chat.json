@@ -1,0 +1,1333 @@
+{
+  "responderUsername": "GitHub Copilot",
+  "initialLocation": "panel",
+  "requests": [
+    {
+      "requestId": "request_1321baff-fdcc-4ec9-b88e-1e44a0c47804",
+      "message": {
+        "parts": [
+          {
+            "range": {
+              "start": 0,
+              "endExclusive": 38
+            },
+            "editorRange": {
+              "startLineNumber": 1,
+              "startColumn": 1,
+              "endLineNumber": 1,
+              "endColumn": 39
+            },
+            "text": "I have a PhysiCell configuration file ",
+            "kind": "text"
+          },
+          {
+            "range": {
+              "start": 38,
+              "endExclusive": 66
+            },
+            "editorRange": {
+              "startLineNumber": 1,
+              "startColumn": 39,
+              "endLineNumber": 1,
+              "endColumn": 67
+            },
+            "text": "#file:PhysiCell_settings.xml",
+            "id": "file:///home/mruscone/Desktop/test/PhysiCell_settings.xml",
+            "data": {
+              "$mid": 1,
+              "fsPath": "/home/mruscone/Desktop/test/PhysiCell_settings.xml",
+              "external": "file:///home/mruscone/Desktop/test/PhysiCell_settings.xml",
+              "path": "/home/mruscone/Desktop/test/PhysiCell_settings.xml",
+              "scheme": "file"
+            },
+            "isFile": true,
+            "isDirectory": false,
+            "kind": "dynamic"
+          },
+          {
+            "range": {
+              "start": 66,
+              "endExclusive": 392
+            },
+            "editorRange": {
+              "startLineNumber": 1,
+              "startColumn": 67,
+              "endLineNumber": 1,
+              "endColumn": 393
+            },
+            "text": "  that I would like to extend with biologically accurate rules. Load the PhysiCell configuration file, extract the biological scenario, extract the substrates, cell types and custom parameters that compose the simulation and, carefully examining the available signals and behaviors, add a series of rules to improve the model.",
+            "kind": "text"
+          }
+        ],
+        "text": "I have a PhysiCell configuration file #file:PhysiCell_settings.xml  that I would like to extend with biologically accurate rules. Load the PhysiCell configuration file, extract the biological scenario, extract the substrates, cell types and custom parameters that compose the simulation and, carefully examining the available signals and behaviors, add a series of rules to improve the model."
+      },
+      "variableData": {
+        "variables": [
+          {
+            "kind": "file",
+            "id": "file:///home/mruscone/Desktop/test/PhysiCell_settings.xml",
+            "name": "file:PhysiCell_settings.xml",
+            "range": {
+              "start": 38,
+              "endExclusive": 66
+            },
+            "value": {
+              "$mid": 1,
+              "fsPath": "/home/mruscone/Desktop/test/PhysiCell_settings.xml",
+              "external": "file:///home/mruscone/Desktop/test/PhysiCell_settings.xml",
+              "path": "/home/mruscone/Desktop/test/PhysiCell_settings.xml",
+              "scheme": "file"
+            }
+          }
+        ]
+      },
+      "response": [
+        {
+          "kind": "mcpServersStarting",
+          "didStartServerIds": []
+        },
+        {
+          "kind": "toolInvocationSerialized",
+          "invocationMessage": {
+            "value": "Running `create_session`",
+            "isTrusted": false,
+            "supportThemeIcons": false,
+            "supportHtml": false,
+            "supportAlertSyntax": false
+          },
+          "pastTenseMessage": {
+            "value": "Ran `create_session` ",
+            "isTrusted": false,
+            "supportThemeIcons": false,
+            "supportHtml": false,
+            "supportAlertSyntax": false
+          },
+          "originMessage": "physicell (MCP Server)",
+          "isConfirmed": {
+            "type": 3,
+            "scope": "profile"
+          },
+          "isComplete": true,
+          "source": {
+            "type": "mcp",
+            "serverLabel": "PhysiCell",
+            "label": "physicell",
+            "collectionId": "mcp.config.usrlocal",
+            "definitionId": "mcp.config.usrlocal.physicell"
+          },
+          "resultDetails": {
+            "input": "{\n  \"set_as_default\": true\n}",
+            "output": [
+              {
+                "type": "embed",
+                "isText": true,
+                "value": "**Session created:** eea7e349...\n**Next steps:**\n1. `analyze_biological_scenario()` - Set your biological context\n2. `create_simulation_domain()` - Define spatial framework\n3. Use `get_workflow_status()` to track progress"
+              },
+              {
+                "type": "embed",
+                "isText": true,
+                "value": "{\n  \"result\": \"**Session created:** eea7e349...\\n**Next steps:**\\n1. `analyze_biological_scenario()` - Set your biological context\\n2. `create_simulation_domain()` - Define spatial framework\\n3. Use `get_workflow_status()` to track progress\"\n}",
+                "audience": [
+                  0
+                ]
+              }
+            ],
+            "isError": false
+          },
+          "toolSpecificData": {
+            "kind": "input",
+            "rawInput": {
+              "set_as_default": true
+            }
+          },
+          "toolCallId": "a2eec9c3-e83d-4e3f-b490-a60bcf757eba",
+          "toolId": "mcp_physicell_create_session"
+        },
+        {
+          "kind": "toolInvocationSerialized",
+          "invocationMessage": {
+            "value": "Running `load_xml_configuration`",
+            "isTrusted": false,
+            "supportThemeIcons": false,
+            "supportHtml": false,
+            "supportAlertSyntax": false
+          },
+          "pastTenseMessage": {
+            "value": "Ran `load_xml_configuration` ",
+            "isTrusted": false,
+            "supportThemeIcons": false,
+            "supportHtml": false,
+            "supportAlertSyntax": false
+          },
+          "originMessage": "physicell (MCP Server)",
+          "isConfirmed": {
+            "type": 3,
+            "scope": "profile"
+          },
+          "isComplete": true,
+          "source": {
+            "type": "mcp",
+            "serverLabel": "PhysiCell",
+            "label": "physicell",
+            "collectionId": "mcp.config.usrlocal",
+            "definitionId": "mcp.config.usrlocal.physicell"
+          },
+          "resultDetails": {
+            "input": "{\n  \"filepath\": \"/home/mruscone/Desktop/test/PhysiCell_settings.xml\",\n  \"session_id\": \"eea7e349\"\n}",
+            "output": [
+              {
+                "type": "embed",
+                "isText": true,
+                "value": "Loaded PhysiCell_settings.xml: 5 substrates, 6 cell types, rules\nNext: analyze_loaded_configuration() or start modifying with existing tools"
+              },
+              {
+                "type": "embed",
+                "isText": true,
+                "value": "{\n  \"result\": \"Loaded PhysiCell_settings.xml: 5 substrates, 6 cell types, rules\\nNext: analyze_loaded_configuration() or start modifying with existing tools\"\n}",
+                "audience": [
+                  0
+                ]
+              }
+            ],
+            "isError": false
+          },
+          "toolSpecificData": {
+            "kind": "input",
+            "rawInput": {
+              "filepath": "/home/mruscone/Desktop/test/PhysiCell_settings.xml",
+              "session_id": "eea7e349"
+            }
+          },
+          "toolCallId": "4531fa15-4c60-4187-9ae3-046d4b397e54",
+          "toolId": "mcp_physicell_load_xml_configuration"
+        },
+        {
+          "kind": "toolInvocationSerialized",
+          "invocationMessage": {
+            "value": "Running `analyze_loaded_configuration`",
+            "isTrusted": false,
+            "supportThemeIcons": false,
+            "supportHtml": false,
+            "supportAlertSyntax": false
+          },
+          "pastTenseMessage": {
+            "value": "Ran `analyze_loaded_configuration` ",
+            "isTrusted": false,
+            "supportThemeIcons": false,
+            "supportHtml": false,
+            "supportAlertSyntax": false
+          },
+          "originMessage": "physicell (MCP Server)",
+          "isConfirmed": {
+            "type": 3,
+            "scope": "profile"
+          },
+          "isComplete": true,
+          "source": {
+            "type": "mcp",
+            "serverLabel": "PhysiCell",
+            "label": "physicell",
+            "collectionId": "mcp.config.usrlocal",
+            "definitionId": "mcp.config.usrlocal.physicell"
+          },
+          "resultDetails": {
+            "input": "{\n  \"session_id\": \"eea7e349\"\n}",
+            "output": [
+              {
+                "type": "embed",
+                "isText": true,
+                "value": "No XML configuration loaded. Use load_xml_configuration() first."
+              },
+              {
+                "type": "embed",
+                "isText": true,
+                "value": "{\n  \"result\": \"No XML configuration loaded. Use load_xml_configuration() first.\"\n}",
+                "audience": [
+                  0
+                ]
+              }
+            ],
+            "isError": false
+          },
+          "toolSpecificData": {
+            "kind": "input",
+            "rawInput": {
+              "session_id": "eea7e349"
+            }
+          },
+          "toolCallId": "5c276684-944d-493a-9fbc-4a1f22c40bd8",
+          "toolId": "mcp_physicell_analyze_loaded_configuration"
+        },
+        {
+          "kind": "toolInvocationSerialized",
+          "invocationMessage": {
+            "value": "Running `analyze_loaded_configuration`",
+            "isTrusted": false,
+            "supportThemeIcons": false,
+            "supportHtml": false,
+            "supportAlertSyntax": false
+          },
+          "pastTenseMessage": {
+            "value": "Ran `analyze_loaded_configuration` ",
+            "isTrusted": false,
+            "supportThemeIcons": false,
+            "supportHtml": false,
+            "supportAlertSyntax": false
+          },
+          "originMessage": "physicell (MCP Server)",
+          "isConfirmed": {
+            "type": 3,
+            "scope": "profile"
+          },
+          "isComplete": true,
+          "source": {
+            "type": "mcp",
+            "serverLabel": "PhysiCell",
+            "label": "physicell",
+            "collectionId": "mcp.config.usrlocal",
+            "definitionId": "mcp.config.usrlocal.physicell"
+          },
+          "resultDetails": {
+            "input": "{}",
+            "output": [
+              {
+                "type": "embed",
+                "isText": true,
+                "value": "Source: PhysiCell_settings.xml\nDomain: configured\nSubstrates (5): oxygen, apoptotic debris, necrotic debris, pro-inflammatory factor, anti-inflammatory factor\n  → Modify interactions: set_substrate_interaction(cell_type, substrate, ...)\nCell types (6): malignant epithelial cell, M0 macrophage, M1 macrophage, M2 macrophage, effector T cell, exhausted T cell\n  → Modify parameters: configure_cell_parameters(cell_type, ...)\n  → Add rules: add_single_cell_rule(cell_type, signal, ...)\nUse list_loaded_components() for detailed properties"
+              },
+              {
+                "type": "embed",
+                "isText": true,
+                "value": "{\n  \"result\": \"Source: PhysiCell_settings.xml\\nDomain: configured\\nSubstrates (5): oxygen, apoptotic debris, necrotic debris, pro-inflammatory factor, anti-inflammatory factor\\n  → Modify interactions: set_substrate_interaction(cell_type, substrate, ...)\\nCell types (6): malignant epithelial cell, M0 macrophage, M1 macrophage, M2 macrophage, effector T cell, exhausted T cell\\n  → Modify parameters: configure_cell_parameters(cell_type, ...)\\n  → Add rules: add_single_cell_rule(cell_type, signal, ...)\\nUse list_loaded_components() for detailed properties\"\n}",
+                "audience": [
+                  0
+                ]
+              }
+            ],
+            "isError": false
+          },
+          "toolSpecificData": {
+            "kind": "input",
+            "rawInput": {}
+          },
+          "toolCallId": "b2259844-f8e1-40c3-a5cc-3254e6118825",
+          "toolId": "mcp_physicell_analyze_loaded_configuration"
+        },
+        {
+          "kind": "toolInvocationSerialized",
+          "invocationMessage": {
+            "value": "Running `list_all_available_behaviors`",
+            "isTrusted": false,
+            "supportThemeIcons": false,
+            "supportHtml": false,
+            "supportAlertSyntax": false
+          },
+          "pastTenseMessage": {
+            "value": "Ran `list_all_available_behaviors` ",
+            "isTrusted": false,
+            "supportThemeIcons": false,
+            "supportHtml": false,
+            "supportAlertSyntax": false
+          },
+          "originMessage": "physicell (MCP Server)",
+          "isConfirmed": {
+            "type": 3,
+            "scope": "profile"
+          },
+          "isComplete": true,
+          "source": {
+            "type": "mcp",
+            "serverLabel": "PhysiCell",
+            "label": "physicell",
+            "collectionId": "mcp.config.usrlocal",
+            "definitionId": "mcp.config.usrlocal.physicell"
+          },
+          "resultDetails": {
+            "input": "{\n  \"session_id\": \"eea7e349\"\n}",
+            "output": [
+              {
+                "type": "embed",
+                "isText": true,
+                "value": "## PhysiCell Behaviors (41 total)\n### SECRETION\n- **substrate secretion**: Secretion rate of a specific substrate\n  - *Requires: substrate_name*\n- **substrate secretion target**: Target secretion level of a specific substrate\n  - *Requires: substrate_name*\n- **substrate uptake**: Uptake rate of a specific substrate\n  - *Requires: substrate_name*\n- **substrate export**: Export rate of a specific substrate\n  - *Requires: substrate_name*\n\n### CYCLE\n- **cycle entry**: Entry into cell cycle\n- **exit from cycle phase 1**: Exit from cell cycle phase 1\n- **exit from cycle phase 2**: Exit from cell cycle phase 2\n- **exit from cycle phase 3**: Exit from cell cycle phase 3\n- **exit from cycle phase 4**: Exit from cell cycle phase 4\n- **exit from cycle phase 5**: Exit from cell cycle phase 5\n\n### DEATH\n- **apoptosis**: Trigger apoptotic cell death\n- **necrosis**: Trigger necrotic cell death\n\n### MOTILITY\n- **migration speed**: Cell migration speed\n- **migration bias**: Directional bias in migration\n- **migration persistence time**: Persistence time for migration direction\n- **chemotactic response to substrate**: Chemotactic response to a specific substrate\n  - *Requires: substrate_name*\n\n### MECHANICS\n- **cell-cell adhesion**: Cell-cell adhesion strength\n- **cell-cell adhesion elastic constant**: Elastic constant for cell-cell adhesion\n- **adhesive affinity to cell type**: Adhesive affinity to a specific cell type\n  - *Requires: cell_type*\n- **relative maximum adhesion distance**: Maximum distance for cell adhesion\n- **cell-cell repulsion**: Cell-cell repulsion strength\n- **cell-BM adhesion**: Cell-basement membrane adhesion\n- **cell-BM repulsion**: Cell-basement membrane repulsion\n- **cell attachment rate**: Rate of cell attachment\n- **cell detachment rate**: Rate of cell detachment\n- **maximum number of cell attachments**: Maximum number of cell attachments\n\n### INTERACTION\n- **phagocytose apoptotic cell**: Phagocytosis of apoptotic cells\n- **phagocytose necrotic cell**: Phagocytosis of necrotic cells\n- **phagocytose other dead cell**: Phagocytosis of other dead cells\n- **phagocytose cell type**: Phagocytosis of a specific cell type\n  - *Requires: cell_type*\n- **attack cell type**: Attack a specific cell type\n  - *Requires: cell_type*\n- **fuse to cell type**: Fuse with a specific cell type\n  - *Requires: cell_type*\n- **immunogenicity to cell type**: Immunogenicity towards a specific cell type\n  - *Requires: cell_type*\n- **attack damage rate**: Rate of damage during attack\n- **attack duration**: Duration of attack\n\n### TRANSFORMATION\n- **transform to cell type**: Transform to a specific cell type\n  - *Requires: cell_type*\n- **asymmetric division to cell type**: Asymmetric division producing a specific cell type\n  - *Requires: cell_type*\n\n### CUSTOM\n- **custom:sample**: Custom behavior (replace 'sample' with actual variable name)\n  - *Requires: custom_variable*\n\n### PHYSICAL\n- **is_movable**: Whether the cell can move\n- **damage rate**: Rate of damage accumulation\n- **damage repair rate**: Rate of damage repair\n\n**Note:** Use exact behavior names in add_single_cell_rule() function.\n**Context:** Behaviors are automatically expanded based on current substrates and cell types."
+              },
+              {
+                "type": "embed",
+                "isText": true,
+                "value": "{\n  \"result\": \"## PhysiCell Behaviors (41 total)\\n### SECRETION\\n- **substrate secretion**: Secretion rate of a specific substrate\\n  - *Requires: substrate_name*\\n- **substrate secretion target**: Target secretion level of a specific substrate\\n  - *Requires: substrate_name*\\n- **substrate uptake**: Uptake rate of a specific substrate\\n  - *Requires: substrate_name*\\n- **substrate export**: Export rate of a specific substrate\\n  - *Requires: substrate_name*\\n\\n### CYCLE\\n- **cycle entry**: Entry into cell cycle\\n- **exit from cycle phase 1**: Exit from cell cycle phase 1\\n- **exit from cycle phase 2**: Exit from cell cycle phase 2\\n- **exit from cycle phase 3**: Exit from cell cycle phase 3\\n- **exit from cycle phase 4**: Exit from cell cycle phase 4\\n- **exit from cycle phase 5**: Exit from cell cycle phase 5\\n\\n### DEATH\\n- **apoptosis**: Trigger apoptotic cell death\\n- **necrosis**: Trigger necrotic cell death\\n\\n### MOTILITY\\n- **migration speed**: Cell migration speed\\n- **migration bias**: Directional bias in migration\\n- **migration persistence time**: Persistence time for migration direction\\n- **chemotactic response to substrate**: Chemotactic response to a specific substrate\\n  - *Requires: substrate_name*\\n\\n### MECHANICS\\n- **cell-cell adhesion**: Cell-cell adhesion strength\\n- **cell-cell adhesion elastic constant**: Elastic constant for cell-cell adhesion\\n- **adhesive affinity to cell type**: Adhesive affinity to a specific cell type\\n  - *Requires: cell_type*\\n- **relative maximum adhesion distance**: Maximum distance for cell adhesion\\n- **cell-cell repulsion**: Cell-cell repulsion strength\\n- **cell-BM adhesion**: Cell-basement membrane adhesion\\n- **cell-BM repulsion**: Cell-basement membrane repulsion\\n- **cell attachment rate**: Rate of cell attachment\\n- **cell detachment rate**: Rate of cell detachment\\n- **maximum number of cell attachments**: Maximum number of cell attachments\\n\\n### INTERACTION\\n- **phagocytose apoptotic cell**: Phagocytosis of apoptotic cells\\n- **phagocytose necrotic cell**: Phagocytosis of necrotic cells\\n- **phagocytose other dead cell**: Phagocytosis of other dead cells\\n- **phagocytose cell type**: Phagocytosis of a specific cell type\\n  - *Requires: cell_type*\\n- **attack cell type**: Attack a specific cell type\\n  - *Requires: cell_type*\\n- **fuse to cell type**: Fuse with a specific cell type\\n  - *Requires: cell_type*\\n- **immunogenicity to cell type**: Immunogenicity towards a specific cell type\\n  - *Requires: cell_type*\\n- **attack damage rate**: Rate of damage during attack\\n- **attack duration**: Duration of attack\\n\\n### TRANSFORMATION\\n- **transform to cell type**: Transform to a specific cell type\\n  - *Requires: cell_type*\\n- **asymmetric division to cell type**: Asymmetric division producing a specific cell type\\n  - *Requires: cell_type*\\n\\n### CUSTOM\\n- **custom:sample**: Custom behavior (replace 'sample' with actual variable name)\\n  - *Requires: custom_variable*\\n\\n### PHYSICAL\\n- **is_movable**: Whether the cell can move\\n- **damage rate**: Rate of damage accumulation\\n- **damage repair rate**: Rate of damage repair\\n\\n**Note:** Use exact behavior names in add_single_cell_rule() function.\\n**Context:** Behaviors are automatically expanded based on current substrates and cell types.\"\n}",
+                "audience": [
+                  0
+                ]
+              }
+            ],
+            "isError": false
+          },
+          "toolSpecificData": {
+            "kind": "input",
+            "rawInput": {
+              "session_id": "eea7e349"
+            }
+          },
+          "toolCallId": "f37badc6-3f75-419c-877a-ce9de5b61cc4",
+          "toolId": "mcp_physicell_list_all_available_behaviors"
+        },
+        {
+          "kind": "toolInvocationSerialized",
+          "invocationMessage": {
+            "value": "Running `list_all_available_signals`",
+            "isTrusted": false,
+            "supportThemeIcons": false,
+            "supportHtml": false,
+            "supportAlertSyntax": false
+          },
+          "pastTenseMessage": {
+            "value": "Ran `list_all_available_signals` ",
+            "isTrusted": false,
+            "supportThemeIcons": false,
+            "supportHtml": false,
+            "supportAlertSyntax": false
+          },
+          "originMessage": "physicell (MCP Server)",
+          "isConfirmed": {
+            "type": 3,
+            "scope": "profile"
+          },
+          "isComplete": true,
+          "source": {
+            "type": "mcp",
+            "serverLabel": "PhysiCell",
+            "label": "physicell",
+            "collectionId": "mcp.config.usrlocal",
+            "definitionId": "mcp.config.usrlocal.physicell"
+          },
+          "resultDetails": {
+            "input": "{\n  \"session_id\": \"eea7e349\"\n}",
+            "output": [
+              {
+                "type": "embed",
+                "isText": true,
+                "value": "## PhysiCell Signals (22 total)\n### SUBSTRATE\n- **substrate**: Level of a specific substrate\n  - *Requires: substrate_name*\n\n### INTRACELLULAR\n- **intracellular substrate**: Intracellular level of a specific substrate\n  - *Requires: substrate_name*\n\n### GRADIENT\n- **substrate gradient**: Gradient of a specific substrate\n  - *Requires: substrate_name*\n\n### PHYSICAL\n- **pressure**: Local pressure experienced by the cell\n- **volume**: Cell volume\n- **damage**: Damage level accumulated by the cell\n- **damage delivered**: Damage delivered by the cell to others\n\n### CONTACT\n- **contact with cell type**: Contact with a specific cell type\n  - *Requires: cell_type*\n- **contact with live cell**: Contact with any live cell\n- **contact with dead cell**: Contact with any dead cell\n- **contact with apoptotic cell**: Contact with apoptotic cell\n- **contact with necrotic cell**: Contact with necrotic cell\n- **contact with other dead cell**: Contact with other dead cell types\n- **contact with basement membrane**: Contact with basement membrane\n\n### TRANSFORMATION\n- **transform to cell type**: Transform to a specific cell type\n  - *Requires: cell_type*\n\n### BEHAVIORAL\n- **attacking**: Whether the cell is currently attacking\n\n### STATE\n- **dead**: Whether the cell is dead\n- **apoptotic**: Whether the cell is apoptotic\n- **necrotic**: Whether the cell is necrotic\n\n### TEMPORAL\n- **total attack time**: Total time spent attacking\n- **time**: Simulation time\n\n### CUSTOM\n- **custom:sample**: Custom variable (replace 'sample' with actual variable name)\n  - *Requires: custom_variable*\n\n**Note:** Use exact signal names in add_single_cell_rule() function.\n**Context:** Signals are automatically expanded based on current substrates and cell types."
+              },
+              {
+                "type": "embed",
+                "isText": true,
+                "value": "{\n  \"result\": \"## PhysiCell Signals (22 total)\\n### SUBSTRATE\\n- **substrate**: Level of a specific substrate\\n  - *Requires: substrate_name*\\n\\n### INTRACELLULAR\\n- **intracellular substrate**: Intracellular level of a specific substrate\\n  - *Requires: substrate_name*\\n\\n### GRADIENT\\n- **substrate gradient**: Gradient of a specific substrate\\n  - *Requires: substrate_name*\\n\\n### PHYSICAL\\n- **pressure**: Local pressure experienced by the cell\\n- **volume**: Cell volume\\n- **damage**: Damage level accumulated by the cell\\n- **damage delivered**: Damage delivered by the cell to others\\n\\n### CONTACT\\n- **contact with cell type**: Contact with a specific cell type\\n  - *Requires: cell_type*\\n- **contact with live cell**: Contact with any live cell\\n- **contact with dead cell**: Contact with any dead cell\\n- **contact with apoptotic cell**: Contact with apoptotic cell\\n- **contact with necrotic cell**: Contact with necrotic cell\\n- **contact with other dead cell**: Contact with other dead cell types\\n- **contact with basement membrane**: Contact with basement membrane\\n\\n### TRANSFORMATION\\n- **transform to cell type**: Transform to a specific cell type\\n  - *Requires: cell_type*\\n\\n### BEHAVIORAL\\n- **attacking**: Whether the cell is currently attacking\\n\\n### STATE\\n- **dead**: Whether the cell is dead\\n- **apoptotic**: Whether the cell is apoptotic\\n- **necrotic**: Whether the cell is necrotic\\n\\n### TEMPORAL\\n- **total attack time**: Total time spent attacking\\n- **time**: Simulation time\\n\\n### CUSTOM\\n- **custom:sample**: Custom variable (replace 'sample' with actual variable name)\\n  - *Requires: custom_variable*\\n\\n**Note:** Use exact signal names in add_single_cell_rule() function.\\n**Context:** Signals are automatically expanded based on current substrates and cell types.\"\n}",
+                "audience": [
+                  0
+                ]
+              }
+            ],
+            "isError": false
+          },
+          "toolSpecificData": {
+            "kind": "input",
+            "rawInput": {
+              "session_id": "eea7e349"
+            }
+          },
+          "toolCallId": "7633864e-0f11-4bd5-91c6-7d73dde73eec",
+          "toolId": "mcp_physicell_list_all_available_signals"
+        },
+        {
+          "kind": "toolInvocationSerialized",
+          "invocationMessage": {
+            "value": "Running `add_single_cell_rule`",
+            "isTrusted": false,
+            "supportThemeIcons": false,
+            "supportHtml": false,
+            "supportAlertSyntax": false
+          },
+          "pastTenseMessage": {
+            "value": "Ran `add_single_cell_rule` ",
+            "isTrusted": false,
+            "supportThemeIcons": false,
+            "supportHtml": false,
+            "supportAlertSyntax": false
+          },
+          "originMessage": "physicell (MCP Server)",
+          "isConfirmed": {
+            "type": 3,
+            "scope": "profile"
+          },
+          "isComplete": true,
+          "source": {
+            "type": "mcp",
+            "serverLabel": "PhysiCell",
+            "label": "physicell",
+            "collectionId": "mcp.config.usrlocal",
+            "definitionId": "mcp.config.usrlocal.physicell"
+          },
+          "resultDetails": {
+            "input": "{\n  \"cell_type\": \"M0 macrophage\",\n  \"signal\": \"substrate gradient: apoptotic debris\",\n  \"direction\": \"increases\",\n  \"behavior\": \"chemotactic response to substrate\",\n  \"saturation_value\": 1,\n  \"half_max\": 5,\n  \"hill_power\": 2\n}",
+            "output": [
+              {
+                "type": "embed",
+                "isText": true,
+                "value": "**Cell rule added:**\n- Rule: M0 macrophage | substrate gradient: apoptotic debris increases → chemotactic response to substrate\n- Saturation value: 1.0\n- Half-max: 5.0\n- Hill power: 2.0\n- Progress: 67%\n**Ready for export!** Use `export_xml_configuration()` to generate PhysiCell files."
+              },
+              {
+                "type": "embed",
+                "isText": true,
+                "value": "{\n  \"result\": \"**Cell rule added:**\\n- Rule: M0 macrophage | substrate gradient: apoptotic debris increases → chemotactic response to substrate\\n- Saturation value: 1.0\\n- Half-max: 5.0\\n- Hill power: 2.0\\n- Progress: 67%\\n**Ready for export!** Use `export_xml_configuration()` to generate PhysiCell files.\"\n}",
+                "audience": [
+                  0
+                ]
+              }
+            ],
+            "isError": false
+          },
+          "toolSpecificData": {
+            "kind": "input",
+            "rawInput": {
+              "cell_type": "M0 macrophage",
+              "signal": "substrate gradient: apoptotic debris",
+              "direction": "increases",
+              "behavior": "chemotactic response to substrate",
+              "saturation_value": 1,
+              "half_max": 5,
+              "hill_power": 2
+            }
+          },
+          "toolCallId": "ee48b7be-da2c-46d8-8002-b05392d5ec4c",
+          "toolId": "mcp_physicell_add_single_cell_rule"
+        },
+        {
+          "kind": "toolInvocationSerialized",
+          "invocationMessage": {
+            "value": "Running `add_single_cell_rule`",
+            "isTrusted": false,
+            "supportThemeIcons": false,
+            "supportHtml": false,
+            "supportAlertSyntax": false
+          },
+          "pastTenseMessage": {
+            "value": "Ran `add_single_cell_rule` ",
+            "isTrusted": false,
+            "supportThemeIcons": false,
+            "supportHtml": false,
+            "supportAlertSyntax": false
+          },
+          "originMessage": "physicell (MCP Server)",
+          "isConfirmed": {
+            "type": 3,
+            "scope": "profile"
+          },
+          "isComplete": true,
+          "source": {
+            "type": "mcp",
+            "serverLabel": "PhysiCell",
+            "label": "physicell",
+            "collectionId": "mcp.config.usrlocal",
+            "definitionId": "mcp.config.usrlocal.physicell"
+          },
+          "resultDetails": {
+            "input": "{\n  \"cell_type\": \"malignant epithelial cell\",\n  \"signal\": \"substrate: oxygen\",\n  \"direction\": \"increases\",\n  \"behavior\": \"cycle entry\",\n  \"saturation_value\": 1,\n  \"half_max\": 20,\n  \"hill_power\": 3\n}",
+            "output": [
+              {
+                "type": "embed",
+                "isText": true,
+                "value": "**Cell rule added:**\n- Rule: malignant epithelial cell | substrate: oxygen increases → cycle entry\n- Saturation value: 1.0\n- Half-max: 20.0\n- Hill power: 3.0\n- Progress: 67%\n**Ready for export!** Use `export_xml_configuration()` to generate PhysiCell files."
+              },
+              {
+                "type": "embed",
+                "isText": true,
+                "value": "{\n  \"result\": \"**Cell rule added:**\\n- Rule: malignant epithelial cell | substrate: oxygen increases → cycle entry\\n- Saturation value: 1.0\\n- Half-max: 20.0\\n- Hill power: 3.0\\n- Progress: 67%\\n**Ready for export!** Use `export_xml_configuration()` to generate PhysiCell files.\"\n}",
+                "audience": [
+                  0
+                ]
+              }
+            ],
+            "isError": false
+          },
+          "toolSpecificData": {
+            "kind": "input",
+            "rawInput": {
+              "cell_type": "malignant epithelial cell",
+              "signal": "substrate: oxygen",
+              "direction": "increases",
+              "behavior": "cycle entry",
+              "saturation_value": 1,
+              "half_max": 20,
+              "hill_power": 3
+            }
+          },
+          "toolCallId": "2137e99d-e550-4cea-a536-3cbcb9cae66f",
+          "toolId": "mcp_physicell_add_single_cell_rule"
+        },
+        {
+          "kind": "toolInvocationSerialized",
+          "invocationMessage": {
+            "value": "Running `add_single_cell_rule`",
+            "isTrusted": false,
+            "supportThemeIcons": false,
+            "supportHtml": false,
+            "supportAlertSyntax": false
+          },
+          "pastTenseMessage": {
+            "value": "Ran `add_single_cell_rule` ",
+            "isTrusted": false,
+            "supportThemeIcons": false,
+            "supportHtml": false,
+            "supportAlertSyntax": false
+          },
+          "originMessage": "physicell (MCP Server)",
+          "isConfirmed": {
+            "type": 3,
+            "scope": "profile"
+          },
+          "isComplete": true,
+          "source": {
+            "type": "mcp",
+            "serverLabel": "PhysiCell",
+            "label": "physicell",
+            "collectionId": "mcp.config.usrlocal",
+            "definitionId": "mcp.config.usrlocal.physicell"
+          },
+          "resultDetails": {
+            "input": "{\n  \"cell_type\": \"effector T cell\",\n  \"signal\": \"substrate: pro-inflammatory factor\",\n  \"direction\": \"increases\",\n  \"behavior\": \"attack cell type malignant epithelial cell\",\n  \"saturation_value\": 1,\n  \"half_max\": 1,\n  \"hill_power\": 4\n}",
+            "output": [
+              {
+                "type": "embed",
+                "isText": true,
+                "value": "**Cell rule added:**\n- Rule: effector T cell | substrate: pro-inflammatory factor increases → attack cell type malignant epithelial cell\n- Saturation value: 1.0\n- Half-max: 1.0\n- Hill power: 4.0\n- Progress: 67%\n**Ready for export!** Use `export_xml_configuration()` to generate PhysiCell files."
+              },
+              {
+                "type": "embed",
+                "isText": true,
+                "value": "{\n  \"result\": \"**Cell rule added:**\\n- Rule: effector T cell | substrate: pro-inflammatory factor increases → attack cell type malignant epithelial cell\\n- Saturation value: 1.0\\n- Half-max: 1.0\\n- Hill power: 4.0\\n- Progress: 67%\\n**Ready for export!** Use `export_xml_configuration()` to generate PhysiCell files.\"\n}",
+                "audience": [
+                  0
+                ]
+              }
+            ],
+            "isError": false
+          },
+          "toolSpecificData": {
+            "kind": "input",
+            "rawInput": {
+              "cell_type": "effector T cell",
+              "signal": "substrate: pro-inflammatory factor",
+              "direction": "increases",
+              "behavior": "attack cell type malignant epithelial cell",
+              "saturation_value": 1,
+              "half_max": 1,
+              "hill_power": 4
+            }
+          },
+          "toolCallId": "35c91bf6-9a98-4e83-a172-a0b77b45882d",
+          "toolId": "mcp_physicell_add_single_cell_rule"
+        },
+        {
+          "kind": "toolInvocationSerialized",
+          "invocationMessage": {
+            "value": "Running `add_single_cell_rule`",
+            "isTrusted": false,
+            "supportThemeIcons": false,
+            "supportHtml": false,
+            "supportAlertSyntax": false
+          },
+          "pastTenseMessage": {
+            "value": "Ran `add_single_cell_rule` ",
+            "isTrusted": false,
+            "supportThemeIcons": false,
+            "supportHtml": false,
+            "supportAlertSyntax": false
+          },
+          "originMessage": "physicell (MCP Server)",
+          "isConfirmed": {
+            "type": 3,
+            "scope": "profile"
+          },
+          "isComplete": true,
+          "source": {
+            "type": "mcp",
+            "serverLabel": "PhysiCell",
+            "label": "physicell",
+            "collectionId": "mcp.config.usrlocal",
+            "definitionId": "mcp.config.usrlocal.physicell"
+          },
+          "resultDetails": {
+            "input": "{\n  \"cell_type\": \"M2 macrophage\",\n  \"signal\": \"substrate: anti-inflammatory factor\",\n  \"direction\": \"increases\",\n  \"behavior\": \"migration speed\",\n  \"saturation_value\": 1,\n  \"half_max\": 0.5,\n  \"hill_power\": 2\n}",
+            "output": [
+              {
+                "type": "embed",
+                "isText": true,
+                "value": "**Cell rule added:**\n- Rule: M2 macrophage | substrate: anti-inflammatory factor increases → migration speed\n- Saturation value: 1.0\n- Half-max: 0.5\n- Hill power: 2.0\n- Progress: 67%\n**Ready for export!** Use `export_xml_configuration()` to generate PhysiCell files."
+              },
+              {
+                "type": "embed",
+                "isText": true,
+                "value": "{\n  \"result\": \"**Cell rule added:**\\n- Rule: M2 macrophage | substrate: anti-inflammatory factor increases → migration speed\\n- Saturation value: 1.0\\n- Half-max: 0.5\\n- Hill power: 2.0\\n- Progress: 67%\\n**Ready for export!** Use `export_xml_configuration()` to generate PhysiCell files.\"\n}",
+                "audience": [
+                  0
+                ]
+              }
+            ],
+            "isError": false
+          },
+          "toolSpecificData": {
+            "kind": "input",
+            "rawInput": {
+              "cell_type": "M2 macrophage",
+              "signal": "substrate: anti-inflammatory factor",
+              "direction": "increases",
+              "behavior": "migration speed",
+              "saturation_value": 1,
+              "half_max": 0.5,
+              "hill_power": 2
+            }
+          },
+          "toolCallId": "aada4aed-888e-40db-92c5-d6fd4d58b347",
+          "toolId": "mcp_physicell_add_single_cell_rule"
+        },
+        {
+          "kind": "toolInvocationSerialized",
+          "invocationMessage": {
+            "value": "Running `add_single_cell_rule`",
+            "isTrusted": false,
+            "supportThemeIcons": false,
+            "supportHtml": false,
+            "supportAlertSyntax": false
+          },
+          "pastTenseMessage": {
+            "value": "Ran `add_single_cell_rule` ",
+            "isTrusted": false,
+            "supportThemeIcons": false,
+            "supportHtml": false,
+            "supportAlertSyntax": false
+          },
+          "originMessage": "physicell (MCP Server)",
+          "isConfirmed": {
+            "type": 3,
+            "scope": "profile"
+          },
+          "isComplete": true,
+          "source": {
+            "type": "mcp",
+            "serverLabel": "PhysiCell",
+            "label": "physicell",
+            "collectionId": "mcp.config.usrlocal",
+            "definitionId": "mcp.config.usrlocal.physicell"
+          },
+          "resultDetails": {
+            "input": "{\n  \"cell_type\": \"M1 macrophage\",\n  \"signal\": \"substrate gradient: necrotic debris\",\n  \"direction\": \"increases\",\n  \"behavior\": \"phagocytose necrotic cell\",\n  \"saturation_value\": 1,\n  \"half_max\": 5,\n  \"hill_power\": 3\n}",
+            "output": [
+              {
+                "type": "embed",
+                "isText": true,
+                "value": "**Cell rule added:**\n- Rule: M1 macrophage | substrate gradient: necrotic debris increases → phagocytose necrotic cell\n- Saturation value: 1.0\n- Half-max: 5.0\n- Hill power: 3.0\n- Progress: 67%\n**Ready for export!** Use `export_xml_configuration()` to generate PhysiCell files."
+              },
+              {
+                "type": "embed",
+                "isText": true,
+                "value": "{\n  \"result\": \"**Cell rule added:**\\n- Rule: M1 macrophage | substrate gradient: necrotic debris increases → phagocytose necrotic cell\\n- Saturation value: 1.0\\n- Half-max: 5.0\\n- Hill power: 3.0\\n- Progress: 67%\\n**Ready for export!** Use `export_xml_configuration()` to generate PhysiCell files.\"\n}",
+                "audience": [
+                  0
+                ]
+              }
+            ],
+            "isError": false
+          },
+          "toolSpecificData": {
+            "kind": "input",
+            "rawInput": {
+              "cell_type": "M1 macrophage",
+              "signal": "substrate gradient: necrotic debris",
+              "direction": "increases",
+              "behavior": "phagocytose necrotic cell",
+              "saturation_value": 1,
+              "half_max": 5,
+              "hill_power": 3
+            }
+          },
+          "toolCallId": "b22a4aaa-f177-485f-b34b-4897c249d67f",
+          "toolId": "mcp_physicell_add_single_cell_rule"
+        },
+        {
+          "kind": "toolInvocationSerialized",
+          "invocationMessage": {
+            "value": "Running `export_cell_rules_csv`",
+            "isTrusted": false,
+            "supportThemeIcons": false,
+            "supportHtml": false,
+            "supportAlertSyntax": false
+          },
+          "pastTenseMessage": {
+            "value": "Ran `export_cell_rules_csv` ",
+            "isTrusted": false,
+            "supportThemeIcons": false,
+            "supportHtml": false,
+            "supportAlertSyntax": false
+          },
+          "originMessage": "physicell (MCP Server)",
+          "isConfirmed": {
+            "type": 3,
+            "scope": "profile"
+          },
+          "isComplete": true,
+          "source": {
+            "type": "mcp",
+            "serverLabel": "PhysiCell",
+            "label": "physicell",
+            "collectionId": "mcp.config.usrlocal",
+            "definitionId": "mcp.config.usrlocal.physicell"
+          },
+          "resultDetails": {
+            "input": "{\n  \"filename\": \"cell_rules_updated.csv\"\n}",
+            "output": [
+              {
+                "type": "embed",
+                "isText": true,
+                "value": "## Cell Rules CSV Exported\n\n**File:** /home/mruscone/Desktop/github/mcp-biomodelling-servers/PhysiCell/artifacts/96e1ce4d-488c-4f21-8108-c17e75751bd1/cell_rules_updated.csv\n**XML path:** ./config/cell_rules_updated.csv (enabled)\n**Rules:** 5\n**Progress:** 67%\n\n**Next step:** Copy to PhysiCell project directory alongside XML configuration"
+              },
+              {
+                "type": "embed",
+                "isText": true,
+                "value": "{\n  \"result\": \"## Cell Rules CSV Exported\\n\\n**File:** /home/mruscone/Desktop/github/mcp-biomodelling-servers/PhysiCell/artifacts/96e1ce4d-488c-4f21-8108-c17e75751bd1/cell_rules_updated.csv\\n**XML path:** ./config/cell_rules_updated.csv (enabled)\\n**Rules:** 5\\n**Progress:** 67%\\n\\n**Next step:** Copy to PhysiCell project directory alongside XML configuration\"\n}",
+                "audience": [
+                  0
+                ]
+              }
+            ],
+            "isError": false
+          },
+          "toolSpecificData": {
+            "kind": "input",
+            "rawInput": {
+              "filename": "cell_rules_updated.csv"
+            }
+          },
+          "toolCallId": "a9a3cf0b-006a-4921-af8f-ddb6efbc8619",
+          "toolId": "mcp_physicell_export_cell_rules_csv"
+        },
+        {
+          "kind": "toolInvocationSerialized",
+          "invocationMessage": {
+            "value": "Running `export_xml_configuration`",
+            "isTrusted": false,
+            "supportThemeIcons": false,
+            "supportHtml": false,
+            "supportAlertSyntax": false
+          },
+          "pastTenseMessage": {
+            "value": "Ran `export_xml_configuration` ",
+            "isTrusted": false,
+            "supportThemeIcons": false,
+            "supportHtml": false,
+            "supportAlertSyntax": false
+          },
+          "originMessage": "physicell (MCP Server)",
+          "isConfirmed": {
+            "type": 3,
+            "scope": "profile"
+          },
+          "isComplete": true,
+          "source": {
+            "type": "mcp",
+            "serverLabel": "PhysiCell",
+            "label": "physicell",
+            "collectionId": "mcp.config.usrlocal",
+            "definitionId": "mcp.config.usrlocal.physicell"
+          },
+          "resultDetails": {
+            "input": "{\n  \"filename\": \"PhysiCell_settings_updated.xml\"\n}",
+            "output": [
+              {
+                "type": "embed",
+                "isText": true,
+                "value": "## XML Configuration Exported\n\n**File:** /home/mruscone/Desktop/github/mcp-biomodelling-servers/PhysiCell/artifacts/96e1ce4d-488c-4f21-8108-c17e75751bd1/PhysiCell_settings_updated.xml (83KB)\n**Source:** Modified 5 times from PhysiCell_settings.xml\n**Substrates:** 5 (oxygen, apoptotic debris, necrotic debris...)\n**Cell Types:** 6 (malignant epithelial cell, M0 macrophage, M1 macrophage...)\n**Progress:** 67%\n\n**Next step:** Copy to PhysiCell project directory and run:\n```bash\n./myproject PhysiCell_settings_updated.xml\n```"
+              },
+              {
+                "type": "embed",
+                "isText": true,
+                "value": "{\n  \"result\": \"## XML Configuration Exported\\n\\n**File:** /home/mruscone/Desktop/github/mcp-biomodelling-servers/PhysiCell/artifacts/96e1ce4d-488c-4f21-8108-c17e75751bd1/PhysiCell_settings_updated.xml (83KB)\\n**Source:** Modified 5 times from PhysiCell_settings.xml\\n**Substrates:** 5 (oxygen, apoptotic debris, necrotic debris...)\\n**Cell Types:** 6 (malignant epithelial cell, M0 macrophage, M1 macrophage...)\\n**Progress:** 67%\\n\\n**Next step:** Copy to PhysiCell project directory and run:\\n```bash\\n./myproject PhysiCell_settings_updated.xml\\n```\"\n}",
+                "audience": [
+                  0
+                ]
+              }
+            ],
+            "isError": false
+          },
+          "toolSpecificData": {
+            "kind": "input",
+            "rawInput": {
+              "filename": "PhysiCell_settings_updated.xml"
+            }
+          },
+          "toolCallId": "cdae4b22-c4d2-45cf-8a11-7126a1b11fd4",
+          "toolId": "mcp_physicell_export_xml_configuration"
+        },
+        {
+          "value": "I’ve loaded your PhysiCell XML, extracted substrates (oxygen, apoptotic debris, necrotic debris, pro-inflammatory and anti-inflammatory factors), the six cell types, and added five biologically informed cell rules:\n\n• M0 macrophage chemotaxes up apoptotic debris gradients  \n• malignant epithelial cells increase cycle entry with higher oxygen  \n• effector T cells attack malignant cells when pro-inflammatory factor is high  \n• M2 macrophages speed up migration in anti-inflammatory regions  \n• M1 macrophages phagocytose necrotic cells in necrotic debris gradients  \n\nRules were exported to cell_rules_updated.csv and the full updated XML to PhysiCell_settings_updated.xml in your session’s artifacts. You can now replace your project’s config and rerun your simulation.",
+          "supportThemeIcons": false,
+          "supportHtml": false,
+          "baseUri": {
+            "$mid": 1,
+            "path": "/home/mruscone/Desktop/test/",
+            "scheme": "file"
+          }
+        }
+      ],
+      "agent": {
+        "extensionId": {
+          "value": "GitHub.copilot-chat",
+          "_lower": "github.copilot-chat"
+        },
+        "extensionVersion": "0.37.8",
+        "publisherDisplayName": "GitHub",
+        "extensionPublisherId": "GitHub",
+        "extensionDisplayName": "GitHub Copilot Chat",
+        "id": "github.copilot.editsAgent",
+        "description": "Edit files in your workspace in agent mode",
+        "when": "config.chat.agent.enabled",
+        "metadata": {
+          "themeIcon": {
+            "id": "tools"
+          },
+          "hasFollowups": false,
+          "supportIssueReporting": false
+        },
+        "name": "agent",
+        "fullName": "GitHub Copilot",
+        "isDefault": true,
+        "locations": [
+          "panel"
+        ],
+        "modes": [
+          "agent"
+        ],
+        "slashCommands": [],
+        "disambiguation": []
+      },
+      "timestamp": 1772452101384,
+      "modelId": "openai/OpenAI/o4-mini",
+      "responseId": "response_ad20e91d-8cc2-447a-9a39-41d840e4c0e6",
+      "result": {
+        "timings": {
+          "firstProgress": 71228,
+          "totalElapsed": 72752
+        },
+        "metadata": {
+          "codeBlocks": [],
+          "renderedUserMessage": [
+            {
+              "type": 1,
+              "text": "<attachments>\n<attachment id=\"file:PhysiCell_settings.xml\" filePath=\"/home/mruscone/Desktop/test/PhysiCell_settings.xml\">\n<PhysiCell_settings version=\"devel-version\">\n\n    <domain>\n        <x_min>-500</x_min>\n        <x_max>500</x_max>\n        <y_min>-500</y_min>\n        <y_max>500</y_max>\n        <z_min>-10</z_min>\n        <z_max>10</z_max>\n        <dx>20</dx>\n        <dy>20</dy>\n        <dz>20</dz>\n        <use_2D>true</use_2D>\n    </domain>\n\n    <overall>\n        <max_time units=\"min\">1</max_time>\n        <time_units>min</time_units>\n        <space_units>micron</space_units>\n        <dt_diffusion units=\"min\">0.01</dt_diffusion>\n        <dt_mechanics units=\"min\">0.1</dt_mechanics>\n        <dt_phenotype units=\"min\">6</dt_phenotype>\n    </overall>\n\n    <parallel>\n        <omp_num_threads>1</omp_num_threads>\n    </parallel>\n\n    <save>\n        <folder>output</folder>\n        <full_data>\n            <interval units=\"min\">60</interval>\n            <enable>true</enable>\n        </full_data>\n        <SVG>\n            <interval units=\"min\">60</interval>\n            <enable>true</enable>\n            <plot_substrate enabled=\"false\" limits=\"false\">\n                <substrate>oxygen</substrate>\n                <min_conc />\n                <max_conc />\n                <colormap />\n            </plot_substrate>\n        </SVG>\n        <legacy_data>\n            <enable>false</enable>\n        </legacy_data>\n    </save>\n\n    <options>\n        <legacy_random_points_on_sphere_in_divide>false</legacy_random_points_on_sphere_in_divide>\n        <virtual_wall_at_domain_edge>true</virtual_wall_at_domain_edge>\n        <disable_automated_spring_adhesions>false</disable_automated_spring_adhesions>\n        <random_seed>0</random_seed>\n    </options>\n\n    <microenvironment_setup>\n        <variable name=\"oxygen\" units=\"dimensionless\" ID=\"0\">\n            <physical_parameter_set>\n                <diffusion_coefficient units=\"micron^2/min\">100000.0</diffusion_coefficient>\n                <decay_rate units=\"1/min\">0.1</decay_rate>\n            </physical_parameter_set>\n            <initial_condition units=\"mmHg\">38</initial_condition>\n            <Dirichlet_boundary_condition units=\"mmHg\" enabled=\"True\">38</Dirichlet_boundary_condition>\n            <Dirichlet_options>\n                <boundary_value ID=\"xmin\" enabled=\"True\">20</boundary_value>\n                <boundary_value ID=\"xmax\" enabled=\"True\">20</boundary_value>\n                <boundary_value ID=\"ymin\" enabled=\"True\">20</boundary_value>\n                <boundary_value ID=\"ymax\" enabled=\"True\">20</boundary_value>\n                <boundary_value ID=\"zmin\" enabled=\"False\">38</boundary_value>\n                <boundary_value ID=\"zmax\" enabled=\"False\">38</boundary_value>\n            </Dirichlet_options>\n        </variable>\n        <variable name=\"apoptotic debris\" units=\"dimensionless\" ID=\"1\">\n            <physical_parameter_set>\n                <diffusion_coefficient units=\"micron^2/min\">1</diffusion_coefficient>\n                <decay_rate units=\"1/min\">0.0</decay_rate>\n            </physical_parameter_set>\n            <initial_condition units=\"dimensionless\">0.0</initial_condition>\n            <Dirichlet_boundary_condition units=\"dimensionless\" enabled=\"False\">0.0</Dirichlet_boundary_condition>\n            <Dirichlet_options>\n                <boundary_value ID=\"xmin\" enabled=\"False\" />\n                <boundary_value ID=\"xmax\" enabled=\"False\" />\n                <boundary_value ID=\"ymin\" enabled=\"False\" />\n                <boundary_value ID=\"ymax\" enabled=\"False\" />\n                <boundary_value ID=\"zmin\" enabled=\"False\" />\n                <boundary_value ID=\"zmax\" enabled=\"False\" />\n            </Dirichlet_options>\n        </variable>\n        <variable name=\"necrotic debris\" units=\"dimensionless\" ID=\"2\">\n            <physical_parameter_set>\n                <diffusion_coefficient units=\"micron^2/min\">1</diffusion_coefficient>\n                <decay_rate units=\"1/min\">0.0</decay_rate>\n            </physical_parameter_set>\n            <initial_condition units=\"dimensionless\">0.0</initial_condition>\n            <Dirichlet_boundary_condition units=\"dimensionless\" enabled=\"False\">0.0</Dirichlet_boundary_condition>\n            <Dirichlet_options>\n                <boundary_value ID=\"xmin\" enabled=\"False\" />\n                <boundary_value ID=\"xmax\" enabled=\"False\" />\n                <boundary_value ID=\"ymin\" enabled=\"False\" />\n                <boundary_value ID=\"ymax\" enabled=\"False\" />\n                <boundary_value ID=\"zmin\" enabled=\"False\" />\n                <boundary_value ID=\"zmax\" enabled=\"False\" />\n            </Dirichlet_options>\n        </variable>\n        <variable name=\"pro-inflammatory factor\" units=\"dimensionless\" ID=\"3\">\n            <physical_parameter_set>\n                <diffusion_coefficient units=\"micron^2/min\">10000</diffusion_coefficient>\n                <decay_rate units=\"1/min\">1</decay_rate>\n            </physical_parameter_set>\n            <initial_condition units=\"dimensionless\">0.0</initial_condition>\n            <Dirichlet_boundary_condition units=\"dimensionless\" enabled=\"False\">0.0</Dirichlet_boundary_condition>\n            <Dirichlet_options>\n                <boundary_value ID=\"xmin\" enabled=\"False\" />\n                <boundary_value ID=\"xmax\" enabled=\"False\" />\n                <boundary_value ID=\"ymin\" enabled=\"False\" />\n                <boundary_value ID=\"ymax\" enabled=\"False\" />\n                <boundary_value ID=\"zmin\" enabled=\"False\" />\n                <boundary_value ID=\"zmax\" enabled=\"False\" />\n            </Dirichlet_options>\n        </variable>\n        <variable name=\"anti-inflammatory factor\" units=\"dimensionless\" ID=\"4\">\n            <physical_parameter_set>\n                <diffusion_coefficient units=\"micron^2/min\">10000</diffusion_coefficient>\n                <decay_rate units=\"1/min\">1</decay_rate>\n            </physical_parameter_set>\n            <initial_condition units=\"dimensionless\">0.0</initial_condition>\n            <Dirichlet_boundary_condition units=\"dimensionless\" enabled=\"False\">0.0</Dirichlet_boundary_condition>\n            <Dirichlet_options>\n                <boundary_value ID=\"xmin\" enabled=\"False\" />\n                <boundary_value ID=\"xmax\" enabled=\"False\" />\n                <boundary_value ID=\"ymin\" enabled=\"False\" />\n                <boundary_value ID=\"ymax\" enabled=\"False\" />\n                <boundary_value ID=\"zmin\" enabled=\"False\" />\n                <boundary_value ID=\"zmax\" enabled=\"False\" />\n            </Dirichlet_options>\n        </variable>\n        <options>\n            <calculate_gradients>true</calculate_gradients>\n            <track_internalized_substrates_in_each_agent>false</track_internalized_substrates_in_each_agent>\n            <initial_condition type=\"matlab\" enabled=\"false\">\n                <filename>./config/initial.mat</filename>\n            </initial_condition>\n            <dirichlet_nodes type=\"matlab\" enabled=\"false\">\n                <filename>./config/dirichlet.mat</filename>\n            </dirichlet_nodes>\n        </options>\n    </microenvironment_setup>\n\n    <cell_definitions>\n        <cell_definition name=\"malignant epithelial cell\" ID=\"0\">\n            <phenotype>\n                <cycle code=\"6\" name=\"Flow cytometry model (separated)\">\n                    <phase_transition_rates units=\"1/min\">\n                        <rate start_index=\"0\" end_index=\"1\" fixed_duration=\"false\">0.00003333</rate>\n                        <rate start_index=\"1\" end_index=\"2\" fixed_duration=\"true\">0.002083</rate>\n                        <rate start_index=\"2\" end_index=\"3\" fixed_duration=\"true\">0.004167</rate>\n                        <rate start_index=\"3\" end_index=\"0\" fixed_duration=\"true\">0.016667</rate>\n                    </phase_transition_rates>\n                </cycle>\n                <death>\n                    <model code=\"100\" name=\"apoptosis\">\n                        <death_rate units=\"1/min\">7e-05</death_rate>\n                        <phase_durations units=\"min\">\n                            <duration index=\"0\" fixed_duration=\"true\">516</duration>\n                        </phase_durations>\n                        <parameters>\n                            <unlysed_fluid_change_rate units=\"1/min\">0.05</unlysed_fluid_change_rate>\n                            <lysed_fluid_change_rate units=\"1/min\">0</lysed_fluid_change_rate>\n                            <cytoplasmic_biomass_change_rate units=\"1/min\">1.66667e-02</cytoplasmic_biomass_change_rate>\n                            <nuclear_biomass_change_rate units=\"1/min\">5.83333e-03</nuclear_biomass_change_rate>\n                            <calcification_rate units=\"1/min\">0</calcification_rate>\n                            <relative_rupture_volume units=\"dimensionless\">2.0</relative_rupture_volume>\n                        </parameters>\n                    </model>\n                    <model code=\"101\" name=\"necrosis\">\n                        <death_rate units=\"1/min\">3e-3</death_rate>\n                        <phase_durations units=\"min\">\n                            <duration index=\"0\" fixed_duration=\"true\">0</duration>\n                            <duration index=\"1\" fixed_duration=\"true\">86400</duration>\n                        </phase_durations>\n                        <parameters>\n                            <unlysed_fluid_change_rate units=\"1/min\">1.11667e-2</unlysed_fluid_change_rate>\n                            <lysed_fluid_change_rate units=\"1/min\">8.33333e-4</lysed_fluid_change_rate>\n                            <cytoplasmic_biomass_change_rate units=\"1/min\">5.33333e-5</cytoplasmic_biomass_change_rate>\n                            <nuclear_biomass_change_rate units=\"1/min\">2.16667e-3</nuclear_biomass_change_rate>\n                            <calcification_rate units=\"1/min\">0</calcification_rate>\n                            <relative_rupture_volume units=\"dimensionless\">2.0</relative_rupture_volume>\n                        </parameters>\n                    </model>\n                </death>\n                <volume>\n                    <total units=\"micron^3\">2494</total>\n                    <fluid_fraction units=\"dimensionless\">0.75</fluid_fraction>\n                    <nuclear units=\"micron^3\">540</nuclear>\n                    <fluid_change_rate units=\"1/min\">0.05</fluid_change_rate>\n                    <cytoplasmic_biomass_change_rate units=\"1/min\">0.0045</cytoplasmic_biomass_change_rate>\n                    <nuclear_biomass_change_rate units=\"1/min\">0.0055</nuclear_biomass_change_rate>\n                    <calcified_fraction units=\"dimensionless\">0</calcified_fraction>\n                    <calcification_rate units=\"1/min\">0</calcification_rate>\n                    <relative_rupture_volume units=\"dimensionless\">2.0</relative_rupture_volume>\n                </volume>\n                <mechanics>\n                    <cell_cell_adhesion_strength units=\"micron/min\">0.4</cell_cell_adhesion_strength>\n                    <cell_cell_repulsion_strength units=\"micron/min\">10.0</cell_cell_repulsion_strength>\n                    <relative_maximum_adhesion_distance units=\"dimensionless\">1.5</relative_maximum_adhesion_distance>\n                    <cell_adhesion_affinities>\n                        <cell_adhesion_affinity name=\"malignant epithelial cell\">1</cell_adhesion_affinity>\n                        <cell_adhesion_affinity name=\"M0 macrophage\">1.0</cell_adhesion_affinity>\n                        <cell_adhesion_affinity name=\"M1 macrophage\">1.0</cell_adhesion_affinity>\n                        <cell_adhesion_affinity name=\"M2 macrophage\">1.0</cell_adhesion_affinity>\n                        <cell_adhesion_affinity name=\"effector T cell\">1.0</cell_adhesion_affinity>\n                        <cell_adhesion_affinity name=\"exhausted T cell\">1.0</cell_adhesion_affinity>\n                    </cell_adhesion_affinities>\n                    <options>\n                        <set_relative_equilibrium_distance enabled=\"false\" units=\"dimensionless\">1.8</set_relative_equilibrium_distance>\n                        <set_absolute_equilibrium_distance enabled=\"false\" units=\"micron\">15.12</set_absolute_equilibrium_distance>\n                    </options>\n                    <attachment_elastic_constant units=\"1/min\">0.01</attachment_elastic_constant>\n                    <attachment_rate units=\"1/min\">0.0</attachment_rate>\n                    <detachment_rate units=\"1/min\">0.0</detachment_rate>\n                    <maximum_number_of_attachments>12</maximum_number_of_attachments>\n                </mechanics>\n                <motility>\n                    <speed units=\"micron/min\">0.1</speed>\n                    <persistence_time units=\"min\">1</persistence_time>\n                    <migration_bias units=\"dimensionless\">.5</migration_bias>\n                    <options>\n                        <enabled>true</enabled>\n                        <use_2D>true</use_2D>\n                        <chemotaxis>\n                            <enabled>false</enabled>\n                            <substrate>oxygen</substrate>\n                            <direction>1</direction>\n                        </chemotaxis>\n                        <advanced_chemotaxis>\n                            <enabled>true</enabled>\n                            <normalize_each_gradient>false</normalize_each_gradient>\n                            <chemotactic_sensitivities>\n                                <chemotactic_sensitivity substrate=\"oxygen\">1</chemotactic_sensitivity>\n                                <chemotactic_sensitivity substrate=\"apoptotic debris\">0.0</chemotactic_sensitivity>\n                                <chemotactic_sensitivity substrate=\"necrotic debris\">0.0</chemotactic_sensitivity>\n                                <chemotactic_sensitivity substrate=\"pro-inflammatory factor\">0.0</chemotactic_sensitivity>\n                                <chemotactic_sensitivity substrate=\"anti-inflammatory factor\">0.0</chemotactic_sensitivity>\n                            </chemotactic_sensitivities>\n                        </advanced_chemotaxis>\n                    </options>\n                </motility>\n                <secretion>\n                    <substrate name=\"oxygen\">\n                        <secretion_rate units=\"1/min\">0</secretion_rate>\n                        <secretion_target units=\"substrate density\">1</secretion_target>\n                        <uptake_rate units=\"1/min\">10</uptake_rate>\n                        <net_export_rate units=\"total substrate/min\">0</net_export_rate>\n                    </substrate>\n                    <substrate name=\"apoptotic debris\">\n                        <secretion_rate units=\"1/min\">0.0</secretion_rate>\n                        <secretion_target units=\"substrate density\">1</secretion_target>\n                        <uptake_rate units=\"1/min\">0.0</uptake_rate>\n                        <net_export_rate units=\"total substrate/min\">0.0</net_export_rate>\n                    </substrate>\n                    <substrate name=\"necrotic debris\">\n                        <secretion_rate units=\"1/min\">0.0</secretion_rate>\n                        <secretion_target units=\"substrate density\">1</secretion_target>\n                        <uptake_rate units=\"1/min\">0.0</uptake_rate>\n                        <net_export_rate units=\"total substrate/min\">0.0</net_export_rate>\n                    </substrate>\n                    <substrate name=\"pro-inflammatory factor\">\n                        <secretion_rate units=\"1/min\">0.0</secretion_rate>\n                        <secretion_target units=\"substrate density\">0.0</secretion_target>\n                        <uptake_rate units=\"1/min\">0.0</uptake_rate>\n                        <net_export_rate units=\"total substrate/min\">0.0</net_export_rate>\n                    </substrate>\n                    <substrate name=\"anti-inflammatory factor\">\n                        <secretion_rate units=\"1/min\">0.0</secretion_rate>\n                        <secretion_target units=\"substrate density\">0.0</secretion_target>\n                        <uptake_rate units=\"1/min\">0.0</uptake_rate>\n                        <net_export_rate units=\"total substrate/min\">0.0</net_export_rate>\n                    </substrate>\n                </secretion>\n                <cell_interactions>\n                    <apoptotic_phagocytosis_rate units=\"1/min\">0</apoptotic_phagocytosis_rate>\n                    <necrotic_phagocytosis_rate units=\"1/min\">0</necrotic_phagocytosis_rate>\n                    <other_dead_phagocytosis_rate units=\"1/min\">0</other_dead_phagocytosis_rate>\n                    <live_phagocytosis_rates>\n                        <phagocytosis_rate name=\"malignant epithelial cell\" units=\"1/min\">0</phagocytosis_rate>\n                        <phagocytosis_rate name=\"M0 macrophage\" units=\"1/min\">0.0</phagocytosis_rate>\n                        <phagocytosis_rate name=\"M1 macrophage\" units=\"1/min\">0.0</phagocytosis_rate>\n                        <phagocytosis_rate name=\"M2 macrophage\" units=\"1/min\">0.0</phagocytosis_rate>\n                        <phagocytosis_rate name=\"effector T cell\" units=\"1/min\">0.0</phagocytosis_rate>\n                        <phagocytosis_rate name=\"exhausted T cell\" units=\"1/min\">0.0</phagocytosis_rate>\n                    </live_phagocytosis_rates>\n                    <attack_rates>\n                        <attack_rate name=\"malignant epithelial cell\" units=\"1/min\">0</attack_rate>\n                        <attack_rate name=\"M0 macrophage\" units=\"1/min\">0.0</attack_rate>\n                        <attack_rate name=\"M1 macrophage\" units=\"1/min\">0.0</attack_rate>\n                        <attack_rate name=\"M2 macrophage\" units=\"1/min\">0.0</attack_rate>\n                        <attack_rate name=\"effector T cell\" units=\"1/min\">0.0</attack_rate>\n                        <attack_rate name=\"exhausted T cell\" units=\"1/min\">0.0</attack_rate>\n                    </attack_rates>\n                    <attack_damage_rate units=\"1/min\">1</attack_damage_rate>\n                    <attack_duration units=\"min\">0.1</attack_duration>\n                    <fusion_rates>\n                        <fusion_rate name=\"malignant epithelial cell\" units=\"1/min\">0</fusion_rate>\n                        <fusion_rate name=\"M0 macrophage\" units=\"1/min\">0.0</fusion_rate>\n                        <fusion_rate name=\"M1 macrophage\" units=\"1/min\">0.0</fusion_rate>\n                        <fusion_rate name=\"M2 macrophage\" units=\"1/min\">0.0</fusion_rate>\n                        <fusion_rate name=\"effector T cell\" units=\"1/min\">0.0</fusion_rate>\n                        <fusion_rate name=\"exhausted T cell\" units=\"1/min\">0.0</fusion_rate>\n                    </fusion_rates>\n                </cell_interactions>\n                <cell_transformations>\n                    <transformation_rates>\n                        <transformation_rate name=\"malignant epithelial cell\" units=\"1/min\">0</transformation_rate>\n                        <transformation_rate name=\"M0 macrophage\" units=\"1/min\">0.0</transformation_rate>\n                        <transformation_rate name=\"M1 macrophage\" units=\"1/min\">0.0</transformation_rate>\n                        <transformation_rate name=\"M2 macrophage\" units=\"1/min\">0.0</transformation_rate>\n                        <transformation_rate name=\"effector T cell\" units=\"1/min\">0.0</transformation_rate>\n                        <transformation_rate name=\"exhausted T cell\" units=\"1/min\">0.0</transformation_rate>\n                    </transformation_rates>\n                </cell_transformations>\n                <cell_integrity>\n                    <damage_rate units=\"1/min\">0.0</damage_rate>\n                    <damage_repair_rate units=\"1/min\">0.0</damage_repair_rate>\n                </cell_integrity>\n            </phenotype>\n            <custom_data>\n                <sample conserved=\"false\" units=\"dimensionless\" description=\"\">1.0</sample>\n            </custom_data>\n            <initial_parameter_distributions enabled=\"false\">\n          </initial_parameter_distributions>\n        </cell_definition>\n        <cell_definition name=\"M0 macrophage\" ID=\"1\">\n            <phenotype>\n                <cycle code=\"5\" name=\"live\">\n                    <phase_transition_rates units=\"1/min\">\n                        <rate start_index=\"0\" end_index=\"0\" fixed_duration=\"false\">0.000</rate>\n                    </phase_transition_rates>\n                </cycle>\n                <death>\n                    <model code=\"100\" name=\"apoptosis\">\n                        <death_rate units=\"1/min\">0</death_rate>\n                        <phase_transition_rates units=\"1/min\">\n                            <rate start_index=\"0\" end_index=\"1\" fixed_duration=\"false\">0.001938</rate>\n                        </phase_transition_rates>\n                        <parameters>\n                            <unlysed_fluid_change_rate units=\"1/min\">0.05</unlysed_fluid_change_rate>\n                            <lysed_fluid_change_rate units=\"1/min\">0</lysed_fluid_change_rate>\n                            <cytoplasmic_biomass_change_rate units=\"1/min\">1.66667e-02</cytoplasmic_biomass_change_rate>\n                            <nuclear_biomass_change_rate units=\"1/min\">5.83333e-03</nuclear_biomass_change_rate>\n                            <calcification_rate units=\"1/min\">0</calcification_rate>\n                            <relative_rupture_volume units=\"dimensionless\">2.0</relative_rupture_volume>\n                        </parameters>\n                    </model>\n                    <model code=\"101\" name=\"necrosis\">\n                        <death_rate units=\"1/min\">0.0</death_rate>\n                        <phase_transition_rates units=\"1/min\">\n                            <rate start_index=\"0\" end_index=\"1\" fixed_duration=\"false\">9000000000.0</rate>\n                            <rate start_index=\"1\" end_index=\"2\" fixed_duration=\"true\">1.15741e-05</rate>\n                        </phase_transition_rates>\n                        <parameters>\n                            <unlysed_fluid_change_rate units=\"1/min\">1.11667e-02</unlysed_fluid_change_rate>\n                            <lysed_fluid_change_rate units=\"1/min\">8.33333e-4</lysed_fluid_change_rate>\n                            <cytoplasmic_biomass_change_rate units=\"1/min\">5.33333e-05</cytoplasmic_biomass_change_rate>\n                            <nuclear_biomass_change_rate units=\"1/min\">2.16667e-4</nuclear_biomass_change_rate>\n                            <calcification_rate units=\"1/min\">7e-05</calcification_rate>\n                            <relative_rupture_volume units=\"dimensionless\">2.0</relative_rupture_volume>\n                        </parameters>\n                    </model>\n                </death>\n                <volume>\n                    <total units=\"micron^3\">2494</total>\n                    <fluid_fraction units=\"dimensionless\">0.75</fluid_fraction>\n                    <nuclear units=\"micron^3\">540</nuclear>\n                    <fluid_change_rate units=\"1/min\">0.05</fluid_change_rate>\n                    <cytoplasmic_biomass_change_rate units=\"1/min\">0.0045</cytoplasmic_biomass_change_rate>\n                    <nuclear_biomass_change_rate units=\"1/min\">0.0055</nuclear_biomass_change_rate>\n                    <calcified_fraction units=\"dimensionless\">0.0</calcified_fraction>\n                    <calcification_rate units=\"1/min\">0.0</calcification_rate>\n                    <relative_rupture_volume units=\"dimensionless\">2</relative_rupture_volume>\n                </volume>\n                <mechanics>\n                    <cell_cell_adhesion_strength units=\"micron/min\">0</cell_cell_adhesion_strength>\n                    <cell_cell_repulsion_strength units=\"micron/min\">10.0</cell_cell_repulsion_strength>\n                    <relative_maximum_adhesion_distance units=\"dimensionless\">1.5</relative_maximum_adhesion_distance>\n                    <cell_adhesion_affinities>\n                        <cell_adhesion_affinity name=\"malignant epithelial cell\">1.0</cell_adhesion_affinity>\n                        <cell_adhesion_affinity name=\"M0 macrophage\">1.0</cell_adhesion_affinity>\n                        <cell_adhesion_affinity name=\"M1 macrophage\">1.0</cell_adhesion_affinity>\n                        <cell_adhesion_affinity name=\"M2 macrophage\">1.0</cell_adhesion_affinity>\n                        <cell_adhesion_affinity name=\"effector T cell\">1.0</cell_adhesion_affinity>\n                        <cell_adhesion_affinity name=\"exhausted T cell\">1.0</cell_adhesion_affinity>\n                    </cell_adhesion_affinities>\n                    <options>\n                        <set_relative_equilibrium_distance enabled=\"false\" units=\"dimensionless\">1.8</set_relative_equilibrium_distance>\n                        <set_absolute_equilibrium_distance enabled=\"false\" units=\"micron\">15.12</set_absolute_equilibrium_distance>\n                    </options>\n                    <attachment_elastic_constant units=\"1/min\">0.01</attachment_elastic_constant>\n                    <attachment_rate units=\"1/min\">0.0</attachment_rate>\n                    <detachment_rate units=\"1/min\">0.0</detachment_rate>\n                    <maximum_number_of_attachments>12</maximum_number_of_attachments>\n                </mechanics>\n                <motility>\n                    <speed units=\"micron/min\">1.0</speed>\n                    <persistence_time units=\"min\">5</persistence_time>\n                    <migration_bias units=\"dimensionless\">0.25</migration_bias>\n                    <options>\n                        <enabled>true</enabled>\n                        <use_2D>true</use_2D>\n                        <chemotaxis>\n                            <enabled>false</enabled>\n                            <substrate>oxygen</substrate>\n                            <direction>1</direction>\n                        </chemotaxis>\n                        <advanced_chemotaxis>\n                            <enabled>true</enabled>\n                            <normalize_each_gradient>false</normalize_each_gradient>\n                            <chemotactic_sensitivities>\n                                <chemotactic_sensitivity substrate=\"oxygen\">0.0</chemotactic_sensitivity>\n                                <chemotactic_sensitivity substrate=\"apoptotic debris\">1</chemotactic_sensitivity>\n                                <chemotactic_sensitivity substrate=\"necrotic debris\">1</chemotactic_sensitivity>\n                                <chemotactic_sensitivity substrate=\"pro-inflammatory factor\">0.0</chemotactic_sensitivity>\n                                <chemotactic_sensitivity substrate=\"anti-inflammatory factor\">0.0</chemotactic_sensitivity>\n                            </chemotactic_sensitivities>\n                        </advanced_chemotaxis>\n                    </options>\n                </motility>\n                <secretion>\n                    <substrate name=\"oxygen\">\n                        <secretion_rate units=\"1/min\">0.0</secretion_rate>\n                        <secretion_target units=\"substrate density\">1.0</secretion_target>\n                        <uptake_rate units=\"1/min\">10</uptake_rate>\n                        <net_export_rate units=\"total substrate/min\">0.0</net_export_rate>\n                    </substrate>\n                    <substrate name=\"apoptotic debris\">\n                        <secretion_rate units=\"1/min\">0.0</secretion_rate>\n                        <secretion_target units=\"substrate density\">1.0</secretion_target>\n                        <uptake_rate units=\"1/min\">1</uptake_rate>\n                        <net_export_rate units=\"total substrate/min\">0.0</net_export_rate>\n                    </substrate>\n                    <substrate name=\"necrotic debris\">\n                        <secretion_rate units=\"1/min\">0.0</secretion_rate>\n                        <secretion_target units=\"substrate density\">1.0</secretion_target>\n                        <uptake_rate units=\"1/min\">1</uptake_rate>\n                        <net_export_rate units=\"total substrate/min\">0.0</net_export_rate>\n                    </substrate>\n                    <substrate name=\"pro-inflammatory factor\">\n                        <secretion_rate units=\"1/min\">0.0</secretion_rate>\n                        <secretion_target units=\"substrate density\">0.0</secretion_target>\n                        <uptake_rate units=\"1/min\">0.0</uptake_rate>\n                        <net_export_rate units=\"total substrate/min\">0.0</net_export_rate>\n                    </substrate>\n                    <substrate name=\"anti-inflammatory factor\">\n                        <secretion_rate units=\"1/min\">0.0</secretion_rate>\n                        <secretion_target units=\"substrate density\">0.0</secretion_target>\n                        <uptake_rate units=\"1/min\">0.0</uptake_rate>\n                        <net_export_rate units=\"total substrate/min\">0.0</net_export_rate>\n                    </substrate>\n                </secretion>\n                <cell_interactions>\n                    <apoptotic_phagocytosis_rate units=\"1/min\">0.01</apoptotic_phagocytosis_rate>\n                    <necrotic_phagocytosis_rate units=\"1/min\">0.01</necrotic_phagocytosis_rate>\n                    <other_dead_phagocytosis_rate units=\"1/min\">0.01</other_dead_phagocytosis_rate>\n                    <live_phagocytosis_rates>\n                        <phagocytosis_rate name=\"malignant epithelial cell\" units=\"1/min\">0.0</phagocytosis_rate>\n                        <phagocytosis_rate name=\"M0 macrophage\" units=\"1/min\">0.0</phagocytosis_rate>\n                        <phagocytosis_rate name=\"M1 macrophage\" units=\"1/min\">0.0</phagocytosis_rate>\n                        <phagocytosis_rate name=\"M2 macrophage\" units=\"1/min\">0.0</phagocytosis_rate>\n                        <phagocytosis_rate name=\"effector T cell\" units=\"1/min\">0.0</phagocytosis_rate>\n                        <phagocytosis_rate name=\"exhausted T cell\" units=\"1/min\">0.0</phagocytosis_rate>\n                    </live_phagocytosis_rates>\n                    <attack_rates>\n                        <attack_rate name=\"malignant epithelial cell\" units=\"1/min\">0.0</attack_rate>\n                        <attack_rate name=\"M0 macrophage\" units=\"1/min\">0.0</attack_rate>\n                        <attack_rate name=\"M1 macrophage\" units=\"1/min\">0.0</attack_rate>\n                        <attack_rate name=\"M2 macrophage\" units=\"1/min\">0.0</attack_rate>\n                        <attack_rate name=\"effector T cell\" units=\"1/min\">0.0</attack_rate>\n                        <attack_rate name=\"exhausted T cell\" units=\"1/min\">0.0</attack_rate>\n                    </attack_rates>\n                    <attack_damage_rate units=\"1/min\">1.0</attack_damage_rate>\n                    <attack_duration units=\"min\">0.1</attack_duration>\n                    <fusion_rates>\n                        <fusion_rate name=\"malignant epithelial cell\" units=\"1/min\">0.0</fusion_rate>\n                        <fusion_rate name=\"M0 macrophage\" units=\"1/min\">0.0</fusion_rate>\n                        <fusion_rate name=\"M1 macrophage\" units=\"1/min\">0.0</fusion_rate>\n                        <fusion_rate name=\"M2 macrophage\" units=\"1/min\">0.0</fusion_rate>\n                        <fusion_rate name=\"effector T cell\" units=\"1/min\">0.0</fusion_rate>\n                        <fusion_rate name=\"exhausted T cell\" units=\"1/min\">0.0</fusion_rate>\n                    </fusion_rates>\n                </cell_interactions>\n                <cell_transformations>\n                    <transformation_rates>\n                        <transformation_rate name=\"malignant epithelial cell\" units=\"1/min\">0.0</transformation_rate>\n                        <transformation_rate name=\"M0 macrophage\" units=\"1/min\">0.0</transformation_rate>\n                        <transformation_rate name=\"M1 macrophage\" units=\"1/min\">0.0</transformation_rate>\n                        <transformation_rate name=\"M2 macrophage\" units=\"1/min\">0.0</transformation_rate>\n                        <transformation_rate name=\"effector T cell\" units=\"1/min\">0.0</transformation_rate>\n                        <transformation_rate name=\"exhausted T cell\" units=\"1/min\">0.0</transformation_rate>\n                    </transformation_rates>\n                </cell_transformations>\n                <cell_integrity>\n                    <damage_rate units=\"1/min\">0.0</damage_rate>\n                    <damage_repair_rate units=\"1/min\">0.0</damage_repair_rate>\n                </cell_integrity>\n            </phenotype>\n            <custom_data>\n                <sample conserved=\"false\" units=\"dimensionless\" description=\"\">0.0</sample>\n            </custom_data>\n            <initial_parameter_distributions enabled=\"false\">\n          </initial_parameter_distributions>\n        </cell_definition>\n        <cell_definition name=\"M1 macrophage\" ID=\"2\">\n            <phenotype>\n                <cycle code=\"5\" name=\"live\">\n                    <phase_transition_rates units=\"1/min\">\n                        <rate start_index=\"0\" end_index=\"0\" fixed_duration=\"false\">0.000</rate>\n                    </phase_transition_rates>\n                </cycle>\n                <death>\n                    <model code=\"100\" name=\"apoptosis\">\n                        <death_rate units=\"1/min\">0</death_rate>\n                        <phase_transition_rates units=\"1/min\">\n                            <rate start_index=\"0\" end_index=\"1\" fixed_duration=\"false\">0.001938</rate>\n                        </phase_transition_rates>\n                        <parameters>\n                            <unlysed_fluid_change_rate units=\"1/min\">0.05</unlysed_fluid_change_rate>\n                            <lysed_fluid_change_rate units=\"1/min\">0</lysed_fluid_change_rate>\n                            <cytoplasmic_biomass_change_rate units=\"1/min\">1.66667e-02</cytoplasmic_biomass_change_rate>\n                            <nuclear_biomass_change_rate units=\"1/min\">5.83333e-03</nuclear_biomass_change_rate>\n                            <calcification_rate units=\"1/min\">0</calcification_rate>\n                            <relative_rupture_volume units=\"dimensionless\">2.0</relative_rupture_volume>\n                        </parameters>\n                    </model>\n                    <model code=\"101\" name=\"necrosis\">\n                        <death_rate units=\"1/min\">0.0</death_rate>\n                        <phase_transition_rates units=\"1/min\">\n                            <rate start_index=\"0\" end_index=\"1\" fixed_duration=\"false\">9000000000.0</rate>\n                            <rate start_index=\"1\" end_index=\"2\" fixed_duration=\"true\">1.15741e-05</rate>\n                        </phase_transition_rates>\n                        <parameters>\n                            <unlysed_fluid_change_rate units=\"1/min\">1.11667e-02</unlysed_fluid_change_rate>\n                            <lysed_fluid_change_rate units=\"1/min\">8.33333e-4</lysed_fluid_change_rate>\n                            <cytoplasmic_biomass_change_rate units=\"1/min\">5.33333e-05</cytoplasmic_biomass_change_rate>\n                            <nuclear_biomass_change_rate units=\"1/min\">2.16667e-4</nuclear_biomass_change_rate>\n                            <calcification_rate units=\"1/min\">7e-05</calcification_rate>\n                            <relative_rupture_volume units=\"dimensionless\">2.0</relative_rupture_volume>\n                        </parameters>\n                    </model>\n                </death>\n                <volume>\n                    <total units=\"micron^3\">2494</total>\n                    <fluid_fraction units=\"dimensionless\">0.75</fluid_fraction>\n                    <nuclear units=\"micron^3\">540</nuclear>\n                    <fluid_change_rate units=\"1/min\">0.05</fluid_change_rate>\n                    <cytoplasmic_biomass_change_rate units=\"1/min\">0.0045</cytoplasmic_biomass_change_rate>\n                    <nuclear_biomass_change_rate units=\"1/min\">0.0055</nuclear_biomass_change_rate>\n                    <calcified_fraction units=\"dimensionless\">0.0</calcified_fraction>\n                    <calcification_rate units=\"1/min\">0.0</calcification_rate>\n                    <relative_rupture_volume units=\"dimensionless\">2</relative_rupture_volume>\n                </volume>\n                <mechanics>\n                    <cell_cell_adhesion_strength units=\"micron/min\">0</cell_cell_adhesion_strength>\n                    <cell_cell_repulsion_strength units=\"micron/min\">10.0</cell_cell_repulsion_strength>\n                    <relative_maximum_adhesion_distance units=\"dimensionless\">1.5</relative_maximum_adhesion_distance>\n                    <cell_adhesion_affinities>\n                        <cell_adhesion_affinity name=\"malignant epithelial cell\">1.0</cell_adhesion_affinity>\n                        <cell_adhesion_affinity name=\"M0 macrophage\">1.0</cell_adhesion_affinity>\n                        <cell_adhesion_affinity name=\"M1 macrophage\">1.0</cell_adhesion_affinity>\n                        <cell_adhesion_affinity name=\"M2 macrophage\">1.0</cell_adhesion_affinity>\n                        <cell_adhesion_affinity name=\"effector T cell\">1.0</cell_adhesion_affinity>\n                        <cell_adhesion_affinity name=\"exhausted T cell\">1.0</cell_adhesion_affinity>\n                    </cell_adhesion_affinities>\n                    <options>\n                        <set_relative_equilibrium_distance enabled=\"false\" units=\"dimensionless\">1.8</set_relative_equilibrium_distance>\n                        <set_absolute_equilibrium_distance enabled=\"false\" units=\"micron\">15.12</set_absolute_equilibrium_distance>\n                    </options>\n                    <attachment_elastic_constant units=\"1/min\">0.01</attachment_elastic_constant>\n                    <attachment_rate units=\"1/min\">0.0</attachment_rate>\n                    <detachment_rate units=\"1/min\">0.0</detachment_rate>\n                    <maximum_number_of_attachments>12</maximum_number_of_attachments>\n                </mechanics>\n                <motility>\n                    <speed units=\"micron/min\">1.0</speed>\n                    <persistence_time units=\"min\">5</persistence_time>\n                    <migration_bias units=\"dimensionless\">0.25</migration_bias>\n                    <options>\n                        <enabled>true</enabled>\n                        <use_2D>true</use_2D>\n                        <chemotaxis>\n                            <enabled>false</enabled>\n                            <substrate>oxygen</substrate>\n                            <direction>1</direction>\n                        </chemotaxis>\n                        <advanced_chemotaxis>\n                            <enabled>true</enabled>\n                            <normalize_each_gradient>false</normalize_each_gradient>\n                            <chemotactic_sensitivities>\n                                <chemotactic_sensitivity substrate=\"oxygen\">0.0</chemotactic_sensitivity>\n                                <chemotactic_sensitivity substrate=\"apoptotic debris\">1</chemotactic_sensitivity>\n                                <chemotactic_sensitivity substrate=\"necrotic debris\">1</chemotactic_sensitivity>\n                                <chemotactic_sensitivity substrate=\"pro-inflammatory factor\">0.0</chemotactic_sensitivity>\n                                <chemotactic_sensitivity substrate=\"anti-inflammatory factor\">0.0</chemotactic_sensitivity>\n                            </chemotactic_sensitivities>\n                        </advanced_chemotaxis>\n                    </options>\n                </motility>\n                <secretion>\n                    <substrate name=\"oxygen\">\n                        <secretion_rate units=\"1/min\">0.0</secretion_rate>\n                        <secretion_target units=\"substrate density\">1.0</secretion_target>\n                        <uptake_rate units=\"1/min\">10</uptake_rate>\n                        <net_export_rate units=\"total substrate/min\">0.0</net_export_rate>\n                    </substrate>\n                    <substrate name=\"apoptotic debris\">\n                        <secretion_rate units=\"1/min\">0.0</secretion_rate>\n                        <secretion_target units=\"substrate density\">1.0</secretion_target>\n                        <uptake_rate units=\"1/min\">1</uptake_rate>\n                        <net_export_rate units=\"total substrate/min\">0.0</net_export_rate>\n                    </substrate>\n                    <substrate name=\"necrotic debris\">\n                        <secretion_rate units=\"1/min\">0.0</secretion_rate>\n                        <secretion_target units=\"substrate density\">1.0</secretion_target>\n                        <uptake_rate units=\"1/min\">1</uptake_rate>\n                        <net_export_rate units=\"total substrate/min\">0.0</net_export_rate>\n                    </substrate>\n                    <substrate name=\"pro-inflammatory factor\">\n                        <secretion_rate units=\"1/min\">100</secretion_rate>\n                        <secretion_target units=\"substrate density\">1</secretion_target>\n                        <uptake_rate units=\"1/min\">0</uptake_rate>\n                        <net_export_rate units=\"total substrate/min\">0.0</net_export_rate>\n                    </substrate>\n                    <substrate name=\"anti-inflammatory factor\">\n                        <secretion_rate units=\"1/min\">0.0</secretion_rate>\n                        <secretion_target units=\"substrate density\">0.0</secretion_target>\n                        <uptake_rate units=\"1/min\">0.0</uptake_rate>\n                        <net_export_rate units=\"total substrate/min\">0.0</net_export_rate>\n                    </substrate>\n                </secretion>\n                <cell_interactions>\n                    <apoptotic_phagocytosis_rate units=\"1/min\">0.01</apoptotic_phagocytosis_rate>\n                    <necrotic_phagocytosis_rate units=\"1/min\">0.01</necrotic_phagocytosis_rate>\n                    <other_dead_phagocytosis_rate units=\"1/min\">0.01</other_dead_phagocytosis_rate>\n                    <live_phagocytosis_rates>\n                        <phagocytosis_rate name=\"malignant epithelial cell\" units=\"1/min\">0.0</phagocytosis_rate>\n                        <phagocytosis_rate name=\"M0 macrophage\" units=\"1/min\">0.0</phagocytosis_rate>\n                        <phagocytosis_rate name=\"M1 macrophage\" units=\"1/min\">0.0</phagocytosis_rate>\n                        <phagocytosis_rate name=\"M2 macrophage\" units=\"1/min\">0.0</phagocytosis_rate>\n                        <phagocytosis_rate name=\"effector T cell\" units=\"1/min\">0.0</phagocytosis_rate>\n                        <phagocytosis_rate name=\"exhausted T cell\" units=\"1/min\">0.0</phagocytosis_rate>\n                    </live_phagocytosis_rates>\n                    <attack_rates>\n                        <attack_rate name=\"malignant epithelial cell\" units=\"1/min\">0.0</attack_rate>\n                        <attack_rate name=\"M0 macrophage\" units=\"1/min\">0.0</attack_rate>\n                        <attack_rate name=\"M1 macrophage\" units=\"1/min\">0.0</attack_rate>\n                        <attack_rate name=\"M2 macrophage\" units=\"1/min\">0.0</attack_rate>\n                        <attack_rate name=\"effector T cell\" units=\"1/min\">0.0</attack_rate>\n                        <attack_rate name=\"exhausted T cell\" units=\"1/min\">0.0</attack_rate>\n                    </attack_rates>\n                    <attack_damage_rate units=\"1/min\">1.0</attack_damage_rate>\n                    <attack_duration units=\"min\">0.1</attack_duration>\n                    <fusion_rates>\n                        <fusion_rate name=\"malignant epithelial cell\" units=\"1/min\">0.0</fusion_rate>\n                        <fusion_rate name=\"M0 macrophage\" units=\"1/min\">0.0</fusion_rate>\n                        <fusion_rate name=\"M1 macrophage\" units=\"1/min\">0.0</fusion_rate>\n                        <fusion_rate name=\"M2 macrophage\" units=\"1/min\">0.0</fusion_rate>\n                        <fusion_rate name=\"effector T cell\" units=\"1/min\">0.0</fusion_rate>\n                        <fusion_rate name=\"exhausted T cell\" units=\"1/min\">0.0</fusion_rate>\n                    </fusion_rates>\n                </cell_interactions>\n                <cell_transformations>\n                    <transformation_rates>\n                        <transformation_rate name=\"malignant epithelial cell\" units=\"1/min\">0.0</transformation_rate>\n                        <transformation_rate name=\"M0 macrophage\" units=\"1/min\">0.0</transformation_rate>\n                        <transformation_rate name=\"M1 macrophage\" units=\"1/min\">0.0</transformation_rate>\n                        <transformation_rate name=\"M2 macrophage\" units=\"1/min\">0.001</transformation_rate>\n                        <transformation_rate name=\"effector T cell\" units=\"1/min\">0.0</transformation_rate>\n                        <transformation_rate name=\"exhausted T cell\" units=\"1/min\">0.0</transformation_rate>\n                    </transformation_rates>\n                </cell_transformations>\n                <cell_integrity>\n                    <damage_rate units=\"1/min\">0.0</damage_rate>\n                    <damage_repair_rate units=\"1/min\">0.0</damage_repair_rate>\n                </cell_integrity>\n            </phenotype>\n            <custom_data>\n                <sample conserved=\"false\" units=\"dimensionless\" description=\"\">0.0</sample>\n            </custom_data>\n            <initial_parameter_distributions enabled=\"false\">\n          </initial_parameter_distributions>\n        </cell_definition>\n        <cell_definition name=\"M2 macrophage\" ID=\"3\">\n            <phenotype>\n                <cycle code=\"5\" name=\"live\">\n                    <phase_transition_rates units=\"1/min\">\n                        <rate start_index=\"0\" end_index=\"0\" fixed_duration=\"false\">0.000</rate>\n                    </phase_transition_rates>\n                </cycle>\n                <death>\n                    <model code=\"100\" name=\"apoptosis\">\n                        <death_rate units=\"1/min\">0</death_rate>\n                        <phase_transition_rates units=\"1/min\">\n                            <rate start_index=\"0\" end_index=\"1\" fixed_duration=\"false\">0.001938</rate>\n                        </phase_transition_rates>\n                        <parameters>\n                            <unlysed_fluid_change_rate units=\"1/min\">0.05</unlysed_fluid_change_rate>\n                            <lysed_fluid_change_rate units=\"1/min\">0</lysed_fluid_change_rate>\n                            <cytoplasmic_biomass_change_rate units=\"1/min\">1.66667e-02</cytoplasmic_biomass_change_rate>\n                            <nuclear_biomass_change_rate units=\"1/min\">5.83333e-03</nuclear_biomass_change_rate>\n                            <calcification_rate units=\"1/min\">0</calcification_rate>\n                            <relative_rupture_volume units=\"dimensionless\">2.0</relative_rupture_volume>\n                        </parameters>\n                    </model>\n                    <model code=\"101\" name=\"necrosis\">\n                        <death_rate units=\"1/min\">0.0</death_rate>\n                        <phase_transition_rates units=\"1/min\">\n                            <rate start_index=\"0\" end_index=\"1\" fixed_duration=\"false\">9000000000.0</rate>\n                            <rate start_index=\"1\" end_index=\"2\" fixed_duration=\"true\">1.15741e-05</rate>\n                        </phase_transition_rates>\n                        <parameters>\n                            <unlysed_fluid_change_rate units=\"1/min\">1.11667e-02</unlysed_fluid_change_rate>\n                            <lysed_fluid_change_rate units=\"1/min\">8.33333e-4</lysed_fluid_change_rate>\n                            <cytoplasmic_biomass_change_rate units=\"1/min\">5.33333e-05</cytoplasmic_biomass_change_rate>\n                            <nuclear_biomass_change_rate units=\"1/min\">2.16667e-4</nuclear_biomass_change_rate>\n                            <calcification_rate units=\"1/min\">7e-05</calcification_rate>\n                            <relative_rupture_volume units=\"dimensionless\">2.0</relative_rupture_volume>\n                        </parameters>\n                    </model>\n                </death>\n                <volume>\n                    <total units=\"micron^3\">2494</total>\n                    <fluid_fraction units=\"dimensionless\">0.75</fluid_fraction>\n                    <nuclear units=\"micron^3\">540</nuclear>\n                    <fluid_change_rate units=\"1/min\">0.05</fluid_change_rate>\n                    <cytoplasmic_biomass_change_rate units=\"1/min\">0.0045</cytoplasmic_biomass_change_rate>\n                    <nuclear_biomass_change_rate units=\"1/min\">0.0055</nuclear_biomass_change_rate>\n                    <calcified_fraction units=\"dimensionless\">0.0</calcified_fraction>\n                    <calcification_rate units=\"1/min\">0.0</calcification_rate>\n                    <relative_rupture_volume units=\"dimensionless\">2</relative_rupture_volume>\n                </volume>\n                <mechanics>\n                    <cell_cell_adhesion_strength units=\"micron/min\">0</cell_cell_adhesion_strength>\n                    <cell_cell_repulsion_strength units=\"micron/min\">10.0</cell_cell_repulsion_strength>\n                    <relative_maximum_adhesion_distance units=\"dimensionless\">1.5</relative_maximum_adhesion_distance>\n                    <cell_adhesion_affinities>\n                        <cell_adhesion_affinity name=\"malignant epithelial cell\">1.0</cell_adhesion_affinity>\n                        <cell_adhesion_affinity name=\"M0 macrophage\">1.0</cell_adhesion_affinity>\n                        <cell_adhesion_affinity name=\"M1 macrophage\">1.0</cell_adhesion_affinity>\n                        <cell_adhesion_affinity name=\"M2 macrophage\">1.0</cell_adhesion_affinity>\n                        <cell_adhesion_affinity name=\"effector T cell\">1.0</cell_adhesion_affinity>\n                        <cell_adhesion_affinity name=\"exhausted T cell\">1.0</cell_adhesion_affinity>\n                    </cell_adhesion_affinities>\n                    <options>\n                        <set_relative_equilibrium_distance enabled=\"false\" units=\"dimensionless\">1.8</set_relative_equilibrium_distance>\n                        <set_absolute_equilibrium_distance enabled=\"false\" units=\"micron\">15.12</set_absolute_equilibrium_distance>\n                    </options>\n                    <attachment_elastic_constant units=\"1/min\">0.01</attachment_elastic_constant>\n                    <attachment_rate units=\"1/min\">0.0</attachment_rate>\n                    <detachment_rate units=\"1/min\">0.0</detachment_rate>\n                    <maximum_number_of_attachments>12</maximum_number_of_attachments>\n                </mechanics>\n                <motility>\n                    <speed units=\"micron/min\">1.0</speed>\n                    <persistence_time units=\"min\">1.0</persistence_time>\n                    <migration_bias units=\"dimensionless\">0.75</migration_bias>\n                    <options>\n                        <enabled>true</enabled>\n                        <use_2D>true</use_2D>\n                        <chemotaxis>\n                            <enabled>false</enabled>\n                            <substrate>oxygen</substrate>\n                            <direction>1</direction>\n                        </chemotaxis>\n                        <advanced_chemotaxis>\n                            <enabled>true</enabled>\n                            <normalize_each_gradient>false</normalize_each_gradient>\n                            <chemotactic_sensitivities>\n                                <chemotactic_sensitivity substrate=\"oxygen\">0.0</chemotactic_sensitivity>\n                                <chemotactic_sensitivity substrate=\"apoptotic debris\">1</chemotactic_sensitivity>\n                                <chemotactic_sensitivity substrate=\"necrotic debris\">1</chemotactic_sensitivity>\n                                <chemotactic_sensitivity substrate=\"pro-inflammatory factor\">0.0</chemotactic_sensitivity>\n                                <chemotactic_sensitivity substrate=\"anti-inflammatory factor\">0.0</chemotactic_sensitivity>\n                            </chemotactic_sensitivities>\n                        </advanced_chemotaxis>\n                    </options>\n                </motility>\n                <secretion>\n                    <substrate name=\"oxygen\">\n                        <secretion_rate units=\"1/min\">0.0</secretion_rate>\n                        <secretion_target units=\"substrate density\">1.0</secretion_target>\n                        <uptake_rate units=\"1/min\">10</uptake_rate>\n                        <net_export_rate units=\"total substrate/min\">0.0</net_export_rate>\n                    </substrate>\n                    <substrate name=\"apoptotic debris\">\n                        <secretion_rate units=\"1/min\">0.0</secretion_rate>\n                        <secretion_target units=\"substrate density\">1.0</secretion_target>\n                        <uptake_rate units=\"1/min\">1</uptake_rate>\n                        <net_export_rate units=\"total substrate/min\">0.0</net_export_rate>\n                    </substrate>\n                    <substrate name=\"necrotic debris\">\n                        <secretion_rate units=\"1/min\">0.0</secretion_rate>\n                        <secretion_target units=\"substrate density\">1.0</secretion_target>\n                        <uptake_rate units=\"1/min\">1</uptake_rate>\n                        <net_export_rate units=\"total substrate/min\">0.0</net_export_rate>\n                    </substrate>\n                    <substrate name=\"pro-inflammatory factor\">\n                        <secretion_rate units=\"1/min\">0.0</secretion_rate>\n                        <secretion_target units=\"substrate density\">0.0</secretion_target>\n                        <uptake_rate units=\"1/min\">0.0</uptake_rate>\n                        <net_export_rate units=\"total substrate/min\">0.0</net_export_rate>\n                    </substrate>\n                    <substrate name=\"anti-inflammatory factor\">\n                        <secretion_rate units=\"1/min\">100</secretion_rate>\n                        <secretion_target units=\"substrate density\">1</secretion_target>\n                        <uptake_rate units=\"1/min\">0.0</uptake_rate>\n                        <net_export_rate units=\"total substrate/min\">0.0</net_export_rate>\n                    </substrate>\n                </secretion>\n                <cell_interactions>\n                    <apoptotic_phagocytosis_rate units=\"1/min\">0.01</apoptotic_phagocytosis_rate>\n                    <necrotic_phagocytosis_rate units=\"1/min\">0.01</necrotic_phagocytosis_rate>\n                    <other_dead_phagocytosis_rate units=\"1/min\">0.01</other_dead_phagocytosis_rate>\n                    <live_phagocytosis_rates>\n                        <phagocytosis_rate name=\"malignant epithelial cell\" units=\"1/min\">0.0</phagocytosis_rate>\n                        <phagocytosis_rate name=\"M0 macrophage\" units=\"1/min\">0.0</phagocytosis_rate>\n                        <phagocytosis_rate name=\"M1 macrophage\" units=\"1/min\">0.0</phagocytosis_rate>\n                        <phagocytosis_rate name=\"M2 macrophage\" units=\"1/min\">0.0</phagocytosis_rate>\n                        <phagocytosis_rate name=\"effector T cell\" units=\"1/min\">0.0</phagocytosis_rate>\n                        <phagocytosis_rate name=\"exhausted T cell\" units=\"1/min\">0.0</phagocytosis_rate>\n                    </live_phagocytosis_rates>\n                    <attack_rates>\n                        <attack_rate name=\"malignant epithelial cell\" units=\"1/min\">0.0</attack_rate>\n                        <attack_rate name=\"M0 macrophage\" units=\"1/min\">0.0</attack_rate>\n                        <attack_rate name=\"M1 macrophage\" units=\"1/min\">0.0</attack_rate>\n                        <attack_rate name=\"M2 macrophage\" units=\"1/min\">0.0</attack_rate>\n                        <attack_rate name=\"effector T cell\" units=\"1/min\">0.0</attack_rate>\n                        <attack_rate name=\"exhausted T cell\" units=\"1/min\">0.0</attack_rate>\n                    </attack_rates>\n                    <attack_damage_rate units=\"1/min\">1.0</attack_damage_rate>\n                    <attack_duration units=\"min\">0.1</attack_duration>\n                    <fusion_rates>\n                        <fusion_rate name=\"malignant epithelial cell\" units=\"1/min\">0.0</fusion_rate>\n                        <fusion_rate name=\"M0 macrophage\" units=\"1/min\">0.0</fusion_rate>\n                        <fusion_rate name=\"M1 macrophage\" units=\"1/min\">0.0</fusion_rate>\n                        <fusion_rate name=\"M2 macrophage\" units=\"1/min\">0.00</fusion_rate>\n                        <fusion_rate name=\"effector T cell\" units=\"1/min\">0.0</fusion_rate>\n                        <fusion_rate name=\"exhausted T cell\" units=\"1/min\">0.0</fusion_rate>\n                    </fusion_rates>\n                </cell_interactions>\n                <cell_transformations>\n                    <transformation_rates>\n                        <transformation_rate name=\"malignant epithelial cell\" units=\"1/min\">0.0</transformation_rate>\n                        <transformation_rate name=\"M0 macrophage\" units=\"1/min\">0.0</transformation_rate>\n                        <transformation_rate name=\"M1 macrophage\" units=\"1/min\">0.0</transformation_rate>\n                        <transformation_rate name=\"M2 macrophage\" units=\"1/min\">0.0</transformation_rate>\n                        <transformation_rate name=\"effector T cell\" units=\"1/min\">0.0</transformation_rate>\n                        <transformation_rate name=\"exhausted T cell\" units=\"1/min\">0.0</transformation_rate>\n                    </transformation_rates>\n                </cell_transformations>\n                <cell_integrity>\n                    <damage_rate units=\"1/min\">0.0</damage_rate>\n                    <damage_repair_rate units=\"1/min\">0.0</damage_repair_rate>\n                </cell_integrity>\n            </phenotype>\n            <custom_data>\n                <sample conserved=\"false\" units=\"dimensionless\" description=\"\">0.0</sample>\n            </custom_data>\n            <initial_parameter_distributions enabled=\"false\">\n          </initial_parameter_distributions>\n        </cell_definition>\n        <cell_definition name=\"effector T cell\" ID=\"4\">\n            <phenotype>\n                <cycle code=\"5\" name=\"live\">\n                    <phase_transition_rates units=\"1/min\">\n                        <rate start_index=\"0\" end_index=\"0\" fixed_duration=\"false\">0.000</rate>\n                    </phase_transition_rates>\n                </cycle>\n                <death>\n                    <model code=\"100\" name=\"apoptosis\">\n                        <death_rate units=\"1/min\">0</death_rate>\n                        <phase_transition_rates units=\"1/min\">\n                            <rate start_index=\"0\" end_index=\"1\" fixed_duration=\"false\">0.001938</rate>\n                        </phase_transition_rates>\n                        <parameters>\n                            <unlysed_fluid_change_rate units=\"1/min\">0.05</unlysed_fluid_change_rate>\n                            <lysed_fluid_change_rate units=\"1/min\">0</lysed_fluid_change_rate>\n                            <cytoplasmic_biomass_change_rate units=\"1/min\">1.66667e-02</cytoplasmic_biomass_change_rate>\n                            <nuclear_biomass_change_rate units=\"1/min\">5.83333e-03</nuclear_biomass_change_rate>\n                            <calcification_rate units=\"1/min\">0</calcification_rate>\n                            <relative_rupture_volume units=\"dimensionless\">2.0</relative_rupture_volume>\n                        </parameters>\n                    </model>\n                    <model code=\"101\" name=\"necrosis\">\n                        <death_rate units=\"1/min\">0.0</death_rate>\n                        <phase_transition_rates units=\"1/min\">\n                            <rate start_index=\"0\" end_index=\"1\" fixed_duration=\"false\">9000000000.0</rate>\n                            <rate start_index=\"1\" end_index=\"2\" fixed_duration=\"true\">1.15741e-05</rate>\n                        </phase_transition_rates>\n                        <parameters>\n                            <unlysed_fluid_change_rate units=\"1/min\">1.11667e-02</unlysed_fluid_change_rate>\n                            <lysed_fluid_change_rate units=\"1/min\">8.33333e-4</lysed_fluid_change_rate>\n                            <cytoplasmic_biomass_change_rate units=\"1/min\">5.33333e-05</cytoplasmic_biomass_change_rate>\n                            <nuclear_biomass_change_rate units=\"1/min\">2.16667e-4</nuclear_biomass_change_rate>\n                            <calcification_rate units=\"1/min\">7e-05</calcification_rate>\n                            <relative_rupture_volume units=\"dimensionless\">2.0</relative_rupture_volume>\n                        </parameters>\n                    </model>\n                </death>\n                <volume>\n                    <total units=\"micron^3\">2494</total>\n                    <fluid_fraction units=\"dimensionless\">0.75</fluid_fraction>\n                    <nuclear units=\"micron^3\">540</nuclear>\n                    <fluid_change_rate units=\"1/min\">0.05</fluid_change_rate>\n                    <cytoplasmic_biomass_change_rate units=\"1/min\">0.0045</cytoplasmic_biomass_change_rate>\n                    <nuclear_biomass_change_rate units=\"1/min\">0.0055</nuclear_biomass_change_rate>\n                    <calcified_fraction units=\"dimensionless\">0.0</calcified_fraction>\n                    <calcification_rate units=\"1/min\">0.0</calcification_rate>\n                    <relative_rupture_volume units=\"dimensionless\">2</relative_rupture_volume>\n                </volume>\n                <mechanics>\n                    <cell_cell_adhesion_strength units=\"micron/min\">0</cell_cell_adhesion_strength>\n                    <cell_cell_repulsion_strength units=\"micron/min\">10.0</cell_cell_repulsion_strength>\n                    <relative_maximum_adhesion_distance units=\"dimensionless\">1.5</relative_maximum_adhesion_distance>\n                    <cell_adhesion_affinities>\n                        <cell_adhesion_affinity name=\"malignant epithelial cell\">1.0</cell_adhesion_affinity>\n                        <cell_adhesion_affinity name=\"M0 macrophage\">1.0</cell_adhesion_affinity>\n                        <cell_adhesion_affinity name=\"M1 macrophage\">1.0</cell_adhesion_affinity>\n                        <cell_adhesion_affinity name=\"M2 macrophage\">1.0</cell_adhesion_affinity>\n                        <cell_adhesion_affinity name=\"effector T cell\">1.0</cell_adhesion_affinity>\n                        <cell_adhesion_affinity name=\"exhausted T cell\">1.0</cell_adhesion_affinity>\n                    </cell_adhesion_affinities>\n                    <options>\n                        <set_relative_equilibrium_distance enabled=\"false\" units=\"dimensionless\">1.8</set_relative_equilibrium_distance>\n                        <set_absolute_equilibrium_distance enabled=\"false\" units=\"micron\">15.12</set_absolute_equilibrium_distance>\n                    </options>\n                    <attachment_elastic_constant units=\"1/min\">0.01</attachment_elastic_constant>\n                    <attachment_rate units=\"1/min\">0.0</attachment_rate>\n                    <detachment_rate units=\"1/min\">0.0</detachment_rate>\n                    <maximum_number_of_attachments>12</maximum_number_of_attachments>\n                </mechanics>\n                <motility>\n                    <speed units=\"micron/min\">0.1</speed>\n                    <persistence_time units=\"min\">5</persistence_time>\n                    <migration_bias units=\"dimensionless\">0.5</migration_bias>\n                    <options>\n                        <enabled>true</enabled>\n                        <use_2D>true</use_2D>\n                        <chemotaxis>\n                            <enabled>false</enabled>\n                            <substrate>oxygen</substrate>\n                            <direction>1</direction>\n                        </chemotaxis>\n                        <advanced_chemotaxis>\n                            <enabled>true</enabled>\n                            <normalize_each_gradient>false</normalize_each_gradient>\n                            <chemotactic_sensitivities>\n                                <chemotactic_sensitivity substrate=\"oxygen\">0.0</chemotactic_sensitivity>\n                                <chemotactic_sensitivity substrate=\"apoptotic debris\">0</chemotactic_sensitivity>\n                                <chemotactic_sensitivity substrate=\"necrotic debris\">0</chemotactic_sensitivity>\n                                <chemotactic_sensitivity substrate=\"pro-inflammatory factor\">1</chemotactic_sensitivity>\n                                <chemotactic_sensitivity substrate=\"anti-inflammatory factor\">0.0</chemotactic_sensitivity>\n                            </chemotactic_sensitivities>\n                        </advanced_chemotaxis>\n                    </options>\n                </motility>\n                <secretion>\n                    <substrate name=\"oxygen\">\n                        <secretion_rate units=\"1/min\">0.0</secretion_rate>\n                        <secretion_target units=\"substrate density\">1.0</secretion_target>\n                        <uptake_rate units=\"1/min\">10</uptake_rate>\n                        <net_export_rate units=\"total substrate/min\">0.0</net_export_rate>\n                    </substrate>\n                    <substrate name=\"apoptotic debris\">\n                        <secretion_rate units=\"1/min\">0.0</secretion_rate>\n                        <secretion_target units=\"substrate density\">1.0</secretion_target>\n                        <uptake_rate units=\"1/min\">1</uptake_rate>\n                        <net_export_rate units=\"total substrate/min\">0.0</net_export_rate>\n                    </substrate>\n                    <substrate name=\"necrotic debris\">\n                        <secretion_rate units=\"1/min\">0.0</secretion_rate>\n                        <secretion_target units=\"substrate density\">1.0</secretion_target>\n                        <uptake_rate units=\"1/min\">1</uptake_rate>\n                        <net_export_rate units=\"total substrate/min\">0.0</net_export_rate>\n                    </substrate>\n                    <substrate name=\"pro-inflammatory factor\">\n                        <secretion_rate units=\"1/min\">0.0</secretion_rate>\n                        <secretion_target units=\"substrate density\">0.0</secretion_target>\n                        <uptake_rate units=\"1/min\">1</uptake_rate>\n                        <net_export_rate units=\"total substrate/min\">0.0</net_export_rate>\n                    </substrate>\n                    <substrate name=\"anti-inflammatory factor\">\n                        <secretion_rate units=\"1/min\">0.0</secretion_rate>\n                        <secretion_target units=\"substrate density\">0.0</secretion_target>\n                        <uptake_rate units=\"1/min\">1</uptake_rate>\n                        <net_export_rate units=\"total substrate/min\">0.0</net_export_rate>\n                    </substrate>\n                </secretion>\n                <cell_interactions>\n                    <apoptotic_phagocytosis_rate units=\"1/min\">0</apoptotic_phagocytosis_rate>\n                    <necrotic_phagocytosis_rate units=\"1/min\">0</necrotic_phagocytosis_rate>\n                    <other_dead_phagocytosis_rate units=\"1/min\">0</other_dead_phagocytosis_rate>\n                    <live_phagocytosis_rates>\n                        <phagocytosis_rate name=\"malignant epithelial cell\" units=\"1/min\">0.0</phagocytosis_rate>\n                        <phagocytosis_rate name=\"M0 macrophage\" units=\"1/min\">0.0</phagocytosis_rate>\n                        <phagocytosis_rate name=\"M1 macrophage\" units=\"1/min\">0.0</phagocytosis_rate>\n                        <phagocytosis_rate name=\"M2 macrophage\" units=\"1/min\">0.0</phagocytosis_rate>\n                        <phagocytosis_rate name=\"effector T cell\" units=\"1/min\">0.0</phagocytosis_rate>\n                        <phagocytosis_rate name=\"exhausted T cell\" units=\"1/min\">0.0</phagocytosis_rate>\n                    </live_phagocytosis_rates>\n                    <attack_rates>\n                        <attack_rate name=\"malignant epithelial cell\" units=\"1/min\">0.01</attack_rate>\n                        <attack_rate name=\"M0 macrophage\" units=\"1/min\">0.0</attack_rate>\n                        <attack_rate name=\"M1 macrophage\" units=\"1/min\">0.0</attack_rate>\n                        <attack_rate name=\"M2 macrophage\" units=\"1/min\">0.0</attack_rate>\n                        <attack_rate name=\"effector T cell\" units=\"1/min\">0.0</attack_rate>\n                        <attack_rate name=\"exhausted T cell\" units=\"1/min\">0.0</attack_rate>\n                    </attack_rates>\n                    <attack_damage_rate units=\"1/min\">1.0</attack_damage_rate>\n                    <attack_duration units=\"min\">0.1</attack_duration>\n                    <fusion_rates>\n                        <fusion_rate name=\"malignant epithelial cell\" units=\"1/min\">0.0</fusion_rate>\n                        <fusion_rate name=\"M0 macrophage\" units=\"1/min\">0.0</fusion_rate>\n                        <fusion_rate name=\"M1 macrophage\" units=\"1/min\">0.0</fusion_rate>\n                        <fusion_rate name=\"M2 macrophage\" units=\"1/min\">0.0</fusion_rate>\n                        <fusion_rate name=\"effector T cell\" units=\"1/min\">0.0</fusion_rate>\n                        <fusion_rate name=\"exhausted T cell\" units=\"1/min\">0.0</fusion_rate>\n                    </fusion_rates>\n                </cell_interactions>\n                <cell_transformations>\n                    <transformation_rates>\n                        <transformation_rate name=\"malignant epithelial cell\" units=\"1/min\">0.0</transformation_rate>\n                        <transformation_rate name=\"M0 macrophage\" units=\"1/min\">0.0</transformation_rate>\n                        <transformation_rate name=\"M1 macrophage\" units=\"1/min\">0.0</transformation_rate>\n                        <transformation_rate name=\"M2 macrophage\" units=\"1/min\">0.0</transformation_rate>\n                        <transformation_rate name=\"effector T cell\" units=\"1/min\">0.0</transformation_rate>\n                        <transformation_rate name=\"exhausted T cell\" units=\"1/min\">0.0</transformation_rate>\n                    </transformation_rates>\n                </cell_transformations>\n                <cell_integrity>\n                    <damage_rate units=\"1/min\">0.0</damage_rate>\n                    <damage_repair_rate units=\"1/min\">0.0</damage_repair_rate>\n                </cell_integrity>\n            </phenotype>\n            <custom_data>\n                <sample conserved=\"false\" units=\"dimensionless\" description=\"\">0.0</sample>\n            </custom_data>\n            <initial_parameter_distributions enabled=\"false\">\n          </initial_parameter_distributions>\n        </cell_definition>\n        <cell_definition name=\"exhausted T cell\" ID=\"5\">\n            <phenotype>\n                <cycle code=\"5\" name=\"live\">\n                    <phase_transition_rates units=\"1/min\">\n                        <rate start_index=\"0\" end_index=\"0\" fixed_duration=\"false\">0.000</rate>\n                    </phase_transition_rates>\n                </cycle>\n                <death>\n                    <model code=\"100\" name=\"apoptosis\">\n                        <death_rate units=\"1/min\">0</death_rate>\n                        <phase_transition_rates units=\"1/min\">\n                            <rate start_index=\"0\" end_index=\"1\" fixed_duration=\"false\">0.001938</rate>\n                        </phase_transition_rates>\n                        <parameters>\n                            <unlysed_fluid_change_rate units=\"1/min\">0.05</unlysed_fluid_change_rate>\n                            <lysed_fluid_change_rate units=\"1/min\">0</lysed_fluid_change_rate>\n                            <cytoplasmic_biomass_change_rate units=\"1/min\">1.66667e-02</cytoplasmic_biomass_change_rate>\n                            <nuclear_biomass_change_rate units=\"1/min\">5.83333e-03</nuclear_biomass_change_rate>\n                            <calcification_rate units=\"1/min\">0</calcification_rate>\n                            <relative_rupture_volume units=\"dimensionless\">2.0</relative_rupture_volume>\n                        </parameters>\n                    </model>\n                    <model code=\"101\" name=\"necrosis\">\n                        <death_rate units=\"1/min\">0.0</death_rate>\n                        <phase_transition_rates units=\"1/min\">\n                            <rate start_index=\"0\" end_index=\"1\" fixed_duration=\"false\">9000000000.0</rate>\n                            <rate start_index=\"1\" end_index=\"2\" fixed_duration=\"true\">1.15741e-05</rate>\n                        </phase_transition_rates>\n                        <parameters>\n                            <unlysed_fluid_change_rate units=\"1/min\">1.11667e-02</unlysed_fluid_change_rate>\n                            <lysed_fluid_change_rate units=\"1/min\">8.33333e-4</lysed_fluid_change_rate>\n                            <cytoplasmic_biomass_change_rate units=\"1/min\">5.33333e-05</cytoplasmic_biomass_change_rate>\n                            <nuclear_biomass_change_rate units=\"1/min\">2.16667e-4</nuclear_biomass_change_rate>\n                            <calcification_rate units=\"1/min\">7e-05</calcification_rate>\n                            <relative_rupture_volume units=\"dimensionless\">2.0</relative_rupture_volume>\n                        </parameters>\n                    </model>\n                </death>\n                <volume>\n                    <total units=\"micron^3\">2494</total>\n                    <fluid_fraction units=\"dimensionless\">0.75</fluid_fraction>\n                    <nuclear units=\"micron^3\">540</nuclear>\n                    <fluid_change_rate units=\"1/min\">0.05</fluid_change_rate>\n                    <cytoplasmic_biomass_change_rate units=\"1/min\">0.0045</cytoplasmic_biomass_change_rate>\n                    <nuclear_biomass_change_rate units=\"1/min\">0.0055</nuclear_biomass_change_rate>\n                    <calcified_fraction units=\"dimensionless\">0.0</calcified_fraction>\n                    <calcification_rate units=\"1/min\">0.0</calcification_rate>\n                    <relative_rupture_volume units=\"dimensionless\">2</relative_rupture_volume>\n                </volume>\n                <mechanics>\n                    <cell_cell_adhesion_strength units=\"micron/min\">0</cell_cell_adhesion_strength>\n                    <cell_cell_repulsion_strength units=\"micron/min\">10.0</cell_cell_repulsion_strength>\n                    <relative_maximum_adhesion_distance units=\"dimensionless\">1.5</relative_maximum_adhesion_distance>\n                    <cell_adhesion_affinities>\n                        <cell_adhesion_affinity name=\"malignant epithelial cell\">1.0</cell_adhesion_affinity>\n                        <cell_adhesion_affinity name=\"M0 macrophage\">1.0</cell_adhesion_affinity>\n                        <cell_adhesion_affinity name=\"M1 macrophage\">1.0</cell_adhesion_affinity>\n                        <cell_adhesion_affinity name=\"M2 macrophage\">1.0</cell_adhesion_affinity>\n                        <cell_adhesion_affinity name=\"effector T cell\">1.0</cell_adhesion_affinity>\n                        <cell_adhesion_affinity name=\"exhausted T cell\">1.0</cell_adhesion_affinity>\n                    </cell_adhesion_affinities>\n                    <options>\n                        <set_relative_equilibrium_distance enabled=\"false\" units=\"dimensionless\">1.8</set_relative_equilibrium_distance>\n                        <set_absolute_equilibrium_distance enabled=\"false\" units=\"micron\">15.12</set_absolute_equilibrium_distance>\n                    </options>\n                    <attachment_elastic_constant units=\"1/min\">0.01</attachment_elastic_constant>\n                    <attachment_rate units=\"1/min\">0.0</attachment_rate>\n                    <detachment_rate units=\"1/min\">0.0</detachment_rate>\n                    <maximum_number_of_attachments>12</maximum_number_of_attachments>\n                </mechanics>\n                <motility>\n                    <speed units=\"micron/min\">0.01</speed>\n                    <persistence_time units=\"min\">5</persistence_time>\n                    <migration_bias units=\"dimensionless\">0.1</migration_bias>\n                    <options>\n                        <enabled>true</enabled>\n                        <use_2D>true</use_2D>\n                        <chemotaxis>\n                            <enabled>false</enabled>\n                            <substrate>oxygen</substrate>\n                            <direction>1</direction>\n                        </chemotaxis>\n                        <advanced_chemotaxis>\n                            <enabled>true</enabled>\n                            <normalize_each_gradient>false</normalize_each_gradient>\n                            <chemotactic_sensitivities>\n                                <chemotactic_sensitivity substrate=\"oxygen\">0.0</chemotactic_sensitivity>\n                                <chemotactic_sensitivity substrate=\"apoptotic debris\">0</chemotactic_sensitivity>\n                                <chemotactic_sensitivity substrate=\"necrotic debris\">0</chemotactic_sensitivity>\n                                <chemotactic_sensitivity substrate=\"pro-inflammatory factor\">0.0</chemotactic_sensitivity>\n                                <chemotactic_sensitivity substrate=\"anti-inflammatory factor\">1</chemotactic_sensitivity>\n                            </chemotactic_sensitivities>\n                        </advanced_chemotaxis>\n                    </options>\n                </motility>\n                <secretion>\n                    <substrate name=\"oxygen\">\n                        <secretion_rate units=\"1/min\">0.0</secretion_rate>\n                        <secretion_target units=\"substrate density\">1.0</secretion_target>\n                        <uptake_rate units=\"1/min\">10</uptake_rate>\n                        <net_export_rate units=\"total substrate/min\">0.0</net_export_rate>\n                    </substrate>\n                    <substrate name=\"apoptotic debris\">\n                        <secretion_rate units=\"1/min\">0.0</secretion_rate>\n                        <secretion_target units=\"substrate density\">1.0</secretion_target>\n                        <uptake_rate units=\"1/min\">1</uptake_rate>\n                        <net_export_rate units=\"total substrate/min\">0.0</net_export_rate>\n                    </substrate>\n                    <substrate name=\"necrotic debris\">\n                        <secretion_rate units=\"1/min\">0.0</secretion_rate>\n                        <secretion_target units=\"substrate density\">1.0</secretion_target>\n                        <uptake_rate units=\"1/min\">1</uptake_rate>\n                        <net_export_rate units=\"total substrate/min\">0.0</net_export_rate>\n                    </substrate>\n                    <substrate name=\"pro-inflammatory factor\">\n                        <secretion_rate units=\"1/min\">0.0</secretion_rate>\n                        <secretion_target units=\"substrate density\">0.0</secretion_target>\n                        <uptake_rate units=\"1/min\">0.1</uptake_rate>\n                        <net_export_rate units=\"total substrate/min\">0.0</net_export_rate>\n                    </substrate>\n                    <substrate name=\"anti-inflammatory factor\">\n                        <secretion_rate units=\"1/min\">0.0</secretion_rate>\n                        <secretion_target units=\"substrate density\">0.0</secretion_target>\n                        <uptake_rate units=\"1/min\">0.1</uptake_rate>\n                        <net_export_rate units=\"total substrate/min\">0.0</net_export_rate>\n                    </substrate>\n                </secretion>\n                <cell_interactions>\n                    <apoptotic_phagocytosis_rate units=\"1/min\">0</apoptotic_phagocytosis_rate>\n                    <necrotic_phagocytosis_rate units=\"1/min\">0</necrotic_phagocytosis_rate>\n                    <other_dead_phagocytosis_rate units=\"1/min\">0</other_dead_phagocytosis_rate>\n                    <live_phagocytosis_rates>\n                        <phagocytosis_rate name=\"malignant epithelial cell\" units=\"1/min\">0.0</phagocytosis_rate>\n                        <phagocytosis_rate name=\"M0 macrophage\" units=\"1/min\">0.0</phagocytosis_rate>\n                        <phagocytosis_rate name=\"M1 macrophage\" units=\"1/min\">0.0</phagocytosis_rate>\n                        <phagocytosis_rate name=\"M2 macrophage\" units=\"1/min\">0.0</phagocytosis_rate>\n                        <phagocytosis_rate name=\"effector T cell\" units=\"1/min\">0.0</phagocytosis_rate>\n                        <phagocytosis_rate name=\"exhausted T cell\" units=\"1/min\">0.0</phagocytosis_rate>\n                    </live_phagocytosis_rates>\n                    <attack_rates>\n                        <attack_rate name=\"malignant epithelial cell\" units=\"1/min\">0.0</attack_rate>\n                        <attack_rate name=\"M0 macrophage\" units=\"1/min\">0.0</attack_rate>\n                        <attack_rate name=\"M1 macrophage\" units=\"1/min\">0.0</attack_rate>\n                        <attack_rate name=\"M2 macrophage\" units=\"1/min\">0.0</attack_rate>\n                        <attack_rate name=\"effector T cell\" units=\"1/min\">0.0</attack_rate>\n                        <attack_rate name=\"exhausted T cell\" units=\"1/min\">0.0</attack_rate>\n                    </attack_rates>\n                    <attack_damage_rate units=\"1/min\">1.0</attack_damage_rate>\n                    <attack_duration units=\"min\">0.1</attack_duration>\n                    <fusion_rates>\n                        <fusion_rate name=\"malignant epithelial cell\" units=\"1/min\">0.0</fusion_rate>\n                        <fusion_rate name=\"M0 macrophage\" units=\"1/min\">0.0</fusion_rate>\n                        <fusion_rate name=\"M1 macrophage\" units=\"1/min\">0.0</fusion_rate>\n                        <fusion_rate name=\"M2 macrophage\" units=\"1/min\">0.0</fusion_rate>\n                        <fusion_rate name=\"effector T cell\" units=\"1/min\">0.0</fusion_rate>\n                        <fusion_rate name=\"exhausted T cell\" units=\"1/min\">0.0</fusion_rate>\n                    </fusion_rates>\n                </cell_interactions>\n                <cell_transformations>\n                    <transformation_rates>\n                        <transformation_rate name=\"malignant epithelial cell\" units=\"1/min\">0.0</transformation_rate>\n                        <transformation_rate name=\"M0 macrophage\" units=\"1/min\">0.0</transformation_rate>\n                        <transformation_rate name=\"M1 macrophage\" units=\"1/min\">0.0</transformation_rate>\n                        <transformation_rate name=\"M2 macrophage\" units=\"1/min\">0.0</transformation_rate>\n                        <transformation_rate name=\"effector T cell\" units=\"1/min\">0.0</transformation_rate>\n                        <transformation_rate name=\"exhausted T cell\" units=\"1/min\">0.0</transformation_rate>\n                    </transformation_rates>\n                </cell_transformations>\n                <cell_integrity>\n                    <damage_rate units=\"1/min\">0.0</damage_rate>\n                    <damage_repair_rate units=\"1/min\">0.0</damage_repair_rate>\n                </cell_integrity>\n            </phenotype>\n            <custom_data>\n                <sample conserved=\"false\" units=\"dimensionless\" description=\"\">0.0</sample>\n            </custom_data>\n            <initial_parameter_distributions enabled=\"false\">\n          </initial_parameter_distributions>\n        </cell_definition>\n    </cell_definitions>\n\n    <initial_conditions>\n        <cell_positions type=\"csv\" enabled=\"true\">\n            <folder>./config</folder>\n            <filename>cells.csv</filename>\n        </cell_positions>\n    </initial_conditions>\n\n    <cell_rules>\n        <rulesets>\n            <ruleset protocol=\"CBHG\" version=\"3.0\" format=\"csv\" enabled=\"true\">\n                <folder>/home/mruscone/Desktop/github/PhysiCell/sample_projects/rules_sample/config</folder>\n                <filename>cell_rules.csv</filename>\n            </ruleset>\n        </rulesets>\n        <settings />\n    </cell_rules>\n\n    <user_parameters>\n        <number_of_cells type=\"int\" units=\"none\" description=\"initial number of cells (for each cell type)\">0</number_of_cells>\n    </user_parameters>\n</PhysiCell_settings>\n</attachment>\n\n</attachments>\n<context>\nThe current date is March 2, 2026.\nTerminals:\nTerminal: bash\n\n</context>\n<reminderInstructions>\nYou are an agent - you must keep going until the user's query is completely resolved, before ending your turn and yielding back to the user. ONLY terminate your turn when you are sure that the problem is solved, or you absolutely cannot continue.\nYou take action when possible- the user is expecting YOU to take action and go to work for them. Don't ask unnecessary questions about the details if you can simply DO something useful instead.\nWhen using the insert_edit_into_file tool, avoid repeating existing code, instead use a line comment with \\`...existing code...\\` to represent regions of unchanged code.\nWhen using the replace_string_in_file tool, include 3-5 lines of unchanged code before and after the string you want to replace, to make it unambiguous which part of the file should be edited.\nIt is much faster to edit using the replace_string_in_file tool. Prefer the replace_string_in_file tool for making edits and only fall back to insert_edit_into_file if it fails.\n</reminderInstructions>\n<userRequest>\nI have a PhysiCell configuration file #file:PhysiCell_settings.xml  that I would like to extend with biologically accurate rules. Load the PhysiCell configuration file, extract the biological scenario, extract the substrates, cell types and custom parameters that compose the simulation and, carefully examining the available signals and behaviors, add a series of rules to improve the model.\n</userRequest>\n"
+            },
+            {
+              "type": 3,
+              "cacheType": "ephemeral"
+            }
+          ],
+          "renderedGlobalContext": [
+            {
+              "type": 1,
+              "text": "<environment_info>\nThe user's current OS is: Linux\n</environment_info>\n<workspace_info>\nI am working in a workspace with the following folders:\n- /home/mruscone/Desktop/test \nI am working in a workspace that has the following structure:\n```\nPhysiCell_settings.xml\npypath_log/\n```\nThis is the state of the context at this point in the conversation. The view of the workspace structure may be truncated. You can use tools to collect more context if needed.\n</workspace_info>\n"
+            },
+            {
+              "type": 3,
+              "cacheType": "ephemeral"
+            }
+          ],
+          "cacheKey": "file:///home/mruscone/Desktop/test",
+          "toolCallRounds": [
+            {
+              "response": "",
+              "toolCalls": [
+                {
+                  "name": "activate_simulation_session_management_tools",
+                  "arguments": "{}",
+                  "id": "call_6rF7MYtHVpd3BRnczX6euB19__vscode-1772019515077"
+                }
+              ],
+              "toolInputRetry": 0,
+              "id": "a46de75c-11d3-40b6-9da4-8044fe170ff4",
+              "statefulMarker": "resp_0f5091f040ecd8a50069a579060a7881969d8a4ab992525841",
+              "timestamp": 1772452114494
+            },
+            {
+              "response": "",
+              "toolCalls": [
+                {
+                  "name": "mcp_physicell_create_session",
+                  "arguments": "{\"set_as_default\":true}",
+                  "id": "call_0gpXkwd5zVk8iBp75efpp39l__vscode-1772019515078"
+                }
+              ],
+              "toolInputRetry": 0,
+              "id": "c3fc9017-6bab-4ce8-852b-03cfb281e0c7",
+              "statefulMarker": "resp_0f5091f040ecd8a50069a579148f48819683709f5ed7b1f34b",
+              "timestamp": 1772452118348
+            },
+            {
+              "response": "",
+              "toolCalls": [
+                {
+                  "name": "mcp_physicell_load_xml_configuration",
+                  "arguments": "{\"filepath\":\"/home/mruscone/Desktop/test/PhysiCell_settings.xml\",\"session_id\":\"eea7e349\"}",
+                  "id": "call_uHSyFO9Q0yDXeDxW9sRFYJcV__vscode-1772019515079"
+                }
+              ],
+              "toolInputRetry": 0,
+              "id": "c6addcf9-f55b-45dc-9ea2-7c3998fbeada",
+              "statefulMarker": "resp_0f5091f040ecd8a50069a57917309481968c582be5c286b8c5",
+              "timestamp": 1772452124392
+            },
+            {
+              "response": "",
+              "toolCalls": [
+                {
+                  "name": "mcp_physicell_analyze_loaded_configuration",
+                  "arguments": "{\"session_id\":\"eea7e349\"}",
+                  "id": "call_HoaKiXJgbtxGVO8WeLFUSH4Z__vscode-1772019515080"
+                }
+              ],
+              "toolInputRetry": 0,
+              "id": "a5aa4d33-6c4a-4091-a28c-6d0ae5f70a4c",
+              "statefulMarker": "resp_0f5091f040ecd8a50069a5791cbf708196a02e5f182bd4aa6c",
+              "timestamp": 1772452126624
+            },
+            {
+              "response": "",
+              "toolCalls": [
+                {
+                  "name": "mcp_physicell_analyze_loaded_configuration",
+                  "arguments": "{}",
+                  "id": "call_y29ppm3H4LeXVnxXH8Fz82Vr__vscode-1772019515081"
+                }
+              ],
+              "toolInputRetry": 0,
+              "id": "416a9e75-19cc-4fb0-95af-f2cb37d2f436",
+              "statefulMarker": "resp_0f5091f040ecd8a50069a5791ede8081968278426fecc3c330",
+              "timestamp": 1772452128979
+            },
+            {
+              "response": "",
+              "toolCalls": [
+                {
+                  "name": "mcp_physicell_list_all_available_behaviors",
+                  "arguments": "{\"session_id\":\"eea7e349\"}",
+                  "id": "call_7NKmELGOah3neT3SoBcPOLov__vscode-1772019515082"
+                }
+              ],
+              "toolInputRetry": 0,
+              "id": "dd522f0d-b85e-4da7-b1c4-628b28409fbd",
+              "statefulMarker": "resp_0f5091f040ecd8a50069a57921dac08196b331552f4d1c47bc",
+              "timestamp": 1772452131762
+            },
+            {
+              "response": "",
+              "toolCalls": [
+                {
+                  "name": "activate_cell_signal_behavior_management",
+                  "arguments": "{}",
+                  "id": "call_oa0hbm5hkO7gE05cgytAT4R6__vscode-1772019515083"
+                }
+              ],
+              "toolInputRetry": 0,
+              "id": "6be81375-651a-4ab5-a88b-6ea54eced026",
+              "statefulMarker": "resp_0f5091f040ecd8a50069a579240dc08196a401515962add311",
+              "timestamp": 1772452134553
+            },
+            {
+              "response": "",
+              "toolCalls": [
+                {
+                  "name": "mcp_physicell_list_all_available_signals",
+                  "arguments": "{\"session_id\":\"eea7e349\"}",
+                  "id": "call_4bVGSSrSbd3AZwBks5eq2Kld__vscode-1772019515084"
+                }
+              ],
+              "toolInputRetry": 0,
+              "id": "4ea20826-2bc7-49a8-9e46-c2bb0019dab6",
+              "statefulMarker": "resp_0f5091f040ecd8a50069a57926d41c8196bfd521d086dc4cb4",
+              "timestamp": 1772452138385
+            },
+            {
+              "response": "",
+              "toolCalls": [
+                {
+                  "name": "mcp_physicell_add_single_cell_rule",
+                  "arguments": "{\"cell_type\":\"M0 macrophage\",\"signal\":\"substrate gradient: apoptotic debris\",\"direction\":\"increases\",\"behavior\":\"chemotactic response to substrate\",\"saturation_value\":1,\"half_max\":5,\"hill_power\":2}",
+                  "id": "call_GI9DBZuGZqWC7GL7PTVksHiB__vscode-1772019515085"
+                }
+              ],
+              "toolInputRetry": 0,
+              "id": "31bf6475-ec3a-4ab2-a420-bedd1a047441",
+              "statefulMarker": "resp_0f5091f040ecd8a50069a5792aaa508196861f828246aca6fc",
+              "timestamp": 1772452151579
+            },
+            {
+              "response": "",
+              "toolCalls": [
+                {
+                  "name": "mcp_physicell_add_single_cell_rule",
+                  "arguments": "{\"cell_type\":\"malignant epithelial cell\",\"signal\":\"substrate: oxygen\",\"direction\":\"increases\",\"behavior\":\"cycle entry\",\"saturation_value\":1,\"half_max\":20,\"hill_power\":3}",
+                  "id": "call_9aFLDbwnEA4FRhxjUWhRFH8V__vscode-1772019515086"
+                }
+              ],
+              "toolInputRetry": 0,
+              "id": "8454e5ca-9d5b-4d3b-a626-a951e0e223f8",
+              "statefulMarker": "resp_0f5091f040ecd8a50069a57937e3d481969b2faa28f14500a8",
+              "timestamp": 1772452153733
+            },
+            {
+              "response": "",
+              "toolCalls": [
+                {
+                  "name": "mcp_physicell_add_single_cell_rule",
+                  "arguments": "{\"cell_type\":\"effector T cell\",\"signal\":\"substrate: pro-inflammatory factor\",\"direction\":\"increases\",\"behavior\":\"attack cell type malignant epithelial cell\",\"saturation_value\":1,\"half_max\":1,\"hill_power\":4}",
+                  "id": "call_nl3YwhHbBl9kBSnvPURTBT0G__vscode-1772019515087"
+                }
+              ],
+              "toolInputRetry": 0,
+              "id": "959a4601-cc68-46d2-ac17-46b2726bb536",
+              "statefulMarker": "resp_0f5091f040ecd8a50069a5793a0d248196923eb7c7c1765072",
+              "timestamp": 1772452157350
+            },
+            {
+              "response": "",
+              "toolCalls": [
+                {
+                  "name": "mcp_physicell_add_single_cell_rule",
+                  "arguments": "{\"cell_type\":\"M2 macrophage\",\"signal\":\"substrate: anti-inflammatory factor\",\"direction\":\"increases\",\"behavior\":\"migration speed\",\"saturation_value\":1,\"half_max\":0.5,\"hill_power\":2}",
+                  "id": "call_w834sPnQuQiUxEKxhOYJZ99s__vscode-1772019515088"
+                }
+              ],
+              "toolInputRetry": 0,
+              "id": "7455dd96-2e79-41d1-98c7-a1c27b6e33ab",
+              "statefulMarker": "resp_0f5091f040ecd8a50069a5793dad508196a7ae0c3c5b2d4ad4",
+              "timestamp": 1772452159538
+            },
+            {
+              "response": "",
+              "toolCalls": [
+                {
+                  "name": "mcp_physicell_add_single_cell_rule",
+                  "arguments": "{\"cell_type\":\"M1 macrophage\",\"signal\":\"substrate gradient: necrotic debris\",\"direction\":\"increases\",\"behavior\":\"phagocytose necrotic cell\",\"saturation_value\":1,\"half_max\":5,\"hill_power\":3}",
+                  "id": "call_aRzLW3VUMGYENFmUdo8V7kS9__vscode-1772019515089"
+                }
+              ],
+              "toolInputRetry": 0,
+              "id": "b69f949d-a190-468c-9813-b74328333438",
+              "statefulMarker": "resp_0f5091f040ecd8a50069a5793fd74c8196acba3914eaae9ef9",
+              "timestamp": 1772452165165
+            },
+            {
+              "response": "",
+              "toolCalls": [
+                {
+                  "name": "mcp_physicell_export_cell_rules_csv",
+                  "arguments": "{\"filename\":\"cell_rules_updated.csv\"}",
+                  "id": "call_ZBGyOOrbAdeanyFX2Ch6iXim__vscode-1772019515090"
+                }
+              ],
+              "toolInputRetry": 0,
+              "id": "49a48aac-b4b7-466c-b95d-d870f5af5a20",
+              "statefulMarker": "resp_0f5091f040ecd8a50069a57945785c81968d2c0cdd22145d78",
+              "timestamp": 1772452167542
+            },
+            {
+              "response": "",
+              "toolCalls": [
+                {
+                  "name": "mcp_physicell_export_xml_configuration",
+                  "arguments": "{\"filename\":\"PhysiCell_settings_updated.xml\"}",
+                  "id": "call_Io5BRdNZ4x81G2kuPirfZosf__vscode-1772019515091"
+                }
+              ],
+              "toolInputRetry": 0,
+              "id": "254d86c2-6a7b-4a2b-8db2-2afbead4b745",
+              "statefulMarker": "resp_0f5091f040ecd8a50069a5794842808196952bc9ab1ce47bbb",
+              "timestamp": 1772452170432
+            },
+            {
+              "response": "I’ve loaded your PhysiCell XML, extracted substrates (oxygen, apoptotic debris, necrotic debris, pro-inflammatory and anti-inflammatory factors), the six cell types, and added five biologically informed cell rules:\n\n• M0 macrophage chemotaxes up apoptotic debris gradients  \n• malignant epithelial cells increase cycle entry with higher oxygen  \n• effector T cells attack malignant cells when pro-inflammatory factor is high  \n• M2 macrophages speed up migration in anti-inflammatory regions  \n• M1 macrophages phagocytose necrotic cells in necrotic debris gradients  \n\nRules were exported to cell_rules_updated.csv and the full updated XML to PhysiCell_settings_updated.xml in your session’s artifacts. You can now replace your project’s config and rerun your simulation.",
+              "toolCalls": [],
+              "toolInputRetry": 0,
+              "id": "c09fc395-9cf2-47c6-bdce-edcb01b824fd",
+              "statefulMarker": "resp_0f5091f040ecd8a50069a5794b2a20819688f23d637c5faca1",
+              "timestamp": 1772452174149
+            }
+          ],
+          "toolCallResults": {
+            "call_6rF7MYtHVpd3BRnczX6euB19__vscode-1772019515077": {
+              "$mid": 20,
+              "content": [
+                {
+                  "$mid": 21,
+                  "value": "Tools activated: mcp_physicell_create_session, mcp_physicell_delete_session, mcp_physicell_set_default_session"
+                }
+              ]
+            },
+            "call_0gpXkwd5zVk8iBp75efpp39l__vscode-1772019515078": {
+              "$mid": 20,
+              "content": [
+                {
+                  "$mid": 21,
+                  "value": "{\"result\":\"**Session created:** eea7e349...\\n**Next steps:**\\n1. `analyze_biological_scenario()` - Set your biological context\\n2. `create_simulation_domain()` - Define spatial framework\\n3. Use `get_workflow_status()` to track progress\"}"
+                }
+              ]
+            },
+            "call_uHSyFO9Q0yDXeDxW9sRFYJcV__vscode-1772019515079": {
+              "$mid": 20,
+              "content": [
+                {
+                  "$mid": 21,
+                  "value": "{\"result\":\"Loaded PhysiCell_settings.xml: 5 substrates, 6 cell types, rules\\nNext: analyze_loaded_configuration() or start modifying with existing tools\"}"
+                }
+              ]
+            },
+            "call_HoaKiXJgbtxGVO8WeLFUSH4Z__vscode-1772019515080": {
+              "$mid": 20,
+              "content": [
+                {
+                  "$mid": 21,
+                  "value": "{\"result\":\"No XML configuration loaded. Use load_xml_configuration() first.\"}"
+                }
+              ]
+            },
+            "call_y29ppm3H4LeXVnxXH8Fz82Vr__vscode-1772019515081": {
+              "$mid": 20,
+              "content": [
+                {
+                  "$mid": 21,
+                  "value": "{\"result\":\"Source: PhysiCell_settings.xml\\nDomain: configured\\nSubstrates (5): oxygen, apoptotic debris, necrotic debris, pro-inflammatory factor, anti-inflammatory factor\\n  → Modify interactions: set_substrate_interaction(cell_type, substrate, ...)\\nCell types (6): malignant epithelial cell, M0 macrophage, M1 macrophage, M2 macrophage, effector T cell, exhausted T cell\\n  → Modify parameters: configure_cell_parameters(cell_type, ...)\\n  → Add rules: add_single_cell_rule(cell_type, signal, ...)\\nUse list_loaded_components() for detailed properties\"}"
+                }
+              ]
+            },
+            "call_7NKmELGOah3neT3SoBcPOLov__vscode-1772019515082": {
+              "$mid": 20,
+              "content": [
+                {
+                  "$mid": 21,
+                  "value": "{\"result\":\"## PhysiCell Behaviors (41 total)\\n### SECRETION\\n- **substrate secretion**: Secretion rate of a specific substrate\\n  - *Requires: substrate_name*\\n- **substrate secretion target**: Target secretion level of a specific substrate\\n  - *Requires: substrate_name*\\n- **substrate uptake**: Uptake rate of a specific substrate\\n  - *Requires: substrate_name*\\n- **substrate export**: Export rate of a specific substrate\\n  - *Requires: substrate_name*\\n\\n### CYCLE\\n- **cycle entry**: Entry into cell cycle\\n- **exit from cycle phase 1**: Exit from cell cycle phase 1\\n- **exit from cycle phase 2**: Exit from cell cycle phase 2\\n- **exit from cycle phase 3**: Exit from cell cycle phase 3\\n- **exit from cycle phase 4**: Exit from cell cycle phase 4\\n- **exit from cycle phase 5**: Exit from cell cycle phase 5\\n\\n### DEATH\\n- **apoptosis**: Trigger apoptotic cell death\\n- **necrosis**: Trigger necrotic cell death\\n\\n### MOTILITY\\n- **migration speed**: Cell migration speed\\n- **migration bias**: Directional bias in migration\\n- **migration persistence time**: Persistence time for migration direction\\n- **chemotactic response to substrate**: Chemotactic response to a specific substrate\\n  - *Requires: substrate_name*\\n\\n### MECHANICS\\n- **cell-cell adhesion**: Cell-cell adhesion strength\\n- **cell-cell adhesion elastic constant**: Elastic constant for cell-cell adhesion\\n- **adhesive affinity to cell type**: Adhesive affinity to a specific cell type\\n  - *Requires: cell_type*\\n- **relative maximum adhesion distance**: Maximum distance for cell adhesion\\n- **cell-cell repulsion**: Cell-cell repulsion strength\\n- **cell-BM adhesion**: Cell-basement membrane adhesion\\n- **cell-BM repulsion**: Cell-basement membrane repulsion\\n- **cell attachment rate**: Rate of cell attachment\\n- **cell detachment rate**: Rate of cell detachment\\n- **maximum number of cell attachments**: Maximum number of cell attachments\\n\\n### INTERACTION\\n- **phagocytose apoptotic cell**: Phagocytosis of apoptotic cells\\n- **phagocytose necrotic cell**: Phagocytosis of necrotic cells\\n- **phagocytose other dead cell**: Phagocytosis of other dead cells\\n- **phagocytose cell type**: Phagocytosis of a specific cell type\\n  - *Requires: cell_type*\\n- **attack cell type**: Attack a specific cell type\\n  - *Requires: cell_type*\\n- **fuse to cell type**: Fuse with a specific cell type\\n  - *Requires: cell_type*\\n- **immunogenicity to cell type**: Immunogenicity towards a specific cell type\\n  - *Requires: cell_type*\\n- **attack damage rate**: Rate of damage during attack\\n- **attack duration**: Duration of attack\\n\\n### TRANSFORMATION\\n- **transform to cell type**: Transform to a specific cell type\\n  - *Requires: cell_type*\\n- **asymmetric division to cell type**: Asymmetric division producing a specific cell type\\n  - *Requires: cell_type*\\n\\n### CUSTOM\\n- **custom:sample**: Custom behavior (replace 'sample' with actual variable name)\\n  - *Requires: custom_variable*\\n\\n### PHYSICAL\\n- **is_movable**: Whether the cell can move\\n- **damage rate**: Rate of damage accumulation\\n- **damage repair rate**: Rate of damage repair\\n\\n**Note:** Use exact behavior names in add_single_cell_rule() function.\\n**Context:** Behaviors are automatically expanded based on current substrates and cell types.\"}"
+                }
+              ]
+            },
+            "call_oa0hbm5hkO7gE05cgytAT4R6__vscode-1772019515083": {
+              "$mid": 20,
+              "content": [
+                {
+                  "$mid": 21,
+                  "value": "Tools activated: mcp_physicell_add_single_cell_rule, mcp_physicell_list_all_available_behaviors, mcp_physicell_list_all_available_signals"
+                }
+              ]
+            },
+            "call_4bVGSSrSbd3AZwBks5eq2Kld__vscode-1772019515084": {
+              "$mid": 20,
+              "content": [
+                {
+                  "$mid": 21,
+                  "value": "{\"result\":\"## PhysiCell Signals (22 total)\\n### SUBSTRATE\\n- **substrate**: Level of a specific substrate\\n  - *Requires: substrate_name*\\n\\n### INTRACELLULAR\\n- **intracellular substrate**: Intracellular level of a specific substrate\\n  - *Requires: substrate_name*\\n\\n### GRADIENT\\n- **substrate gradient**: Gradient of a specific substrate\\n  - *Requires: substrate_name*\\n\\n### PHYSICAL\\n- **pressure**: Local pressure experienced by the cell\\n- **volume**: Cell volume\\n- **damage**: Damage level accumulated by the cell\\n- **damage delivered**: Damage delivered by the cell to others\\n\\n### CONTACT\\n- **contact with cell type**: Contact with a specific cell type\\n  - *Requires: cell_type*\\n- **contact with live cell**: Contact with any live cell\\n- **contact with dead cell**: Contact with any dead cell\\n- **contact with apoptotic cell**: Contact with apoptotic cell\\n- **contact with necrotic cell**: Contact with necrotic cell\\n- **contact with other dead cell**: Contact with other dead cell types\\n- **contact with basement membrane**: Contact with basement membrane\\n\\n### TRANSFORMATION\\n- **transform to cell type**: Transform to a specific cell type\\n  - *Requires: cell_type*\\n\\n### BEHAVIORAL\\n- **attacking**: Whether the cell is currently attacking\\n\\n### STATE\\n- **dead**: Whether the cell is dead\\n- **apoptotic**: Whether the cell is apoptotic\\n- **necrotic**: Whether the cell is necrotic\\n\\n### TEMPORAL\\n- **total attack time**: Total time spent attacking\\n- **time**: Simulation time\\n\\n### CUSTOM\\n- **custom:sample**: Custom variable (replace 'sample' with actual variable name)\\n  - *Requires: custom_variable*\\n\\n**Note:** Use exact signal names in add_single_cell_rule() function.\\n**Context:** Signals are automatically expanded based on current substrates and cell types.\"}"
+                }
+              ]
+            },
+            "call_GI9DBZuGZqWC7GL7PTVksHiB__vscode-1772019515085": {
+              "$mid": 20,
+              "content": [
+                {
+                  "$mid": 21,
+                  "value": "{\"result\":\"**Cell rule added:**\\n- Rule: M0 macrophage | substrate gradient: apoptotic debris increases → chemotactic response to substrate\\n- Saturation value: 1.0\\n- Half-max: 5.0\\n- Hill power: 2.0\\n- Progress: 67%\\n**Ready for export!** Use `export_xml_configuration()` to generate PhysiCell files.\"}"
+                }
+              ]
+            },
+            "call_9aFLDbwnEA4FRhxjUWhRFH8V__vscode-1772019515086": {
+              "$mid": 20,
+              "content": [
+                {
+                  "$mid": 21,
+                  "value": "{\"result\":\"**Cell rule added:**\\n- Rule: malignant epithelial cell | substrate: oxygen increases → cycle entry\\n- Saturation value: 1.0\\n- Half-max: 20.0\\n- Hill power: 3.0\\n- Progress: 67%\\n**Ready for export!** Use `export_xml_configuration()` to generate PhysiCell files.\"}"
+                }
+              ]
+            },
+            "call_nl3YwhHbBl9kBSnvPURTBT0G__vscode-1772019515087": {
+              "$mid": 20,
+              "content": [
+                {
+                  "$mid": 21,
+                  "value": "{\"result\":\"**Cell rule added:**\\n- Rule: effector T cell | substrate: pro-inflammatory factor increases → attack cell type malignant epithelial cell\\n- Saturation value: 1.0\\n- Half-max: 1.0\\n- Hill power: 4.0\\n- Progress: 67%\\n**Ready for export!** Use `export_xml_configuration()` to generate PhysiCell files.\"}"
+                }
+              ]
+            },
+            "call_w834sPnQuQiUxEKxhOYJZ99s__vscode-1772019515088": {
+              "$mid": 20,
+              "content": [
+                {
+                  "$mid": 21,
+                  "value": "{\"result\":\"**Cell rule added:**\\n- Rule: M2 macrophage | substrate: anti-inflammatory factor increases → migration speed\\n- Saturation value: 1.0\\n- Half-max: 0.5\\n- Hill power: 2.0\\n- Progress: 67%\\n**Ready for export!** Use `export_xml_configuration()` to generate PhysiCell files.\"}"
+                }
+              ]
+            },
+            "call_aRzLW3VUMGYENFmUdo8V7kS9__vscode-1772019515089": {
+              "$mid": 20,
+              "content": [
+                {
+                  "$mid": 21,
+                  "value": "{\"result\":\"**Cell rule added:**\\n- Rule: M1 macrophage | substrate gradient: necrotic debris increases → phagocytose necrotic cell\\n- Saturation value: 1.0\\n- Half-max: 5.0\\n- Hill power: 3.0\\n- Progress: 67%\\n**Ready for export!** Use `export_xml_configuration()` to generate PhysiCell files.\"}"
+                }
+              ]
+            },
+            "call_ZBGyOOrbAdeanyFX2Ch6iXim__vscode-1772019515090": {
+              "$mid": 20,
+              "content": [
+                {
+                  "$mid": 21,
+                  "value": "{\"result\":\"## Cell Rules CSV Exported\\n\\n**File:** /home/mruscone/Desktop/github/mcp-biomodelling-servers/PhysiCell/artifacts/96e1ce4d-488c-4f21-8108-c17e75751bd1/cell_rules_updated.csv\\n**XML path:** ./config/cell_rules_updated.csv (enabled)\\n**Rules:** 5\\n**Progress:** 67%\\n\\n**Next step:** Copy to PhysiCell project directory alongside XML configuration\"}"
+                }
+              ]
+            },
+            "call_Io5BRdNZ4x81G2kuPirfZosf__vscode-1772019515091": {
+              "$mid": 20,
+              "content": [
+                {
+                  "$mid": 21,
+                  "value": "{\"result\":\"## XML Configuration Exported\\n\\n**File:** /home/mruscone/Desktop/github/mcp-biomodelling-servers/PhysiCell/artifacts/96e1ce4d-488c-4f21-8108-c17e75751bd1/PhysiCell_settings_updated.xml (83KB)\\n**Source:** Modified 5 times from PhysiCell_settings.xml\\n**Substrates:** 5 (oxygen, apoptotic debris, necrotic debris...)\\n**Cell Types:** 6 (malignant epithelial cell, M0 macrophage, M1 macrophage...)\\n**Progress:** 67%\\n\\n**Next step:** Copy to PhysiCell project directory and run:\\n```bash\\n./myproject PhysiCell_settings_updated.xml\\n```\"}"
+                }
+              ]
+            }
+          },
+          "modelMessageId": "9ee1e317-0b15-4046-9df9-27f2c57b44d3",
+          "responseId": "58d92623-edef-456c-b44b-4c5893fe9e90",
+          "sessionId": "6826d20a-cd86-4fe8-a5c1-5fe2b0456be7",
+          "agentId": "github.copilot.editsAgent"
+        },
+        "details": "o4-mini • 0x",
+        "usage": {
+          "completionTokens": 0,
+          "promptTokens": 0,
+          "promptTokenDetails": [
+            {
+              "category": "System",
+              "label": "System Instructions",
+              "percentageOfPrompt": 6
+            },
+            {
+              "category": "System",
+              "label": "Tool Definitions",
+              "percentageOfPrompt": 42
+            },
+            {
+              "category": "User Context",
+              "label": "Messages",
+              "percentageOfPrompt": 4
+            },
+            {
+              "category": "User Context",
+              "label": "Files",
+              "percentageOfPrompt": 47
+            }
+          ]
+        }
+      },
+      "responseMarkdownInfo": [],
+      "followups": [],
+      "modelState": {
+        "value": 1,
+        "completedAt": 1772452174161
+      },
+      "contentReferences": [],
+      "codeCitations": [],
+      "timeSpentWaiting": 0
+    }
+  ]
+}

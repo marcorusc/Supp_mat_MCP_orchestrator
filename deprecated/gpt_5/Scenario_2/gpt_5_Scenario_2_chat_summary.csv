@@ -1,0 +1,2 @@
+model,scenario,model_id,chat_file,has_token_counts,timestamp_start_utc,timestamp_end_utc,total_wall_time_s,total_requests,n_human_interventions,n_max_tools_exceeded,total_mcp_tool_calls,total_mcp_tool_calls_success,total_mcp_tool_calls_failed,mcp_tool_success_rate_pct,total_mcp_retries,total_prompt_tokens,total_completion_tokens,total_tokens
+gpt_5,Scenario_2,openai/gpt-5,gpt_5/Scenario_2/chat.json,False,2025-08-14 15:58:42 UTC,2025-08-14 15:58:42 UTC,443.8,1,0,0,32,32,0,100.0,0,,,

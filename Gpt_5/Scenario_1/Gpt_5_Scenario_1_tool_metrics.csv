@@ -1,0 +1,51 @@
+request_index,round_index,tool_name,tool_call_id,is_mcp_tool,retry_count,success,error_msg,response_preview
+1,0,manage_todo_list,call_inOBG5xHiyTYBWwpBRoLzNLQ__vscode-1772616329777,False,0,True,,
+1,1,activate_session_management_tools,call_RpzlTPs9JXOAk1rjH09ocgkn__vscode-1772616329778,False,0,True,,I'll now activate the NeKo and MaBoSS toolsets and create the initial TNF response network from OmniPath.
+1,1,activate_gene_network_creation_tools,call_SLmiT8X5VebOop9iPVwY9YTc__vscode-1772616329779,False,0,True,,I'll now activate the NeKo and MaBoSS toolsets and create the initial TNF response network from OmniPath.
+1,1,activate_network_curating_tools,call_a1nhomZTMzDNlHGYo9AHUC3W__vscode-1772616329780,False,0,True,,I'll now activate the NeKo and MaBoSS toolsets and create the initial TNF response network from OmniPath.
+1,1,activate_network_analysis_tools,call_mBe4JqX9Qqqeu8RZoIJpHwXo__vscode-1772616329781,False,0,True,,I'll now activate the NeKo and MaBoSS toolsets and create the initial TNF response network from OmniPath.
+1,1,activate_maboss_simulation_management,call_abWru7YQzo2Fq71ZDduf1mCu__vscode-1772616329782,False,0,True,,I'll now activate the NeKo and MaBoSS toolsets and create the initial TNF response network from OmniPath.
+1,1,activate_node_configuration_tools,call_QlATNi2B92gFtJ0haX6He0Yv__vscode-1772616329783,False,0,True,,I'll now activate the NeKo and MaBoSS toolsets and create the initial TNF response network from OmniPath.
+1,2,mcp_neko_create_session,call_hODb2ert5hDmEHVQZcC4L86d__vscode-1772616329784,True,0,True,,Core NeKo and MaBoSS tools are now active; next I’ll create modeling sessions and build the TNF-response network from OmniPath.
+1,2,mcp_maboss_create_session,call_TLUo7zZsiAvoMykzmiqNxnFw__vscode-1772616329785,True,0,True,,Core NeKo and MaBoSS tools are now active; next I’ll create modeling sessions and build the TNF-response network from OmniPath.
+1,3,mcp_neko_create_network,call_JtWFnzli3hZ6OdsWLW88uubY__vscode-1772616329786,True,0,True,,
+1,4,mcp_neko_remove_bimodal_interactions,call_etuawra8EiXADMa1RRWNZDIM__vscode-1772616329787,True,0,True,,"Initial NeKo and MaBoSS sessions are created, and a TNF-centered OmniPath network has been built. Next I’ll curate the network (remove ambiguous edges, check connectivity) and then export it to BNET f"
+1,4,mcp_neko_remove_undefined_interactions,call_4mXM1vVIiB9dtcotUIlTMdzG__vscode-1772616329788,True,0,True,,"Initial NeKo and MaBoSS sessions are created, and a TNF-centered OmniPath network has been built. Next I’ll curate the network (remove ambiguous edges, check connectivity) and then export it to BNET f"
+1,5,mcp_neko_check_disconnected_nodes,call_K4RXMQZIw1WsU0AOWI2Bn5DD__vscode-1772616329789,True,0,True,,
+1,6,manage_todo_list,call_oZTEmWL81bgxov6mzuZqlMFy__vscode-1772616329790,False,0,True,,
+1,7,mcp_neko_export_network,call_xO80c5I7jiJ1AZgBKGM4cxYp__vscode-1772616329791,True,0,True,,
+1,8,mcp_maboss_bnet_to_bnd_and_cfg,call_P5mrIRmqfce6JVCc37PAHn5f__vscode-1772616329792,True,0,True,,
+1,9,mcp_maboss_build_simulation,call_rhM03poff7cf0SE7wHky3RWI__vscode-1772616329793,True,0,True,,
+1,10,manage_todo_list,call_vfWw6FZx2nVqJ3Op1p6EdnEJ__vscode-1772616329794,False,0,True,,
+1,11,mcp_maboss_get_maboss_nodes,call_g5t3xb4A95jrkZR7nCgcJr2B__vscode-1772616329795,True,0,True,,"I’ve built and curated the TNF-response network, exported it to BNET, and loaded the corresponding MaBoSS model; next I’ll inspect node names, choose apoptosis/proliferation outputs, and run simulatio"
+1,12,mcp_maboss_set_maboss_output_nodes,call_b185VMC4LE6aLD44BwIVgVlT__vscode-1772616329796,True,0,True,,
+1,13,mcp_maboss_run_simulation,call_yRY2j3NBv04YOGWxZQbwBaju__vscode-1772616329797,True,0,True,,
+1,14,mcp_maboss_get_simulation_result,call_t9CauGi0IHawSdZgLJ0mpx9a__vscode-1772616329798,True,0,True,,
+1,15,manage_todo_list,call_x8kawlMdxRAtUsqaHFZXRNFN__vscode-1772616329799,False,0,True,,
+2,0,activate_session_management_tools_2,call_dOcgzqTE2k6Nt03lRuEwM379__vscode-1772616329800,False,0,True,,"I'll now set up a PhysiCell session, define the domain and TNF substrate, create a cancer cell type, and attach the existing MaBoSS model via PhysiBoSS with appropriate input/output links."
+2,0,activate_substrate_interaction_tools,call_skbeB5dE01x8TOz3cxEjPxJ0__vscode-1772616329801,False,0,True,,"I'll now set up a PhysiCell session, define the domain and TNF substrate, create a cancer cell type, and attach the existing MaBoSS model via PhysiBoSS with appropriate input/output links."
+2,0,activate_cell_signal_behavior_management,call_20KV1uYTUw01zWsZrCXB2nk8__vscode-1772616329802,False,0,True,,"I'll now set up a PhysiCell session, define the domain and TNF substrate, create a cancer cell type, and attach the existing MaBoSS model via PhysiBoSS with appropriate input/output links."
+2,0,activate_physicell_maboss_integration_tools,call_GdntjlBLsBjYvj9EQMqYZq1p__vscode-1772616329803,False,0,True,,"I'll now set up a PhysiCell session, define the domain and TNF substrate, create a cancer cell type, and attach the existing MaBoSS model via PhysiBoSS with appropriate input/output links."
+2,0,activate_simulation_configuration_management,call_80IlFiTitv1EhtxdmKj2qy3e__vscode-1772616329804,False,0,True,,"I'll now set up a PhysiCell session, define the domain and TNF substrate, create a cancer cell type, and attach the existing MaBoSS model via PhysiBoSS with appropriate input/output links."
+2,0,activate_artifact_file_management,call_JX6TIOLgFXeRvdH0NoJf5ocm__vscode-1772616329805,False,0,True,,"I'll now set up a PhysiCell session, define the domain and TNF substrate, create a cancer cell type, and attach the existing MaBoSS model via PhysiBoSS with appropriate input/output links."
+2,1,mcp_physicell_create_session,call_ri2eHVscjWrxkLs79Dsfweqn__vscode-1772616329806,True,0,True,,"PhysiCell tools are active; next I’ll create a new simulation session, define the domain and TNF substrate, then add a cancer cell type and attach the MaBoSS model."
+2,1,mcp_physicell_analyze_biological_scenario,call_gPQuUSO9Tmu5RRF3s0bUdLHi__vscode-1772616329807,True,0,True,,"PhysiCell tools are active; next I’ll create a new simulation session, define the domain and TNF substrate, then add a cancer cell type and attach the MaBoSS model."
+2,2,mcp_physicell_create_simulation_domain,call_r2sjJaM0UasL5j9pK5QmpPSd__vscode-1772616329808,True,0,True,,
+2,3,mcp_physicell_add_single_substrate,call_fa3OhdFx8wyAHFo81LSiYMtB__vscode-1772616329809,True,0,True,,"I'll now add a TNF substrate, define a cancer cell type, and configure their interactions and behaviors."
+2,3,mcp_physicell_add_single_cell_type,call_KcfOOF2bkR0bni37ACj9OO6G__vscode-1772616329810,True,0,True,,"I'll now add a TNF substrate, define a cancer cell type, and configure their interactions and behaviors."
+2,3,mcp_physicell_configure_cell_parameters,call_TuKiDNLXzpikxorls6xiQv49__vscode-1772616329811,True,0,True,,"I'll now add a TNF substrate, define a cancer cell type, and configure their interactions and behaviors."
+2,4,mcp_physicell_add_physiboss_model,call_ukkwYOo34Xz2BHhHZR603OGm__vscode-1772616329812,True,0,True,,"I’ve set up the PhysiCell domain, TNF substrate, and a basic cancer cell type; next I’ll attach the MaBoSS model and wire TNF signals to Boolean inputs and outputs to behaviors."
+2,5,mcp_physicell_configure_physiboss_settings,call_Wt05BVqjeRj2otolO6AVY0pX__vscode-1772616329813,True,0,True,,
+2,6,mcp_physicell_list_all_available_signals,call_ObW7YV6P7QsEuDcmwBgXhMJ5__vscode-1772616329814,True,0,True,,
+2,6,mcp_physicell_list_all_available_behaviors,call_t255PUVEd8KUT2OkbZFoHCSm__vscode-1772616329815,True,0,True,,
+2,7,mcp_physicell_add_physiboss_input_link,call_GY3HrhrQyIYp5bKl3MGIbryE__vscode-1772616329816,True,0,True,,I've attached the MaBoSS model to the cancer cells and inspected available signals/behaviors; next I'll connect TNF levels to TNF receptor nodes and hook apoptotic/proliferative Boolean outputs to apo
+2,7,mcp_physicell_add_physiboss_input_link,call_rVTsDP9CK0Sze1CnMA3oyx9k__vscode-1772616329817,True,0,True,,I've attached the MaBoSS model to the cancer cells and inspected available signals/behaviors; next I'll connect TNF levels to TNF receptor nodes and hook apoptotic/proliferative Boolean outputs to apo
+2,8,mcp_physicell_add_physiboss_output_link,call_AvDGWXXYadhBL3orNSA5izxK__vscode-1772616329818,True,0,True,,
+2,8,mcp_physicell_add_physiboss_output_link,call_xLklhE9tOhieLSkCmHJkhPWP__vscode-1772616329819,True,0,True,,
+2,8,mcp_physicell_add_physiboss_output_link,call_M48ClCmatzxkbty1V2yMFZPF__vscode-1772616329820,True,0,True,,
+2,9,mcp_physicell_set_substrate_interaction,call_LUaAtK9XVTV45y602zd4TVSS__vscode-1772616329821,True,0,True,,
+2,9,mcp_physicell_get_simulation_summary,call_8Irxzoxd7QMq1CbNPARm261f__vscode-1772616329822,True,0,True,,
+2,10,mcp_physicell_export_xml_configuration,call_h9RB13fgk4ymnN9znReHiVrQ__vscode-1772616329823,True,0,True,,
+3,0,mcp_physicell_add_single_substrate,call_6BT59BL1lJBHBdgv6TwmSq1I__vscode-1772616329824,True,0,True,,"I’ll adjust the TNF substrate source and cell uptake, then regenerate the PhysiCell XML with tuned TNF supply."
+3,0,mcp_physicell_set_substrate_interaction,call_EyVITHRR4zA90450d1gsxRHN__vscode-1772616329825,True,0,True,,"I’ll adjust the TNF substrate source and cell uptake, then regenerate the PhysiCell XML with tuned TNF supply."
+3,1,mcp_physicell_export_xml_configuration,call_U9w6yEZFeAxgIQGRMhyY4sJi__vscode-1772616329826,True,0,True,,I’ve added boundary TNF sources and retuned cell uptake; next I’ll export an updated XML so you can run with these TNF conditions.

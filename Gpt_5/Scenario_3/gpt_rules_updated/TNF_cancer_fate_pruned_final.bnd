@@ -1,0 +1,320 @@
+Node COMPLEX_P19838_Q04206 {
+
+	logic = (((IKBKG OR (MAPK8 OR (MAPK1 OR MAPK3)))) AND NOT ((IKBKB OR CHUK)));
+	rate_up = @logic ? 1.0 : 0.0;
+	rate_down = @logic ? 0.0 : 1.0;
+}
+Node CFLAR {
+
+	logic = (((MAPK14 OR TP53)) AND NOT ((BIRC2 OR (BIRC3 OR MAPK8))));
+	rate_up = @logic ? 1.0 : 0.0;
+	rate_down = @logic ? 0.0 : 1.0;
+}
+
+Node MAPK14 {
+
+	logic = ((TNF OR (MAP3K1 OR (RIPK1 OR (MAP2K7 OR (TRAF6 OR (IL2 OR (MAPK8 OR (TRAF2 OR RIPK2)))))))));
+	rate_up = @logic ? 1.0 : 0.0;
+	rate_down = @logic ? 0.0 : 1.0;
+}
+
+Node TNF {
+
+	logic = ((COMPLEX_P19838_Q04206) AND NOT ((CFLAR OR MAPK14)));
+	rate_up = @logic ? 1.0 : 0.0;
+	rate_down = @logic ? 0.0 : 1.0;
+}
+
+Node TNFRSF1B {
+
+	logic = ((TNF OR TNFRSF1A));
+	rate_up = @logic ? 1.0 : 0.0;
+	rate_down = @logic ? 0.0 : 1.0;
+}
+
+Node FASLG {
+
+	logic = (((RIPK1 OR (NFKB1 OR (TP53 OR MAPK8)))) AND NOT ((BIRC2 OR (BIRC3 OR RIPK2))));
+	rate_up = @logic ? 1.0 : 0.0;
+	rate_down = @logic ? 0.0 : 1.0;
+}
+
+Node IL2 {
+
+	logic = ((NFKB1 OR IKBKG));
+	rate_up = @logic ? 1.0 : 0.0;
+	rate_down = @logic ? 0.0 : 1.0;
+}
+
+Node MAPK1 {
+
+	logic = (((FADD OR (MAP3K14 OR (TNF OR (MAP2K7 OR (IL2 OR MAP3K1)))))) AND NOT (TRADD));
+	rate_up = @logic ? 1.0 : 0.0;
+	rate_down = @logic ? 0.0 : 1.0;
+}
+
+Node TNFRSF1A {
+
+	logic = (((TNF OR (TNFRSF1B OR (FASLG OR IL2)))) AND NOT (MAPK1));
+	rate_up = @logic ? 1.0 : 0.0;
+	rate_down = @logic ? 0.0 : 1.0;
+}
+
+Node TNFRSF10B {
+
+	logic = ((NFKB1 OR (TP53 OR FASLG)));
+	rate_up = @logic ? 1.0 : 0.0;
+	rate_down = @logic ? 0.0 : 1.0;
+}
+
+Node TRADD {
+
+	logic = (((TNFRSF1A OR TNFRSF10B)) AND NOT ((TNF OR CFLAR)));
+	rate_up = @logic ? 1.0 : 0.0;
+	rate_down = @logic ? 0.0 : 1.0;
+}
+
+Node FAS {
+
+	logic = (((RIPK1 OR (CASP2 OR TP53))) AND NOT ((MAP2K7 OR (BIRC2 OR (BIRC3 OR (CYCS OR RIPK2))))));
+	rate_up = @logic ? 1.0 : 0.0;
+	rate_down = @logic ? 0.0 : 1.0;
+}
+
+Node TP53 {
+
+	logic = (((MAPK8 OR (MAPK1 OR (NFKB1 OR (TRAF2 OR (PARP1 OR (TRAF6 OR (MAPK14 OR (BAD OR MAPK3))))))))) AND NOT (BCL2L1));
+	rate_up = @logic ? 1.0 : 0.0;
+	rate_down = @logic ? 0.0 : 1.0;
+}
+
+Node MAP3K1 {
+
+	logic = ((TNFRSF1B OR (CASP3 OR (MAP3K14 OR (CASP7 OR (TNFRSF10B OR (TNF OR (TNFRSF1A OR (TRADD OR (RIPK1 OR (TRAF2 OR TRAF6)))))))))));
+	rate_up = @logic ? 1.0 : 0.0;
+	rate_down = @logic ? 0.0 : 1.0;
+}
+
+Node MAP2K7 {
+
+	logic = ((TNFRSF1A OR (CASP2 OR (RIPK1 OR (CASP8 OR (TNF OR (TRADD OR (FAS OR (BIRC3 OR (FASLG OR (TRAF2 OR (MAP3K1 OR RIPK2))))))))))));
+	rate_up = @logic ? 1.0 : 0.0;
+	rate_down = @logic ? 0.0 : 1.0;
+}
+
+Node BIRC2 {
+
+	logic = ((TNFRSF1B OR TRADD OR RELA OR NFKB1 OR BIRC3 OR TRAF2) AND NOT (CASP3 OR RIPK1 OR BAX));
+	rate_up = @logic ? 1.0 : 0.0;
+	rate_down = @logic ? 0.0 : 1.0;
+}
+
+Node RIPK2 {
+
+	logic = (((BIRC2 OR BIRC3)) AND NOT (MAPK1));
+	rate_up = @logic ? 1.0 : 0.0;
+	rate_down = @logic ? 0.0 : 1.0;
+}
+
+Node FADD {
+
+	logic = (((TRADD OR (TNFRSF1A OR (TNFRSF10B OR (FAS OR TP53))))) AND NOT ((MAP3K1 OR (MAP2K7 OR (BIRC2 OR RIPK2)))));
+	rate_up = @logic ? 1.0 : 0.0;
+	rate_down = @logic ? 0.0 : 1.0;
+}
+
+Node BIRC3 {
+
+	logic = ((NFKB1 OR RELA OR TRAF2) AND NOT (TP53 OR CASP3 OR RIPK1 OR BAX));
+	rate_up = @logic ? 1.0 : 0.0;
+	rate_down = @logic ? 0.0 : 1.0;
+}
+
+Node MAPK8 {
+
+	logic = (((TNF OR (MAP2K7 OR (IL2 OR (MAPK3 OR (TRAF2 OR (MAP3K1 OR (RIPK2 OR TRAF6)))))))) AND NOT (MAPK1));
+	rate_up = @logic ? 1.0 : 0.0;
+	rate_down = @logic ? 0.0 : 1.0;
+}
+
+Node CASP2 {
+
+	logic = (((TRADD OR CASP3)) AND NOT (BIRC2));
+	rate_up = @logic ? 1.0 : 0.0;
+	rate_down = @logic ? 0.0 : 1.0;
+}
+
+Node TRAF2 {
+
+	logic = ((TNFRSF1B OR (CASP2 OR (RELA OR TNFRSF1A))));
+	rate_up = @logic ? 1.0 : 0.0;
+	rate_down = @logic ? 0.0 : 1.0;
+}
+
+Node NFKB1 {
+
+	logic = ((IKBKB OR IKBKG OR CHUK) AND NOT (CASP3 OR RIPK1 OR BAX));
+	rate_up = @logic ? 1.0 : 0.0;
+	rate_down = @logic ? 0.0 : 1.0;
+}
+
+Node RELA {
+
+	logic = (NFKB1 AND (IKBKB OR IKBKG OR CHUK) AND NOT (CASP3 OR RIPK1 OR BAX));
+	rate_up = @logic ? 1.0 : 0.0;
+	rate_down = @logic ? 0.0 : 1.0;
+}
+
+Node BCL2 {
+
+	logic = ((NFKB1 OR RELA OR BCL2L1) AND NOT (CASP3 OR RIPK1 OR BAX OR TP53));
+	rate_up = @logic ? 1.0 : 0.0;
+	rate_down = @logic ? 0.0 : 1.0;
+}
+
+Node MAPK3 {
+
+	logic = (((TNFRSF1A OR (TNF OR (NFKB1 OR (MAP3K14 OR (MAPK1 OR (MAP2K7 OR (IL2 OR (MAP3K1 OR (RIPK2 OR TRAF6)))))))))) AND NOT (MAPK14));
+	rate_up = @logic ? 1.0 : 0.0;
+	rate_down = @logic ? 0.0 : 1.0;
+}
+
+Node CASP8 {
+
+	logic = ((TNF OR TNFRSF1A OR TRADD OR FADD OR CASP2 OR TNFRSF10B OR TP53) AND NOT (CFLAR OR BCL2 OR BIRC2 OR BIRC3 OR MAPK14));
+	rate_up = @logic ? 1.0 : 0.0;
+	rate_down = @logic ? 0.0 : 1.0;
+}
+
+Node CASP10 {
+
+	logic = (((FADD OR (TNFRSF10B OR TP53))) AND NOT ((CASP8 OR (CFLAR OR RIPK2))));
+	rate_up = @logic ? 1.0 : 0.0;
+	rate_down = @logic ? 0.0 : 1.0;
+}
+
+Node PRNP {
+
+	logic = (BCL2);
+	rate_up = @logic ? 1.0 : 0.0;
+	rate_down = @logic ? 0.0 : 1.0;
+}
+
+Node CYCS {
+
+	logic = (((BAX OR (BID OR (CASP10 OR (CASP2 OR BAD))))) AND NOT ((BCL2 OR BCL2L1)));
+	rate_up = @logic ? 1.0 : 0.0;
+	rate_down = @logic ? 0.0 : 1.0;
+}
+
+Node NFE2L2 {
+
+	logic = ((TNF) AND NOT ((IKBKB OR (MAPK14 OR TP53))));
+	rate_up = @logic ? 1.0 : 0.0;
+	rate_down = @logic ? 0.0 : 1.0;
+}
+
+Node CASP3 {
+
+	logic = ((CASP3 OR CASP8 OR CASP10 OR CYCS) AND NOT (BIRC2 OR BIRC3 OR BCL2 OR BCL2L1 OR MAPK14));
+	rate_up = @logic ? 1.0 : 0.0;
+	rate_down = @logic ? 0.0 : 1.0;
+}
+
+Node FAF1 {
+
+	logic = ((RIPK1) AND NOT ((CFLAR OR RIPK2)));
+	rate_up = @logic ? 1.0 : 0.0;
+	rate_down = @logic ? 0.0 : 1.0;
+}
+
+Node CASP7 {
+
+	logic = (((CASP8 OR (CASP10 OR (CASP3 OR (CASP2 OR (FAS OR (FADD OR (FAF1 OR (CYCS OR FASLG))))))))) AND NOT ((BIRC2 OR BIRC3)));
+	rate_up = @logic ? 1.0 : 0.0;
+	rate_down = @logic ? 0.0 : 1.0;
+}
+
+Node RIPK1 {
+
+	logic = ((TRADD OR TNFRSF1A OR FADD OR TNFRSF10B OR FAS) AND NOT (CASP8 OR CFLAR OR BIRC2 OR BIRC3 OR NFE2L2));
+	rate_up = @logic ? 1.0 : 0.0;
+	rate_down = @logic ? 0.0 : 1.0;
+}
+
+Node IKBKG {
+
+	logic = (((TNF OR (TNFRSF1A OR (MAP3K14 OR (TRADD OR (FADD OR (CASP8 OR (MAP3K1 OR (RIPK1 OR (TNFRSF10B OR (FAS OR (NFKB1 OR (TRAF2 OR (BIRC2 OR (FASLG OR RIPK2))))))))))))))) AND NOT (TRAF6));
+	rate_up = @logic ? 1.0 : 0.0;
+	rate_down = @logic ? 0.0 : 1.0;
+}
+
+Node TRAF6 {
+
+	logic = ((NFKB1 OR RELA));
+	rate_up = @logic ? 1.0 : 0.0;
+	rate_down = @logic ? 0.0 : 1.0;
+}
+
+Node PARP1 {
+
+	logic = ((MAPK1) AND NOT ((CASP7 OR (RIPK1 OR BCL2))));
+	rate_up = @logic ? 1.0 : 0.0;
+	rate_down = @logic ? 0.0 : 1.0;
+}
+
+Node MAP3K14 {
+
+	logic = (((TNF OR (TNFRSF1A OR (TNFRSF1B OR (TRADD OR (FADD OR (CASP10 OR (CASP2 OR (RIPK1 OR TRAF6))))))))) AND NOT ((BIRC3 OR BIRC2)));
+	rate_up = @logic ? 1.0 : 0.0;
+	rate_down = @logic ? 0.0 : 1.0;
+}
+
+Node CHUK {
+
+	logic = (((TNF OR (TNFRSF1A OR (MAP3K14 OR (TRADD OR (FADD OR (CASP8 OR (MAP3K1 OR (RIPK1 OR (TNFRSF10B OR (FAS OR (TRAF2 OR (TRAF6 OR (IKBKG OR (MAPK3 OR (FASLG OR RIPK2)))))))))))))))) AND NOT (FAF1));
+	rate_up = @logic ? 1.0 : 0.0;
+	rate_down = @logic ? 0.0 : 1.0;
+}
+
+Node IKBKB {
+
+	logic = (((TNF OR (CHUK OR (MAP3K14 OR (TRADD OR (FADD OR (CASP8 OR (MAP3K1 OR (RIPK1 OR (TNFRSF10B OR (FAS OR (TRAF2 OR (TRAF6 OR (IKBKG OR (FASLG OR RIPK2))))))))))))))) AND NOT (CASP3));
+	rate_up = @logic ? 1.0 : 0.0;
+	rate_down = @logic ? 0.0 : 1.0;
+}
+
+Node BCL2L1 {
+
+	logic = (((NFKB1 OR (RELA OR (MAPK1 OR (IL2 OR MAPK3))))) AND NOT ((BID OR (CASP3 OR (TP53 OR MAPK8)))));
+	rate_up = @logic ? 1.0 : 0.0;
+	rate_down = @logic ? 0.0 : 1.0;
+}
+
+Node BID {
+
+	logic = (((TNF OR (TNFRSF1A OR (TRADD OR (FADD OR (CASP10 OR (CASP8 OR (CASP3 OR (CASP2 OR (RIPK1 OR (FAS OR (TP53 OR (BIRC3 OR (MAPK8 OR (FASLG OR TRAF2))))))))))))))) AND NOT (BCL2));
+	rate_up = @logic ? 1.0 : 0.0;
+	rate_down = @logic ? 0.0 : 1.0;
+}
+
+Node BAX {
+
+	logic = (((MAPK8 OR (CASP3 OR (BID OR TP53)))) AND NOT ((BCL2 OR (RELA OR (PRNP OR BCL2L1)))));
+	rate_up = @logic ? 1.0 : 0.0;
+	rate_down = @logic ? 0.0 : 1.0;
+}
+
+Node NFKBIA {
+
+	logic = (((CASP3 OR (IKBKG OR (NFKB1 OR (TRAF2 OR (MAP3K1 OR TRAF6)))))) AND NOT ((TNF OR (TNFRSF1A OR (RELA OR (MAPK14 OR (MAPK1 OR MAPK3)))))));
+	rate_up = @logic ? 1.0 : 0.0;
+	rate_down = @logic ? 0.0 : 1.0;
+}
+
+Node BAD {
+
+	logic = ((CASP3) AND NOT ((BAX OR (IKBKB OR (MAPK1 OR MAPK3)))));
+	rate_up = @logic ? 1.0 : 0.0;
+	rate_down = @logic ? 0.0 : 1.0;
+}

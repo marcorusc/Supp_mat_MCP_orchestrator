@@ -1,0 +1,76 @@
+node TNF {
+  logic = ((MYC) AND NOT (CCND1));
+}
+
+node TNFRSF1A {
+  logic = (TNF);
+}
+
+node CYCS {
+  logic = (((BAX OR (MYC OR (E2F1 OR BAD)))) AND NOT (BCL2));
+}
+
+node PTMA {
+  logic = (MYC);
+}
+
+node E2F1 {
+  logic = NOT (RBL2);
+}
+
+node IGF1 {
+  logic = (CASP3);
+}
+
+node CASP3 {
+  logic = (((TNFRSF1A OR (CYCS OR (PTMA OR (E2F1 OR TNF))))) AND NOT (IGF1));
+}
+
+node SMPD1 {
+  logic = (((TNFRSF1A OR TNF)) AND NOT (BCL2));
+}
+
+node MYC {
+  logic = (((RAC1 OR (BCL2 OR (NFKB1 OR E2F1)))) AND NOT (RBL2));
+}
+
+node BCL2 {
+  logic = ((NFKB1) AND NOT ((CASP3 OR CDK6)));
+}
+
+node AKT1 {
+  logic = (((TNF OR (RAC1 OR IGF1))) AND NOT (CASP3));
+}
+
+node BAX {
+  logic = (((SMPD1 OR (CASP3 OR MYC))) AND NOT ((BCL2 OR AKT1)));
+}
+
+node NFKB1 {
+  logic = (((TNFRSF1A OR (TNF OR (RAC1 OR AKT1)))) AND NOT (E2F1));
+}
+
+node CDK6 {
+  logic = (((MYC OR CCND1)) AND NOT (TNF));
+}
+
+node RAC1 {
+  logic = (TNFRSF1A);
+}
+
+node RBL2 {
+  logic = NOT ((CCND1 OR CDK6));
+}
+
+node CCND1 {
+  logic = (((RAC1 OR (IGF1 OR (MYC OR NFKB1)))) AND NOT (BCL2));
+}
+
+node CASP7 {
+  logic = ((CASP3 OR CYCS));
+}
+
+node BAD {
+  logic = ((CASP3) AND NOT (BAX));
+}
+

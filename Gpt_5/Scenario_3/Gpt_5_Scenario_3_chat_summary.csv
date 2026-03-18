@@ -1,0 +1,2 @@
+model,scenario,model_id,chat_file,has_token_counts,timestamp_start_utc,timestamp_end_utc,total_wall_time_s,total_requests,n_human_interventions,n_max_tools_exceeded,total_mcp_tool_calls,total_mcp_tool_calls_success,total_mcp_tool_calls_failed,mcp_tool_success_rate_pct,total_mcp_retries,total_prompt_tokens,total_completion_tokens,total_tokens
+Gpt_5,Scenario_3,copilot/gpt-5.1,updated_MCP/Gpt_5/Scenario_3/chat.json,True,2026-03-04 12:58:30 UTC,2026-03-04 13:06:42 UTC,4235.8,2,1,1,52,52,0,100.0,0,107875,2723,110598

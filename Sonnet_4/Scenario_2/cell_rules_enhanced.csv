@@ -1,0 +1,15 @@
+malignant epithelial cell,oxygen,decreases,migration speed,0.2,15.0,2.0,0
+malignant epithelial cell,contact with effector T cell,increases,pro-inflammatory factor secretion,50.0,10.0,3.0,0
+M0 macrophage,pro-inflammatory factor,increases,transform to M1 macrophage,0.001,5.0,4.0,0
+M0 macrophage,anti-inflammatory factor,increases,transform to M2 macrophage,0.001,3.0,3.0,0
+M1 macrophage,pro-inflammatory factor,increases,chemotactic response to pro-inflammatory factor,0.8,2.0,2.0,0
+M1 macrophage,contact with malignant epithelial cell,increases,attack malignant epithelial cell,0.01,1.0,3.0,0
+M2 macrophage,contact with malignant epithelial cell,decreases,migration speed,0.3,2.0,1.0,0
+effector T cell,contact with malignant epithelial cell,increases,attack malignant epithelial cell,0.05,1.0,4.0,0
+effector T cell,anti-inflammatory factor,increases,transform to exhausted T cell,0.0005,8.0,2.0,0
+effector T cell,pro-inflammatory factor,increases,migration speed,2.0,3.0,2.0,0
+exhausted T cell,anti-inflammatory factor,decreases,migration speed,0.01,5.0,1.0,0
+M1 macrophage,apoptotic debris,increases,apoptotic debris uptake,5.0,0.5,2.0,0
+M2 macrophage,apoptotic debris,increases,apoptotic debris uptake,8.0,0.5,2.0,0
+malignant epithelial cell,oxygen,decreases,cycle entry,0.5,20.0,4.0,0
+effector T cell,pro-inflammatory factor,increases,chemotactic response to pro-inflammatory factor,0.9,4.0,2.0,0

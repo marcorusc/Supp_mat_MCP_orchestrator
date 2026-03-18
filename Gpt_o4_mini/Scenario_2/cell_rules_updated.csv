@@ -1,0 +1,5 @@
+M0 macrophage,substrate gradient: apoptotic debris,increases,chemotactic response to substrate,1.0,5.0,2.0,0
+malignant epithelial cell,substrate: oxygen,increases,cycle entry,1.0,20.0,3.0,0
+effector T cell,substrate: pro-inflammatory factor,increases,attack cell type malignant epithelial cell,1.0,1.0,4.0,0
+M2 macrophage,substrate: anti-inflammatory factor,increases,migration speed,1.0,0.5,2.0,0
+M1 macrophage,substrate gradient: necrotic debris,increases,phagocytose necrotic cell,1.0,5.0,3.0,0

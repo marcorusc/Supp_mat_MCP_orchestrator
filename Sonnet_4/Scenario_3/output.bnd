@@ -1,0 +1,76 @@
+node MYC {
+  logic = (((NFKB1 OR (BCL2 OR PIK3CA))) AND NOT (RELA));
+}
+
+node TNF {
+  logic = (MYC);
+}
+
+node TNFRSF1A {
+  logic = (TNF);
+}
+
+node RELA {
+  logic = (((TNF OR (TNFRSF1A OR (TRAF2 OR (RIPK1 OR (NFKB1 OR (IKBKB OR (PIK3CA OR MDM2)))))))) AND NOT (CASP3));
+}
+
+node TRAF2 {
+  logic = ((TNFRSF1A OR RELA));
+}
+
+node FADD {
+  logic = ((TNFRSF1A OR TP53));
+}
+
+node CASP8 {
+  logic = (((TNF OR (TNFRSF1A OR (TRAF2 OR (FADD OR TP53))))) AND NOT ((NFKB1 OR (RELA OR BCL2))));
+}
+
+node RIPK1 {
+  logic = (((TNFRSF1A OR (TRAF2 OR FADD))) AND NOT (CASP8));
+}
+
+node TP53 {
+  logic = (((TRAF2 OR NFKB1)) AND NOT (BCL2L1));
+}
+
+node NFKB1 {
+  logic = ((TNF OR (TNFRSF1A OR (TRAF2 OR (RIPK1 OR (FADD OR (AKT1 OR PIK3CA)))))));
+}
+
+node BCL2 {
+  logic = (((NFKB1 OR (RELA OR BCL2L1))) AND NOT ((CASP3 OR TP53)));
+}
+
+node CASP3 {
+  logic = ((TNF OR (TNFRSF1A OR (FADD OR CASP8))));
+}
+
+node AKT1 {
+  logic = ((TNF) AND NOT (CASP3));
+}
+
+node PIK3CA {
+  logic = PIK3CA;
+}
+
+node IKBKB {
+  logic = (((TNF OR (TRAF2 OR (RIPK1 OR (FADD OR (CASP8 OR AKT1)))))) AND NOT (CASP3));
+}
+
+node MDM2 {
+  logic = ((CASP3 OR AKT1));
+}
+
+node BCL2L1 {
+  logic = (((NFKB1 OR (RELA OR (AKT1 OR PIK3CA)))) AND NOT ((CASP3 OR TP53)));
+}
+
+node BAK1 {
+  logic = ((TP53) AND NOT (BCL2L1));
+}
+
+node BAX {
+  logic = (((CASP3 OR (TP53 OR (BAK1 OR MYC)))) AND NOT ((RELA OR (BCL2 OR (BCL2L1 OR AKT1)))));
+}
+
