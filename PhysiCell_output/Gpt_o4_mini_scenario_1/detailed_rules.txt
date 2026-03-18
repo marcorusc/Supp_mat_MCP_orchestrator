@@ -1,0 +1,4 @@
+Cell Hypothesis Rules (detailed)
+
+In cancer_cell cells:
+

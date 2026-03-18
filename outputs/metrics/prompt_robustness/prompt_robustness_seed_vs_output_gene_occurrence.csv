@@ -1,0 +1,30 @@
+Gene,Category,Seed Run Count,Output Run Count,Seed Runs,Output Runs
+AKT1,Seed and output,1,1,General prompt | run_1,General prompt | run_1
+BAD,Output only,0,1,N/A,General prompt | run_3
+BAX,Seed and output,6,6,"General prompt | run_1, General prompt | run_2, General prompt | run_3, Specific prompt | run_1, Specific prompt | run_2, Specific prompt | run_3","General prompt | run_1, General prompt | run_2, General prompt | run_3, Specific prompt | run_1, Specific prompt | run_2, Specific prompt | run_3"
+BCL2,Seed and output,6,2,"General prompt | run_1, General prompt | run_2, General prompt | run_3, Specific prompt | run_1, Specific prompt | run_2, Specific prompt | run_3","General prompt | run_1, General prompt | run_2"
+CASP3,Seed and output,6,6,"General prompt | run_1, General prompt | run_2, General prompt | run_3, Specific prompt | run_1, Specific prompt | run_2, Specific prompt | run_3","General prompt | run_1, General prompt | run_2, General prompt | run_3, Specific prompt | run_1, Specific prompt | run_2, Specific prompt | run_3"
+CASP7,Output only,0,1,N/A,General prompt | run_3
+CASP8,Seed and output,3,3,"General prompt | run_1, General prompt | run_2, General prompt | run_3","General prompt | run_1, General prompt | run_2, General prompt | run_3"
+CCND1,Seed and output,3,3,"General prompt | run_1, General prompt | run_2, General prompt | run_3","General prompt | run_1, General prompt | run_2, General prompt | run_3"
+CFLAR,Seed only,1,0,General prompt | run_1,N/A
+FADD,Seed only,3,0,"General prompt | run_1, General prompt | run_2, General prompt | run_3",N/A
+FOS,Seed only,1,0,General prompt | run_2,N/A
+IKBIA,Seed only,1,0,General prompt | run_2,N/A
+IKBKB,Seed only,2,0,"General prompt | run_1, General prompt | run_2",N/A
+IKBKG,Seed only,1,0,General prompt | run_2,N/A
+JUN,Seed only,1,0,General prompt | run_2,N/A
+MAPK1,Seed only,1,0,General prompt | run_2,N/A
+MAPK8,Seed only,2,0,"General prompt | run_1, General prompt | run_2",N/A
+MTOR,Seed and output,1,1,General prompt | run_1,General prompt | run_1
+MYC,Seed and output,3,3,"General prompt | run_1, General prompt | run_2, General prompt | run_3","General prompt | run_1, General prompt | run_2, General prompt | run_3"
+NFKB1,Seed and output,6,5,"General prompt | run_1, General prompt | run_2, General prompt | run_3, Specific prompt | run_1, Specific prompt | run_2, Specific prompt | run_3","General prompt | run_2, General prompt | run_3, Specific prompt | run_1, Specific prompt | run_2, Specific prompt | run_3"
+RELA,Seed and output,3,2,"General prompt | run_1, General prompt | run_2, General prompt | run_3","General prompt | run_2, General prompt | run_3"
+RIPK1,Seed only,5,0,"General prompt | run_1, General prompt | run_2, Specific prompt | run_1, Specific prompt | run_2, Specific prompt | run_3",N/A
+RIPK3,Seed only,1,0,General prompt | run_1,N/A
+TERT,Output only,0,1,N/A,General prompt | run_3
+TNF,Seed only,6,0,"General prompt | run_1, General prompt | run_2, General prompt | run_3, Specific prompt | run_1, Specific prompt | run_2, Specific prompt | run_3",N/A
+TNFRSF1A,Seed only,6,0,"General prompt | run_1, General prompt | run_2, General prompt | run_3, Specific prompt | run_1, Specific prompt | run_2, Specific prompt | run_3",N/A
+TNFRSF1B,Seed only,3,0,"General prompt | run_1, General prompt | run_2, General prompt | run_3",N/A
+TRADD,Seed only,6,0,"General prompt | run_1, General prompt | run_2, General prompt | run_3, Specific prompt | run_1, Specific prompt | run_2, Specific prompt | run_3",N/A
+TRAF2,Seed only,1,0,General prompt | run_2,N/A

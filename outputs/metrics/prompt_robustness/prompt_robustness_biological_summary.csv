@@ -1,0 +1,7 @@
+Prompt Type,Run,Nodes,Edges,Network Seed Count,Initial-State Node Count,Output Node Count,Top MaBoSS State,Top State Probability
+General prompt,run_1,89,698,20,1,8,AKT1 -- MTOR,1.0
+General prompt,run_2,91,728,22,0,8,<nil>,0.5
+General prompt,run_3,45,253,13,0,10,RELA -- TERT -- CCND1,0.5681
+Specific prompt,run_1,30,159,8,0,3,NFKB1,0.9999
+Specific prompt,run_2,30,159,8,0,3,NFKB1,0.9999
+Specific prompt,run_3,30,159,8,0,3,NFKB1,0.9999

@@ -1,0 +1,244 @@
+[2026-03-10 12:20:35] Welcome!
+[2026-03-10 12:20:35] Logger started, logging into `/home/mruscone/Desktop/github/Supp_mat_MCP_orchestrator/pypath_log/pypath-5a351.log`.
+[2026-03-10 12:20:35] Session `5a351` started.
+[2026-03-10 12:20:35] Config has been read from the following files:
+[2026-03-10 12:20:35]   - /home/mruscone/miniforge3/envs/mcp_modelling/lib/python3.12/site-packages/pypath_common/data/settings.yaml
+[2026-03-10 12:20:35] [pypath] 
+	- session ID: `5a351`
+	- working directory: `/home/mruscone/Desktop/github/Supp_mat_MCP_orchestrator`
+	- logfile: `/home/mruscone/Desktop/github/Supp_mat_MCP_orchestrator/pypath_log/pypath-5a351.log`
+	- config: 
+		- /home/mruscone/miniforge3/envs/mcp_modelling/lib/python3.12/site-packages/pypath_common/data/settings.yaml
+	- pypath version: 0.16.20
+	- imported from: `/home/mruscone/miniforge3/envs/mcp_modelling/lib/python3.12/site-packages/pypath`
+	- Python version: 3.12.11 | packaged by conda-forge | (main, Jun  4 2025, 14:45:31) [GCC 13.3.0]
+	- Platform: Linux-6.8.0-101-generic-x86_64-with-glibc2.35
+[2026-03-10 12:20:35] [pypath] pypath
+[2026-03-10 12:20:36] [curl] Creating Curl object to retrieve data from `https://www.ebi.ac.uk/unichem/api/v1/sources/`
+[2026-03-10 12:20:36] [curl] Cache file path: `/home/mruscone/.cache/pypath/b2a060ead30932cabb4a6e993539989e-`
+[2026-03-10 12:20:36] [curl] Cache file found, no need for download.
+[2026-03-10 12:20:36] [curl] Loading data from cache previously downloaded from `www.ebi.ac.uk`
+[2026-03-10 12:20:36] [curl] Opening file `/home/mruscone/.cache/pypath/b2a060ead30932cabb4a6e993539989e-`
+[2026-03-10 12:20:36] [curl] Extracting data from file type `plain`
+[2026-03-10 12:20:36] [curl] Opening plain text file `/home/mruscone/.cache/pypath/b2a060ead30932cabb4a6e993539989e-`.
+[2026-03-10 12:20:36] [curl] Contents of `/home/mruscone/.cache/pypath/b2a060ead30932cabb4a6e993539989e-` has been read and the file has been closed.
+[2026-03-10 12:20:36] [curl] File at `https://www.ebi.ac.uk/unichem/api/v1/sources/` successfully retrieved. Resulted file type `plain text, unicode string`. Local file at
+                      `/home/mruscone/.cache/pypath/b2a060ead30932cabb4a6e993539989e-`.
+[2026-03-10 12:20:36] [curl] Creating Curl object to retrieve data from `https://www.ensembl.org/info/about/species.html`
+[2026-03-10 12:20:36] [curl] Cache file path: `/home/mruscone/.cache/pypath/535b06d53a59e75bb693369bc5fdc556-species.html`
+[2026-03-10 12:20:36] [curl] Cache file found, no need for download.
+[2026-03-10 12:20:36] [curl] Opening plain text file `/home/mruscone/.cache/pypath/535b06d53a59e75bb693369bc5fdc556-species.html`.
+[2026-03-10 12:20:36] [curl] Contents of `/home/mruscone/.cache/pypath/535b06d53a59e75bb693369bc5fdc556-species.html` has been read and the file has been closed.
+[2026-03-10 12:20:36] [curl] Creating Curl object to retrieve data from `https://www.ensembl.org/info/about/species.html`
+[2026-03-10 12:20:36] [curl] Cache file path: `/home/mruscone/.cache/pypath/535b06d53a59e75bb693369bc5fdc556-species.html`
+[2026-03-10 12:20:36] [curl] Cache file found, no need for download.
+[2026-03-10 12:20:36] [curl] Opening plain text file `/home/mruscone/.cache/pypath/535b06d53a59e75bb693369bc5fdc556-species.html`.
+[2026-03-10 12:20:36] [curl] Contents of `/home/mruscone/.cache/pypath/535b06d53a59e75bb693369bc5fdc556-species.html` has been read and the file has been closed.
+[2026-03-10 12:20:36] [curl] Creating Curl object to retrieve data from `https://www.ensembl.org/info/about/species.html`
+[2026-03-10 12:20:36] [curl] Cache file path: `/home/mruscone/.cache/pypath/535b06d53a59e75bb693369bc5fdc556-species.html`
+[2026-03-10 12:20:36] [curl] Cache file found, no need for download.
+[2026-03-10 12:20:36] [curl] Opening plain text file `/home/mruscone/.cache/pypath/535b06d53a59e75bb693369bc5fdc556-species.html`.
+[2026-03-10 12:20:36] [curl] Contents of `/home/mruscone/.cache/pypath/535b06d53a59e75bb693369bc5fdc556-species.html` has been read and the file has been closed.
+[2026-03-10 12:20:37] [pypath] pypath
+[2026-03-10 12:20:38] [curl] Creating Curl object to retrieve data from `https://www.ebi.ac.uk/unichem/api/v1/sources/`
+[2026-03-10 12:20:38] [curl] Cache file path: `/home/mruscone/.cache/pypath/b2a060ead30932cabb4a6e993539989e-`
+[2026-03-10 12:20:38] [curl] Cache file found, no need for download.
+[2026-03-10 12:20:38] [curl] Loading data from cache previously downloaded from `www.ebi.ac.uk`
+[2026-03-10 12:20:38] [curl] Opening file `/home/mruscone/.cache/pypath/b2a060ead30932cabb4a6e993539989e-`
+[2026-03-10 12:20:38] [curl] Extracting data from file type `plain`
+[2026-03-10 12:20:38] [curl] Opening plain text file `/home/mruscone/.cache/pypath/b2a060ead30932cabb4a6e993539989e-`.
+[2026-03-10 12:20:38] [curl] Contents of `/home/mruscone/.cache/pypath/b2a060ead30932cabb4a6e993539989e-` has been read and the file has been closed.
+[2026-03-10 12:20:38] [curl] File at `https://www.ebi.ac.uk/unichem/api/v1/sources/` successfully retrieved. Resulted file type `plain text, unicode string`. Local file at
+                      `/home/mruscone/.cache/pypath/b2a060ead30932cabb4a6e993539989e-`.
+[2026-03-10 12:20:38] [ramp] Loading RaMP the list of ID types from `https://rampdb.nih.gov/api/id-types`.
+[2026-03-10 12:20:38] [curl] Creating Curl object to retrieve data from `https://rampdb.nih.gov/api/id-types`
+[2026-03-10 12:20:38] [curl] Cache file path: `/home/mruscone/.cache/pypath/c058901753f61743bf55db935731cff1-id-types`
+[2026-03-10 12:20:38] [curl] Cache file found, no need for download.
+[2026-03-10 12:20:38] [curl] Opening plain text file `/home/mruscone/.cache/pypath/c058901753f61743bf55db935731cff1-id-types`.
+[2026-03-10 12:20:38] [curl] Contents of `/home/mruscone/.cache/pypath/c058901753f61743bf55db935731cff1-id-types` has been read and the file has been closed.
+[2026-03-10 12:20:38] [network_resources] Could not find data model for resource `Negatome` in set `negative`.
+[2026-03-10 12:20:38] [network_resources] Could not find data model for resource `ORegAnno` in set `transcription_deprecated`.
+[2026-03-10 12:20:38] [resource_controller] Loading resource information from JSON file: /home/mruscone/miniforge3/envs/mcp_modelling/lib/python3.12/site-packages/pypath/resources/data/resources.json
+[2026-03-10 12:20:38] [resource_controller] Resource information has been read from `/home/mruscone/miniforge3/envs/mcp_modelling/lib/python3.12/site-packages/pypath/resources/data/resources.json`.
+[2026-03-10 12:20:38] [licenses] Populating license database from directory `/home/mruscone/miniforge3/envs/mcp_modelling/lib/python3.12/site-packages/pypath/data/licenses`.
+[2026-03-10 12:20:38] [licenses] Added license `CC BY-NC-ND 3.0` (purpose = nonprofit, sharing = noderiv, attrib = attrib).
+[2026-03-10 12:20:38] [licenses] Added license `ELM` (purpose = academic, sharing = free, attrib = attrib).
+[2026-03-10 12:20:38] [licenses] Added license `AFL 3.0` (purpose = academic, sharing = alike, attrib = attrib).
+[2026-03-10 12:20:38] [licenses] Added license `EUL` (purpose = academic, sharing = alike, attrib = attrib).
+[2026-03-10 12:20:38] [licenses] Added license `Informal` (purpose = commercial, sharing = free, attrib = attrib).
+[2026-03-10 12:20:38] [licenses] Added license `MIT` (purpose = commercial, sharing = free, attrib = attrib).
+[2026-03-10 12:20:38] [licenses] Added license `miRecords` (purpose = commercial, sharing = free, attrib = attrib).
+[2026-03-10 12:20:38] [licenses] Added license `BioCarta` (purpose = academic, sharing = alike, attrib = attrib).
+[2026-03-10 12:20:38] [licenses] Added license `Unspecified NC-SA` (purpose = academic, sharing = alike, attrib = attrib).
+[2026-03-10 12:20:38] [licenses] Added license `Artistic-2.0` (purpose = commercial, sharing = alike, attrib = attrib).
+[2026-03-10 12:20:38] [licenses] Added license `CC BY-NC 2.0` (purpose = academic, sharing = free, attrib = attrib).
+[2026-03-10 12:20:38] [licenses] Added license `CC BY 3.0` (purpose = commercial, sharing = free, attrib = attrib).
+[2026-03-10 12:20:38] [licenses] Added license `CC BY-ND 3.0` (purpose = commercial, sharing = noderiv, attrib = attrib).
+[2026-03-10 12:20:38] [licenses] Added license `GPLv2` (purpose = commercial, sharing = alike, attrib = attrib).
+[2026-03-10 12:20:38] [licenses] Added license `CC BY-NC-SA 4.0` (purpose = academic, sharing = alike, attrib = attrib).
+[2026-03-10 12:20:38] [licenses] Added license `CC BY-NC-SA 3.0` (purpose = academic, sharing = alike, attrib = attrib).
+[2026-03-10 12:20:38] [licenses] Added license `CC BY 4.0` (purpose = commercial, sharing = free, attrib = attrib).
+[2026-03-10 12:20:38] [licenses] Added license `Composite` (purpose = composite, sharing = composite, attrib = attrib).
+[2026-03-10 12:20:38] [licenses] Added license `PhosphoNetworks` (purpose = non_profit, sharing = alike, attrib = attrib).
+[2026-03-10 12:20:38] [licenses] Added license `GPLv3` (purpose = commercial, sharing = alike, attrib = attrib).
+[2026-03-10 12:20:38] [licenses] Added license `I2D` (purpose = academic, sharing = free, attrib = attrib).
+[2026-03-10 12:20:38] [licenses] Added license `CytoSig` (purpose = non_profit, sharing = alike, attrib = attrib).
+[2026-03-10 12:20:38] [licenses] Added license `MPPI` (purpose = commercial, sharing = free, attrib = attrib).
+[2026-03-10 12:20:38] [licenses] Added license `OpenTargets` (purpose = academic, sharing = free, attrib = attrib).
+[2026-03-10 12:20:38] [licenses] Added license `CC BY-NC-ND 4.0` (purpose = academic, sharing = noderiv, attrib = attrib).
+[2026-03-10 12:20:38] [licenses] Added license `LGPLv3` (purpose = commercial, sharing = free, attrib = attrib).
+[2026-03-10 12:20:38] [licenses] Added license `EMBL-EBI` (purpose = academic, sharing = free, attrib = attrib).
+[2026-03-10 12:20:38] [licenses] Added license `miRTarBase` (purpose = academic, sharing = free, attrib = attrib).
+[2026-03-10 12:20:38] [licenses] Added license `KEGG` (purpose = ignore, sharing = ignore, attrib = attrib).
+[2026-03-10 12:20:38] [licenses] Added license `CC BY-NC 4.0` (purpose = academic, sharing = free, attrib = attrib).
+[2026-03-10 12:20:38] [licenses] Added license `Kinase.com` (purpose = non_profit, sharing = alike, attrib = attrib).
+[2026-03-10 12:20:38] [licenses] Added license `HPRD` (purpose = academic, sharing = free, attrib = attrib).
+[2026-03-10 12:20:38] [licenses] Added license `CC BY-NC 3.0` (purpose = academic, sharing = free, attrib = attrib).
+[2026-03-10 12:20:38] [licenses] Added license `CC BY-SA 3.0` (purpose = commercial, sharing = alike, attrib = attrib).
+[2026-03-10 12:20:38] [licenses] Added license `CC BY 2.5` (purpose = commercial, sharing = free, attrib = attrib).
+[2026-03-10 12:20:38] [licenses] Added license `CC BY-SA 2.5` (purpose = commercial, sharing = alike, attrib = attrib).
+[2026-03-10 12:20:38] [licenses] Added license `CC0 1.0` (purpose = commercial, sharing = free, attrib = noattrib).
+[2026-03-10 12:20:38] [licenses] Added license `BSD` (purpose = commercial, sharing = alike, attrib = attrib).
+[2026-03-10 12:20:38] [licenses] Added license `HGNC` (purpose = commercial, sharing = free, attrib = attrib).
+[2026-03-10 12:20:38] [licenses] Added license `Apache 2.0` (purpose = commercial, sharing = alike, attrib = attrib).
+[2026-03-10 12:20:38] [licenses] Added license `DSL` (purpose = commercial, sharing = alike, attrib = attrib).
+[2026-03-10 12:20:38] [licenses] Added license `No license` (purpose = ignore, sharing = ignore, attrib = attrib).
+[2026-03-10 12:20:38] [licenses] Added license `COSMIC` (purpose = academic, sharing = free, attrib = attrib).
+[2026-03-10 12:20:38] [licenses] Added license `PathwayCommons` (purpose = academic, sharing = alike, attrib = attrib).
+[2026-03-10 12:20:38] [licenses] Added license `CellCellInteractions` (purpose = non_profit, sharing = alike, attrib = attrib).
+[2026-03-10 12:20:38] [licenses] Added license `CC BY-SA 4.0` (purpose = commercial, sharing = alike, attrib = attrib).
+[2026-03-10 12:20:38] [licenses] Added license `HPO` (purpose = academic, sharing = alike, attrib = attrib).
+[2026-03-10 12:20:38] [licenses] Added license `CC BY-ND 4.0` (purpose = commercial, sharing = noderiv, attrib = attrib).
+[2026-03-10 12:20:38] [licenses] Added license `NAR Open Access` (purpose = commercial, sharing = alike, attrib = attrib).
+[2026-03-10 12:20:38] [licenses] Added license `PDB` (purpose = commercial, sharing = free, attrib = attrib).
+[2026-03-10 12:20:38] [resource_controller] Updating resource license information.
+[2026-03-10 12:20:38] [resource_controller] No license for resource `3DComplex`.
+[2026-03-10 12:20:38] [resource_controller] Could not find resource `Vidal HI-III`.
+[2026-03-10 12:20:38] [resource_controller] Could not find resource `HumanSignalingNetwork`.
+[2026-03-10 12:20:38] [resource_controller] Could not find resource `HI-union`.
+[2026-03-10 12:20:38] [resource_controller] Could not find resource `CPDB`.
+[2026-03-10 12:20:38] [resource_controller] Could not find resource `Laudanna-effects`.
+[2026-03-10 12:20:38] [resource_controller] Could not find resource `Laudanna-directions`.
+[2026-03-10 12:20:38] [resource_controller] Could not find resource `reaction resources`.
+[2026-03-10 12:21:04] [mapping] Requested to load ID translation table from `genesymbol` to `uniprot`, organism: 9606.
+[2026-03-10 12:21:04] [mapping] Chosen built-in defined ID translation table: resource=uniprot, id_type_a=genesymbol, id_type_b=uniprot
+[2026-03-10 12:21:04] [mapping] Loading mapping table for organism `9606` with identifiers `genesymbol` and `uniprot`, input type `uniprot`
+[2026-03-10 12:21:04] [mapping] Reader created for ID translation table, parameters: `ncbi_tax_id=9606, id_a=genesymbol, id_b=uniprot, load_a_to_b=1, load_b_to_a=0, input_type=uniprot (UniprotMapping)`.
+[2026-03-10 12:21:04] [mapping] Loading `genesymbol` to `uniprot` mapping table from pickle file `/home/mruscone/.cache/pypath/4e20a25d4c5462ea0850dc023e28a5dd`.
+[2026-03-10 12:21:04] [mapping] Sucessfully loaded mapping table for organism `9606` with identifiers `genesymbol` to `uniprot`.
+[2026-03-10 12:21:04] [mapping] Requested to load ID translation table from `uniprot-sec` to `uniprot-pri`, organism: 9606.
+[2026-03-10 12:21:04] [mapping] Chosen built-in defined ID translation table: resource=basic, id_type_a=uniprot-sec, id_type_b=uniprot-pri
+[2026-03-10 12:21:04] [inputs] Selecting input method (step 1): module `uniprot.get_uniprot_sec`, method `None`.
+[2026-03-10 12:21:04] [inputs] Selecting input method (step 2): module `pypath.inputs.uniprot`, method `get_uniprot_sec`.
+[2026-03-10 12:21:04] [inputs] Importing module `pypath.inputs.uniprot`.
+[2026-03-10 12:21:04] [mapping] Loading mapping table for organism `9606` with identifiers `uniprot-sec` and `uniprot-pri`, input type `file`
+[2026-03-10 12:21:04] [mapping] Reader created for ID translation table, parameters: `ncbi_tax_id=9606, id_a=uniprot-sec, id_b=uniprot-pri, load_a_to_b=1, load_b_to_a=0, input_type=file (FileMapping)`.
+[2026-03-10 12:21:05] [mapping] Loading `uniprot-sec` to `uniprot-pri` mapping table from pickle file `/home/mruscone/.cache/pypath/bcdb870979dd49eee31bbdea058709d2`.
+[2026-03-10 12:21:05] [mapping] Sucessfully loaded mapping table for organism `9606` with identifiers `uniprot-sec` to `uniprot-pri`.
+[2026-03-10 12:21:05] [mapping] Requested to load ID translation table from `trembl` to `genesymbol`, organism: 9606.
+[2026-03-10 12:21:05] [mapping] Chosen built-in defined ID translation table: resource=basic, id_type_a=genesymbol, id_type_b=trembl
+[2026-03-10 12:21:05] [mapping] Loading mapping table for organism `9606` with identifiers `genesymbol` and `trembl`, input type `uniprot`
+[2026-03-10 12:21:05] [mapping] Reader created for ID translation table, parameters: `ncbi_tax_id=9606, id_a=genesymbol, id_b=trembl, load_a_to_b=0, load_b_to_a=1, input_type=uniprot (UniprotMapping)`.
+[2026-03-10 12:21:05] [mapping] Loading `genesymbol` to `trembl` mapping table from pickle file `/home/mruscone/.cache/pypath/1c4c5ffe855c03ae65e4b9ea7cfa56fa`.
+[2026-03-10 12:21:05] [mapping] Sucessfully loaded mapping table for organism `9606` with identifiers `trembl` to `genesymbol`.
+[2026-03-10 12:21:05] [mapping] Requested to load ID translation table from `genesymbol` to `swissprot`, organism: 9606.
+[2026-03-10 12:21:05] [mapping] Chosen built-in defined ID translation table: resource=basic, id_type_a=genesymbol, id_type_b=swissprot
+[2026-03-10 12:21:05] [mapping] Loading mapping table for organism `9606` with identifiers `genesymbol` and `swissprot`, input type `uniprot`
+[2026-03-10 12:21:05] [mapping] Reader created for ID translation table, parameters: `ncbi_tax_id=9606, id_a=genesymbol, id_b=swissprot, load_a_to_b=1, load_b_to_a=0, input_type=uniprot (UniprotMapping)`.
+[2026-03-10 12:21:05] [mapping] Loading `genesymbol` to `swissprot` mapping table from pickle file `/home/mruscone/.cache/pypath/dc6abdb7c49e4ecad07f4f7b9f93f0fd`.
+[2026-03-10 12:21:05] [mapping] Sucessfully loaded mapping table for organism `9606` with identifiers `genesymbol` to `swissprot`.
+[2026-03-10 12:21:05] [uniprot_db] Loading list of all UniProt IDs for organism `9606` (only SwissProt: None).
+[2026-03-10 12:21:05] [curl] Creating Curl object to retrieve data from `https://rest.uniprot.org/uniprotkb/stream`
+[2026-03-10 12:21:05] [curl] GET parameters added to the URL: `query=organism_id%3A9606&format=tsv&fields=accession`
+[2026-03-10 12:21:05] [curl] Cache file path: `/home/mruscone/.cache/pypath/fb5c357aad69910705244a5afddde059-stream`
+[2026-03-10 12:21:05] [curl] Cache file found, no need for download.
+[2026-03-10 12:21:05] [curl] Loading data from cache previously downloaded from `rest.uniprot.org`
+[2026-03-10 12:21:05] [curl] Opening file `/home/mruscone/.cache/pypath/fb5c357aad69910705244a5afddde059-stream`
+[2026-03-10 12:21:05] [curl] Extracting data from file type `plain`
+[2026-03-10 12:21:05] [curl] Opening plain text file `/home/mruscone/.cache/pypath/fb5c357aad69910705244a5afddde059-stream`.
+[2026-03-10 12:21:05] [curl] Contents of `/home/mruscone/.cache/pypath/fb5c357aad69910705244a5afddde059-stream` has been read and the file has been closed.
+[2026-03-10 12:21:05] [curl] File at `https://rest.uniprot.org/uniprotkb/stream?query=organism_id%3A9606&format=tsv&fields=accession` successfully retrieved. Resulted file type `plain text, unicode string`. Local file at
+                      `/home/mruscone/.cache/pypath/fb5c357aad69910705244a5afddde059-stream`.
+[2026-03-10 12:23:49] [mapping] Requested to load ID translation table from `genesymbol-syn` to `uniprot`, organism: 9606.
+[2026-03-10 12:23:49] [mapping] Chosen built-in defined ID translation table: resource=uniprot, id_type_a=genesymbol-syn, id_type_b=uniprot
+[2026-03-10 12:23:49] [mapping] Loading mapping table for organism `9606` with identifiers `genesymbol-syn` and `uniprot`, input type `uniprot`
+[2026-03-10 12:23:49] [mapping] Reader created for ID translation table, parameters: `ncbi_tax_id=9606, id_a=genesymbol-syn, id_b=uniprot, load_a_to_b=1, load_b_to_a=0, input_type=uniprot (UniprotMapping)`.
+[2026-03-10 12:23:50] [mapping] Loading `genesymbol-syn` to `uniprot` mapping table from pickle file `/home/mruscone/.cache/pypath/39b637a85b268f0126d2cd71e4243e8f`.
+[2026-03-10 12:23:50] [mapping] Sucessfully loaded mapping table for organism `9606` with identifiers `genesymbol-syn` to `uniprot`.
+[2026-03-10 12:23:50] [mapping] Requested to load ID translation table from `genesymbol5` to `uniprot`, organism: 9606.
+[2026-03-10 12:23:50] [curl] Creating Curl object to retrieve data from `https://rest.uniprot.org/configure/idmapping/fields`
+[2026-03-10 12:23:50] [curl] Cache file path: `/home/mruscone/.cache/pypath/1bdb9a342c85e7f59aa9ee409beb0327-fields`
+[2026-03-10 12:23:50] [curl] Cache file found, no need for download.
+[2026-03-10 12:23:50] [curl] Loading data from cache previously downloaded from `rest.uniprot.org`
+[2026-03-10 12:23:50] [curl] Opening file `/home/mruscone/.cache/pypath/1bdb9a342c85e7f59aa9ee409beb0327-fields`
+[2026-03-10 12:23:50] [curl] Extracting data from file type `plain`
+[2026-03-10 12:23:50] [curl] Opening plain text file `/home/mruscone/.cache/pypath/1bdb9a342c85e7f59aa9ee409beb0327-fields`.
+[2026-03-10 12:23:50] [curl] Contents of `/home/mruscone/.cache/pypath/1bdb9a342c85e7f59aa9ee409beb0327-fields` has been read and the file has been closed.
+[2026-03-10 12:23:50] [curl] File at `https://rest.uniprot.org/configure/idmapping/fields` successfully retrieved. Resulted file type `plain text, unicode string`. Local file at
+                      `/home/mruscone/.cache/pypath/1bdb9a342c85e7f59aa9ee409beb0327-fields`.
+[2026-03-10 12:23:50] [mapping] Could not find suitable ID translation table between id types `genesymbol5` and `uniprot` for organism `9606`.
+[2026-03-10 12:23:50] [mapping] Could not find suitable ID translation table between id types `genesymbol5` and `uniprot` for organism `9606`.
+[2026-03-10 12:23:50] [mapping] Could not find suitable ID translation table between id types `genesymbol5` and `uniprot` for organism `9606`.
+[2026-03-10 12:23:50] [mapping] Could not find suitable ID translation table between id types `genesymbol5` and `uniprot` for organism `9606`.
+[2026-03-10 12:23:50] [mapping] Could not find suitable ID translation table between id types `genesymbol5` and `uniprot` for organism `9606`.
+[2026-03-10 12:23:50] [mapping] Could not find suitable ID translation table between id types `genesymbol5` and `uniprot` for organism `9606`.
+[2026-03-10 12:23:50] [mapping] Could not find suitable ID translation table between id types `genesymbol5` and `uniprot` for organism `9606`.
+[2026-03-10 12:26:14] [mapping] Removing mapping table `uniprot-sec` to `uniprot-pri` for organism `9606`.
+[2026-03-10 12:26:14] [mapping] Removing mapping table `trembl` to `genesymbol` for organism `9606`.
+[2026-03-10 12:26:14] [mapping] Removing mapping table `genesymbol` to `swissprot` for organism `9606`.
+[2026-03-10 12:26:14] [mapping] Removing mapping table `uniprot` to `genesymbol` for organism `9606`.
+[2026-03-10 12:26:37] [uniprot_db] Removing UniProt ID list for organism `9606` (SwissProt: None)
+[2026-03-10 12:28:54] [mapping] Removing mapping table `genesymbol` to `uniprot` for organism `9606`.
+[2026-03-10 12:28:54] [mapping] Removing mapping table `genesymbol-syn` to `uniprot` for organism `9606`.
+[2026-03-10 12:28:54] [mapping] Removing mapping table `genesymbol5` to `uniprot` for organism `9606`.
+[2026-03-10 12:58:20] [mapping] Requested to load ID translation table from `genesymbol` to `uniprot`, organism: 9606.
+[2026-03-10 12:58:20] [mapping] Chosen built-in defined ID translation table: resource=uniprot, id_type_a=genesymbol, id_type_b=uniprot
+[2026-03-10 12:58:20] [mapping] Loading mapping table for organism `9606` with identifiers `genesymbol` and `uniprot`, input type `uniprot`
+[2026-03-10 12:58:20] [mapping] Reader created for ID translation table, parameters: `ncbi_tax_id=9606, id_a=genesymbol, id_b=uniprot, load_a_to_b=1, load_b_to_a=0, input_type=uniprot (UniprotMapping)`.
+[2026-03-10 12:58:20] [mapping] Loading `genesymbol` to `uniprot` mapping table from pickle file `/home/mruscone/.cache/pypath/4e20a25d4c5462ea0850dc023e28a5dd`.
+[2026-03-10 12:58:20] [mapping] Sucessfully loaded mapping table for organism `9606` with identifiers `genesymbol` to `uniprot`.
+[2026-03-10 12:58:20] [mapping] Requested to load ID translation table from `genesymbol-syn` to `uniprot`, organism: 9606.
+[2026-03-10 12:58:20] [mapping] Chosen built-in defined ID translation table: resource=uniprot, id_type_a=genesymbol-syn, id_type_b=uniprot
+[2026-03-10 12:58:20] [mapping] Loading mapping table for organism `9606` with identifiers `genesymbol-syn` and `uniprot`, input type `uniprot`
+[2026-03-10 12:58:20] [mapping] Reader created for ID translation table, parameters: `ncbi_tax_id=9606, id_a=genesymbol-syn, id_b=uniprot, load_a_to_b=1, load_b_to_a=0, input_type=uniprot (UniprotMapping)`.
+[2026-03-10 12:58:21] [mapping] Loading `genesymbol-syn` to `uniprot` mapping table from pickle file `/home/mruscone/.cache/pypath/39b637a85b268f0126d2cd71e4243e8f`.
+[2026-03-10 12:58:21] [mapping] Sucessfully loaded mapping table for organism `9606` with identifiers `genesymbol-syn` to `uniprot`.
+[2026-03-10 12:58:21] [mapping] Requested to load ID translation table from `genesymbol5` to `uniprot`, organism: 9606.
+[2026-03-10 12:58:21] [curl] Creating Curl object to retrieve data from `https://rest.uniprot.org/configure/idmapping/fields`
+[2026-03-10 12:58:21] [curl] Cache file path: `/home/mruscone/.cache/pypath/1bdb9a342c85e7f59aa9ee409beb0327-fields`
+[2026-03-10 12:58:21] [curl] Cache file found, no need for download.
+[2026-03-10 12:58:21] [curl] Loading data from cache previously downloaded from `rest.uniprot.org`
+[2026-03-10 12:58:21] [curl] Opening file `/home/mruscone/.cache/pypath/1bdb9a342c85e7f59aa9ee409beb0327-fields`
+[2026-03-10 12:58:21] [curl] Extracting data from file type `plain`
+[2026-03-10 12:58:21] [curl] Opening plain text file `/home/mruscone/.cache/pypath/1bdb9a342c85e7f59aa9ee409beb0327-fields`.
+[2026-03-10 12:58:21] [curl] Contents of `/home/mruscone/.cache/pypath/1bdb9a342c85e7f59aa9ee409beb0327-fields` has been read and the file has been closed.
+[2026-03-10 12:58:21] [curl] File at `https://rest.uniprot.org/configure/idmapping/fields` successfully retrieved. Resulted file type `plain text, unicode string`. Local file at
+                      `/home/mruscone/.cache/pypath/1bdb9a342c85e7f59aa9ee409beb0327-fields`.
+[2026-03-10 12:58:21] [mapping] Could not find suitable ID translation table between id types `genesymbol5` and `uniprot` for organism `9606`.
+[2026-03-10 12:58:21] [mapping] Could not find suitable ID translation table between id types `genesymbol5` and `uniprot` for organism `9606`.
+[2026-03-10 12:58:21] [mapping] Could not find suitable ID translation table between id types `genesymbol5` and `uniprot` for organism `9606`.
+[2026-03-10 12:58:21] [mapping] Could not find suitable ID translation table between id types `genesymbol5` and `uniprot` for organism `9606`.
+[2026-03-10 12:58:21] [mapping] Could not find suitable ID translation table between id types `genesymbol5` and `uniprot` for organism `9606`.
+[2026-03-10 12:58:21] [mapping] Could not find suitable ID translation table between id types `genesymbol5` and `uniprot` for organism `9606`.
+[2026-03-10 12:58:21] [mapping] Could not find suitable ID translation table between id types `genesymbol5` and `uniprot` for organism `9606`.
+[2026-03-10 12:58:21] [mapping] Requested to load ID translation table from `trembl` to `genesymbol`, organism: 9606.
+[2026-03-10 12:58:21] [mapping] Chosen built-in defined ID translation table: resource=basic, id_type_a=genesymbol, id_type_b=trembl
+[2026-03-10 12:58:21] [mapping] Loading mapping table for organism `9606` with identifiers `genesymbol` and `trembl`, input type `uniprot`
+[2026-03-10 12:58:21] [mapping] Reader created for ID translation table, parameters: `ncbi_tax_id=9606, id_a=genesymbol, id_b=trembl, load_a_to_b=0, load_b_to_a=1, input_type=uniprot (UniprotMapping)`.
+[2026-03-10 12:58:21] [mapping] Loading `genesymbol` to `trembl` mapping table from pickle file `/home/mruscone/.cache/pypath/1c4c5ffe855c03ae65e4b9ea7cfa56fa`.
+[2026-03-10 12:58:21] [mapping] Sucessfully loaded mapping table for organism `9606` with identifiers `trembl` to `genesymbol`.
+[2026-03-10 12:58:24] [mapping] Requested to load ID translation table from `uniprot-sec` to `uniprot-pri`, organism: 9606.
+[2026-03-10 12:58:24] [mapping] Chosen built-in defined ID translation table: resource=basic, id_type_a=uniprot-sec, id_type_b=uniprot-pri
+[2026-03-10 12:58:24] [inputs] Selecting input method (step 1): module `uniprot.get_uniprot_sec`, method `None`.
+[2026-03-10 12:58:24] [inputs] Selecting input method (step 2): module `pypath.inputs.uniprot`, method `get_uniprot_sec`.
+[2026-03-10 12:58:24] [inputs] Importing module `pypath.inputs.uniprot`.
+[2026-03-10 12:58:24] [mapping] Loading mapping table for organism `9606` with identifiers `uniprot-sec` and `uniprot-pri`, input type `file`
+[2026-03-10 12:58:24] [mapping] Reader created for ID translation table, parameters: `ncbi_tax_id=9606, id_a=uniprot-sec, id_b=uniprot-pri, load_a_to_b=1, load_b_to_a=0, input_type=file (FileMapping)`.
+[2026-03-10 12:58:25] [mapping] Loading `uniprot-sec` to `uniprot-pri` mapping table from pickle file `/home/mruscone/.cache/pypath/bcdb870979dd49eee31bbdea058709d2`.
+[2026-03-10 12:58:25] [mapping] Sucessfully loaded mapping table for organism `9606` with identifiers `uniprot-sec` to `uniprot-pri`.
+[2026-03-10 13:03:24] [mapping] Removing mapping table `genesymbol` to `uniprot` for organism `9606`.
+[2026-03-10 13:03:24] [mapping] Removing mapping table `trembl` to `genesymbol` for organism `9606`.
+[2026-03-10 13:03:24] [mapping] Removing mapping table `genesymbol-syn` to `uniprot` for organism `9606`.
+[2026-03-10 13:03:25] [mapping] Removing mapping table `genesymbol5` to `uniprot` for organism `9606`.
+[2026-03-10 13:03:35] [mapping] Removing mapping table `uniprot-sec` to `uniprot-pri` for organism `9606`.
+[2026-03-10 13:03:35] [mapping] Removing mapping table `uniprot` to `genesymbol` for organism `9606`.

@@ -1,0 +1,3 @@
+Prompt Type,Runs with Data,Completed Runs,Successful MaBoSS Runs,Mean Wall Time (s),Mean MCP Tool Calls,Mean User Interventions
+General prompt,3,3,3,240.84366666666665,16.333333333333332,0.0
+Specific prompt,3,3,3,114.62233333333334,13.666666666666666,0.0

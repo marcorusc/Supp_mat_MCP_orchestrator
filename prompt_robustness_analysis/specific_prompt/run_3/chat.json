@@ -1,0 +1,1320 @@
+{
+  "responderUsername": "GitHub Copilot",
+  "initialLocation": "panel",
+  "requests": [
+    {
+      "requestId": "request_2fbc95c4-ae91-4aa2-afe1-b085904327fe",
+      "message": {
+        "parts": [
+          {
+            "range": {
+              "start": 0,
+              "endExclusive": 605
+            },
+            "editorRange": {
+              "startLineNumber": 1,
+              "startColumn": 1,
+              "endLineNumber": 2,
+              "endColumn": 332
+            },
+            "text": "Create a Boolean model that describes how TNF affects cancer cell fate. In order to do so, I want you to create a network with NeKo using Omnipath as interactions database. The initial genes to use are [\"TNF\", \"TNFRSF1A\", \"TRADD\", \"RIPK1\", \"CASP3\", \"NFKB1\", \"BAX\", \"BCL2\"].\nOnce created the network, remove the bimodal interactions, export the network in bnet format and convert it into a MaBoSS model (set thread count to 10). Before running the model, select as output nodes [\"CASP3\", \"BAX\", \"NFKB1\"] as representative of the apoptotic and proliferative states. Run the MaBoSS model and get the results.",
+            "kind": "text"
+          }
+        ],
+        "text": "Create a Boolean model that describes how TNF affects cancer cell fate. In order to do so, I want you to create a network with NeKo using Omnipath as interactions database. The initial genes to use are [\"TNF\", \"TNFRSF1A\", \"TRADD\", \"RIPK1\", \"CASP3\", \"NFKB1\", \"BAX\", \"BCL2\"].\nOnce created the network, remove the bimodal interactions, export the network in bnet format and convert it into a MaBoSS model (set thread count to 10). Before running the model, select as output nodes [\"CASP3\", \"BAX\", \"NFKB1\"] as representative of the apoptotic and proliferative states. Run the MaBoSS model and get the results."
+      },
+      "variableData": {
+        "variables": [
+          {
+            "id": "vscode.prompt.instructions.text",
+            "name": "prompt:instructionsList",
+            "value": "<skills>\nHere is a list of skills that contain domain specific knowledge on a variety of topics.\nEach skill comes with a description of the topic and a file path that contains the detailed instructions.\nWhen a user asks you to perform a task that falls within the domain of a skill, use the #tool:readFile tool to acquire the full instructions from the file URI.\n<skill>\n<name>agent-customization</name>\n<description>**WORKFLOW SKILL** — Create, update, review, fix, or debug VS Code agent customization files (.instructions.md, .prompt.md, .agent.md, SKILL.md, copilot-instructions.md, AGENTS.md). USE FOR: saving coding preferences; troubleshooting why instructions/skills/agents are ignored or not invoked; configuring applyTo patterns; defining tool restrictions; creating custom agent modes or specialized workflows; packaging domain knowledge; fixing YAML frontmatter syntax. DO NOT USE FOR: general coding questions (use default agent); runtime debugging or error diagnosis; MCP server configuration (use MCP docs directly); VS Code extension development. INVOKES: file system tools (read/write customization files), ask-questions tool (interview user for requirements), subagents for codebase exploration. FOR SINGLE OPERATIONS: For quick YAML frontmatter fixes or creating a single file from a known pattern, edit the file directly — no skill needed.</description>\n<file>copilot-skill:/agent-customization/SKILL.md</file>\n</skill>\n</skills>\n\n\n<agents>\nHere is a list of agents that can be used when running a subagent.\nEach agent has optionally a description with the agent's purpose and expertise. When asked to run a subagent, choose the most appropriate agent from this list.\nUse the #tool:runSubagent tool with the agent name to run the subagent.\n<agent>\n<name>Explore</name>\n<description>Fast read-only codebase exploration and Q&A subagent. Prefer over manually chaining multiple search and file-reading operations to avoid cluttering the main conversation. Safe to call in parallel. Specify thoroughness: quick, medium, or thorough.</description>\n<argumentHint>Describe WHAT you're looking for and desired thoroughness (quick/medium/thorough)</argumentHint>\n</agent>\n</agents>\n\n",
+            "kind": "promptText",
+            "modelDescription": "Prompt instructions list",
+            "automaticallyAdded": true,
+            "toolReferences": [
+              {
+                "kind": "tool",
+                "id": "copilot_readFile",
+                "name": "Read File",
+                "range": {
+                  "start": 291,
+                  "endExclusive": 305
+                }
+              },
+              {
+                "kind": "tool",
+                "id": "runSubagent",
+                "icon": {
+                  "id": "organization"
+                },
+                "name": "Run Subagent",
+                "range": {
+                  "start": 1696,
+                  "endExclusive": 1713
+                }
+              }
+            ]
+          }
+        ]
+      },
+      "response": [
+        {
+          "kind": "mcpServersStarting",
+          "didStartServerIds": []
+        },
+        {
+          "kind": "thinking",
+          "value": "**Setting up MaBoSS simulation**\n\nTo create a MaBoSS simulation model, I need to call a build simulation tool, specifically 'mcp_maboss_build_simulation,' though it's not in the function list yet. First, I should call 'activate_maboss_simulation_management' to access additional tools. Setting output nodes is next, by calling 'activate_node_configuration_tools' to use 'set_maboss_output_nodes.' After building the simulation from BND+CFG output, I’ll configure CASP3, BAX, NFKB1, and set the thread count to 10. Finally, I’ll run the simulation and gather results.",
+          "id": "7ajkanZ9H8hCdWKqTIXsVTi5RITn+/h/sQF1uFl/5aaquChKxx2BaoMiBHQe8dxMQMet1hvFlAyecBC5VbnxGq4UXtgqXEJ+OflTSWEJZKuDhxPn2KtMNXlYft9/pyDmNGhK7CXmbG5hsNpWFYZzM9JRoK9OFI1TEMOyz92IkqT8cd3HkacwtWVMEYTv0qVq52J49W2EazN9WMZ/P44QSx+QqTfk4Z4eA71cxuu3DHaL0bgeffL5VJRJEjW+yxqPhm93w1umQ+WFVjT75cSjgafQt8yKUr72qcz4K0CnaZWGxsV43gQJfcdKEGMSaVm27QhKdtW18AWDNT0fKaXgJBxkUx9cJ0zKvqikEBcazA2i77j85GTQfw7u7YMXrRJjbcddIfujn56cAl5M+TUK9g=="
+        },
+        {
+          "kind": "thinking",
+          "value": "",
+          "id": "3p0fCRDT7Nl/5KGc6T7PLqqI2fVJffsR+QDEw2821PGDlvAKR63P0cqNG6t8LhLaEiDc4IoEOyhH9YVGLy9YI8UPD0U1ZJYc79Gr2jejXCHWRVy2JNDqLRUdFI0GSpDn7kPIN9MXx5jCdxzPOwL5s7uNJZVXxsAgVHigEdo28xRyQ73MJCu1oAHwMlHLr0guOFlXvOl09RSHg9M8WNBJqzdzTDfI1W/r+wtK3ELvagDbazied9/E1GJxKU5eZ5+eOZDns1soTt8w5FnxVH9PIYAQgt6UIoOv4MM5eR0+NkX8/bHOiFsKdsoNNmsQRZEuqp9hQQkO0isKMAaDG8IXGJF1xgbBl9BaL0JS9QE4l+NPXx+gSE1wp/tArj8aTdqQ8CudAT8Xe3JAq2PV15x1ag=="
+        },
+        {
+          "kind": "thinking",
+          "value": "**Initiating NeKo session**\n\nI'll start with the first NeKo session and network creation. While I could parallelize some of the tasks, I need to keep in mind that create_network relies on the session, which means I'll have to do that sequentially. However, I can run 'activate_maboss_file_conversion_tools,' 'activate_maboss_simulation_management,' and 'activate_node_configuration_tools' in parallel alongside the NeKo operations, as they just prepare tools. First, I’ll focus on calling create_session, and I'll mention briefly what I'm about to do before proceeding with the batch.",
+          "id": "LLhIpAroxLKOU7Nh+R8pmVrdb+mNEa8aA0D5b7Q1GeFJvTewljO2v/XLiEXiVFm3neDmRbh188WH02LET5DWVIMocUtKs2Be36KgjG2yr+qzaYBmctdOPrz49yB8y84ZiYtVRGBdBCXXo4cYG8uQJZu0ODSPJvscaVPbdzVXFMb0KUzoYCMowh9a5cH1uqt+n8kfHf4eplveF/HoDlBvTuWo7Z4UhVxjOtaao6zeGz7tJuJYPuEbLPW6SDoKnqGkiv8ubQ3IY40/3A+hLCLerge8VXNkn73M2uMQ5J/phsZN5qKCATDmuQfQwo4numOVFHg9OUpzjga8KEUXGJW5q9uF2eDY5kdczXdonlkO9kbi1a9XaT7OoQlRUuPsIc+P5AZXoSTlrsJneuNcx45Ljg==",
+          "generatedTitle": "Set up MaBoSS simulation and initiated NeKo session"
+        },
+        {
+          "kind": "thinking",
+          "value": "",
+          "id": "GH3cqtDI4wwl9eciv4QzTPq/n7+3CGnFMlIt38H36jS5JJP0fwsfCBtnui3AR3FLrXj66jSKiHHQ39ONWX5eUmLRBNYKlVDXw4Hi/zkoozXDtBOxcbvYmIGzuX5bRppqEFdoGL7WukXasAAd5d6RK+K3Ym+icVUZHP9u2NfwN5x3jiIupUtmbdu4w5OmtoWWC2kSWWVGeR+JxUvQkRJ1rNZ0iRegO8ldSRij8r21+cc4Ks75U2Mvide9mDbban50c4FKHSk92Tl3DL3+D6rPW4dT/Xe1B66vss9LgcUoFe4hdGKfjA0mxdub4eLhMru7KaB1QASopo50C4Tb00mTa6FzQ4HPtkPjs6JFqAQG5UXwTMck8opEGuPpW92OGUpxA64OAGkx+1j2vZmqIFkTmw=="
+        },
+        {
+          "kind": "thinking",
+          "value": "",
+          "id": "",
+          "metadata": {
+            "vscodeReasoningDone": true,
+            "stopReason": "text"
+          }
+        },
+        {
+          "value": "I'll first create a NeKo session and build the Omnipath-based network from your seed genes, then clean bimodal edges and proceed to export/convert it for MaBoSS.",
+          "supportThemeIcons": false,
+          "supportHtml": false,
+          "baseUri": {
+            "$mid": 1,
+            "path": "/home/mruscone/Desktop/test/",
+            "scheme": "file"
+          }
+        },
+        {
+          "kind": "toolInvocationSerialized",
+          "invocationMessage": {
+            "value": "Running `create_session`",
+            "isTrusted": false,
+            "supportThemeIcons": false,
+            "supportHtml": false,
+            "supportAlertSyntax": false
+          },
+          "pastTenseMessage": {
+            "value": "Ran `create_session` ",
+            "isTrusted": false,
+            "supportThemeIcons": false,
+            "supportHtml": false,
+            "supportAlertSyntax": false
+          },
+          "originMessage": "neko (MCP Server)",
+          "isConfirmed": {
+            "type": 3,
+            "scope": "profile"
+          },
+          "isComplete": true,
+          "source": {
+            "type": "mcp",
+            "serverLabel": "NeKo",
+            "label": "neko",
+            "collectionId": "mcp.config.usrlocal",
+            "definitionId": "mcp.config.usrlocal.neko"
+          },
+          "resultDetails": {
+            "input": "{\n  \"label\": \"TNF_cancer_cell_fate\"\n}",
+            "output": [
+              {
+                "type": "embed",
+                "isText": true,
+                "value": "Created session: 8240c5a6-aede-4632-80c7-4d2d9f766482 (TNF_cancer_cell_fate)"
+              },
+              {
+                "type": "embed",
+                "isText": true,
+                "value": "{\n  \"result\": \"Created session: 8240c5a6-aede-4632-80c7-4d2d9f766482 (TNF_cancer_cell_fate)\"\n}",
+                "audience": [
+                  0
+                ]
+              }
+            ],
+            "isError": false
+          },
+          "toolSpecificData": {
+            "kind": "input",
+            "rawInput": {
+              "label": "TNF_cancer_cell_fate"
+            }
+          },
+          "toolCallId": "8807461d-00e0-4876-bd85-320527b7c5af",
+          "toolId": "mcp_neko_create_session"
+        },
+        {
+          "kind": "toolInvocationSerialized",
+          "invocationMessage": {
+            "value": "Running `set_default_session`",
+            "isTrusted": false,
+            "supportThemeIcons": false,
+            "supportHtml": false,
+            "supportAlertSyntax": false
+          },
+          "pastTenseMessage": {
+            "value": "Ran `set_default_session` ",
+            "isTrusted": false,
+            "supportThemeIcons": false,
+            "supportHtml": false,
+            "supportAlertSyntax": false
+          },
+          "originMessage": "neko (MCP Server)",
+          "isConfirmed": {
+            "type": 3,
+            "scope": "session"
+          },
+          "isComplete": true,
+          "source": {
+            "type": "mcp",
+            "serverLabel": "NeKo",
+            "label": "neko",
+            "collectionId": "mcp.config.usrlocal",
+            "definitionId": "mcp.config.usrlocal.neko"
+          },
+          "resultDetails": {
+            "input": "{\n  \"session_id\": \"8240c5a6-aede-4632-80c7-4d2d9f766482\"\n}",
+            "output": [
+              {
+                "type": "embed",
+                "isText": true,
+                "value": "Default set."
+              },
+              {
+                "type": "embed",
+                "isText": true,
+                "value": "{\n  \"result\": \"Default set.\"\n}",
+                "audience": [
+                  0
+                ]
+              }
+            ],
+            "isError": false
+          },
+          "toolSpecificData": {
+            "kind": "input",
+            "rawInput": {
+              "session_id": "8240c5a6-aede-4632-80c7-4d2d9f766482"
+            }
+          },
+          "toolCallId": "ad0c4db5-91f5-45d6-876b-3469ef85f1b3",
+          "toolId": "mcp_neko_set_default_session"
+        },
+        {
+          "kind": "toolInvocationSerialized",
+          "invocationMessage": {
+            "value": "Running `create_network`",
+            "isTrusted": false,
+            "supportThemeIcons": false,
+            "supportHtml": false,
+            "supportAlertSyntax": false
+          },
+          "pastTenseMessage": {
+            "value": "Ran `create_network` ",
+            "isTrusted": false,
+            "supportThemeIcons": false,
+            "supportHtml": false,
+            "supportAlertSyntax": false
+          },
+          "originMessage": "neko (MCP Server)",
+          "isConfirmed": {
+            "type": 3,
+            "scope": "profile"
+          },
+          "isComplete": true,
+          "source": {
+            "type": "mcp",
+            "serverLabel": "NeKo",
+            "label": "neko",
+            "collectionId": "mcp.config.usrlocal",
+            "definitionId": "mcp.config.usrlocal.neko"
+          },
+          "resultDetails": {
+            "input": "{\n  \"list_of_initial_genes\": [\n    \"TNF\",\n    \"TNFRSF1A\",\n    \"TRADD\",\n    \"RIPK1\",\n    \"CASP3\",\n    \"NFKB1\",\n    \"BAX\",\n    \"BCL2\"\n  ],\n  \"database\": \"omnipath\",\n  \"max_len\": 2,\n  \"only_signed\": true,\n  \"consensus\": true,\n  \"verbosity\": \"summary\"\n}",
+            "output": [
+              {
+                "type": "embed",
+                "isText": true,
+                "value": "Network created: session=8240c5a6-aede-4632-80c7-4d2d9f766482 nodes=30 edges=164. Disconnected components check via check_disconnected_nodes(). Set verbosity='preview' or 'full' for more details."
+              },
+              {
+                "type": "embed",
+                "isText": true,
+                "value": "{\n  \"result\": \"Network created: session=8240c5a6-aede-4632-80c7-4d2d9f766482 nodes=30 edges=164. Disconnected components check via check_disconnected_nodes(). Set verbosity='preview' or 'full' for more details.\"\n}",
+                "audience": [
+                  0
+                ]
+              }
+            ],
+            "isError": false
+          },
+          "toolSpecificData": {
+            "kind": "input",
+            "rawInput": {
+              "list_of_initial_genes": [
+                "TNF",
+                "TNFRSF1A",
+                "TRADD",
+                "RIPK1",
+                "CASP3",
+                "NFKB1",
+                "BAX",
+                "BCL2"
+              ],
+              "database": "omnipath",
+              "max_len": 2,
+              "only_signed": true,
+              "consensus": true,
+              "verbosity": "summary"
+            }
+          },
+          "toolCallId": "dba0ac29-52d3-4475-a2a4-6fec173aca8b",
+          "toolId": "mcp_neko_create_network"
+        },
+        {
+          "value": "Now I’ll clean bimodal edges, export the network to BNET, convert it to MaBoSS format, configure MaBoSS (thread count and outputs), and run the simulation.",
+          "supportThemeIcons": false,
+          "supportHtml": false,
+          "baseUri": {
+            "$mid": 1,
+            "path": "/home/mruscone/Desktop/test/",
+            "scheme": "file"
+          }
+        },
+        {
+          "kind": "toolInvocationSerialized",
+          "invocationMessage": {
+            "value": "Running `remove_bimodal_interactions`",
+            "isTrusted": false,
+            "supportThemeIcons": false,
+            "supportHtml": false,
+            "supportAlertSyntax": false
+          },
+          "pastTenseMessage": {
+            "value": "Ran `remove_bimodal_interactions` ",
+            "isTrusted": false,
+            "supportThemeIcons": false,
+            "supportHtml": false,
+            "supportAlertSyntax": false
+          },
+          "originMessage": "neko (MCP Server)",
+          "isConfirmed": {
+            "type": 3,
+            "scope": "profile"
+          },
+          "isComplete": true,
+          "source": {
+            "type": "mcp",
+            "serverLabel": "NeKo",
+            "label": "neko",
+            "collectionId": "mcp.config.usrlocal",
+            "definitionId": "mcp.config.usrlocal.neko"
+          },
+          "resultDetails": {
+            "input": "{\n  \"session_id\": \"8240c5a6-aede-4632-80c7-4d2d9f766482\"\n}",
+            "output": [
+              {
+                "type": "embed",
+                "isText": true,
+                "value": "Removed 5 bimodal interactions from the network."
+              },
+              {
+                "type": "embed",
+                "isText": true,
+                "value": "{\n  \"result\": \"Removed 5 bimodal interactions from the network.\"\n}",
+                "audience": [
+                  0
+                ]
+              }
+            ],
+            "isError": false
+          },
+          "toolSpecificData": {
+            "kind": "input",
+            "rawInput": {
+              "session_id": "8240c5a6-aede-4632-80c7-4d2d9f766482"
+            }
+          },
+          "toolCallId": "d1d1a84f-d7c7-44f9-8621-5dc969d34f93",
+          "toolId": "mcp_neko_remove_bimodal_interactions"
+        },
+        {
+          "kind": "toolInvocationSerialized",
+          "invocationMessage": {
+            "value": "Running `export_network`",
+            "isTrusted": false,
+            "supportThemeIcons": false,
+            "supportHtml": false,
+            "supportAlertSyntax": false
+          },
+          "pastTenseMessage": {
+            "value": "Ran `export_network` ",
+            "isTrusted": false,
+            "supportThemeIcons": false,
+            "supportHtml": false,
+            "supportAlertSyntax": false
+          },
+          "originMessage": "neko (MCP Server)",
+          "isConfirmed": {
+            "type": 3,
+            "scope": "profile"
+          },
+          "isComplete": true,
+          "source": {
+            "type": "mcp",
+            "serverLabel": "NeKo",
+            "label": "neko",
+            "collectionId": "mcp.config.usrlocal",
+            "definitionId": "mcp.config.usrlocal.neko"
+          },
+          "resultDetails": {
+            "input": "{\n  \"format\": \"bnet\",\n  \"session_id\": \"8240c5a6-aede-4632-80c7-4d2d9f766482\",\n  \"verbosity\": \"summary\"\n}",
+            "output": [
+              {
+                "type": "embed",
+                "isText": true,
+                "value": "BNET exported: /home/mruscone/Desktop/github/mcp-biomodelling-servers/NeKo/artifacts/8240c5a6-aede-4632-80c7-4d2d9f766482/Network_1.bnet. Set verbosity='preview' or 'full' for more details."
+              },
+              {
+                "type": "embed",
+                "isText": true,
+                "value": "{\n  \"result\": \"BNET exported: /home/mruscone/Desktop/github/mcp-biomodelling-servers/NeKo/artifacts/8240c5a6-aede-4632-80c7-4d2d9f766482/Network_1.bnet. Set verbosity='preview' or 'full' for more details.\"\n}",
+                "audience": [
+                  0
+                ]
+              }
+            ],
+            "isError": false
+          },
+          "toolSpecificData": {
+            "kind": "input",
+            "rawInput": {
+              "format": "bnet",
+              "session_id": "8240c5a6-aede-4632-80c7-4d2d9f766482",
+              "verbosity": "summary"
+            }
+          },
+          "toolCallId": "409eaead-5d78-4ed4-9c5d-de0cf10c1611",
+          "toolId": "mcp_neko_export_network"
+        },
+        {
+          "kind": "toolInvocationSerialized",
+          "invocationMessage": {
+            "value": "Running `bnet_to_bnd_and_cfg`",
+            "isTrusted": false,
+            "supportThemeIcons": false,
+            "supportHtml": false,
+            "supportAlertSyntax": false
+          },
+          "pastTenseMessage": {
+            "value": "Ran `bnet_to_bnd_and_cfg` ",
+            "isTrusted": false,
+            "supportThemeIcons": false,
+            "supportHtml": false,
+            "supportAlertSyntax": false
+          },
+          "originMessage": "maboss (MCP Server)",
+          "isConfirmed": {
+            "type": 3,
+            "scope": "profile"
+          },
+          "isComplete": true,
+          "source": {
+            "type": "mcp",
+            "serverLabel": "MaBoSS",
+            "label": "maboss",
+            "collectionId": "mcp.config.usrlocal",
+            "definitionId": "mcp.config.usrlocal.maboss"
+          },
+          "resultDetails": {
+            "input": "{\n  \"bnet_path\": \"/home/mruscone/Desktop/github/mcp-biomodelling-servers/NeKo/artifacts/8240c5a6-aede-4632-80c7-4d2d9f766482/Network_1.bnet\"\n}",
+            "output": [
+              {
+                "type": "embed",
+                "isText": true,
+                "value": "MaBoSS .bnd and .cfg files created successfully.\n  BND: /home/mruscone/Desktop/github/mcp-biomodelling-servers/MaBoSS/artifacts/64ba37e6-437b-4cdc-bc21-e71ebc2ac291/output.bnd\n  CFG: /home/mruscone/Desktop/github/mcp-biomodelling-servers/MaBoSS/artifacts/64ba37e6-437b-4cdc-bc21-e71ebc2ac291/output.cfg\n\nNext: call build_simulation(session_id='64ba37e6-437b-4cdc-bc21-e71ebc2ac291') to load the simulation."
+              },
+              {
+                "type": "embed",
+                "isText": true,
+                "value": "{\n  \"result\": \"MaBoSS .bnd and .cfg files created successfully.\\n  BND: /home/mruscone/Desktop/github/mcp-biomodelling-servers/MaBoSS/artifacts/64ba37e6-437b-4cdc-bc21-e71ebc2ac291/output.bnd\\n  CFG: /home/mruscone/Desktop/github/mcp-biomodelling-servers/MaBoSS/artifacts/64ba37e6-437b-4cdc-bc21-e71ebc2ac291/output.cfg\\n\\nNext: call build_simulation(session_id='64ba37e6-437b-4cdc-bc21-e71ebc2ac291') to load the simulation.\"\n}",
+                "audience": [
+                  0
+                ]
+              }
+            ],
+            "isError": false
+          },
+          "toolSpecificData": {
+            "kind": "input",
+            "rawInput": {
+              "bnet_path": "/home/mruscone/Desktop/github/mcp-biomodelling-servers/NeKo/artifacts/8240c5a6-aede-4632-80c7-4d2d9f766482/Network_1.bnet"
+            }
+          },
+          "toolCallId": "253327a9-e1be-45b2-893c-14ba52eca9a2",
+          "toolId": "mcp_maboss_bnet_to_bnd_and_cfg"
+        },
+        {
+          "kind": "toolInvocationSerialized",
+          "invocationMessage": {
+            "value": "Running `build_simulation`",
+            "isTrusted": false,
+            "supportThemeIcons": false,
+            "supportHtml": false,
+            "supportAlertSyntax": false
+          },
+          "pastTenseMessage": {
+            "value": "Ran `build_simulation` ",
+            "isTrusted": false,
+            "supportThemeIcons": false,
+            "supportHtml": false,
+            "supportAlertSyntax": false
+          },
+          "originMessage": "maboss (MCP Server)",
+          "isConfirmed": {
+            "type": 3,
+            "scope": "profile"
+          },
+          "isComplete": true,
+          "source": {
+            "type": "mcp",
+            "serverLabel": "MaBoSS",
+            "label": "maboss",
+            "collectionId": "mcp.config.usrlocal",
+            "definitionId": "mcp.config.usrlocal.maboss"
+          },
+          "resultDetails": {
+            "input": "{\n  \"session_id\": \"64ba37e6-437b-4cdc-bc21-e71ebc2ac291\"\n}",
+            "output": [
+              {
+                "type": "embed",
+                "isText": true,
+                "value": "MaBoSS simulation loaded successfully.\ntime_tick: 0.5\nmax_time: 1000.0\nsample_count: 10000.0\ndiscrete_time: 0.0\nuse_physrandgen: 0.0\nseed_pseudorandom: 0.0\ndisplay_traj: 0.0\nstatdist_traj_count: 0.0\nstatdist_cluster_threshold: 1.0\nthread_count: 1.0\nstatdist_similarity_cache_max_size: 20000.0\n\nNEXT STEP: call get_maboss_nodes() to retrieve the list of valid node names before calling set_maboss_output_nodes() or set_maboss_initial_state()."
+              },
+              {
+                "type": "embed",
+                "isText": true,
+                "value": "{\n  \"result\": \"MaBoSS simulation loaded successfully.\\ntime_tick: 0.5\\nmax_time: 1000.0\\nsample_count: 10000.0\\ndiscrete_time: 0.0\\nuse_physrandgen: 0.0\\nseed_pseudorandom: 0.0\\ndisplay_traj: 0.0\\nstatdist_traj_count: 0.0\\nstatdist_cluster_threshold: 1.0\\nthread_count: 1.0\\nstatdist_similarity_cache_max_size: 20000.0\\n\\nNEXT STEP: call get_maboss_nodes() to retrieve the list of valid node names before calling set_maboss_output_nodes() or set_maboss_initial_state().\"\n}",
+                "audience": [
+                  0
+                ]
+              }
+            ],
+            "isError": false
+          },
+          "toolSpecificData": {
+            "kind": "input",
+            "rawInput": {
+              "session_id": "64ba37e6-437b-4cdc-bc21-e71ebc2ac291"
+            }
+          },
+          "toolCallId": "01a68999-c51e-4da0-9e8c-c2a5a3ef73bb",
+          "toolId": "mcp_maboss_build_simulation"
+        },
+        {
+          "kind": "toolInvocationSerialized",
+          "invocationMessage": {
+            "value": "Running `update_maboss_parameters`",
+            "isTrusted": false,
+            "supportThemeIcons": false,
+            "supportHtml": false,
+            "supportAlertSyntax": false
+          },
+          "pastTenseMessage": {
+            "value": "Ran `update_maboss_parameters` ",
+            "isTrusted": false,
+            "supportThemeIcons": false,
+            "supportHtml": false,
+            "supportAlertSyntax": false
+          },
+          "originMessage": "maboss (MCP Server)",
+          "isConfirmed": {
+            "type": 3,
+            "scope": "profile"
+          },
+          "isComplete": true,
+          "source": {
+            "type": "mcp",
+            "serverLabel": "MaBoSS",
+            "label": "maboss",
+            "collectionId": "mcp.config.usrlocal",
+            "definitionId": "mcp.config.usrlocal.maboss"
+          },
+          "resultDetails": {
+            "input": "{\n  \"parameters\": {\n    \"thread_count\": 10\n  },\n  \"session_id\": \"64ba37e6-437b-4cdc-bc21-e71ebc2ac291\"\n}",
+            "output": [
+              {
+                "type": "embed",
+                "isText": true,
+                "value": "Parameters updated: thread_count=10"
+              },
+              {
+                "type": "embed",
+                "isText": true,
+                "value": "{\n  \"result\": \"Parameters updated: thread_count=10\"\n}",
+                "audience": [
+                  0
+                ]
+              }
+            ],
+            "isError": false
+          },
+          "toolSpecificData": {
+            "kind": "input",
+            "rawInput": {
+              "parameters": {
+                "thread_count": 10
+              },
+              "session_id": "64ba37e6-437b-4cdc-bc21-e71ebc2ac291"
+            }
+          },
+          "toolCallId": "f4bd7fcc-bf10-4f56-8b1b-692e673e87e4",
+          "toolId": "mcp_maboss_update_maboss_parameters"
+        },
+        {
+          "kind": "toolInvocationSerialized",
+          "invocationMessage": {
+            "value": "Running `get_maboss_nodes`",
+            "isTrusted": false,
+            "supportThemeIcons": false,
+            "supportHtml": false,
+            "supportAlertSyntax": false
+          },
+          "pastTenseMessage": {
+            "value": "Ran `get_maboss_nodes` ",
+            "isTrusted": false,
+            "supportThemeIcons": false,
+            "supportHtml": false,
+            "supportAlertSyntax": false
+          },
+          "originMessage": "maboss (MCP Server)",
+          "isConfirmed": {
+            "type": 3,
+            "scope": "profile"
+          },
+          "isComplete": true,
+          "source": {
+            "type": "mcp",
+            "serverLabel": "MaBoSS",
+            "label": "maboss",
+            "collectionId": "mcp.config.usrlocal",
+            "definitionId": "mcp.config.usrlocal.maboss"
+          },
+          "resultDetails": {
+            "input": "{}",
+            "output": [
+              {
+                "type": "embed",
+                "isText": true,
+                "value": "Network nodes:\n- NFATC2\n- IL23A\n- MYC\n- MAP4K4\n- TRAF1\n- MAPK14\n- TNF\n- FASLG\n- IL2\n- MAPK1\n- TNFRSF1A\n- TNFRSF10B\n- KRT18\n- TRADD\n- CASP2\n- BIRC3\n- BIRC2\n- CASP8\n- RIPK1\n- CYCS\n- CASP3\n- MAP3K1\n- ATM\n- NFKB1\n- BID\n- RELA\n- BCL2\n- BAX\n- CASP7\n- BAD"
+              },
+              {
+                "type": "embed",
+                "isText": true,
+                "value": "{\n  \"result\": \"Network nodes:\\n- NFATC2\\n- IL23A\\n- MYC\\n- MAP4K4\\n- TRAF1\\n- MAPK14\\n- TNF\\n- FASLG\\n- IL2\\n- MAPK1\\n- TNFRSF1A\\n- TNFRSF10B\\n- KRT18\\n- TRADD\\n- CASP2\\n- BIRC3\\n- BIRC2\\n- CASP8\\n- RIPK1\\n- CYCS\\n- CASP3\\n- MAP3K1\\n- ATM\\n- NFKB1\\n- BID\\n- RELA\\n- BCL2\\n- BAX\\n- CASP7\\n- BAD\"\n}",
+                "audience": [
+                  0
+                ]
+              }
+            ],
+            "isError": false
+          },
+          "toolSpecificData": {
+            "kind": "input",
+            "rawInput": {}
+          },
+          "toolCallId": "b4957a4a-c2a2-41a9-b258-51a526b2cb53",
+          "toolId": "mcp_maboss_get_maboss_nodes"
+        },
+        {
+          "kind": "toolInvocationSerialized",
+          "invocationMessage": {
+            "value": "Running `set_maboss_output_nodes`",
+            "isTrusted": false,
+            "supportThemeIcons": false,
+            "supportHtml": false,
+            "supportAlertSyntax": false
+          },
+          "pastTenseMessage": {
+            "value": "Ran `set_maboss_output_nodes` ",
+            "isTrusted": false,
+            "supportThemeIcons": false,
+            "supportHtml": false,
+            "supportAlertSyntax": false
+          },
+          "originMessage": "maboss (MCP Server)",
+          "isConfirmed": {
+            "type": 3,
+            "scope": "profile"
+          },
+          "isComplete": true,
+          "source": {
+            "type": "mcp",
+            "serverLabel": "MaBoSS",
+            "label": "maboss",
+            "collectionId": "mcp.config.usrlocal",
+            "definitionId": "mcp.config.usrlocal.maboss"
+          },
+          "resultDetails": {
+            "input": "{\n  \"output_nodes\": [\n    \"CASP3\",\n    \"BAX\",\n    \"NFKB1\"\n  ],\n  \"session_id\": \"64ba37e6-437b-4cdc-bc21-e71ebc2ac291\"\n}",
+            "output": [
+              {
+                "type": "embed",
+                "isText": true,
+                "value": "Output nodes set successfully: ['CASP3', 'NFKB1', 'BAX']"
+              },
+              {
+                "type": "embed",
+                "isText": true,
+                "value": "{\n  \"result\": \"Output nodes set successfully: ['CASP3', 'NFKB1', 'BAX']\"\n}",
+                "audience": [
+                  0
+                ]
+              }
+            ],
+            "isError": false
+          },
+          "toolSpecificData": {
+            "kind": "input",
+            "rawInput": {
+              "output_nodes": [
+                "CASP3",
+                "BAX",
+                "NFKB1"
+              ],
+              "session_id": "64ba37e6-437b-4cdc-bc21-e71ebc2ac291"
+            }
+          },
+          "toolCallId": "71a22e2a-74f6-4bad-b411-1c152e34a564",
+          "toolId": "mcp_maboss_set_maboss_output_nodes"
+        },
+        {
+          "kind": "toolInvocationSerialized",
+          "invocationMessage": {
+            "value": "Running `run_simulation`",
+            "isTrusted": false,
+            "supportThemeIcons": false,
+            "supportHtml": false,
+            "supportAlertSyntax": false
+          },
+          "pastTenseMessage": {
+            "value": "Ran `run_simulation` ",
+            "isTrusted": false,
+            "supportThemeIcons": false,
+            "supportHtml": false,
+            "supportAlertSyntax": false
+          },
+          "originMessage": "maboss (MCP Server)",
+          "isConfirmed": {
+            "type": 3,
+            "scope": "profile"
+          },
+          "isComplete": true,
+          "source": {
+            "type": "mcp",
+            "serverLabel": "MaBoSS",
+            "label": "maboss",
+            "collectionId": "mcp.config.usrlocal",
+            "definitionId": "mcp.config.usrlocal.maboss"
+          },
+          "resultDetails": {
+            "input": "{\n  \"session_id\": \"64ba37e6-437b-4cdc-bc21-e71ebc2ac291\"\n}",
+            "output": [
+              {
+                "type": "embed",
+                "isText": true,
+                "value": "MaBoSS simulation completed successfully.\nCall `get_simulation_result()` to read the state probability table.\nThe result is also saved to the session artifact directory as result.csv."
+              },
+              {
+                "type": "embed",
+                "isText": true,
+                "value": "{\n  \"result\": \"MaBoSS simulation completed successfully.\\nCall `get_simulation_result()` to read the state probability table.\\nThe result is also saved to the session artifact directory as result.csv.\"\n}",
+                "audience": [
+                  0
+                ]
+              }
+            ],
+            "isError": false
+          },
+          "toolSpecificData": {
+            "kind": "input",
+            "rawInput": {
+              "session_id": "64ba37e6-437b-4cdc-bc21-e71ebc2ac291"
+            }
+          },
+          "toolCallId": "9a56b53f-e19e-4b2d-947c-3e8d97ae52a7",
+          "toolId": "mcp_maboss_run_simulation"
+        },
+        {
+          "kind": "toolInvocationSerialized",
+          "invocationMessage": {
+            "value": "Running `get_simulation_result`",
+            "isTrusted": false,
+            "supportThemeIcons": false,
+            "supportHtml": false,
+            "supportAlertSyntax": false
+          },
+          "pastTenseMessage": {
+            "value": "Ran `get_simulation_result` ",
+            "isTrusted": false,
+            "supportThemeIcons": false,
+            "supportHtml": false,
+            "supportAlertSyntax": false
+          },
+          "originMessage": "maboss (MCP Server)",
+          "isConfirmed": {
+            "type": 3,
+            "scope": "profile"
+          },
+          "isComplete": true,
+          "source": {
+            "type": "mcp",
+            "serverLabel": "MaBoSS",
+            "label": "maboss",
+            "collectionId": "mcp.config.usrlocal",
+            "definitionId": "mcp.config.usrlocal.maboss"
+          },
+          "resultDetails": {
+            "input": "{}",
+            "output": [
+              {
+                "type": "embed",
+                "isText": true,
+                "value": "**MaBoSS Simulation: State Probability Trajectory**\n\n  <nil>    NFKB1\n 0.0001   0.9999"
+              },
+              {
+                "type": "embed",
+                "isText": true,
+                "value": "{\n  \"result\": \"**MaBoSS Simulation: State Probability Trajectory**\\n\\n  <nil>    NFKB1\\n 0.0001   0.9999\"\n}",
+                "audience": [
+                  0
+                ]
+              }
+            ],
+            "isError": false
+          },
+          "toolSpecificData": {
+            "kind": "input",
+            "rawInput": {}
+          },
+          "toolCallId": "eca7254e-55bb-416f-b054-cd5a391ee2e8",
+          "toolId": "mcp_maboss_get_simulation_result"
+        },
+        {
+          "value": "Here’s what I did and the result of the pipeline you requested:\n\n- Built a NeKo network using Omnipath with initial genes [TNF, TNFRSF1A, TRADD, RIPK1, CASP3, NFKB1, BAX, BCL2] (30 nodes, 164 edges).\n- Removed 5 bimodal interactions from the network.\n- Exported the curated network to BNET format and converted it to a MaBoSS model (BND + CFG).\n- Loaded the MaBoSS simulation, set `thread_count = 10`, and selected output nodes [CASP3, BAX, NFKB1].\n- Ran the MaBoSS simulation and retrieved the final state probability snapshot; in the output table, NFKB1 is ON with probability ≈ 0.9999, indicating a strongly NF-κB–active (pro-survival/pro-inflammatory) fate under the default parameter and initial-state assumptions.\n\nIf you’d like, I can next: (a) adjust initial conditions (e.g., force TNF ON), (b) explore CASP3/BAX-active apoptotic outcomes via mutations, or (c) visualize full trajectories over time.",
+          "supportThemeIcons": false,
+          "supportHtml": false,
+          "baseUri": {
+            "$mid": 1,
+            "path": "/home/mruscone/Desktop/test/",
+            "scheme": "file"
+          }
+        }
+      ],
+      "agent": {
+        "extensionId": {
+          "value": "GitHub.copilot-chat",
+          "_lower": "github.copilot-chat"
+        },
+        "extensionVersion": "0.38.2",
+        "publisherDisplayName": "GitHub",
+        "extensionPublisherId": "GitHub",
+        "extensionDisplayName": "GitHub Copilot Chat",
+        "id": "github.copilot.editsAgent",
+        "description": "Edit files in your workspace in agent mode",
+        "when": "config.chat.agent.enabled",
+        "metadata": {
+          "themeIcon": {
+            "id": "tools"
+          },
+          "hasFollowups": false,
+          "supportIssueReporting": false
+        },
+        "name": "agent",
+        "fullName": "GitHub Copilot",
+        "isDefault": true,
+        "locations": [
+          "panel"
+        ],
+        "modes": [
+          "agent"
+        ],
+        "slashCommands": [
+          {
+            "name": "compact",
+            "description": "Free up context by compacting the conversation history. Optionally include extra instructions for compaction."
+          },
+          {
+            "name": "explain",
+            "description": "Explain how the code in your active editor works"
+          },
+          {
+            "name": "tests",
+            "description": "Generate unit tests for the selected code",
+            "disambiguation": [
+              {
+                "category": "create_tests",
+                "description": "The user wants to generate unit tests.",
+                "examples": [
+                  "Generate tests for my selection using pytest."
+                ]
+              }
+            ]
+          },
+          {
+            "name": "fix",
+            "description": "Propose a fix for the problems in the selected code",
+            "sampleRequest": "There is a problem in this code. Rewrite the code to show it with the bug fixed."
+          },
+          {
+            "name": "new",
+            "description": "Scaffold code for a new file or project in a workspace",
+            "sampleRequest": "Create a RESTful API server using typescript",
+            "isSticky": true,
+            "disambiguation": [
+              {
+                "category": "create_new_workspace_or_extension",
+                "description": "The user wants to create a complete Visual Studio Code workspace from scratch, such as a new application or a Visual Studio Code extension. Use this category only if the question relates to generating or creating new workspaces in Visual Studio Code. Do not use this category for updating existing code or generating sample code snippets",
+                "examples": [
+                  "Scaffold a Node server.",
+                  "Create a sample project which uses the fileSystemProvider API.",
+                  "react application"
+                ]
+              }
+            ]
+          },
+          {
+            "name": "newNotebook",
+            "description": "Create a new Jupyter Notebook",
+            "sampleRequest": "How do I create a notebook to load data from a csv file?",
+            "disambiguation": [
+              {
+                "category": "create_jupyter_notebook",
+                "description": "The user wants to create a new Jupyter notebook in Visual Studio Code.",
+                "examples": [
+                  "Create a notebook to analyze this CSV file."
+                ]
+              }
+            ]
+          },
+          {
+            "name": "setupTests",
+            "description": "Set up tests in your project (Experimental)",
+            "sampleRequest": "add playwright tests to my project",
+            "when": "config.github.copilot.chat.setupTests.enabled",
+            "disambiguation": [
+              {
+                "category": "set_up_tests",
+                "description": "The user wants to configure project test setup, framework, or test runner. The user does not want to fix their existing tests.",
+                "examples": [
+                  "Set up tests for this project."
+                ]
+              }
+            ]
+          }
+        ],
+        "disambiguation": []
+      },
+      "timestamp": 1773156144779,
+      "modelId": "copilot/gpt-5.1",
+      "responseId": "response_37048382-2c86-4ea6-822b-12e0c617b651",
+      "result": {
+        "timings": {
+          "firstProgress": 38810,
+          "totalElapsed": 97106
+        },
+        "metadata": {
+          "codeBlocks": [],
+          "renderedUserMessage": [
+            {
+              "type": 1,
+              "text": "<context>\nThe current date is March 10, 2026.\n</context>\n<reminderInstructions>\nYou are an agent—keep going until the user's query is completely resolved before ending your turn. ONLY stop if solved or genuinely blocked.\nTake action when possible; the user expects you to do useful work without unnecessary questions.\nAfter any parallel, read-only context gathering, give a concise progress update and what's next.\nAvoid repetition across turns: don't restate unchanged plans or sections (like the todo list) verbatim; provide delta updates or only the parts that changed.\nTool batches: You MUST preface each batch with a one-sentence why/what/outcome preamble.\nProgress cadence: After 3 to 5 tool calls, or when you create/edit > ~3 files in a burst, report progress.\nRequirements coverage: Read the user's ask in full and think carefully. Do not omit a requirement. If something cannot be done with available tools, note why briefly and propose a viable alternative.\n\n</reminderInstructions>\n<userRequest>\nCreate a Boolean model that describes how TNF affects cancer cell fate. In order to do so, I want you to create a network with NeKo using Omnipath as interactions database. The initial genes to use are [\"TNF\", \"TNFRSF1A\", \"TRADD\", \"RIPK1\", \"CASP3\", \"NFKB1\", \"BAX\", \"BCL2\"].\nOnce created the network, remove the bimodal interactions, export the network in bnet format and convert it into a MaBoSS model (set thread count to 10). Before running the model, select as output nodes [\"CASP3\", \"BAX\", \"NFKB1\"] as representative of the apoptotic and proliferative states. Run the MaBoSS model and get the results.\n</userRequest>\n"
+            },
+            {
+              "type": 3,
+              "cacheType": "ephemeral"
+            }
+          ],
+          "renderedGlobalContext": [
+            {
+              "type": 1,
+              "text": "<environment_info>\nThe user's current OS is: Linux\n</environment_info>\n<workspace_info>\nI am working in a workspace with the following folders:\n- /home/mruscone/Desktop/test \nI am working in a workspace that has the following structure:\n```\npypath_log/\n```\nThis is the state of the context at this point in the conversation. The view of the workspace structure may be truncated. You can use tools to collect more context if needed.\n</workspace_info>\n<userMemory>\nNo user preferences or notes saved yet. Use the memory tool to store persistent notes under /memories/.\n</userMemory>\n<sessionMemory>\nSession memory (/memories/session/) is empty. No session notes have been created yet.\n</sessionMemory>\n<repoMemory>\nRepository memory (/memories/repo/) is empty. No workspace-scoped notes have been created yet.\n</repoMemory>\n"
+            },
+            {
+              "type": 3,
+              "cacheType": "ephemeral"
+            }
+          ],
+          "cacheKey": "file:///home/mruscone/Desktop/test",
+          "toolCallRounds": [
+            {
+              "response": "I'll first create a NeKo session and build the Omnipath-based network from your seed genes, then clean bimodal edges and proceed to export/convert it for MaBoSS.",
+              "toolCalls": [
+                {
+                  "id": "call_iepvOzkfmQBSKRMzGBEof94w__vscode-1773152696485",
+                  "name": "mcp_neko_create_session",
+                  "arguments": "{\"label\":\"TNF_cancer_cell_fate\"}"
+                }
+              ],
+              "toolInputRetry": 0,
+              "id": "9ebad15a-36cb-4102-951c-919ebc71dc09",
+              "statefulMarker": "fCsMj5An4OnS/dV2sYpuDklNqxJxVTmImlhh9pqsrCUuEzT6CV0FYH2N5/sH3f6tEufzjdyi5ecy6i4f7+BKgEaQKVyEO10qymfFKyPS3NpZq4J88w5pXzii/13bTir+vydR64yxtXYldFwTuPK6PDhwyHSwpWTJvHJUrAkMOF8yaygZgRZ0N8jwM2Obq/9HWWcDomn63FgAUA6Fxofnz0xRL7URWshoOyOPM34ETSB2lSiEZFWNj3XhsNRZEZxyvMvEHhrICwXuWYVDINEcSgd2sQxRqRRsxK2eghn3dxouzujV8AcqhNri5TTFzA9iyvtF+ZxURPStnv51GeQi49fqeQ8IXJk17hneBwe7LNBEwHc2ZxDlhm2KNtoaKECFtBcBAJiQ1YS/chP/vRwR7vuL",
+              "thinking": {
+                "id": "m2aV/6x/OwSFnieZeGbArF6wquEVtUX4/tr71QV5ojoJ/V1EHAQCJnwQp8Ax9hoFHmxWVV+On6j4kWx0NMUwJBhoUdWq0j5VjVdwbAlWKnPi7WdpfV9o23+zTWxLcOkFpChkLkoQViS3+X7BYiY8ihGDx/XUhNMT/xCYtLLt2zD5bIKfZImFzBQE+uiYP6m3Iq7q0N5Fk+nVZcGmXJqBR37toSsWEv8D3sCUZ9DHEC3cat8vhzH6LiFkAGgIyMATpbqn7/lLWWmWkLe9Yqi8SUDw3iU8Qajn7C9499OUZL9DbtQymjFPM7PezYDu2tv7cChR36q5utaJuEgPeCXB8OUwMRfxE4MqAF+hzII62R7y1nfg+B8IigHyZejx46l/5PqQdTLdi/1aOtXBde8jYQ==",
+                "text": "**Setting up MaBoSS simulation**\n\nTo create a MaBoSS simulation model, I need to call a build simulation tool, specifically 'mcp_maboss_build_simulation,' though it's not in the function list yet. First, I should call 'activate_maboss_simulation_management' to access additional tools. Setting output nodes is next, by calling 'activate_node_configuration_tools' to use 'set_maboss_output_nodes.' After building the simulation from BND+CFG output, I’ll configure CASP3, BAX, NFKB1, and set the thread count to 10. Finally, I’ll run the simulation and gather results.**Initiating NeKo session**\n\nI'll start with the first NeKo session and network creation. While I could parallelize some of the tasks, I need to keep in mind that create_network relies on the session, which means I'll have to do that sequentially. However, I can run 'activate_maboss_file_conversion_tools,' 'activate_maboss_simulation_management,' and 'activate_node_configuration_tools' in parallel alongside the NeKo operations, as they just prepare tools. First, I’ll focus on calling create_session, and I'll mention briefly what I'm about to do before proceeding with the batch.",
+                "encrypted": "mym6C8vI1cZjbGnx31a/m8dHn6fe71NwkgYt6cDlg+ETpZAUBqT/BWMt/K3lYkjfB7W+mKydmaB+wmH8XWxhlYFm2zy/+qlHqKbedTRIFIbF+/iW/jWxPgPYq0ccnhFUiZT/2xpFHOKS36nmy4k0qx4DUrMnZpU6+Jeh0cIQKtuHJuFtJ5ZecRhXSua7pvf6mREslwkOUJevCEaISoMLlybD3cJU3GD0nxyOfYBMxvyrV/MgRFUMWE26kcimZi0VaEv6K6UlNDGke2VN7w0j4i8sXxqoLDknc5Ts76NhwM0KIbclj3tmLwsKgbEY8f2RuDAox4ykPhp5WaBYahKRkjFhfR4ZpykWjaIQ+spEAkYqW/q1UdLfeUItKv3ihbqOPTHqcFsFLFf3HFk1gEDcjUAK7yYxUV5KyxUJhHPxg5rnLjqJBb5jpu0aPOv65DiZUHbkgec81GUk2YG4THwNFkPuYLd4FM8AW44aqPep6sb1UxswJAfP2fo8tXE14LOMUTILi09Ua3a7Xo/1Kz4ZcS+4Pq01cuNrkEE0ARLiQFLXgr/rCJxZwIpfZJv2za7qpXwjjn4g9VyCWyyHMb04QXuzeZI2v0n0k/bUIVOoAMueP7wFVYU7GMRRad+mdV9AoVqZ8DRYeeGuSp22x2+jO2Tql9YsvbMqXNzdBU84txwYatfJykRc1i34+1n1OGx9+E/caf8hrqjEAfHR7Qm4JSHYAiGCtZ9/vWvbdaDgp96ZZgkJLYi0MO3Q5wCDPTRMlIMz8IY7hVHjS6fC0H4/VaSphlrj0NF77phv3f+8Q7mpA8eQxDZutIDAgtKp/JgoAV11oB7F2VjPM5dnF3CiZQPgfgazNvkmGEP3jHXpa9GwCm3tjwfPM5BchbAAv+UmL4pst7KHKEAu0RyjNMXtqEQ6N4u7qoLwsIpsVCZ503RRtIB1foIMK+j+G3QHa0dLGSHRcHfxmSBXj32avzxBV9upmITtdc699fGidIEGem+Vkd8wVQGcUs5n40wtncuDwEw1DG8f8I3L4c40fIUptN96VG+s1mRHIXTEMhK+thFFVyjXlW7nmOercK+vSMAifuBEjW/FDwEBPqD/CuYK3zLe8j3sA6XPqDBoOKwYsbvSlspsKHL/P+4cAepex2Py6EJnDdWgYyJ+TmQsfXo4Cte3UB2c8/IONZPaAdpPtId664Jn2FB5ZW/dkM8DGUKNZISIkuwMBDKxqLwG9J8f9MnQc1Mq1fAIUynTEOvOENezHKIBjz3BRI3OnChWDRsUcKtmQa1UXTijasORpragvp9N6HixDnwT/eb/Y9FcHFXOVB+bJarYi0CtSCArnA9fnvkdAJYB29eiBzX77FHRpMT3IFQtEw/YKWAfOyQgxhimrAulUoWHN4hcUfGH5RLXAXnm5UZwijY/bnwxkq5jGZPE5YUj4V1rdO4g3msWlUw2mvnUKa1W0P9DYct72tmF+prqbkmb1UXuKvLTKPU8k+jiv6lb8y/qgyrX8z3UOoUTSijmoUgfhZpBlaWQxkz+KMqXNEDkTn8xP+BsU3xIRDa8MQ22wLt1JpEIYuoOCj8LVlUAMSxkH7xfnt/kEmmxzyJ2h8samSN9+3TgCpw6vxFC38cKTj2lSmAK0cWLcJF4czLOywHAo5swgGRufrtuzsXNqLK1Ga7pCiz5Y9NXgYcGZlSCN+UwIjp0UOOdkSdDujMudoswL1z0sY9vU5RSHuMZXt+zMHz9Jq+YAK55Yl9ED2PaHBMp0Echk1Uw7HhVTa5KlxOMFi+GmTJGWGqiKHuil5zbQWNm2qX/+zsZ3k7+34tUTYJhqoYS0SjkHY/GhLux78ff6Ulw/aNO/07Nl5aWpvGyD9QbSLgDo9e47VB9d/aARutoSCAy1Hzs2Q3dGQGx6zdj67eVD3JFe3AQIj7XHmStRKVTmQnJ4rK7Foeu+U7uUgZ1ce0IMfVXXZJwO9knVX3EY2GT5QjIhxtyTv6oaM3u3SZl4+6or7Lxa4ec1c6yOqJQYbE0ntGQN/Kj265noLaGkKGYInY8t9z5haKc5vjcn6JOOdHE3jh28bGb9z2F+qsrS5OmbDIr0asibiTjfi3q9JOp7hEWufYMLTK2KQyR4T1ijowRtrGmqpOxp33nBv+3SJ1zkB4KfFUbYgNZFtZ9IT5ETwKsv3xtfKl6v27m3UdaaJ61lDwD10hfAtlj3jnlUSDHZrCCqCcFfg6HK3+8UaCrFSst6XDSMZricuF1RlFYjCf2zLwd2QipO7OQD5SYoUXUtyczFKhD9UWWRk85dM4FIPOMYZZkSBG36bI6nE6skkSzs0hB8Th20j1EJEjpRxr5L7xQ7jbTFxqFXtqweQ+iklUZN96fdFwkGY+Ifeo7W47f9OhVuUfwG7CC8uPVs+Ncc8n9gFGVRaiwAWkJURDBSAG+cN61qNxf/gUBkZZdLBrQ41BZlPc7khjF6tZp7FsozDyNpIPE7t9leqBcBXpzpm9oNzqDs9xfkg5IPARCjWy8DnbbwovQrW8HSSTGvUfW72epD2EgeS+c6Bx4AC46OZSTnjxqdsJCsCIQhYgaEUiuIqX3HHBAJoDwXe+8On35GEpkI6DneAfpT42HVnlGDJSDkwCX9MXzuILUvcZC/po2DuGQ4rmv8HxCjNq/anWXAXxiWx0AYi4U/gy5HOrQZzLw7PtodZo/QL3T3Ri9PJb6YjrfbtTHJXx3hp3hGfQ/jBL8O7I/npV/C2QNjPj4pvjMWoeNxon1MFIhhEXzleoQFVKnj9dKUCR0cAeeoYNuG0MFEkoJ7MW46PkRW4Y/AcNWbG4xFpFTLVxGhAIWuoTPDHWqMJUnG3jPrHpdDUCsVRQ79iQ0VuNuYrzfimzfQZSYBmaBu1KwvlgXs6igyATb3c+fPbtre+Y84S0hdEB4Sy2K4t3k5OFqVkMDe5UWP07Agh8jP95fonSY0FSQHSyduy+wFb1GmVv2ozVJyQyPG/FsOf2kjX+/oiJlruehcky+6iCrLnn8Yk0/XpQ2RRF7C7lExwN9o37haSrCsFPDuMoRlkcsFf5BlI8u6Lz3WLCJwcKTymxNoTvDGVPOf4/AD9aIIEsQfNrUkX9EVhpKIwEaBVRMFjq8aKuBaPxdp3BMpKQt23U+MMVi0/Uto80UgIDHbo/ibdAFWn33HuAk0NmhVyoZfoN79Q9dZuHpgJLH8KDclKhye+4h0Lg2CMMzQdT6Xuu6Fe5rQSC25a5bHdxFRS3m983kQPwZ1xspXD/afuepLPBkx8H2V5QVoZx7BMDXGYe17Lbay9tWVvjqJNsvxuudQLt70f4XHTMtjuhnnYOeO4TI7dzp2M9k/koG76G4hNm1g7JC9buvyIgzfZ7iazQtEdq4cbtietalIJCrT2jm9MvT9adW2d1lIf6tMY668TTToUh0+dL3ykCNN7LjAm3mpO8xYihd2awvCL+LCJwVmXwgKEgN5y8VYDGCFlufaFjBbXlxk4D+1VIAibTO2xnvRC1/sQBIp2/7H53a5zXCBIsLxwJFEcGuwT0s5VoCIc5bukBG8yNz0lUB3kvYtYs50Xtr8Do8DywjnENh2jlgIm+Ok+tCGvr2k9p8e+Wp/+GFV0Cl6sW5bwiTxkqWJyoelYPHXHtF07F0X9frkA71++TzhHLXm7IVHJT4JMA0m2ZsxSf/3qU34lGBpCjTHe4ue9KXACX9tTSoP8Yzn3wTTiYGxWFx68tx5RznP/bw0Brkkf16jC92oo6uYyDRXsNl0gsKiTZEdR4ywXN6ULF6X6O6UM+zd09ULbpoAHITLn+cju1BNMStnZ0qSrnlnN/ODwoT2eIA3/r2zBClzeNYhi/I83149dRjTea7DK5DjVXdhquhuh9s/lixjNqQz45K/5bWcj4lBjl05QVff07RmWy2qJjmPO+vp4y1hgLUGQyz5/6jLmjjK3EhvV7Ab1MQXw+DzknfcgLX4jMocuyWrQXxZRvFhcMFGcip7YJ8Yq+wlFaeRdGH+XukSAXPDJuKFXW18V5iv4K6m2p384Nre6s6cK9e6EEM2PmQtzGzfnD7ClzmHpUYm4rA+Maih4ZtaoM+V0m37vwlWEf49vCAdkFCX55ywQp9SdkEbd3aWSr4pYcg3G74GRhTqnrbDiT52qvkZbb4fC2qrtZ9mAGlQPp/AiUSltRzZdbKPQcpbEfXL8WxCdQ6RABBBcOkx8CZzVSfwLjmJRtay5lDSp7y9SWlY/6uUUDfJ6wddLC/2J4SpCQacQJZRjEYEwsTNPTQuOqcVc8DyqZogFBzgmDGQRVAXHm1Y416LA+oIjX44sOtaJPX1R2uLralna9L3zBmMj14bURL7VgBySJlxbl3lh3ASKe/QkfhPw9+VbVRm9UxIv07IvQyM7hYfYFU95N0Gl8EiZGcwpcOPdlR1vw/EnfQzSBWkYmrCzg9VshkV4Up/L+GwcwcsvFdRx0xDJcyUbx65pMlG9PII2VY0WidxakDbBnLHTrJmFq2hzSdnZSjeko9fEbZQ5uCdAJHz8cLWL7OnifJyTsZhkGk6JYEg07GiWXKYDnXVYn8/3UZW33QWdJo3x5oFKGEYfphk41aP0N+hBD+n+yVflGKRqAtbkSyHXZJ/Ay5hmAizbKBlG/sWL2yYJ8MkP+r7xjH+kaIfI2o7X8x7BXq7V03qrF5Aw/HuPChJfi7KK4C3JInNf8y3YgFTHsP0Sl1G4m99DtTUrpQ2soh33WRhlzHRR5wZDSi4JocCelSUXbqEX1jgZYYR18PCZLblvGw18DHjFLSG9zzTexaYY/gXhlJVhvwuX0d3Y+QL6Y84qOGNo9DyQGEx0QkMUq4LIyCf86NHsb/K287WI4ndZNuqJjrWNbSAKfseTOi1nCF+9FnLxGDFQRzIoceJe3xVVbAL0Xkm44OGpO7zFECPucjpUBqLxZbzFYFqEn4EjsnHwgi61RXiIOBIw8aalD5yw7QQp4/E8tTFC/qGPUFKUKrkxMCGgo5lK3NjNVVYAWLU7yhUF5YHObIPAF6j0lzwEYLYYPRe3KccPbT0lPRORdR/4iRAGOMLp801nZp3E0CkD2ybxGEjcMFWR/AtDTFbBgF/ZkRF2jkCv7zOgYoD8i4lmPSjtdae8IVN+GLgGpB/OZLorc3lE0VDv4k42WXA3W9E6hq8Xu12vQkDyX5b1xBUwX5pmYqoS+uST0MgLhADd5x4P2jgMvN7OnKoyzUQnJhOK9c4ZD6DX78MQfy6WXLjwmI8CK50j62ubJiXb3vkVkJU0+9ge4GRsj6/Z7+2U20b3lc9S37Xwyb0B/qVzkIexZkLDleoa0mA3Mc7r1bc87mh8rOyTLCZKR5qV1KxFatf/8Te+pmCwfAGmmR3cZk6iC9L7xcRSl2J2/FyNI5g+lQW33VeXBYdBQfNN99YJ10lgWIMmIS/ytb7oQ+B5zDFRCq1uzGHY/xOLeJiCCXKBhEENTz64iNRyh8IjYmt7w1UeMHn45Yi0n1oo90wdanmtO2DQ0QrjXvSmYLqA9zR8u5cJ7qtniG5g+XE5ptyi0gr1zqy0dhtEUXRyKIo8mzC6dL30X+G8NRTyoyIpjXGE+ZRUFO+2Jbg3ZAC4kqtA/FlZ7D18s6DSgqP09PPuW0gjYUi1tj8h1prwXumhUJ/QCJjfgNIijPtvCBK2FeHIuOeLW3cIJG4xPBbrhSjorkPEDI3cT0gBGi8/abWjFQ5rXybAe5LP5J2GprUxeDCOEWoF0kOFd4YAKhXFrsy1j4DfUFRf+qhY3mbu33YEnu3m+q3DfIFAkOdLsBvgZxkBwkDCQy3uVL4ZpgYiEFsqyMfYSmohGuTkXeCpEl5FngyZXIRCt6SmibFE7mfPiKINiKsRuzlWvUBvu32irdCmajQFxH0W471SA9GTTg7VUNXXBTXni0dYROOpAHozq4WAwePqucv/zO5/LM6l7oGzw7fNbHdzKzmQoog8mpBEpGNfL1LM4N8gUwBMrFg03gGTwXQDkFz8pdYX9Vh2SbFJb0IGUsy3yLFKXEYnLGfmSwK9wZNbhLydI9Vnvx1bhzYFZs5hQWgT9yzf0We+so91oxEWWrxP0CauaA/6UlEncC7R/UsXKo1PInxUsAndzW5lnjb+/81a58U3F69b3Q9PuvxaokzZ89Xd43sMvzKiT14NHH1du/YZuolDQblZwRR5FISUDm3hYIGL9mCRqIXIz6jkdyWdv2i0dZoCmfF9KF3NbPmtNdYb3bFPJra/wMqjhl7eku6k0rx2Ql32AzCFoZmkoNS49SEGgjaE+xT7/m1rsNC8VUnw9ASJNe/FtjDOWyTFYJ16KnZouDonkvClZjwzmgCLNhc9FLhhXDfgXNra23tz7w+bawLsZ9piYsyTho50BLgVp7DuGF3ZN1bji749VNjeECOOB961YJdgTk7sEXB3vtuJfZuVw03nMqS6i3cgyz821kuHKGD3TOn0+KhG2pdChX/kbf9luBElauUd4R1m1e4lFBokpMOtpv5ClYbGjLIu+Apcsf2dpaPZ0x6jsvlQLzWyMD6MHoj9ba9NRIZ60exEvcecW9IVb5cDPcT2WH1vnv8G9HZZ1tQUwlrBi5BfnU2DKTc7Se8Fc+Euh3gQe0gF4uD04tPlUxi/rN6qkmB8grckowKZZXIryrDvAugoK3KXQ8aHkDV45MUYEMZJKITvOU3+ih+EfaauFh3P5VSn1zqQPpKIrrDxvpdpo5erIeLviePpzxIGat0hCMX0CLMgkJuIHFvuD+8iAV9mRe3+hEt91WV+suD3DnFSMr1C7UyVRrngDhElAb0sQe446R6b+1lNJs24dKf94hmDh/bDDW8qn8s/+WG9U7qM6lB84z4Mlbt6yxBT9C/08O5ucCy9iJE0IVdE2jBI9oRCH1t7rOGf9Wm9SRMEpgBbBzeVRurjw0zwuipdjIMadX/SCgyn+tzAphz09n75QhZmK7ksI99ynn2ePvWtONO3KoAQ2lTy9XwGbx732+K27DGGhIRv7SR3eo40beESrbeFY8BtwCTyKYxGeA5V20udMFfqvU/hE+TPu1FI/YS050uaW/lKm8Wax+siSvSMA1CyfHwVTFMCXgoqH+ReMf/mfwYeUF7qwqvrgiP0Jddge4BBQmUTKteXxBphvuPnstbQZWqjb+F6hrMr/e/j1Jjf49MqDFlr5WU4WJV7Z/76KDz1nQ1ZTmSzR1l93NiMwi/zhSyt87Ta3E0La5v2FVuTqaz0Vkc+nslm/aCFtdtzIDu1IxjS3tqJcPyx4qJNxXuG4C4WG64C7+8MaCwG/IeZGORNXM0YykkiTLKlP3jGyaCksb+Lv0A7D/iTp9cggC0Ldw6l+ZNBtAJ+RDeHXfzbJ6kbm3X1I637l1qDn1B5WGdRnlnFb/Aye/NHrAkjHw4KlJmhEF+nmn8zGroOL+QBOVqXx+51y4EBOEl8kOLDWsAmIUSQ5tOtEpJchaq1mmBo4PRXkxAI0j01oj3Bp/NWFFzygetgdHvBI9PR919wmT1XCdsBU2+/bO2UU6mPSOT93Jeq+D70q1W7HxVZ6Xwsw8Wt6vcYMJSbv+Tw3nrvTZxpcCdHAgTPdIr28HeMxOUTj5+dMtQAWSHuHDiLuS8/dEgAZTa8o5ml1NhGG4gVUQWSYVXTGF9oEE2zYYiMnpCN3WukJfb15NFniLM7RrOo6MWFaknYOF7XvZF4ThvLpUh6gIeJz7DcWGNMDB2dctEd2xrtEzEi+o9FYC7kswgjwpj6jp9tOXOuaU+In+uM7GA/QNnHulQcUbjPE9NnMpMcdrrGFmT2RJyvmg/AJGvtUWUfe48EE1jZc5Oc+RE/96XeinKw8stp0nE555QqycylS/LZl9mMXzIh/qOKi6C37DHzo9w9rB1D54MJWohtKWO/Av/jNdXc0R6B2zXmkbR2BQL0c/BdaGgHb5Cn2+v/BwvGW8FY+/WHaFX9kNEURB8pbUhamRK403Z/L/5+EPCP874NKgxLFeNtxaS/cZz+S/T+vYdphDWrbmhmCVuLP3itTgiz0leg0YS4R6XfwhS46eVofrQGJPeUZzumyGI7E1mmwNHkjdOCzUVZyXAEHp8amxfllg77fC8YvcNK5ZZsBOIXAAudU1J3Im6a38Ud0QqeI+0keOO/R0b49B0P8edDS7yo/QmnOMQ798EcMS3YBFVLgKG16V2hhRZ8cwuX14yDmsMZBYnWpuelNvDijd/z+Z1wFfbzlz5M56LJ4I+Sp0zwcNTflnDDsHqzjX81OiVjnMZQ2lBXYmjdyvm9Ue4e7EcNB7UZsP5nTlTHhEiHGvGr8gpz6inKdLv4i9AlNNMmkBAO9gg+DJmdoWyvVUZwu7XOj2gH3Auv3bewYhMObDcJIRf6sauH8nJ8c//1BkYfSMTHUReZB2mcOEvWOPSEpKszwj7kQif5TBJLbUhXGq/+8jPj2o1rAVhw+/3ogzDW73CP21whwshNZ/vRmAhGFdjS8ozVmw6mzOJh+VgFN+YqFyQBUChe7SI4maTR7+sJ+Rn5592HPSGKP3UmWW84MKdyBI5LEsdQ3kDvGtaQGIG7pZDCnYer8rtrEy8zD2Cg1TpuV4jymH2JkHzw6DjEmxXcNAg2CpbN+PSTco1tFWOFgJp8vPNnUZJI31oYJoDykIf/NaCUpB84OLB3s9OxcDOToG1Hi8vIdIXXK50qPaJ//EpOTjxM7s8TTp5p25BUIBQw4GjNnssjM4bkj2pYQY2m91YpHkCBzj4UcmJkDprBzUJ93rdB0px7GqeshfDMPJ5J/zlEPK1bMeTX2WvnuORPwObqtnWnXkrpbOxITGkWRPttpUVYSMMWDqbqF+npBccgnrFV5bb5MLJ5uOijV070ayXfdI5hKCX+pZ842OvnXZg0D1/Pp6AAWLeI7pIk1lQqbS8mhzZaLfEJY9YEkxjfaK3W3JL9JZl740Gm8FnSkce2oOb4rBINeeKzBVGY/7lqUgwxsgQZ+chwa0rGFmS/Vvms98HSLX4WJnBeNRFsukcywF/GhCxetwZNCacaz9ZpMzI5e2MIF36POJ+Nm9EYhn0OuBJ0TLxHTN/cF1hkcDjNLvuERm9QLfNEZBd7+/uE8Y6NEAyTv/7DiAXEV0V3a+WVAKC5kSOIAttVCM1uHCtYd0nkjGSm0Wh6O65PwSsN9OIDPg5xUP/Wh38T355T7oucKrXQda7uCPaK+b5zDtdqWHgHYdGn/diNHuNG82U1tdoSts0+7JKkVQZRt1xIX5PhkxyHnKI3Hk3bzSNkRgwJGW4WnJL7pr5mZW2mcmOnYY/MVTDnxkZIq6W1uSdtoAPVpo7g97ua6bxKrbLJzCo+/2ykan4F7j+J2nVatr0ttVRcfoD3xoCM6f3ia/pxEX9nj2+zTgHNa8PL88/QcUZ3YGoLJkFYapznnh/UKz3fI+5D4puKNFPobW+wLAeocGIsoBlq6cnHseLQJY+BzK+L6rjC7g8kJNZ+aLNIzvoR7pRp4cdYmOELSblMa3HG9TGvB1K6iuWmx7RJPazROWyK1cLZ6M5KYt9//pLzptSnht8qVOyCMEd4I0EqQKQ3pOea3LA/YB6CImrvUaWUjl9AxJvbjVtlot9uqAkPOYdpbEE3Hx8YD9vIQdUK7VIN41G2eTZfTFjv64y6qzhbLCFsKGmAWsrzVO7HBgcig6H7Tr+T1D+CChkGbLcyFaIC6lw20C/9mRoarsgPydXBMRZYwVkWCvgNxrhVlTvtDGCGcIY57nIZIDH/uCTpBiIIUEEQGWka/ZDloSaz+jqp5Pbe4cTVlXjUeednLL5V7NpC0Ym2uHJdnQr5JnLWfpbhXVAGnP22z6LFqKUB8zRLs++wzqaBNZIdHOonU+xRoswcWZBuUGn2b/Pc1AVfycTQTbcxmPoaOnPLtIZ24J0kTXvOGspMLbSPuq5g1dWqdyoq0tuf0Sp5y5SD3TdwRIdoXD7tGEZ2TMqXLZIbZVk/u3e4RaYYeFabtDfmdmd52qybsLxVAf39gafivXsZAJlbz0FLsf2oaqDb1abNIFLr9fIcdF54VCkDx9b90J0ZEeI0OMmPS9AGwr0dWka9WQ6SluWfan7lvFux6h0VVAuxeYuYGt4sOuS9Mdu97TZnFMbTE5LInVLh5sFzI5eTf6U5iSOAJ8L3st2hKc2rudt/+Lj9MAkVkAA9UJozWRocpEufYyrvP78H+TqfR1WEeI4b40Z8M8EjKYYM/7qyqfK9nwCUEJKucJ54AJ+6TiJvse26Y5GxXOOulOv7XkyWmaxIeZc/0dunWJsdtiznerzvzG3XXSIhtWbHYhtkNAHRWsbEcJK3Zc23SmZR52hvbQAtCYppXC1rr16aicjiGgCfvgtUaPCEG3ZGKAq10UxzV8sQjj65R1w/1Z5ILEMdArfn9ao5zH6hHJqNw1Ck9B8whPmZAbua2cFi7pZA803jzaKHr+ASS3zepp1s+BuuSYU0ItZEIQapnZZyYnTBKB2j4SdiJbQfiqF5tbomtFkNHTxEdSGYTH98At0M+ReHzPji1qI67lVCGchP//D5f+d2aR+PqOHoJzLWLKniSd0Kczy+KMhAMsc3/GkHXA4u76jbuNA0YFPUEQ3nJ5SxHLfnKAa9H7C9y/2fxsNv1ny6+UUTvhOGIe0Oeh1lEbkbaQkHFRiaivbzVzVnDmP309yIkx0/Dpp/tMtw9Nti/PUj6OHkw1UrOJZCX6A/k8C1IgxpwLM4URZPqvIB3nRWo9f7E3oYm88bnRYYAwIOdgp/uvYcKRqE3+9LRqjnI5jq9llSn+u+lpwXZU/IyVvbKSbhczR/LqveVBR3TNgiGE+VhanDkvl7lnt+u3dbALoTWG2yBDQ1eUtjf+l3MJfTYkvn1XyGQZaFX5G18+BoH7/anT3YwFpQMe0ZqrsWUr/UEvJGKb2cHW0Nww3J7LFmPsErf4RHN2BFulGigzs/8AYdL1Fs7uNoOZZUjQFrAzfKL3STkZ3DFHOfS+wqMSD6V7OwX7NHtHl3Er5ijfeJHyO4kCWgjr364gDkaEzT5moFcjGros6v6WY8xUdGD+S9VNfoInKlAgVmv3z4vc/Xuf1vhkV/6j5VEy1fAU+LLjXaYM1NSvOTY+1joJUQZ1wST8ih/Lui1c6j09qFT9AyTUkoM/ZtVki3uV2okSnR5kOqjpU9fdIb0Dq2aNjDKRSBXokYeayx7lAyeQtJSub1FGeeM6p8egLRMlSI4gATHttHxQLIdGOEXUbSrvBFxBa4zLr4TJ6/KznilOLGGJ64P3VM53syLtcIlTHQ+zkHFYLcwpud5TnNeVX4u/6Y3zOmVbsZODpB5CDGWyYnsVPV/DOHK5W8HSEPIV9nUomA1A76UA4KnziBYT+NUWAN+2NqzBkipgcNdxFu62hYdjFP11JCtMA244DpqTCugNrPkRoyymMcAhnnzSFAhiz+/oiib6n040W6J34Q5uLZD1WDyC0O7OMmbUPK5zmBSGXLQXnhLj/n98w5n/BLZ58DNDg9LEPFRGCwiW2SenA/j3v55N20Wy/2UNS1vZK3gtjoD+KRc+A7NSH8W/JElg1z7r9BreaXDky7XrvAJigqOP2+UiDuajelWHGJK25dV9ik1FocEv+dmMe2Hd4Mqj5ajTw1D/B4LdpjTTYObwUzR22x60Sgyvm1smpvnrxC0ExsLpKArtQUG/aApqURCeZNSyL/pCZ3l0gRaP5p8i1pQvj1B4gO0p88SpFXceRK92mIc7rmNLme5rxi4t0FqkKPC6fUhxZapdPxv+6icG23AJCHo3ROUhjZLRGnc/QKFFyvk4S4/CcFq7/5kQ0Goe2tClUNXa7YuzrRENHFuVb75LHkBDxCVbUecDNh2ZVvQjN2w3IB0P8CUOh7+4vnko4FUJ46K78fZz4KS6Qb5zwpDvwOMnJHrRUOecOCfpwLDK19DMRUOVTRbXCAiepgev7zHCr1/qaP5bYHYGF3+RhlOw6bLIJDKZNI9fWrTvx/jnKSRQTXMV86SEgt3uXmcorOu5PBq2t+K3Whg7gEZuJmdWoPU5G4WsZjIXNuvl7hxqLuHZznv51f6dF0aTYoNMD3rWcxFbOImavdVv3kwP14NX8dCb/WvtFdj4eiuoe2sgzbO4zt1T73TqLkFKvfjPgrrlN1+mkYzvJ21tT4Ta2vhKBz0NU8ysoM9utajnnPgFXpTCdpx5Ih7+vvmXPr3TbmsQqnlnx4qJBhIlIrT4uIRLxUt8k4BzOa7htmcBHhnG8G0it9dBmmBVNJjD5NHs80VP+3+isMPaOkcf3Mj0zkHxM7FhYrfFwfg/Pg8d5qeIoCXGRRqhA6J09Ia6ORerlM5oZrKMeD+AEYvKGxN+ja98OAzR8ncgsKBNxppTrZ1JTRtnLi8BCqkMlN9eefa0WKL/vnkIz03Rmc3fvyXguZFukD+XYhadjw069m5liwCfKJ0FDzztEc3gqCtjvIKFMFNY7Y81t84ODwczr4FVlxJqBhAP57kjPUgLQU+iZl57gik9b24gok5i9McXrVOtn45zAiD0MoaoKO1rw62ij3RgLBC8eZQCzjtIt9AXdy+ZlbYrsbxs7yU2OeJJTr/P+EOzKT44+bv0nZCDemj+zHvN5hpqIZYcZEHF2LRolpHZj1tPZfR5nw4R",
+                "tokens": 1354
+              },
+              "timestamp": 1773156185220
+            },
+            {
+              "response": "",
+              "toolCalls": [
+                {
+                  "id": "call_SGwLmZNXTNME4q7EVEZJcY4B__vscode-1773152696486",
+                  "name": "mcp_neko_set_default_session",
+                  "arguments": "{\"session_id\":\"8240c5a6-aede-4632-80c7-4d2d9f766482\"}"
+                }
+              ],
+              "toolInputRetry": 0,
+              "id": "e90917dd-0325-4c57-924c-38fc13dbf043",
+              "statefulMarker": "xUM5rskpL90KzWnFLakQbDuJVtZg89ew8j8KRN0flNMshV3MjAkp7DdmLNNkQApbJdZ4jPDxB6RsU3bZ4cXYMt6icpac5XHd6leQQiQzAT6dmt+RojWHG5zo3wUkBxAgwwDlOScPMAFqswUB9U2PvhLgxipGGFpDUP6kCbt6X5G7UjrfDn1YJuOOYE6PUNZaBgCOEu79bjMmYx6lVpun7SG5CecMqMBzmDJjJ/2p4YvrWG3r/hayl6Z7fFl4k73sZILhVxVoW0/hfqyU+9/ySTjpI6k7m4sUIe5vctIuzthtc/suyki50mIpNLo2es9Hf1wMwKYdxm08V9iDWWHMQP+KGatMCfLxr9TB0+4oqvSrY5T4hzW1kxTHhQmq0r1UT3zaaTDj7QaFFdCmbojhVVFY",
+              "timestamp": 1773156187745
+            },
+            {
+              "response": "",
+              "toolCalls": [
+                {
+                  "id": "call_XU4l1XT0m938kydFklsu1jz4__vscode-1773152696487",
+                  "name": "mcp_neko_create_network",
+                  "arguments": "{\"list_of_initial_genes\":[\"TNF\",\"TNFRSF1A\",\"TRADD\",\"RIPK1\",\"CASP3\",\"NFKB1\",\"BAX\",\"BCL2\"],\"database\":\"omnipath\",\"max_len\":2,\"only_signed\":true,\"consensus\":true,\"verbosity\":\"summary\"}"
+                }
+              ],
+              "toolInputRetry": 0,
+              "id": "917f2741-16fb-426d-83ee-5c977f1b3989",
+              "statefulMarker": "vu58ErbfH/thPTUZuYUT+jnM7abeuiqwbiEGhRBOKkwE1AF6sr9JyHQGGMSYsPR7hLFG8qOyNwb7AJfRbF7NGE246Ep7kR/bjsZSU+V7kBfBZXO2XPJVUE3KQqDii2ZoRGxqvZjhoJ91VWLRfvn8clQX1JYvVujm71Y1lUdUiN9M25SkYNZQqgmIHhwODXCj8gikDJtJ87P8SroQOu2K38daPKgIKhNy6K+QdBa7YyjUX9QiZDhh1Q917XFKJlsYrfJKFeWWGkaRoqXW25pZcSaK+YGUu+zJYWYn3bnAVsQpFwZOGzh9MNu5IenaPnuFtfkGioTIC85ur+TkGM3jxOPRhjYSm4iRxkJWYVPLm8McpdUpdM0zV6SdsE0rGvj7OhlHwtZf4c5KmzmeQauoYHZg",
+              "timestamp": 1773156191220
+            },
+            {
+              "response": "Now I’ll clean bimodal edges, export the network to BNET, convert it to MaBoSS format, configure MaBoSS (thread count and outputs), and run the simulation.",
+              "toolCalls": [
+                {
+                  "id": "call_nNTEpoIj9tPYqpuTcVe2RhbD__vscode-1773152696488",
+                  "name": "mcp_neko_remove_bimodal_interactions",
+                  "arguments": "{\"session_id\":\"8240c5a6-aede-4632-80c7-4d2d9f766482\"}"
+                },
+                {
+                  "id": "call_FE4HMNeXNfYaenoc3ycxjO5g__vscode-1773152696489",
+                  "name": "activate_maboss_file_conversion_tools",
+                  "arguments": "{}"
+                },
+                {
+                  "id": "call_s5wPTevY7Oc1qiQiE1m6ZhWO__vscode-1773152696490",
+                  "name": "activate_maboss_simulation_management",
+                  "arguments": "{}"
+                },
+                {
+                  "id": "call_hw2gbnYOhmO0D3Hbci6buJTf__vscode-1773152696491",
+                  "name": "activate_node_configuration_tools",
+                  "arguments": "{}"
+                }
+              ],
+              "toolInputRetry": 0,
+              "id": "8bb5a26a-73ed-4da2-a6a3-4b4abba3c70d",
+              "statefulMarker": "5TSfpfAAe4OSExg+0+AJFatxNzKPKT8NRIV7qyzMEvakSWEu+PmfW601OZCsXEzHAxGtQMVSPphrKETLA0RXKgWYh6LD+D4PBjbJI2zbPOG5+Vt7igJSNj6WWnwz22ToGmuzKfWqTj35Xdt5Kkd31FjLtq07s/6eEq2EvxBIBsRDF6osCtvhaT/+ld+U+yzMjek6+BMDz+ang/qsmhW41Non5M5/5O/CM6T+K4NzXsNee8ee20YfFNOBtgT5Bs482A1+D+5cY0ekGDoN2dHwUSSvlb15V+xl+3H9vpcZ3Mk/JpxNg+3j4ZzGA21AfzvSdrwnX8hQY1W/RvtZe9d8FxKNew6jPd/6wOCmH0ZjDUPRc+MhsmpwF+7LZYIhPIYJCSNztnY+RCTHJbggRtOq8N4k",
+              "timestamp": 1773156215291
+            },
+            {
+              "response": "",
+              "toolCalls": [
+                {
+                  "id": "call_xxTSGOSZUu9FIP05PLtIkXMh__vscode-1773152696492",
+                  "name": "mcp_neko_export_network",
+                  "arguments": "{\"format\":\"bnet\",\"session_id\":\"8240c5a6-aede-4632-80c7-4d2d9f766482\",\"verbosity\":\"summary\"}"
+                }
+              ],
+              "toolInputRetry": 0,
+              "id": "47315c47-a83b-49fc-9069-1052f235fd29",
+              "statefulMarker": "4vE9bsbVIoxptOMaJmvWKCX0yZjBR0WT90Zeu6FthxOd/3rKb6NNrAby4WpEJzltRozyuAP9rVofBikSg6FIkdqGr/nD8hjPgK6wwc8qUmXlXO3BnqVP7Yj+J2QMR3Hu3Pmu7xKeSkStsxOzg49eXhuUU308FqW+baYsBr+gU4fIfeTPHeyso9+bWKGy6/dIMDqtd5329bNRak/pjgEa4ukSmEBO7f5mitdgKUZM35icZUkRa0tIWhRN6r00LWIkuyKCq9C412qkJ5K59T+6+IPVdMvYD6WLsF0Mk4heekJfO6ZsMt1BFG9qaqGm7d8Rswh/MOA7MJn83iPwd12ZBHbsD6lOpI9MHeMrQxelOcqtsgir/eWkAAjOc0JEqktn6VbK6nRQVvqJWvgWt8eBqLRc",
+              "timestamp": 1773156217674
+            },
+            {
+              "response": "",
+              "toolCalls": [
+                {
+                  "id": "call_ZBJ4yCD80sKREINweqmIv34d__vscode-1773152696493",
+                  "name": "mcp_maboss_bnet_to_bnd_and_cfg",
+                  "arguments": "{\"bnet_path\":\"/home/mruscone/Desktop/github/mcp-biomodelling-servers/NeKo/artifacts/8240c5a6-aede-4632-80c7-4d2d9f766482/Network_1.bnet\"}"
+                }
+              ],
+              "toolInputRetry": 0,
+              "id": "e37967e1-f1e8-4ccd-bcbc-2e0e7a3ef3e8",
+              "statefulMarker": "jE/F3I7H/JZROukcOY7tnYNnLBaP5gH/btfzv8mjSTphCA6BWbWnf4AnTM2k4lrWmiWFA0e9yd2wSgtqrpE3ylzb56r+HMhBSV1nqwIptAiVShtlB/MAEn75aseiCV02lhDVLV+qzMELWdCaTBud/hQsUb7kd9Rlfc10V63JdkAS8T7d1ogQ0Ba5nhUYa+sEf61F8IR7JrpaRYRV/Dq0hAi3TDjDxeI9mrFiod1mGRUHIaXR+5lltNaQ9MEo123I6RfA8UOFM/BL3LPC43fesqoPZYWlHf9zmhU/QGvvsKSmJsNHF4l5WHWhetaH7PmxBova3jGdhHOqUD081OG3dgJqBJEwUNlSNyGuolRe8vdWO5fJodw5FnhIIT07sqlr6/TP3mOr14hkzWcck6TgDXU+",
+              "timestamp": 1773156221013
+            },
+            {
+              "response": "",
+              "toolCalls": [
+                {
+                  "id": "call_6uTfzfpUgA2eyMw5ray7Erjf__vscode-1773152696494",
+                  "name": "mcp_maboss_build_simulation",
+                  "arguments": "{\"session_id\":\"64ba37e6-437b-4cdc-bc21-e71ebc2ac291\"}"
+                }
+              ],
+              "toolInputRetry": 0,
+              "id": "6b4ff569-0bed-4021-a96c-3936c34bd09b",
+              "statefulMarker": "ngzMISReiPazyAvK467UHzeWmem0ikv63WZ2kO4p2cplD5krI/eYwGFEkOBKN/w1yQRNmI70wAGnMiXcREBbG06d9UCK9ntZ8y+qwp86tXVW+MnG84sar0POuJFZPh3+oh7FWegyW591/gCL8y5CvElmuCqk2RKs1QZ32xszAFo9Qmb/Yw5jKLmNNjlDBmsWHrJ0HWKjWFtwt8Zz9Vu8IFIrcA/pB9cxqwkmb9wz+/HjAmbf+8xowXO4vmpZYXVFVwOhMxyW7wig1aX+xwT5nX3Qj1yLAgOmyi3BZnxWlcU1X0xpAT/rTe6q4+f/64FONc2pOPsjpahKHEtF3w77KtZD5pWmKMhuhPwBvxab89qU6kWRKBaLGpPz0CrobDTy1Xy2cRoKl2U+ETxlCowr64xC",
+              "timestamp": 1773156223071
+            },
+            {
+              "response": "",
+              "toolCalls": [
+                {
+                  "id": "call_Uf4E0RC4m2UnxoRCA48CBC5n__vscode-1773152696495",
+                  "name": "mcp_maboss_update_maboss_parameters",
+                  "arguments": "{\"parameters\":{\"thread_count\":10},\"session_id\":\"64ba37e6-437b-4cdc-bc21-e71ebc2ac291\"}"
+                }
+              ],
+              "toolInputRetry": 0,
+              "id": "8c3e7d06-922f-441a-acd9-5fd02bd1da72",
+              "statefulMarker": "a77B69vvOaXF3RXNeiK8gHCTyVaXDeDoU8zkUc54SX3luZ1IJvxonrweA/Ndbr21zMd8vfNJkCuL49SUSdwCAZhOEGyp0TI0wm6hTHm5Oqm/jTT3aI0QLy23X3O9BQNRkeUfK9b5kWmtDprtLUg4gbYA7bXl1nWNaiPLlUt2Vvnq9f+EqP8jc/SPIV8MHS+w3NI0bsCv1cYoisW/y7IMxMZUU9Ikqn0TuY4chNDOJhyQ0/RP2qzCeck1kyT2OgpEaCxlPxGEOdab2pkt+k224mw7IanaYrhYoUxdIeTu+lTb+fxaambq15Djxa/WWIo5Y1rpYLONxOz2dX2hxspi3FF01uz7tYzl/PK8WdXZ+cJQJdZjKGkSWqt9/BSLwJ2m2WLVYu4LchIMSgU1FhcXlBBi",
+              "timestamp": 1773156227081
+            },
+            {
+              "response": "",
+              "toolCalls": [
+                {
+                  "id": "call_C5gZcJLIq0ngwJTlzzwkvPVL__vscode-1773152696496",
+                  "name": "mcp_maboss_get_maboss_nodes",
+                  "arguments": "{}"
+                }
+              ],
+              "toolInputRetry": 0,
+              "id": "4cae9573-ca44-4a78-abac-4bd34bf09cdb",
+              "statefulMarker": "IMqUE8584mvNQQoo1EcFCPtkvOvjNwu1tLl7nwFW/Nfbwu61Dn+kiCECkYrfafaE5tOz3fxxIl76EvDcGO9UTMhOF1T3ghpG+MFi6JCPibTpOQSZYiCJ7m8BO2C3uirYKNFyMaupMgR98g+z1PVB/5s8Y8xlaDcYY4fT1SafBliICvxr7Rkes8ZgHMHDwzejadUncXPS0gQd3uPfajYWKHl1lGYq1pyrn4+/BSpn9OHtmJhrYDbkVW4VPHSnFez8Bs2QVACGiP6U9pzQr+FXVByAJ4hZMxpYXUj1GCNNrkFn4ObFg5vSolI6OMO2DjHGGhEBvzch1Gg5z+Qc2o+tTWMob8wuhfqcfcWbYx2uuGKn6668PZzNCnkGnqemp+3sALcubNWnu7ZiE71xhzbiSG/B",
+              "timestamp": 1773156229140
+            },
+            {
+              "response": "",
+              "toolCalls": [
+                {
+                  "id": "call_aRyC5OKEQkquzjFeBYDaFEPu__vscode-1773152696497",
+                  "name": "mcp_maboss_set_maboss_output_nodes",
+                  "arguments": "{\"output_nodes\":[\"CASP3\",\"BAX\",\"NFKB1\"],\"session_id\":\"64ba37e6-437b-4cdc-bc21-e71ebc2ac291\"}"
+                }
+              ],
+              "toolInputRetry": 0,
+              "id": "c3f52735-9c61-4b2c-bb6f-e0198a0ce05f",
+              "statefulMarker": "FOJlgz/OZPPBn9eKwAawlLSk9vrJWC7u8ad79Tb5VDqqlCr5isJY3aFZ7bPKvvU5azbcKk/0q1JJODlHY+mF9RTuYfkdQ+IdWL5ic/3pEFpKV/x5RABPdOIkF3JQMH0WFKoVQn5Zy0LZI3C+5McTmdlMt3ZpfooIP8QOYK42JaPWMW0eDStT6hdW/X2ZbD+493znUN83YFaYX6gR8bUd+8FeTOIKG9qYAJ7cf23jEDF25BhuUrDcL/BQytIqxcp7jQWaUIx+8IytmpEHGYR9+KZyTVEn7R8Ii12jxEddf/UqwcHqTxIKrlmcy1gVvSO7IDDepJuB5FlW9dpmk8ChyA1vh2PmuWVwPIXDXwBON0x/E8Lr4APximZ5LTfGjVR3RGxsEHWNHpLselk2hlDzs70M",
+              "timestamp": 1773156231253
+            },
+            {
+              "response": "",
+              "toolCalls": [
+                {
+                  "id": "call_qE3LdvHzFvVCtDo6f4TgyIuq__vscode-1773152696498",
+                  "name": "mcp_maboss_run_simulation",
+                  "arguments": "{\"session_id\":\"64ba37e6-437b-4cdc-bc21-e71ebc2ac291\"}"
+                }
+              ],
+              "toolInputRetry": 0,
+              "id": "b766ecb4-4ea9-4ca6-a59f-d14eeaf99646",
+              "statefulMarker": "4LjmRaG5n08s1lOhzn15RDq215mj2Y3hK8fsyKKGRk3pVAhE48wmZgPEU9FJd9FfklBTfaBU9YbCsdmpcPHKjtS+QJK5Gcn9V/iwm68rsn9M7rnI4lK0p7gVJdkg57D7LHpFPjJKHbz6719fIDnGw54yCAvqXnlZIHra8/q0zsgB1gVMV9OGaNWH9vTWj/kCOJThSO5rwcdTDNnKD5fPde+PHt2afeLoEQFdeA8SNUPnn6pm9/1Gh3gDVF1/93ThJAITsVqazj6Zltz/uT24EqXlumVdQOTweHyQ65wd1CBv1v08rPWw8eCaqCRlWH01PgOMZLGAIIHQFwxnNYeWS1i62w92SRPgYsRQ9QnwMJuJISXglg1PSFlNo1YotRdcgZxbTgf+WCu00wDnvVXikR7Y",
+              "timestamp": 1773156233691
+            },
+            {
+              "response": "",
+              "toolCalls": [
+                {
+                  "id": "call_nWF1XWpOIFixxWizsgrMRW26__vscode-1773152696499",
+                  "name": "mcp_maboss_get_simulation_result",
+                  "arguments": "{}"
+                }
+              ],
+              "toolInputRetry": 0,
+              "id": "0d09d7cd-be9e-476a-b7c1-e3db56479279",
+              "statefulMarker": "AbtPE1k+OGKHf9t87Z75Gj8FiM63JgybOXeghpNjqFjEBTCnhK2nW7bY1SGYgtyADg6HgCQjE3gyomS0G0MDZSucHWcoLUGOzraLrpFunfE7GHVpnx+ipeM8NumqriYqr+f7tb1Wcca/zGREs3l7coFnJ8W8k89EtsOp4LDSVCPU1acpqPOkniqa/qv15VYayXfBahdHWvjousCJnL5W8zbVRyM1sreK2fDZelgRFR6h2pZWgL3/SBCTege50ahQGsNX+kEQ0+UUtA/HJIeRcGwytfgjt3ag3IVI1FH9FJoLorn9ux7Y3mus+BLQtgLyyeJmfMa2zlIok8kb8Ws/rOBiRyEcsZ658ZQCMPKD+bZCYbR7Zswbnc7SMfzj9pJnWUVyaopne+6AsBnwFmA+HNV5",
+              "timestamp": 1773156236105
+            },
+            {
+              "response": "Here’s what I did and the result of the pipeline you requested:\n\n- Built a NeKo network using Omnipath with initial genes [TNF, TNFRSF1A, TRADD, RIPK1, CASP3, NFKB1, BAX, BCL2] (30 nodes, 164 edges).\n- Removed 5 bimodal interactions from the network.\n- Exported the curated network to BNET format and converted it to a MaBoSS model (BND + CFG).\n- Loaded the MaBoSS simulation, set `thread_count = 10`, and selected output nodes [CASP3, BAX, NFKB1].\n- Ran the MaBoSS simulation and retrieved the final state probability snapshot; in the output table, NFKB1 is ON with probability ≈ 0.9999, indicating a strongly NF-κB–active (pro-survival/pro-inflammatory) fate under the default parameter and initial-state assumptions.\n\nIf you’d like, I can next: (a) adjust initial conditions (e.g., force TNF ON), (b) explore CASP3/BAX-active apoptotic outcomes via mutations, or (c) visualize full trajectories over time.",
+              "toolCalls": [],
+              "toolInputRetry": 0,
+              "id": "cb819cd9-ed29-4d6b-8cf7-7541eb931bd6",
+              "statefulMarker": "ZDR92eY8xQVtWgSHo0/kYWg9UyQffQAwh4HrYbAUgaUfvB8yI0JWwUg+z4HAqcFSiYqvogRLbQngqfxjAl+qHGq8BiGSvJpKyGW7EYIYXw+1Wjwp+95X14MeHcS3yA0bUwGcKXEo5zUAATc6Ey9559VNAi3HBOAPxFYPZeO5zoVIee5Ka+Fl/kI2TlPUUX8E3Ll6yUX/za0i/V7rVm9ZeEVeJJXbOE6Cu+/4kkdtp6N0G9Hilig5lqpGy6v0VT42ALFwDXiBVvYTvsBZ/g0+ZXE/r9drVpJJdJafscnzx4LV03lMFOmZ9bJa1P0ON9Gf/DBXQN5RmSHMgyFoxauNbQQ51hmDFMtYy+jMn6wz/XE61bHINzh/78voRdOblq1PKzzUkSpb1oejOA84VIvp/r/4",
+              "timestamp": 1773156241893
+            }
+          ],
+          "toolCallResults": {
+            "call_iepvOzkfmQBSKRMzGBEof94w__vscode-1773152696485": {
+              "$mid": 20,
+              "content": [
+                {
+                  "$mid": 21,
+                  "value": "{\"result\":\"Created session: 8240c5a6-aede-4632-80c7-4d2d9f766482 (TNF_cancer_cell_fate)\"}"
+                }
+              ]
+            },
+            "call_SGwLmZNXTNME4q7EVEZJcY4B__vscode-1773152696486": {
+              "$mid": 20,
+              "content": [
+                {
+                  "$mid": 21,
+                  "value": "{\"result\":\"Default set.\"}"
+                }
+              ]
+            },
+            "call_XU4l1XT0m938kydFklsu1jz4__vscode-1773152696487": {
+              "$mid": 20,
+              "content": [
+                {
+                  "$mid": 21,
+                  "value": "{\"result\":\"Network created: session=8240c5a6-aede-4632-80c7-4d2d9f766482 nodes=30 edges=164. Disconnected components check via check_disconnected_nodes(). Set verbosity='preview' or 'full' for more details.\"}"
+                }
+              ]
+            },
+            "call_nNTEpoIj9tPYqpuTcVe2RhbD__vscode-1773152696488": {
+              "$mid": 20,
+              "content": [
+                {
+                  "$mid": 21,
+                  "value": "{\"result\":\"Removed 5 bimodal interactions from the network.\"}"
+                }
+              ]
+            },
+            "call_FE4HMNeXNfYaenoc3ycxjO5g__vscode-1773152696489": {
+              "$mid": 20,
+              "content": [
+                {
+                  "$mid": 21,
+                  "value": "Tools activated: mcp_maboss_bnet_to_bnd_and_cfg, mcp_maboss_export_maboss_bnd_cfg"
+                }
+              ]
+            },
+            "call_s5wPTevY7Oc1qiQiE1m6ZhWO__vscode-1773152696490": {
+              "$mid": 20,
+              "content": [
+                {
+                  "$mid": 21,
+                  "value": "Tools activated: mcp_maboss_build_simulation, mcp_maboss_create_session, mcp_maboss_delete_session, mcp_maboss_list_artifact_sessions, mcp_maboss_list_sessions, mcp_maboss_run_simulation, mcp_maboss_set_default_session"
+                }
+              ]
+            },
+            "call_hw2gbnYOhmO0D3Hbci6buJTf__vscode-1773152696491": {
+              "$mid": 20,
+              "content": [
+                {
+                  "$mid": 21,
+                  "value": "Tools activated: mcp_maboss_get_maboss_nodes, mcp_maboss_set_maboss_initial_state, mcp_maboss_set_maboss_output_nodes"
+                }
+              ]
+            },
+            "call_xxTSGOSZUu9FIP05PLtIkXMh__vscode-1773152696492": {
+              "$mid": 20,
+              "content": [
+                {
+                  "$mid": 21,
+                  "value": "{\"result\":\"BNET exported: /home/mruscone/Desktop/github/mcp-biomodelling-servers/NeKo/artifacts/8240c5a6-aede-4632-80c7-4d2d9f766482/Network_1.bnet. Set verbosity='preview' or 'full' for more details.\"}"
+                }
+              ]
+            },
+            "call_ZBJ4yCD80sKREINweqmIv34d__vscode-1773152696493": {
+              "$mid": 20,
+              "content": [
+                {
+                  "$mid": 21,
+                  "value": "{\"result\":\"MaBoSS .bnd and .cfg files created successfully.\\n  BND: /home/mruscone/Desktop/github/mcp-biomodelling-servers/MaBoSS/artifacts/64ba37e6-437b-4cdc-bc21-e71ebc2ac291/output.bnd\\n  CFG: /home/mruscone/Desktop/github/mcp-biomodelling-servers/MaBoSS/artifacts/64ba37e6-437b-4cdc-bc21-e71ebc2ac291/output.cfg\\n\\nNext: call build_simulation(session_id='64ba37e6-437b-4cdc-bc21-e71ebc2ac291') to load the simulation.\"}"
+                }
+              ]
+            },
+            "call_6uTfzfpUgA2eyMw5ray7Erjf__vscode-1773152696494": {
+              "$mid": 20,
+              "content": [
+                {
+                  "$mid": 21,
+                  "value": "{\"result\":\"MaBoSS simulation loaded successfully.\\ntime_tick: 0.5\\nmax_time: 1000.0\\nsample_count: 10000.0\\ndiscrete_time: 0.0\\nuse_physrandgen: 0.0\\nseed_pseudorandom: 0.0\\ndisplay_traj: 0.0\\nstatdist_traj_count: 0.0\\nstatdist_cluster_threshold: 1.0\\nthread_count: 1.0\\nstatdist_similarity_cache_max_size: 20000.0\\n\\nNEXT STEP: call get_maboss_nodes() to retrieve the list of valid node names before calling set_maboss_output_nodes() or set_maboss_initial_state().\"}"
+                }
+              ]
+            },
+            "call_Uf4E0RC4m2UnxoRCA48CBC5n__vscode-1773152696495": {
+              "$mid": 20,
+              "content": [
+                {
+                  "$mid": 21,
+                  "value": "{\"result\":\"Parameters updated: thread_count=10\"}"
+                }
+              ]
+            },
+            "call_C5gZcJLIq0ngwJTlzzwkvPVL__vscode-1773152696496": {
+              "$mid": 20,
+              "content": [
+                {
+                  "$mid": 21,
+                  "value": "{\"result\":\"Network nodes:\\n- NFATC2\\n- IL23A\\n- MYC\\n- MAP4K4\\n- TRAF1\\n- MAPK14\\n- TNF\\n- FASLG\\n- IL2\\n- MAPK1\\n- TNFRSF1A\\n- TNFRSF10B\\n- KRT18\\n- TRADD\\n- CASP2\\n- BIRC3\\n- BIRC2\\n- CASP8\\n- RIPK1\\n- CYCS\\n- CASP3\\n- MAP3K1\\n- ATM\\n- NFKB1\\n- BID\\n- RELA\\n- BCL2\\n- BAX\\n- CASP7\\n- BAD\"}"
+                }
+              ]
+            },
+            "call_aRyC5OKEQkquzjFeBYDaFEPu__vscode-1773152696497": {
+              "$mid": 20,
+              "content": [
+                {
+                  "$mid": 21,
+                  "value": "{\"result\":\"Output nodes set successfully: ['CASP3', 'NFKB1', 'BAX']\"}"
+                }
+              ]
+            },
+            "call_qE3LdvHzFvVCtDo6f4TgyIuq__vscode-1773152696498": {
+              "$mid": 20,
+              "content": [
+                {
+                  "$mid": 21,
+                  "value": "{\"result\":\"MaBoSS simulation completed successfully.\\nCall `get_simulation_result()` to read the state probability table.\\nThe result is also saved to the session artifact directory as result.csv.\"}"
+                }
+              ]
+            },
+            "call_nWF1XWpOIFixxWizsgrMRW26__vscode-1773152696499": {
+              "$mid": 20,
+              "content": [
+                {
+                  "$mid": 21,
+                  "value": "{\"result\":\"**MaBoSS Simulation: State Probability Trajectory**\\n\\n  <nil>    NFKB1\\n 0.0001   0.9999\"}"
+                }
+              ]
+            }
+          },
+          "modelMessageId": "2242b030-5499-454f-b9d8-9b478b04e376",
+          "responseId": "277047a2-5d13-4d95-9006-b8b79ccb099e",
+          "sessionId": "e0c79ff8-1f63-4522-a9d8-4fe581fd9f1b",
+          "agentId": "github.copilot.editsAgent"
+        },
+        "details": "GPT-5.1 • 1x"
+      },
+      "responseMarkdownInfo": [],
+      "followups": [],
+      "modelState": {
+        "value": 1,
+        "completedAt": 1773156241907
+      },
+      "contentReferences": [],
+      "codeCitations": [],
+      "timeSpentWaiting": 0
+    }
+  ]
+}

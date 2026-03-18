@@ -1,0 +1,12 @@
+Prompt Type,Run,State,Probability
+General prompt,run_1,AKT1 -- MTOR,1.0
+General prompt,run_2,<nil>,0.5
+General prompt,run_2,NFKB1,0.5
+General prompt,run_3,RELA -- TERT -- CCND1,0.5681
+General prompt,run_3,NFKB1 -- RELA -- CCND1,0.4319
+Specific prompt,run_1,NFKB1,0.9999
+Specific prompt,run_1,<nil>,0.0001
+Specific prompt,run_2,NFKB1,0.9999
+Specific prompt,run_2,<nil>,0.0001
+Specific prompt,run_3,NFKB1,0.9999
+Specific prompt,run_3,<nil>,0.0001

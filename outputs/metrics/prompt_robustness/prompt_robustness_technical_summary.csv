@@ -1,0 +1,7 @@
+Prompt Type,Run,Workflow Completed,MaBoSS Simulation Successful,Wall Time (s),MCP Tool Calls,Unique MCP Tools,User Interventions
+General prompt,run_1,Yes,Yes,313.816,19,16,0
+General prompt,run_2,Yes,Yes,211.149,15,14,0
+General prompt,run_3,Yes,Yes,197.566,15,15,0
+Specific prompt,run_1,Yes,Yes,148.821,16,16,0
+Specific prompt,run_2,Yes,Yes,97.932,13,13,0
+Specific prompt,run_3,Yes,Yes,97.114,12,12,0

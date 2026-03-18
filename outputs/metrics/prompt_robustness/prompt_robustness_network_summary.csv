@@ -1,0 +1,7 @@
+Prompt Type,Run,Nodes,Edges,Artifacts Present
+General prompt,run_1,89,698,"chat.json, Network_1.bnet, output.bnd, output.cfg, result.csv, session_meta.json"
+General prompt,run_2,91,728,"chat.json, Network_1.bnet, output.bnd, output.cfg, result.csv, session_meta.json"
+General prompt,run_3,45,253,"chat.json, Network_1.bnet, output.bnd, output.cfg, result.csv, session_meta.json"
+Specific prompt,run_1,30,159,"chat.json, Network_1.bnet, output.bnd, output.cfg, result.csv, session_meta.json"
+Specific prompt,run_2,30,159,"chat.json, Network_1.bnet, output.bnd, output.cfg, result.csv, session_meta.json"
+Specific prompt,run_3,30,159,"chat.json, Network_1.bnet, output.bnd, output.cfg, result.csv, session_meta.json"

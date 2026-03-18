@@ -1,0 +1,100 @@
+node IFNA13 {
+  logic = ((NFKB1 OR IL2));
+}
+
+node MYC {
+  logic = ((NFKB1 OR (BCL2 OR (MAPK14 OR (MAPK1 OR IL2)))));
+}
+
+node MAP2K3 {
+  logic = ((TNFRSF1A OR (TRADD OR (TNF OR (RIPK1 OR (MAPK1 OR FASLG))))));
+}
+
+node MAPK14 {
+  logic = ((RIPK1 OR (TNF OR (MAP2K3 OR IL2))));
+}
+
+node TRAF1 {
+  logic = (((TRADD OR NFKB1)) AND NOT (MYC));
+}
+
+node APEX1 {
+  logic = (BCL2);
+}
+
+node TNF {
+  logic = (((IFNA13 OR MYC)) AND NOT ((MAP2K3 OR (MAPK14 OR (TRAF1 OR APEX1)))));
+}
+
+node FASLG {
+  logic = ((RIPK1 OR NFKB1));
+}
+
+node IL2 {
+  logic = ((NFKB1 OR IFNA13));
+}
+
+node MAPK1 {
+  logic = (((TNF OR (IL2 OR MAP3K14))) AND NOT (TRADD));
+}
+
+node TNFRSF1A {
+  logic = (((TNF OR (FASLG OR IL2))) AND NOT (MAPK1));
+}
+
+node TNFRSF10B {
+  logic = ((NFKB1 OR FASLG));
+}
+
+node TRADD {
+  logic = (((TNFRSF1A OR TNFRSF10B)) AND NOT (TNF));
+}
+
+node CASP8 {
+  logic = (((TNF OR (TNFRSF1A OR (TRADD OR TNFRSF10B)))) AND NOT ((NFKB1 OR (BCL2 OR (MAPK14 OR MAPK1)))));
+}
+
+node RIPK1 {
+  logic = (((TNFRSF1A OR (TRADD OR TNFRSF10B))) AND NOT (CASP8));
+}
+
+node NFKB1 {
+  logic = ((TNF OR (TNFRSF1A OR (TRADD OR (RIPK1 OR (ATM OR (MAPK14 OR (TRAF1 OR MAPK1))))))));
+}
+
+node BCL2 {
+  logic = (((NFKB1 OR EIF4G2)) AND NOT ((ATM OR MAPK14)));
+}
+
+node ATM {
+  logic = ((TNF OR BCL2));
+}
+
+node SMPD1 {
+  logic = (((TNF OR (TNFRSF1A OR (TRADD OR (RIPK1 OR (FASLG OR TNFRSF10B)))))) AND NOT ((BCL2 OR IL2)));
+}
+
+node TP63 {
+  logic = ((CASP8) AND NOT (ATM));
+}
+
+node BAX {
+  logic = (((SMPD1 OR (TP63 OR MYC))) AND NOT (BCL2));
+}
+
+node EIF4G2 {
+  logic = ((CASP8 OR CASP7));
+}
+
+node MAP3K14 {
+  logic = ((TNF OR (TNFRSF1A OR (TRADD OR (RIPK1 OR TRAF1)))));
+}
+
+node CASP7 {
+  logic = ((CASP8 OR FASLG));
+}
+
+node BAD {
+  logic = NOT ((BAX OR MAPK1));
+}
+

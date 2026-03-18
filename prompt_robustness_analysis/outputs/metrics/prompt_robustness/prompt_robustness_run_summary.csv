@@ -1,0 +1,7 @@
+Prompt Type,Run,Run Directory Exists,Workflow Completed,MaBoSS Simulation Successful,Wall Time (s),Wall Time (min),MCP Tool Calls,Unique MCP Tools,User Interventions,Nodes,Edges,Chosen Output Nodes,Top MaBoSS State,Top State Probability,Artifacts Present,Tool Call Breakdown
+General prompt,run_1,False,No,No,,,0,0,0,0,0,N/A,N/A,,None,N/A
+General prompt,run_2,False,No,No,,,0,0,0,0,0,N/A,N/A,,None,N/A
+General prompt,run_3,False,No,No,,,0,0,0,0,0,N/A,N/A,,None,N/A
+Specific prompt,run_1,False,No,No,,,0,0,0,0,0,N/A,N/A,,None,N/A
+Specific prompt,run_2,False,No,No,,,0,0,0,0,0,N/A,N/A,,None,N/A
+Specific prompt,run_3,False,No,No,,,0,0,0,0,0,N/A,N/A,,None,N/A

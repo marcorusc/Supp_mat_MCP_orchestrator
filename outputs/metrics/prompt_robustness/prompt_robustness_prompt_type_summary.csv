@@ -1,0 +1,3 @@
+Prompt Type,Runs with Data,Completed Runs,Successful MaBoSS Runs,Mean Wall Time (s),Mean MCP Tool Calls,Mean User Interventions,Mean Nodes,Mean Edges,Mean Seed Nodes,Mean Output Nodes
+General prompt,3,3,3,240.84366666666665,16.333333333333332,0.0,75.0,559.6666666666666,18.333333333333332,8.666666666666666
+Specific prompt,3,3,3,114.62233333333334,13.666666666666666,0.0,30.0,159.0,8.0,3.0

@@ -1,0 +1,7 @@
+Prompt Type,Run,Files Generated
+General prompt,run_1,"chat.json, Network_1.bnet, output.bnd, output.cfg, result.csv, session_meta.json"
+General prompt,run_2,"chat.json, Network_1.bnet, output.bnd, output.cfg, result.csv, session_meta.json"
+General prompt,run_3,"chat.json, Network_1.bnet, output.bnd, output.cfg, result.csv, session_meta.json"
+Specific prompt,run_1,"chat.json, Network_1.bnet, output.bnd, output.cfg, result.csv, session_meta.json"
+Specific prompt,run_2,"chat.json, Network_1.bnet, output.bnd, output.cfg, result.csv, session_meta.json"
+Specific prompt,run_3,"chat.json, Network_1.bnet, output.bnd, output.cfg, result.csv, session_meta.json"

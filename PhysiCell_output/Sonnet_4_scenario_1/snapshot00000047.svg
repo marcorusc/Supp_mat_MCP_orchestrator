@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with PhysiCell (http://PhysiCell.MathCancer.org/) -->
+<svg 
+ xmlns:dc="http://purl.org/dc/elements/1.1/" 
+ xmlns:cc="http://creativecommons.org/ns#" 
+ xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" 
+ xmlns:svg="http://www.w3.org/2000/svg" 
+ xmlns="http://www.w3.org/2000/svg" 
+ version="1.1" 
+ width="2000" 
+ height="2140" 
+ id="svg2">
+  <rect x="0" y="0" width="2000" height="2140" stroke-width="4" stroke="white" fill="white"/>
+  <text x="25" y="60"
+   font-family="Arial" font-size="50" fill="black" >
+   Current time: 1 days, 23 hours, and 0.00 minutes, z = 0.00 &#956;m
+  </text>
+  <text x="25" y="115"
+   font-family="Arial" font-size="47.5" fill="black" >
+   11 agents
+  </text>
+ <g id="tissue" 
+    transform="translate(0,2140) scale(1,-1)">
+  <g id="ECM">
+  </g>
+  <g id="cells">
+   <g id="cell841" type="cancer_cell" dead="true" >
+  <circle cx="1086.78" cy="1067.12" r="2.02863" stroke-width="0.5" stroke="black" fill="black"/>
+  <circle cx="1086.78" cy="1067.12" r="1.95537" stroke-width="0.5" stroke="black" fill="black"/>
+   </g>
+   <g id="cell36" type="cancer_cell" dead="true" >
+  <circle cx="887.81" cy="860.966" r="1.82641" stroke-width="0.5" stroke="black" fill="black"/>
+  <circle cx="887.81" cy="860.966" r="1.79987" stroke-width="0.5" stroke="black" fill="black"/>
+   </g>
+   <g id="cell497" type="cancer_cell" dead="false" >
+  <circle cx="1207.07" cy="1013.78" r="10.2598" stroke-width="0.5" stroke="black" fill="grey"/>
+  <circle cx="1207.07" cy="1013.78" r="6.0456" stroke-width="0.5" stroke="grey" fill="grey"/>
+   </g>
+   <g id="cell831" type="cancer_cell" dead="true" >
+  <circle cx="873.316" cy="1037.31" r="5.20363" stroke-width="0.5" stroke="black" fill="black"/>
+  <circle cx="873.316" cy="1037.31" r="3.62017" stroke-width="0.5" stroke="black" fill="black"/>
+   </g>
+   <g id="cell851" type="cancer_cell" dead="false" >
+  <circle cx="1138.87" cy="1061.43" r="8.4162" stroke-width="0.5" stroke="black" fill="grey"/>
+  <circle cx="1138.87" cy="1061.43" r="4.92285" stroke-width="0.5" stroke="grey" fill="grey"/>
+   </g>
+   <g id="cell515" type="cancer_cell" dead="false" >
+  <circle cx="1068.21" cy="1036.57" r="10.0993" stroke-width="0.5" stroke="black" fill="grey"/>
+  <circle cx="1068.21" cy="1036.57" r="5.96235" stroke-width="0.5" stroke="grey" fill="grey"/>
+   </g>
+   <g id="cell849" type="cancer_cell" dead="true" >
+  <circle cx="801.261" cy="875.626" r="2.28368" stroke-width="0.5" stroke="black" fill="black"/>
+  <circle cx="801.261" cy="875.626" r="2.1764" stroke-width="0.5" stroke="black" fill="black"/>
+   </g>
+   <g id="cell846" type="cancer_cell" dead="true" >
+  <circle cx="906.474" cy="826.829" r="1.97473" stroke-width="0.5" stroke="black" fill="black"/>
+  <circle cx="906.474" cy="826.829" r="1.93179" stroke-width="0.5" stroke="black" fill="black"/>
+   </g>
+   <g id="cell820" type="cancer_cell" dead="true" >
+  <circle cx="841.697" cy="889.595" r="1.9111" stroke-width="0.5" stroke="black" fill="black"/>
+  <circle cx="841.697" cy="889.595" r="1.85014" stroke-width="0.5" stroke="black" fill="black"/>
+   </g>
+   <g id="cell850" type="cancer_cell" dead="true" >
+  <circle cx="1012.79" cy="1044.39" r="2.45753" stroke-width="0.5" stroke="black" fill="black"/>
+  <circle cx="1012.79" cy="1044.39" r="2.28067" stroke-width="0.5" stroke="black" fill="black"/>
+   </g>
+   <g id="cell403" type="cancer_cell" dead="true" >
+  <circle cx="1106.94" cy="1043.68" r="1.62943" stroke-width="0.5" stroke="black" fill="black"/>
+  <circle cx="1106.94" cy="1043.68" r="1.61662" stroke-width="0.5" stroke="black" fill="black"/>
+   </g>
+  </g>
+ </g>
+  <rect x="1750" y="2070" width="200" height="20" stroke-width="4" stroke="rgb(255,255,255)" fill="rgb(0,0,0)"/>
+  <text x="1762.5" y="2057.5"
+   font-family="Arial" font-size="50" fill="black" >
+   200 &#956;m
+  </text>
+  <text x="50" y="2090"
+   font-family="Arial" font-size="37.5" fill="black" >
+   0 days, 0 hours, 1 minutes, and 5.4594 seconds
+  </text>
+  <rect x="0" y="140" width="2000" height="2000" stroke-width="4" stroke="rgb(0,0,0)" fill="none"/>
+  <rect x="2025" y="140" width="25" height="1975" stroke-width="4" stroke="black" fill="none"/>
+</svg>

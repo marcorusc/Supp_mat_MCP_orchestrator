@@ -1,0 +1,7 @@
+Prompt Type,Run,Nodes,Edges
+General prompt,run_1,89,698
+General prompt,run_2,91,728
+General prompt,run_3,45,253
+Specific prompt,run_1,30,159
+Specific prompt,run_2,30,159
+Specific prompt,run_3,30,159

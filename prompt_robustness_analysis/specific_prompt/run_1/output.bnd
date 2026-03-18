@@ -1,0 +1,120 @@
+node NFATC2 {
+  logic = ((IL2) AND NOT ((CASP3 OR MAPK14)));
+}
+
+node IL23A {
+  logic = (((NFKB1 OR (TNF OR RELA))) AND NOT (MAPK1));
+}
+
+node MYC {
+  logic = (((BCL2 OR (NFKB1 OR (MAPK14 OR (MAPK1 OR IL2))))) AND NOT (RELA));
+}
+
+node MAP4K4 {
+  logic = ((TNFRSF1A OR (TNF OR (TRADD OR (RIPK1 OR (CASP2 OR BIRC3))))));
+}
+
+node TRAF1 {
+  logic = (((TRADD OR (NFKB1 OR RELA))) AND NOT (MYC));
+}
+
+node MAPK14 {
+  logic = ((RIPK1 OR (TNF OR (IL2 OR MAP3K1))));
+}
+
+node TNF {
+  logic = (((NFATC2 OR (IL23A OR MYC))) AND NOT ((MAP4K4 OR (TRAF1 OR MAPK14))));
+}
+
+node FASLG {
+  logic = (((RIPK1 OR (NFKB1 OR NFATC2))) AND NOT ((BIRC2 OR BIRC3)));
+}
+
+node IL2 {
+  logic = ((NFKB1) AND NOT (NFATC2));
+}
+
+node MAPK1 {
+  logic = (((TNF OR (IL2 OR MAP3K1))) AND NOT (TRADD));
+}
+
+node TNFRSF1A {
+  logic = (((TNF OR (FASLG OR IL2))) AND NOT (MAPK1));
+}
+
+node TNFRSF10B {
+  logic = ((NFKB1 OR FASLG));
+}
+
+node KRT18 {
+  logic = (CASP3);
+}
+
+node TRADD {
+  logic = (((TNFRSF1A OR TNFRSF10B)) AND NOT ((TNF OR KRT18)));
+}
+
+node CASP2 {
+  logic = (((CASP3 OR TRADD)) AND NOT (BIRC2));
+}
+
+node BIRC3 {
+  logic = ((NFKB1 OR RELA));
+}
+
+node BIRC2 {
+  logic = ((TRADD OR (NFKB1 OR (RELA OR BIRC3))));
+}
+
+node CASP8 {
+  logic = (((TNF OR (TNFRSF1A OR (TRADD OR (TNFRSF10B OR CASP2))))) AND NOT ((BCL2 OR (NFKB1 OR (MAPK14 OR (RELA OR (MAPK1 OR (BIRC2 OR BIRC3))))))));
+}
+
+node RIPK1 {
+  logic = (((TNFRSF1A OR (TRADD OR (CASP2 OR (BIRC3 OR (BIRC2 OR TNFRSF10B)))))) AND NOT (CASP8));
+}
+
+node CYCS {
+  logic = (((BAX OR (MYC OR (BID OR (CASP2 OR BAD))))) AND NOT (BCL2));
+}
+
+node CASP3 {
+  logic = (((TNF OR (TNFRSF1A OR (CYCS OR CASP8)))) AND NOT ((BIRC2 OR (MAPK14 OR BIRC3))));
+}
+
+node MAP3K1 {
+  logic = ((CASP3 OR (TNF OR (TNFRSF1A OR (TRADD OR (RIPK1 OR (MAP4K4 OR (TRAF1 OR (CASP7 OR TNFRSF10B)))))))));
+}
+
+node ATM {
+  logic = ((BCL2 OR TNF));
+}
+
+node NFKB1 {
+  logic = ((TNF OR (TNFRSF1A OR (TRADD OR (RIPK1 OR (MAP3K1 OR (ATM OR (TRAF1 OR (MAPK14 OR (IL23A OR MAPK1))))))))));
+}
+
+node BID {
+  logic = (((TNFRSF1A OR (TRADD OR (RIPK1 OR (TNF OR (CASP3 OR (FASLG OR (CASP2 OR (BIRC3 OR (CASP8 OR ATM)))))))))) AND NOT (BCL2));
+}
+
+node RELA {
+  logic = (((TNF OR (TNFRSF1A OR (TRADD OR (RIPK1 OR (NFKB1 OR (TRAF1 OR (MAPK14 OR (IL23A OR (MAPK1 OR MAP3K1)))))))))) AND NOT (CASP3));
+}
+
+node BCL2 {
+  logic = (((NFKB1 OR RELA)) AND NOT ((CASP3 OR (MAPK14 OR ATM))));
+}
+
+node BAX {
+  logic = (((BID OR (CASP3 OR MYC))) AND NOT ((RELA OR BCL2)));
+}
+
+node CASP7 {
+  logic = (((CASP3 OR (FASLG OR (CASP2 OR (CASP8 OR CYCS))))) AND NOT ((BIRC2 OR BIRC3)));
+}
+
+node BAD {
+  logic = ((CASP3) AND NOT ((BAX OR MAPK1)));
+}
+

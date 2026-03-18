@@ -1,0 +1,13 @@
+LLM,Scenario,Req #,Type,Message
+GPT-5.1,Scenario 1,2,Confirmation,yes please
+GPT-5.1,Scenario 1,3,Confirmation,yes please
+GPT-5.1,Scenario 1,4,Short prompt,Tune TNF resources
+GPT-5.1,Scenario 3,2,Max-tools continue,"Continue: ""Continue to iterate?"""
+GPT-o4-mini,Scenario 1,2,Short prompt,Proceed to the next phase.
+GPT-o4-mini,Scenario 1,3,Short prompt,Export the physicell configuration
+GPT-o4-mini,Scenario 3,2,Error retry,Try Again
+Sonnet-4,Scenario 1,2,Max-tools continue,"Continue: ""Continue to iterate?"""
+Sonnet-4,Scenario 1,3,Confirmation,yes please
+Sonnet-4,Scenario 1,4,Max-tools continue,"Continue: ""Continue to iterate?"""
+Sonnet-4,Scenario 2,2,Max-tools continue,"Continue: ""Continue to iterate?"""
+Sonnet-4,Scenario 3,2,Max-tools continue,"Continue: ""Continue to iterate?"""
