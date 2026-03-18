@@ -1,0 +1,253 @@
+parameter,group,GPT-5,Sonnet-4,GPT-4o,different
+PhysiCell_settings/@version,Other,devel-version,devel-version,devel-version,False
+PhysiCell_settings/cell_definitions/cell_definition[@name=cancer_cell|@ID=0]/custom_data/sample,Other,1,1,1,False
+PhysiCell_settings/cell_definitions/cell_definition[@name=cancer_cell|@ID=0]/custom_data/sample/@conserved,Other,false,false,false,False
+PhysiCell_settings/cell_definitions/cell_definition[@name=cancer_cell|@ID=0]/custom_data/sample/@description,Other,empty,empty,empty,False
+PhysiCell_settings/cell_definitions/cell_definition[@name=cancer_cell|@ID=0]/custom_data/sample/@units,Other,dimensionless,dimensionless,dimensionless,False
+PhysiCell_settings/cell_definitions/cell_definition[@name=cancer_cell|@ID=0]/initial_parameter_distributions[@enabled=false]/@enabled,Other,false,false,false,False
+PhysiCell_settings/cell_definitions/cell_definition[@name=cancer_cell|@ID=0]/initial_parameter_distributions[@enabled=false]/distribution[@type=Log10Normal]/@check_base,Other,true,true,true,False
+PhysiCell_settings/cell_definitions/cell_definition[@name=cancer_cell|@ID=0]/initial_parameter_distributions[@enabled=false]/distribution[@type=Log10Normal]/@enabled,Other,false,false,false,False
+PhysiCell_settings/cell_definitions/cell_definition[@name=cancer_cell|@ID=0]/initial_parameter_distributions[@enabled=false]/distribution[@type=Log10Normal]/behavior,Other,Volume,Volume,Volume,False
+PhysiCell_settings/cell_definitions/cell_definition[@name=cancer_cell|@ID=0]/initial_parameter_distributions[@enabled=false]/distribution[@type=Log10Normal]/mu,Other,4,4,4,False
+PhysiCell_settings/cell_definitions/cell_definition[@name=cancer_cell|@ID=0]/initial_parameter_distributions[@enabled=false]/distribution[@type=Log10Normal]/sigma,Other,2,2,2,False
+PhysiCell_settings/cell_definitions/cell_definition[@name=cancer_cell|@ID=0]/initial_parameter_distributions[@enabled=false]/distribution[@type=Log10Normal]/upper_bound,Other,100000,100000,100000,False
+PhysiCell_settings/cell_definitions/cell_definition[@name=cancer_cell|@ID=0]/initial_parameter_distributions[@enabled=false]/distribution[@type=LogUniform]/@check_base,Other,true,true,true,False
+PhysiCell_settings/cell_definitions/cell_definition[@name=cancer_cell|@ID=0]/initial_parameter_distributions[@enabled=false]/distribution[@type=LogUniform]/@enabled,Other,false,false,false,False
+PhysiCell_settings/cell_definitions/cell_definition[@name=cancer_cell|@ID=0]/initial_parameter_distributions[@enabled=false]/distribution[@type=LogUniform]/behavior,Other,apoptosis,apoptosis,apoptosis,False
+PhysiCell_settings/cell_definitions/cell_definition[@name=cancer_cell|@ID=0]/initial_parameter_distributions[@enabled=false]/distribution[@type=LogUniform]/max,Other,0.01,0.01,0.01,False
+PhysiCell_settings/cell_definitions/cell_definition[@name=cancer_cell|@ID=0]/initial_parameter_distributions[@enabled=false]/distribution[@type=LogUniform]/min,Other,1e-06,1e-06,1e-06,False
+PhysiCell_settings/cell_definitions/cell_definition[@name=cancer_cell|@ID=0]/phenotype/cell_integrity/damage_rate,Cell integrity,0,0,0,False
+PhysiCell_settings/cell_definitions/cell_definition[@name=cancer_cell|@ID=0]/phenotype/cell_integrity/damage_rate/@units,Cell integrity,1/min,1/min,1/min,False
+PhysiCell_settings/cell_definitions/cell_definition[@name=cancer_cell|@ID=0]/phenotype/cell_integrity/damage_repair_rate,Cell integrity,0,0,0,False
+PhysiCell_settings/cell_definitions/cell_definition[@name=cancer_cell|@ID=0]/phenotype/cell_integrity/damage_repair_rate/@units,Cell integrity,1/min,1/min,1/min,False
+PhysiCell_settings/cell_definitions/cell_definition[@name=cancer_cell|@ID=0]/phenotype/cell_interactions/apoptotic_phagocytosis_rate,Cell interactions,0,0,0,False
+PhysiCell_settings/cell_definitions/cell_definition[@name=cancer_cell|@ID=0]/phenotype/cell_interactions/apoptotic_phagocytosis_rate/@units,Cell interactions,1/min,1/min,1/min,False
+PhysiCell_settings/cell_definitions/cell_definition[@name=cancer_cell|@ID=0]/phenotype/cell_interactions/attack_damage_rate,Cell interactions,1,1,1,False
+PhysiCell_settings/cell_definitions/cell_definition[@name=cancer_cell|@ID=0]/phenotype/cell_interactions/attack_damage_rate/@units,Cell interactions,1/min,1/min,1/min,False
+PhysiCell_settings/cell_definitions/cell_definition[@name=cancer_cell|@ID=0]/phenotype/cell_interactions/attack_duration,Cell interactions,0.1,0.1,0.1,False
+PhysiCell_settings/cell_definitions/cell_definition[@name=cancer_cell|@ID=0]/phenotype/cell_interactions/attack_duration/@units,Cell interactions,min,min,min,False
+PhysiCell_settings/cell_definitions/cell_definition[@name=cancer_cell|@ID=0]/phenotype/cell_interactions/attack_rates/attack_rate[@name=cancer_cell],Cell interactions,0,0,0,False
+PhysiCell_settings/cell_definitions/cell_definition[@name=cancer_cell|@ID=0]/phenotype/cell_interactions/attack_rates/attack_rate[@name=cancer_cell]/@units,Cell interactions,1/min,1/min,1/min,False
+PhysiCell_settings/cell_definitions/cell_definition[@name=cancer_cell|@ID=0]/phenotype/cell_interactions/fusion_rates/fusion_rate[@name=cancer_cell],Cell interactions,0,0,0,False
+PhysiCell_settings/cell_definitions/cell_definition[@name=cancer_cell|@ID=0]/phenotype/cell_interactions/fusion_rates/fusion_rate[@name=cancer_cell]/@units,Cell interactions,1/min,1/min,1/min,False
+PhysiCell_settings/cell_definitions/cell_definition[@name=cancer_cell|@ID=0]/phenotype/cell_interactions/live_phagocytosis_rates/phagocytosis_rate[@name=cancer_cell],Cell interactions,0,0,0,False
+PhysiCell_settings/cell_definitions/cell_definition[@name=cancer_cell|@ID=0]/phenotype/cell_interactions/live_phagocytosis_rates/phagocytosis_rate[@name=cancer_cell]/@units,Cell interactions,1/min,1/min,1/min,False
+PhysiCell_settings/cell_definitions/cell_definition[@name=cancer_cell|@ID=0]/phenotype/cell_interactions/necrotic_phagocytosis_rate,Cell interactions,0,0,0,False
+PhysiCell_settings/cell_definitions/cell_definition[@name=cancer_cell|@ID=0]/phenotype/cell_interactions/necrotic_phagocytosis_rate/@units,Cell interactions,1/min,1/min,1/min,False
+PhysiCell_settings/cell_definitions/cell_definition[@name=cancer_cell|@ID=0]/phenotype/cell_interactions/other_dead_phagocytosis_rate,Cell interactions,0,0,0,False
+PhysiCell_settings/cell_definitions/cell_definition[@name=cancer_cell|@ID=0]/phenotype/cell_interactions/other_dead_phagocytosis_rate/@units,Cell interactions,1/min,1/min,1/min,False
+PhysiCell_settings/cell_definitions/cell_definition[@name=cancer_cell|@ID=0]/phenotype/cell_transformations/transformation_rates/transformation_rate[@name=cancer_cell],Cell transformations,0,0,0,False
+PhysiCell_settings/cell_definitions/cell_definition[@name=cancer_cell|@ID=0]/phenotype/cell_transformations/transformation_rates/transformation_rate[@name=cancer_cell]/@units,Cell transformations,1/min,1/min,1/min,False
+PhysiCell_settings/cell_definitions/cell_definition[@name=cancer_cell|@ID=0]/phenotype/cycle[@name=basic Ki67|@code=1]/phase_transition_rates/@units,Cell cycle,1/min,1/min,1/min,False
+PhysiCell_settings/cell_definitions/cell_definition[@name=cancer_cell|@ID=0]/phenotype/cycle[@name=basic Ki67|@code=1]/phase_transition_rates/rate,Cell cycle,0.001075269,0.001075269,0.001075269,False
+PhysiCell_settings/cell_definitions/cell_definition[@name=cancer_cell|@ID=0]/phenotype/cycle[@name=basic Ki67|@code=1]/phase_transition_rates/rate/@end_index,Cell cycle,0,0,0,False
+PhysiCell_settings/cell_definitions/cell_definition[@name=cancer_cell|@ID=0]/phenotype/cycle[@name=basic Ki67|@code=1]/phase_transition_rates/rate/@fixed_duration,Cell cycle,true,true,true,False
+PhysiCell_settings/cell_definitions/cell_definition[@name=cancer_cell|@ID=0]/phenotype/cycle[@name=basic Ki67|@code=1]/phase_transition_rates/rate/@start_index,Cell cycle,1,1,1,False
+PhysiCell_settings/cell_definitions/cell_definition[@name=cancer_cell|@ID=0]/phenotype/cycle[@name=basic Ki67|@code=1]/standard_asymmetric_division[@enabled=False]/@enabled,Cell cycle,false,false,false,False
+PhysiCell_settings/cell_definitions/cell_definition[@name=cancer_cell|@ID=0]/phenotype/cycle[@name=basic Ki67|@code=1]/standard_asymmetric_division[@enabled=False]/asymmetric_division_probability[@name=cancer_cell],Cell cycle,1,1,1,False
+PhysiCell_settings/cell_definitions/cell_definition[@name=cancer_cell|@ID=0]/phenotype/cycle[@name=basic Ki67|@code=1]/standard_asymmetric_division[@enabled=False]/asymmetric_division_probability[@name=cancer_cell]/@units,Cell cycle,dimensionless,dimensionless,dimensionless,False
+PhysiCell_settings/cell_definitions/cell_definition[@name=cancer_cell|@ID=0]/phenotype/death/model[@name=apoptosis|@code=100]/death_rate,Cell death,0.0001,0.0001,0.0001,False
+PhysiCell_settings/cell_definitions/cell_definition[@name=cancer_cell|@ID=0]/phenotype/death/model[@name=apoptosis|@code=100]/death_rate/@units,Cell death,1/min,1/min,1/min,False
+PhysiCell_settings/cell_definitions/cell_definition[@name=cancer_cell|@ID=0]/phenotype/death/model[@name=apoptosis|@code=100]/parameters/calcification_rate,Cell death,0,0,0,False
+PhysiCell_settings/cell_definitions/cell_definition[@name=cancer_cell|@ID=0]/phenotype/death/model[@name=apoptosis|@code=100]/parameters/calcification_rate/@units,Cell death,1/min,1/min,1/min,False
+PhysiCell_settings/cell_definitions/cell_definition[@name=cancer_cell|@ID=0]/phenotype/death/model[@name=apoptosis|@code=100]/parameters/cytoplasmic_biomass_change_rate,Cell death,0.0166667,0.0166667,0.0166667,False
+PhysiCell_settings/cell_definitions/cell_definition[@name=cancer_cell|@ID=0]/phenotype/death/model[@name=apoptosis|@code=100]/parameters/cytoplasmic_biomass_change_rate/@units,Cell death,1/min,1/min,1/min,False
+PhysiCell_settings/cell_definitions/cell_definition[@name=cancer_cell|@ID=0]/phenotype/death/model[@name=apoptosis|@code=100]/parameters/lysed_fluid_change_rate,Cell death,0,0,0,False
+PhysiCell_settings/cell_definitions/cell_definition[@name=cancer_cell|@ID=0]/phenotype/death/model[@name=apoptosis|@code=100]/parameters/lysed_fluid_change_rate/@units,Cell death,1/min,1/min,1/min,False
+PhysiCell_settings/cell_definitions/cell_definition[@name=cancer_cell|@ID=0]/phenotype/death/model[@name=apoptosis|@code=100]/parameters/nuclear_biomass_change_rate,Cell death,0.00583333,0.00583333,0.00583333,False
+PhysiCell_settings/cell_definitions/cell_definition[@name=cancer_cell|@ID=0]/phenotype/death/model[@name=apoptosis|@code=100]/parameters/nuclear_biomass_change_rate/@units,Cell death,1/min,1/min,1/min,False
+PhysiCell_settings/cell_definitions/cell_definition[@name=cancer_cell|@ID=0]/phenotype/death/model[@name=apoptosis|@code=100]/parameters/relative_rupture_volume,Cell death,2,2,2,False
+PhysiCell_settings/cell_definitions/cell_definition[@name=cancer_cell|@ID=0]/phenotype/death/model[@name=apoptosis|@code=100]/parameters/relative_rupture_volume/@units,Cell death,dimensionless,dimensionless,dimensionless,False
+PhysiCell_settings/cell_definitions/cell_definition[@name=cancer_cell|@ID=0]/phenotype/death/model[@name=apoptosis|@code=100]/parameters/unlysed_fluid_change_rate,Cell death,0.05,0.05,0.05,False
+PhysiCell_settings/cell_definitions/cell_definition[@name=cancer_cell|@ID=0]/phenotype/death/model[@name=apoptosis|@code=100]/parameters/unlysed_fluid_change_rate/@units,Cell death,1/min,1/min,1/min,False
+PhysiCell_settings/cell_definitions/cell_definition[@name=cancer_cell|@ID=0]/phenotype/death/model[@name=apoptosis|@code=100]/phase_durations/@units,Cell death,min,min,min,False
+PhysiCell_settings/cell_definitions/cell_definition[@name=cancer_cell|@ID=0]/phenotype/death/model[@name=apoptosis|@code=100]/phase_durations/duration,Cell death,516,516,516,False
+PhysiCell_settings/cell_definitions/cell_definition[@name=cancer_cell|@ID=0]/phenotype/death/model[@name=apoptosis|@code=100]/phase_durations/duration/@fixed_duration,Cell death,true,true,true,False
+PhysiCell_settings/cell_definitions/cell_definition[@name=cancer_cell|@ID=0]/phenotype/death/model[@name=apoptosis|@code=100]/phase_durations/duration/@index,Cell death,0,0,0,False
+PhysiCell_settings/cell_definitions/cell_definition[@name=cancer_cell|@ID=0]/phenotype/death/model[@name=necrosis|@code=101]/death_rate,Cell death,0.0001,0.0001,0.0001,False
+PhysiCell_settings/cell_definitions/cell_definition[@name=cancer_cell|@ID=0]/phenotype/death/model[@name=necrosis|@code=101]/death_rate/@units,Cell death,1/min,1/min,1/min,False
+PhysiCell_settings/cell_definitions/cell_definition[@name=cancer_cell|@ID=0]/phenotype/death/model[@name=necrosis|@code=101]/parameters/calcification_rate,Cell death,0,0,0,False
+PhysiCell_settings/cell_definitions/cell_definition[@name=cancer_cell|@ID=0]/phenotype/death/model[@name=necrosis|@code=101]/parameters/calcification_rate/@units,Cell death,1/min,1/min,1/min,False
+PhysiCell_settings/cell_definitions/cell_definition[@name=cancer_cell|@ID=0]/phenotype/death/model[@name=necrosis|@code=101]/parameters/cytoplasmic_biomass_change_rate,Cell death,5.33333e-05,5.33333e-05,5.33333e-05,False
+PhysiCell_settings/cell_definitions/cell_definition[@name=cancer_cell|@ID=0]/phenotype/death/model[@name=necrosis|@code=101]/parameters/cytoplasmic_biomass_change_rate/@units,Cell death,1/min,1/min,1/min,False
+PhysiCell_settings/cell_definitions/cell_definition[@name=cancer_cell|@ID=0]/phenotype/death/model[@name=necrosis|@code=101]/parameters/lysed_fluid_change_rate,Cell death,0.000833333,0.000833333,0.000833333,False
+PhysiCell_settings/cell_definitions/cell_definition[@name=cancer_cell|@ID=0]/phenotype/death/model[@name=necrosis|@code=101]/parameters/lysed_fluid_change_rate/@units,Cell death,1/min,1/min,1/min,False
+PhysiCell_settings/cell_definitions/cell_definition[@name=cancer_cell|@ID=0]/phenotype/death/model[@name=necrosis|@code=101]/parameters/nuclear_biomass_change_rate,Cell death,0.00216667,0.00216667,0.00216667,False
+PhysiCell_settings/cell_definitions/cell_definition[@name=cancer_cell|@ID=0]/phenotype/death/model[@name=necrosis|@code=101]/parameters/nuclear_biomass_change_rate/@units,Cell death,1/min,1/min,1/min,False
+PhysiCell_settings/cell_definitions/cell_definition[@name=cancer_cell|@ID=0]/phenotype/death/model[@name=necrosis|@code=101]/parameters/relative_rupture_volume,Cell death,2,2,2,False
+PhysiCell_settings/cell_definitions/cell_definition[@name=cancer_cell|@ID=0]/phenotype/death/model[@name=necrosis|@code=101]/parameters/relative_rupture_volume/@units,Cell death,dimensionless,dimensionless,dimensionless,False
+PhysiCell_settings/cell_definitions/cell_definition[@name=cancer_cell|@ID=0]/phenotype/death/model[@name=necrosis|@code=101]/parameters/unlysed_fluid_change_rate,Cell death,0.0111667,0.0111667,0.0111667,False
+PhysiCell_settings/cell_definitions/cell_definition[@name=cancer_cell|@ID=0]/phenotype/death/model[@name=necrosis|@code=101]/parameters/unlysed_fluid_change_rate/@units,Cell death,1/min,1/min,1/min,False
+PhysiCell_settings/cell_definitions/cell_definition[@name=cancer_cell|@ID=0]/phenotype/death/model[@name=necrosis|@code=101]/phase_durations/@units,Cell death,min,min,min,False
+PhysiCell_settings/cell_definitions/cell_definition[@name=cancer_cell|@ID=0]/phenotype/death/model[@name=necrosis|@code=101]/phase_durations/duration,Cell death,86400,86400,86400,False
+PhysiCell_settings/cell_definitions/cell_definition[@name=cancer_cell|@ID=0]/phenotype/death/model[@name=necrosis|@code=101]/phase_durations/duration/@fixed_duration,Cell death,true,true,true,False
+PhysiCell_settings/cell_definitions/cell_definition[@name=cancer_cell|@ID=0]/phenotype/death/model[@name=necrosis|@code=101]/phase_durations/duration/@index,Cell death,1,1,1,False
+PhysiCell_settings/cell_definitions/cell_definition[@name=cancer_cell|@ID=0]/phenotype/intracellular[@type=maboss]/bnd_filename,Intracellular / MaBoSS,../Supp_mat_MCP_orchestrator/gpt_5/Scenario_1/output.bnd,/home/mruscone/Desktop/github/mcp-biomodelling-servers/MaBoSS/artifacts/8685b3e7-544b-45b7-b96f-0444b525f87e/output.bnd,/home/mruscone/Desktop/github/mcp-biomodelling-servers/MaBoSS/artifacts/4a117dd7-9eca-4b16-806e-dc7df3e5a52c/output.bnd,True
+PhysiCell_settings/cell_definitions/cell_definition[@name=cancer_cell|@ID=0]/phenotype/intracellular[@type=maboss]/cfg_filename,Intracellular / MaBoSS,../Supp_mat_MCP_orchestrator/gpt_5/Scenario_1/output.cfg,/home/mruscone/Desktop/github/mcp-biomodelling-servers/MaBoSS/artifacts/8685b3e7-544b-45b7-b96f-0444b525f87e/output.cfg,/home/mruscone/Desktop/github/mcp-biomodelling-servers/MaBoSS/artifacts/4a117dd7-9eca-4b16-806e-dc7df3e5a52c/output.cfg,True
+PhysiCell_settings/cell_definitions/cell_definition[@name=cancer_cell|@ID=0]/phenotype/intracellular[@type=maboss]/mapping/input[@physicell_name=TNF|@intracellular_name=TNFRSF1A]/settings/action,Intracellular / MaBoSS,activation,activation,missing,True
+PhysiCell_settings/cell_definitions/cell_definition[@name=cancer_cell|@ID=0]/phenotype/intracellular[@type=maboss]/mapping/input[@physicell_name=TNF|@intracellular_name=TNFRSF1A]/settings/smoothing,Intracellular / MaBoSS,0,0,missing,True
+PhysiCell_settings/cell_definitions/cell_definition[@name=cancer_cell|@ID=0]/phenotype/intracellular[@type=maboss]/mapping/input[@physicell_name=TNF|@intracellular_name=TNFRSF1A]/settings/threshold,Intracellular / MaBoSS,1,0.3,missing,True
+PhysiCell_settings/cell_definitions/cell_definition[@name=cancer_cell|@ID=0]/phenotype/intracellular[@type=maboss]/mapping/input[@physicell_name=TNF|@intracellular_name=TNF]/settings/action,Intracellular / MaBoSS,activation,activation,missing,True
+PhysiCell_settings/cell_definitions/cell_definition[@name=cancer_cell|@ID=0]/phenotype/intracellular[@type=maboss]/mapping/input[@physicell_name=TNF|@intracellular_name=TNF]/settings/smoothing,Intracellular / MaBoSS,0,0,missing,True
+PhysiCell_settings/cell_definitions/cell_definition[@name=cancer_cell|@ID=0]/phenotype/intracellular[@type=maboss]/mapping/input[@physicell_name=TNF|@intracellular_name=TNF]/settings/threshold,Intracellular / MaBoSS,1,0.5,missing,True
+PhysiCell_settings/cell_definitions/cell_definition[@name=cancer_cell|@ID=0]/phenotype/intracellular[@type=maboss]/mapping/input[@physicell_name=intracellular TNF|@intracellular_name=TNFRSF1A]/settings/action,Intracellular / MaBoSS,missing,missing,activation,True
+PhysiCell_settings/cell_definitions/cell_definition[@name=cancer_cell|@ID=0]/phenotype/intracellular[@type=maboss]/mapping/input[@physicell_name=intracellular TNF|@intracellular_name=TNFRSF1A]/settings/smoothing,Intracellular / MaBoSS,missing,missing,0,True
+PhysiCell_settings/cell_definitions/cell_definition[@name=cancer_cell|@ID=0]/phenotype/intracellular[@type=maboss]/mapping/input[@physicell_name=intracellular TNF|@intracellular_name=TNFRSF1A]/settings/threshold,Intracellular / MaBoSS,missing,missing,1,True
+PhysiCell_settings/cell_definitions/cell_definition[@name=cancer_cell|@ID=0]/phenotype/intracellular[@type=maboss]/mapping/output[@physicell_name=apoptosis|@intracellular_name=BAX]/settings/action,Intracellular / MaBoSS,missing,activation,missing,True
+PhysiCell_settings/cell_definitions/cell_definition[@name=cancer_cell|@ID=0]/phenotype/intracellular[@type=maboss]/mapping/output[@physicell_name=apoptosis|@intracellular_name=BAX]/settings/base_value,Intracellular / MaBoSS,missing,0,missing,True
+PhysiCell_settings/cell_definitions/cell_definition[@name=cancer_cell|@ID=0]/phenotype/intracellular[@type=maboss]/mapping/output[@physicell_name=apoptosis|@intracellular_name=BAX]/settings/smoothing,Intracellular / MaBoSS,missing,0,missing,True
+PhysiCell_settings/cell_definitions/cell_definition[@name=cancer_cell|@ID=0]/phenotype/intracellular[@type=maboss]/mapping/output[@physicell_name=apoptosis|@intracellular_name=BAX]/settings/value,Intracellular / MaBoSS,missing,0.008,missing,True
+PhysiCell_settings/cell_definitions/cell_definition[@name=cancer_cell|@ID=0]/phenotype/intracellular[@type=maboss]/mapping/output[@physicell_name=apoptosis|@intracellular_name=CASP3]/settings/action,Intracellular / MaBoSS,activation,activation,activation,False
+PhysiCell_settings/cell_definitions/cell_definition[@name=cancer_cell|@ID=0]/phenotype/intracellular[@type=maboss]/mapping/output[@physicell_name=apoptosis|@intracellular_name=CASP3]/settings/base_value,Intracellular / MaBoSS,0,0,0,False
+PhysiCell_settings/cell_definitions/cell_definition[@name=cancer_cell|@ID=0]/phenotype/intracellular[@type=maboss]/mapping/output[@physicell_name=apoptosis|@intracellular_name=CASP3]/settings/smoothing,Intracellular / MaBoSS,0,0,0,False
+PhysiCell_settings/cell_definitions/cell_definition[@name=cancer_cell|@ID=0]/phenotype/intracellular[@type=maboss]/mapping/output[@physicell_name=apoptosis|@intracellular_name=CASP3]/settings/value,Intracellular / MaBoSS,1,0.01,1,True
+PhysiCell_settings/cell_definitions/cell_definition[@name=cancer_cell|@ID=0]/phenotype/intracellular[@type=maboss]/mapping/output[@physicell_name=cycle entry|@intracellular_name=CCND1]/settings/action,Cell cycle,activation,activation,activation,False
+PhysiCell_settings/cell_definitions/cell_definition[@name=cancer_cell|@ID=0]/phenotype/intracellular[@type=maboss]/mapping/output[@physicell_name=cycle entry|@intracellular_name=CCND1]/settings/base_value,Cell cycle,0,0,0,False
+PhysiCell_settings/cell_definitions/cell_definition[@name=cancer_cell|@ID=0]/phenotype/intracellular[@type=maboss]/mapping/output[@physicell_name=cycle entry|@intracellular_name=CCND1]/settings/smoothing,Cell cycle,0,0,0,False
+PhysiCell_settings/cell_definitions/cell_definition[@name=cancer_cell|@ID=0]/phenotype/intracellular[@type=maboss]/mapping/output[@physicell_name=cycle entry|@intracellular_name=CCND1]/settings/value,Cell cycle,1,0.008,1,True
+PhysiCell_settings/cell_definitions/cell_definition[@name=cancer_cell|@ID=0]/phenotype/intracellular[@type=maboss]/mapping/output[@physicell_name=cycle entry|@intracellular_name=MYC]/settings/action,Cell cycle,activation,activation,missing,True
+PhysiCell_settings/cell_definitions/cell_definition[@name=cancer_cell|@ID=0]/phenotype/intracellular[@type=maboss]/mapping/output[@physicell_name=cycle entry|@intracellular_name=MYC]/settings/base_value,Cell cycle,0,0,missing,True
+PhysiCell_settings/cell_definitions/cell_definition[@name=cancer_cell|@ID=0]/phenotype/intracellular[@type=maboss]/mapping/output[@physicell_name=cycle entry|@intracellular_name=MYC]/settings/smoothing,Cell cycle,0,0,missing,True
+PhysiCell_settings/cell_definitions/cell_definition[@name=cancer_cell|@ID=0]/phenotype/intracellular[@type=maboss]/mapping/output[@physicell_name=cycle entry|@intracellular_name=MYC]/settings/value,Cell cycle,1,0.01,missing,True
+PhysiCell_settings/cell_definitions/cell_definition[@name=cancer_cell|@ID=0]/phenotype/intracellular[@type=maboss]/settings/inheritance,Intracellular / MaBoSS,empty,empty,empty,False
+PhysiCell_settings/cell_definitions/cell_definition[@name=cancer_cell|@ID=0]/phenotype/intracellular[@type=maboss]/settings/inheritance/@global,Intracellular / MaBoSS,true,false,false,True
+PhysiCell_settings/cell_definitions/cell_definition[@name=cancer_cell|@ID=0]/phenotype/intracellular[@type=maboss]/settings/intracellular_dt,Intracellular / MaBoSS,6,6,6,False
+PhysiCell_settings/cell_definitions/cell_definition[@name=cancer_cell|@ID=0]/phenotype/intracellular[@type=maboss]/settings/scaling,Intracellular / MaBoSS,1,1,1,False
+PhysiCell_settings/cell_definitions/cell_definition[@name=cancer_cell|@ID=0]/phenotype/intracellular[@type=maboss]/settings/start_time,Intracellular / MaBoSS,0,0,0,False
+PhysiCell_settings/cell_definitions/cell_definition[@name=cancer_cell|@ID=0]/phenotype/intracellular[@type=maboss]/settings/time_stochasticity,Intracellular / MaBoSS,0,0,0,False
+PhysiCell_settings/cell_definitions/cell_definition[@name=cancer_cell|@ID=0]/phenotype/mechanics/attachment_elastic_constant,Mechanics,0.01,0.01,0.01,False
+PhysiCell_settings/cell_definitions/cell_definition[@name=cancer_cell|@ID=0]/phenotype/mechanics/attachment_elastic_constant/@units,Mechanics,1/min,1/min,1/min,False
+PhysiCell_settings/cell_definitions/cell_definition[@name=cancer_cell|@ID=0]/phenotype/mechanics/attachment_rate,Mechanics,0,0,0,False
+PhysiCell_settings/cell_definitions/cell_definition[@name=cancer_cell|@ID=0]/phenotype/mechanics/attachment_rate/@units,Mechanics,1/min,1/min,1/min,False
+PhysiCell_settings/cell_definitions/cell_definition[@name=cancer_cell|@ID=0]/phenotype/mechanics/cell_adhesion_affinities/cell_adhesion_affinity[@name=default],Mechanics,1,1,1,False
+PhysiCell_settings/cell_definitions/cell_definition[@name=cancer_cell|@ID=0]/phenotype/mechanics/cell_cell_adhesion_strength,Mechanics,0.4,0.4,0.4,False
+PhysiCell_settings/cell_definitions/cell_definition[@name=cancer_cell|@ID=0]/phenotype/mechanics/cell_cell_adhesion_strength/@units,Mechanics,micron/min,micron/min,micron/min,False
+PhysiCell_settings/cell_definitions/cell_definition[@name=cancer_cell|@ID=0]/phenotype/mechanics/cell_cell_repulsion_strength,Mechanics,10,10,10,False
+PhysiCell_settings/cell_definitions/cell_definition[@name=cancer_cell|@ID=0]/phenotype/mechanics/cell_cell_repulsion_strength/@units,Mechanics,micron/min,micron/min,micron/min,False
+PhysiCell_settings/cell_definitions/cell_definition[@name=cancer_cell|@ID=0]/phenotype/mechanics/detachment_rate,Mechanics,0,0,0,False
+PhysiCell_settings/cell_definitions/cell_definition[@name=cancer_cell|@ID=0]/phenotype/mechanics/detachment_rate/@units,Mechanics,1/min,1/min,1/min,False
+PhysiCell_settings/cell_definitions/cell_definition[@name=cancer_cell|@ID=0]/phenotype/mechanics/maximum_number_of_attachments,Mechanics,12,12,12,False
+PhysiCell_settings/cell_definitions/cell_definition[@name=cancer_cell|@ID=0]/phenotype/mechanics/options/set_absolute_equilibrium_distance[@enabled=false],Global simulation,15.12,15.12,15.12,False
+PhysiCell_settings/cell_definitions/cell_definition[@name=cancer_cell|@ID=0]/phenotype/mechanics/options/set_absolute_equilibrium_distance[@enabled=false]/@enabled,Global simulation,false,false,false,False
+PhysiCell_settings/cell_definitions/cell_definition[@name=cancer_cell|@ID=0]/phenotype/mechanics/options/set_absolute_equilibrium_distance[@enabled=false]/@units,Global simulation,micron,micron,micron,False
+PhysiCell_settings/cell_definitions/cell_definition[@name=cancer_cell|@ID=0]/phenotype/mechanics/options/set_relative_equilibrium_distance[@enabled=false],Global simulation,1.8,1.8,1.8,False
+PhysiCell_settings/cell_definitions/cell_definition[@name=cancer_cell|@ID=0]/phenotype/mechanics/options/set_relative_equilibrium_distance[@enabled=false]/@enabled,Global simulation,false,false,false,False
+PhysiCell_settings/cell_definitions/cell_definition[@name=cancer_cell|@ID=0]/phenotype/mechanics/options/set_relative_equilibrium_distance[@enabled=false]/@units,Global simulation,dimensionless,dimensionless,dimensionless,False
+PhysiCell_settings/cell_definitions/cell_definition[@name=cancer_cell|@ID=0]/phenotype/mechanics/relative_maximum_adhesion_distance,Mechanics,1.25,1.25,1.25,False
+PhysiCell_settings/cell_definitions/cell_definition[@name=cancer_cell|@ID=0]/phenotype/mechanics/relative_maximum_adhesion_distance/@units,Mechanics,dimensionless,dimensionless,dimensionless,False
+PhysiCell_settings/cell_definitions/cell_definition[@name=cancer_cell|@ID=0]/phenotype/motility/migration_bias,Motility,0.5,0.5,0.5,False
+PhysiCell_settings/cell_definitions/cell_definition[@name=cancer_cell|@ID=0]/phenotype/motility/migration_bias/@units,Motility,dimensionless,dimensionless,dimensionless,False
+PhysiCell_settings/cell_definitions/cell_definition[@name=cancer_cell|@ID=0]/phenotype/motility/options/advanced_chemotaxis/chemotactic_sensitivities/chemotactic_sensitivity[@substrate=TNF],Global simulation,0,0,0,False
+PhysiCell_settings/cell_definitions/cell_definition[@name=cancer_cell|@ID=0]/phenotype/motility/options/advanced_chemotaxis/enabled,Global simulation,false,false,false,False
+PhysiCell_settings/cell_definitions/cell_definition[@name=cancer_cell|@ID=0]/phenotype/motility/options/advanced_chemotaxis/normalize_each_gradient,Global simulation,false,false,false,False
+PhysiCell_settings/cell_definitions/cell_definition[@name=cancer_cell|@ID=0]/phenotype/motility/options/chemotaxis/direction,Global simulation,1,1,1,False
+PhysiCell_settings/cell_definitions/cell_definition[@name=cancer_cell|@ID=0]/phenotype/motility/options/chemotaxis/enabled,Global simulation,false,false,false,False
+PhysiCell_settings/cell_definitions/cell_definition[@name=cancer_cell|@ID=0]/phenotype/motility/options/chemotaxis/substrate,Global simulation,TNF,TNF,TNF,False
+PhysiCell_settings/cell_definitions/cell_definition[@name=cancer_cell|@ID=0]/phenotype/motility/options/enabled,Global simulation,true,true,true,False
+PhysiCell_settings/cell_definitions/cell_definition[@name=cancer_cell|@ID=0]/phenotype/motility/options/use_2D,Global simulation,true,true,true,False
+PhysiCell_settings/cell_definitions/cell_definition[@name=cancer_cell|@ID=0]/phenotype/motility/persistence_time,Motility,5,5,5,False
+PhysiCell_settings/cell_definitions/cell_definition[@name=cancer_cell|@ID=0]/phenotype/motility/persistence_time/@units,Motility,min,min,min,False
+PhysiCell_settings/cell_definitions/cell_definition[@name=cancer_cell|@ID=0]/phenotype/motility/speed,Motility,0.5,0.5,0.5,False
+PhysiCell_settings/cell_definitions/cell_definition[@name=cancer_cell|@ID=0]/phenotype/motility/speed/@units,Motility,micron/min,micron/min,micron/min,False
+PhysiCell_settings/cell_definitions/cell_definition[@name=cancer_cell|@ID=0]/phenotype/secretion/substrate[@name=TNF]/net_export_rate,Secretion / uptake,0,0,0,False
+PhysiCell_settings/cell_definitions/cell_definition[@name=cancer_cell|@ID=0]/phenotype/secretion/substrate[@name=TNF]/net_export_rate/@units,Secretion / uptake,total substrate/min,total substrate/min,total substrate/min,False
+PhysiCell_settings/cell_definitions/cell_definition[@name=cancer_cell|@ID=0]/phenotype/secretion/substrate[@name=TNF]/secretion_rate,Secretion / uptake,0,0,0,False
+PhysiCell_settings/cell_definitions/cell_definition[@name=cancer_cell|@ID=0]/phenotype/secretion/substrate[@name=TNF]/secretion_rate/@units,Secretion / uptake,1/min,1/min,1/min,False
+PhysiCell_settings/cell_definitions/cell_definition[@name=cancer_cell|@ID=0]/phenotype/secretion/substrate[@name=TNF]/secretion_target,Secretion / uptake,1,1,1,False
+PhysiCell_settings/cell_definitions/cell_definition[@name=cancer_cell|@ID=0]/phenotype/secretion/substrate[@name=TNF]/secretion_target/@units,Secretion / uptake,substrate density,substrate density,substrate density,False
+PhysiCell_settings/cell_definitions/cell_definition[@name=cancer_cell|@ID=0]/phenotype/secretion/substrate[@name=TNF]/uptake_rate,Secretion / uptake,0.02,0,0,True
+PhysiCell_settings/cell_definitions/cell_definition[@name=cancer_cell|@ID=0]/phenotype/secretion/substrate[@name=TNF]/uptake_rate/@units,Secretion / uptake,1/min,1/min,1/min,False
+PhysiCell_settings/cell_definitions/cell_definition[@name=cancer_cell|@ID=0]/phenotype/volume/calcification_rate,Volume,0,0,0,False
+PhysiCell_settings/cell_definitions/cell_definition[@name=cancer_cell|@ID=0]/phenotype/volume/calcification_rate/@units,Volume,1/min,1/min,1/min,False
+PhysiCell_settings/cell_definitions/cell_definition[@name=cancer_cell|@ID=0]/phenotype/volume/calcified_fraction,Volume,0,0,0,False
+PhysiCell_settings/cell_definitions/cell_definition[@name=cancer_cell|@ID=0]/phenotype/volume/calcified_fraction/@units,Volume,dimensionless,dimensionless,dimensionless,False
+PhysiCell_settings/cell_definitions/cell_definition[@name=cancer_cell|@ID=0]/phenotype/volume/cytoplasmic_biomass_change_rate,Volume,0.0045,0.0045,0.0045,False
+PhysiCell_settings/cell_definitions/cell_definition[@name=cancer_cell|@ID=0]/phenotype/volume/cytoplasmic_biomass_change_rate/@units,Volume,1/min,1/min,1/min,False
+PhysiCell_settings/cell_definitions/cell_definition[@name=cancer_cell|@ID=0]/phenotype/volume/fluid_change_rate,Volume,0.05,0.05,0.05,False
+PhysiCell_settings/cell_definitions/cell_definition[@name=cancer_cell|@ID=0]/phenotype/volume/fluid_change_rate/@units,Volume,1/min,1/min,1/min,False
+PhysiCell_settings/cell_definitions/cell_definition[@name=cancer_cell|@ID=0]/phenotype/volume/fluid_fraction,Volume,0.75,0.75,0.75,False
+PhysiCell_settings/cell_definitions/cell_definition[@name=cancer_cell|@ID=0]/phenotype/volume/fluid_fraction/@units,Volume,dimensionless,dimensionless,dimensionless,False
+PhysiCell_settings/cell_definitions/cell_definition[@name=cancer_cell|@ID=0]/phenotype/volume/nuclear,Volume,500,500,500,False
+PhysiCell_settings/cell_definitions/cell_definition[@name=cancer_cell|@ID=0]/phenotype/volume/nuclear/@units,Volume,micron^3,micron^3,micron^3,False
+PhysiCell_settings/cell_definitions/cell_definition[@name=cancer_cell|@ID=0]/phenotype/volume/nuclear_biomass_change_rate,Volume,0.0055,0.0055,0.0055,False
+PhysiCell_settings/cell_definitions/cell_definition[@name=cancer_cell|@ID=0]/phenotype/volume/nuclear_biomass_change_rate/@units,Volume,1/min,1/min,1/min,False
+PhysiCell_settings/cell_definitions/cell_definition[@name=cancer_cell|@ID=0]/phenotype/volume/relative_rupture_volume,Volume,2,2,2,False
+PhysiCell_settings/cell_definitions/cell_definition[@name=cancer_cell|@ID=0]/phenotype/volume/relative_rupture_volume/@units,Volume,dimensionless,dimensionless,dimensionless,False
+PhysiCell_settings/cell_definitions/cell_definition[@name=cancer_cell|@ID=0]/phenotype/volume/total,Volume,2500,2500,2500,False
+PhysiCell_settings/cell_definitions/cell_definition[@name=cancer_cell|@ID=0]/phenotype/volume/total/@units,Volume,micron^3,micron^3,micron^3,False
+PhysiCell_settings/cell_rules/rulesets/ruleset[@enabled=false]/@enabled,Other,false,false,false,False
+PhysiCell_settings/cell_rules/rulesets/ruleset[@enabled=false]/@format,Other,csv,csv,csv,False
+PhysiCell_settings/cell_rules/rulesets/ruleset[@enabled=false]/@protocol,Other,CBHG,CBHG,CBHG,False
+PhysiCell_settings/cell_rules/rulesets/ruleset[@enabled=false]/@version,Other,3,3,3,False
+PhysiCell_settings/cell_rules/rulesets/ruleset[@enabled=false]/filename,Other,cell_rules.csv,cell_rules.csv,cell_rules.csv,False
+PhysiCell_settings/cell_rules/settings,Other,empty,empty,empty,False
+PhysiCell_settings/domain/dx,Domain,20,20,20,False
+PhysiCell_settings/domain/dy,Domain,20,20,20,False
+PhysiCell_settings/domain/dz,Domain,20,20,20,False
+PhysiCell_settings/domain/use_2D,Domain,true,true,true,False
+PhysiCell_settings/domain/x_max,Domain,1000,1000,1000,False
+PhysiCell_settings/domain/x_min,Domain,-1000,-1000,-1000,False
+PhysiCell_settings/domain/y_max,Domain,1000,1000,1000,False
+PhysiCell_settings/domain/y_min,Domain,-1000,-1000,-1000,False
+PhysiCell_settings/domain/z_max,Domain,10,10,10,False
+PhysiCell_settings/domain/z_min,Domain,-10,-10,-10,False
+PhysiCell_settings/initial_conditions/cell_positions[@type=csv]/@enabled,Initial conditions,true,true,true,False
+PhysiCell_settings/initial_conditions/cell_positions[@type=csv]/filename,Initial conditions,cells.csv,cells.csv,cells.csv,False
+PhysiCell_settings/microenvironment_setup/options/calculate_gradients,Microenvironment,true,true,true,False
+PhysiCell_settings/microenvironment_setup/options/dirichlet_nodes[@type=matlab]/@enabled,Microenvironment,false,false,false,False
+PhysiCell_settings/microenvironment_setup/options/dirichlet_nodes[@type=matlab]/filename,Microenvironment,./config/dirichlet.mat,./config/dirichlet.mat,./config/dirichlet.mat,False
+PhysiCell_settings/microenvironment_setup/options/initial_condition[@type=matlab]/@enabled,Microenvironment,false,false,false,False
+PhysiCell_settings/microenvironment_setup/options/initial_condition[@type=matlab]/filename,Microenvironment,./config/initial.mat,./config/initial.mat,./config/initial.mat,False
+PhysiCell_settings/microenvironment_setup/options/track_internalized_substrates_in_each_agent,Microenvironment,false,false,false,False
+PhysiCell_settings/microenvironment_setup/variable[@name=TNF|@ID=0]/@units,Microenvironment,dimensionless,dimensionless,dimensionless,False
+PhysiCell_settings/microenvironment_setup/variable[@name=TNF|@ID=0]/Dirichlet_boundary_condition[@enabled=True],Microenvironment,10,1,1,True
+PhysiCell_settings/microenvironment_setup/variable[@name=TNF|@ID=0]/Dirichlet_boundary_condition[@enabled=True]/@enabled,Microenvironment,true,true,true,False
+PhysiCell_settings/microenvironment_setup/variable[@name=TNF|@ID=0]/Dirichlet_boundary_condition[@enabled=True]/@units,Microenvironment,mmHg,mmHg,mmHg,False
+PhysiCell_settings/microenvironment_setup/variable[@name=TNF|@ID=0]/Dirichlet_options/boundary_value[@ID=xmax],Microenvironment,10,1,1,True
+PhysiCell_settings/microenvironment_setup/variable[@name=TNF|@ID=0]/Dirichlet_options/boundary_value[@ID=xmax]/@enabled,Microenvironment,true,true,true,False
+PhysiCell_settings/microenvironment_setup/variable[@name=TNF|@ID=0]/Dirichlet_options/boundary_value[@ID=xmin],Microenvironment,10,1,1,True
+PhysiCell_settings/microenvironment_setup/variable[@name=TNF|@ID=0]/Dirichlet_options/boundary_value[@ID=xmin]/@enabled,Microenvironment,true,true,true,False
+PhysiCell_settings/microenvironment_setup/variable[@name=TNF|@ID=0]/Dirichlet_options/boundary_value[@ID=ymax],Microenvironment,10,1,1,True
+PhysiCell_settings/microenvironment_setup/variable[@name=TNF|@ID=0]/Dirichlet_options/boundary_value[@ID=ymax]/@enabled,Microenvironment,true,true,true,False
+PhysiCell_settings/microenvironment_setup/variable[@name=TNF|@ID=0]/Dirichlet_options/boundary_value[@ID=ymin],Microenvironment,10,1,1,True
+PhysiCell_settings/microenvironment_setup/variable[@name=TNF|@ID=0]/Dirichlet_options/boundary_value[@ID=ymin]/@enabled,Microenvironment,true,true,true,False
+PhysiCell_settings/microenvironment_setup/variable[@name=TNF|@ID=0]/Dirichlet_options/boundary_value[@ID=zmax],Microenvironment,empty,empty,empty,False
+PhysiCell_settings/microenvironment_setup/variable[@name=TNF|@ID=0]/Dirichlet_options/boundary_value[@ID=zmax]/@enabled,Microenvironment,false,false,false,False
+PhysiCell_settings/microenvironment_setup/variable[@name=TNF|@ID=0]/Dirichlet_options/boundary_value[@ID=zmin],Microenvironment,empty,empty,empty,False
+PhysiCell_settings/microenvironment_setup/variable[@name=TNF|@ID=0]/Dirichlet_options/boundary_value[@ID=zmin]/@enabled,Microenvironment,false,false,false,False
+PhysiCell_settings/microenvironment_setup/variable[@name=TNF|@ID=0]/initial_condition,Microenvironment,0,0.1,0,True
+PhysiCell_settings/microenvironment_setup/variable[@name=TNF|@ID=0]/initial_condition/@units,Microenvironment,mmHg,mmHg,mmHg,False
+PhysiCell_settings/microenvironment_setup/variable[@name=TNF|@ID=0]/physical_parameter_set/decay_rate,Microenvironment,0.01,0.01,0.01,False
+PhysiCell_settings/microenvironment_setup/variable[@name=TNF|@ID=0]/physical_parameter_set/decay_rate/@units,Microenvironment,1/min,1/min,1/min,False
+PhysiCell_settings/microenvironment_setup/variable[@name=TNF|@ID=0]/physical_parameter_set/diffusion_coefficient,Microenvironment,50000,30000,30000,True
+PhysiCell_settings/microenvironment_setup/variable[@name=TNF|@ID=0]/physical_parameter_set/diffusion_coefficient/@units,Microenvironment,micron^2/min,micron^2/min,micron^2/min,False
+PhysiCell_settings/options/disable_automated_spring_adhesions,Global simulation,false,false,false,False
+PhysiCell_settings/options/legacy_random_points_on_sphere_in_divide,Global simulation,false,false,false,False
+PhysiCell_settings/options/random_seed,Global simulation,system_clock,system_clock,system_clock,False
+PhysiCell_settings/options/virtual_wall_at_domain_edge,Domain,true,true,true,False
+PhysiCell_settings/overall/dt_diffusion,Global simulation,0.01,0.01,0.01,False
+PhysiCell_settings/overall/dt_diffusion/@units,Global simulation,min,min,min,False
+PhysiCell_settings/overall/dt_mechanics,Global simulation,0.1,0.1,0.1,False
+PhysiCell_settings/overall/dt_mechanics/@units,Global simulation,min,min,min,False
+PhysiCell_settings/overall/dt_phenotype,Global simulation,6,6,6,False
+PhysiCell_settings/overall/dt_phenotype/@units,Global simulation,min,min,min,False
+PhysiCell_settings/overall/max_time,Global simulation,7200,7200,7200,False
+PhysiCell_settings/overall/max_time/@units,Global simulation,min,min,min,False
+PhysiCell_settings/overall/space_units,Global simulation,micron,micron,micron,False
+PhysiCell_settings/overall/time_units,Global simulation,min,min,min,False
+PhysiCell_settings/parallel/omp_num_threads,Global simulation,4,4,4,False
+PhysiCell_settings/save/SVG/enable,Global simulation,true,true,true,False
+PhysiCell_settings/save/SVG/interval,Global simulation,60,60,60,False
+PhysiCell_settings/save/SVG/interval/@units,Global simulation,min,min,min,False
+PhysiCell_settings/save/SVG/plot_substrate[@enabled=false]/@enabled,Global simulation,false,false,false,False
+PhysiCell_settings/save/SVG/plot_substrate[@enabled=false]/@limits,Global simulation,false,false,false,False
+PhysiCell_settings/save/SVG/plot_substrate[@enabled=false]/max_conc,Global simulation,empty,empty,empty,False
+PhysiCell_settings/save/SVG/plot_substrate[@enabled=false]/min_conc,Global simulation,empty,empty,empty,False
+PhysiCell_settings/save/SVG/plot_substrate[@enabled=false]/substrate,Global simulation,TNF,TNF,TNF,False
+PhysiCell_settings/save/full_data/enable,Global simulation,true,true,true,False
+PhysiCell_settings/save/full_data/interval,Global simulation,60,60,60,False
+PhysiCell_settings/save/full_data/interval/@units,Global simulation,min,min,min,False
+PhysiCell_settings/save/legacy_data/enable,Global simulation,false,false,false,False
+PhysiCell_settings/user_parameters/number_of_cells[@type=int],Other,5,5,5,False
+PhysiCell_settings/user_parameters/number_of_cells[@type=int]/@description,Other,initial number of cells (for each cell type),initial number of cells (for each cell type),initial number of cells (for each cell type),False
+PhysiCell_settings/user_parameters/number_of_cells[@type=int]/@units,Other,none,none,none,False
